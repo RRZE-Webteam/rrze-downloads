@@ -101,6 +101,17 @@ Für den Fall dass keine Dateien gefunden wird, wird eine Fehlermeldung angezeig
 Möchte man diese ändern, kann man das Attribut "errormsg" nutzen:
    errormsg="NIX DA!!"
 
+== Pluginunterstützung
+
+=== MimeTypes Link Icons
+Das Plugin arbeitet besonders schön in Kombination mit dem Plugin 
+MimeTypes Link Icons. Dieses ergänzt bei den Ausgaben entsprechend passende Symbole.
+
+=== TinyMCE Advanced
+Das Plugin TinyMCE Advanced wird vom Plugin unterstützt, indem unter der
+Lasche "Werkzeuge" ein Punkt für den Download-Shortcode eingefügt wird.
+
+
 
 
 FEEDBACK & BUGS

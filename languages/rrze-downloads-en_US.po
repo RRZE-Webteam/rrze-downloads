@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CMS-Basis\n"
+"Project-Id-Version: rrze-downloads\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 14:45+0100\n"
+"POT-Creation-Date: 2016-05-11 14:46+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam <webmaster@rrze.fau.de>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../cms-basis.php:167
+#: ../rrze-downloads.php:91
 #, php-format
 msgid ""
 "Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
@@ -29,7 +29,7 @@ msgstr ""
 "Your server is running PHP version %s. Please upgrade at least to PHP "
 "version %s."
 
-#: ../cms-basis.php:171
+#: ../rrze-downloads.php:95
 #, php-format
 msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
@@ -38,133 +38,187 @@ msgstr ""
 "Your Wordpress version is %s. Please upgrade at least to Wordpress version "
 "%s."
 
-#: ../cms-basis.php:213
-msgid "CMS-Basis"
-msgstr "CMS Basis"
+#: ../shortcodes/rrze-downloads-shortcodes.php:199
+msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+msgstr ""
 
-#: ../cms-basis.php:224
-msgid "Einstellungen &rsaquo; CMS-Basis"
-msgstr "Settings &rsaquo; CMS Basis"
+#: ../taxonomies/attachment-category.php:5
+#: ../taxonomies/attachment-category.php:15
+msgid "Medienkategorien"
+msgstr ""
 
-#: ../cms-basis.php:243
-msgid "Feld 1"
-msgstr "Field 1"
+#: ../taxonomies/attachment-category.php:6
+msgid "Kategorie"
+msgstr ""
 
-#: ../cms-basis.php:273
-msgid "Hier kommt der Inhalt der Kontexthilfe."
-msgstr "Here comes the Context Help content."
+#: ../taxonomies/attachment-category.php:7
+msgid "Kategorien suchen"
+msgstr ""
 
-#: ../cms-basis.php:279
-msgid "Übersicht"
-msgstr "Overview"
+#: ../taxonomies/attachment-category.php:8
+#: ../taxonomies/attachment-category.php:89
+#: ../taxonomies/attachment-category.php:173
+msgid "Alle Kategorien"
+msgstr ""
 
-#: ../cms-basis.php:283
-msgid "Für mehr Information"
-msgstr "For more information"
+#: ../taxonomies/attachment-category.php:9
+msgid "Übergeordnet"
+msgstr ""
 
-#: ../cms-basis.php:283
-msgid "RRZE-Webteam in Github"
-msgstr "RRZE-Webteam on Github"
+#: ../taxonomies/attachment-category.php:10
+msgid "Übergeordnet:"
+msgstr ""
 
-#: ../includes/cmb-meta-boxes.php:25
-msgid "Titel der Meta-Box"
-msgstr "Meta Box Title"
+#: ../taxonomies/attachment-category.php:11
+msgid "Kategorie bearbeiten"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_ajax.php:47
-msgid "Bitte versuchen Sie es erneut"
-msgstr "Please Try Again"
+#: ../taxonomies/attachment-category.php:12
+msgid "Kategorie aktualisieren"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_ajax.php:131
-msgid "Embed entfernen"
-msgstr "Remove Embed"
+#: ../taxonomies/attachment-category.php:13
+msgid "Neue Kategorie hinzufügen"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_ajax.php:134
-#, php-format
-msgid "Keine oEmbed Ergebnisse für %s gefunden. Für weitere Infos siehe"
-msgstr "No oEmbed Results Found for %s. View more info at"
+#: ../taxonomies/attachment-category.php:14 ../taxonomies/attachment-tag.php:15
+msgid "Name"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_field.php:459
-msgid "Gruppe hinzufügen"
-msgstr "Add Group"
+#: ../taxonomies/attachment-tag.php:5 ../taxonomies/attachment-tag.php:19
+msgid "Schlagworte"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_field.php:460
-msgid "Gruppe entfernen"
-msgstr "Remove Group"
+#: ../taxonomies/attachment-tag.php:6
+msgid "Schlagwort"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:250
-msgid "Zeile hinzufügen"
-msgstr "Add Row"
+#: ../taxonomies/attachment-tag.php:7
+msgid "Schlagwörter suchen"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:306
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:706
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:768
-#: ../includes/cmb/init.php:284
-msgid "Entfernen"
-msgstr "Remove"
+#: ../taxonomies/attachment-tag.php:8
+msgid "Beliebte Schlagwörter"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:601
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:635
-msgid "Keine Terms"
-msgstr "No terms"
+#: ../taxonomies/attachment-tag.php:9
+msgid "Alle Schlagwörtern"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:674
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:728
-msgid "Datei hinzufügen"
-msgstr "Add File"
+#: ../taxonomies/attachment-tag.php:12
+msgid "Schlagwort bearbeiten"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:695
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:760
-#: ../includes/cmb/init.php:283
-msgid "Bild entfernen"
-msgstr "Remove Image"
+#: ../taxonomies/attachment-tag.php:13
+msgid "Schlagwort aktualisieren"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:706
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:768
-#: ../includes/cmb/init.php:285
-msgid "Datei:"
-msgstr "File:"
+#: ../taxonomies/attachment-tag.php:14
+msgid "Neues Schlagwort erstellen"
+msgstr ""
 
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:706
-#: ../includes/cmb/helpers/cmb_Meta_Box_types.php:768
-#: ../includes/cmb/init.php:286
-msgid "Herunterladen"
-msgstr "Download"
+#: ../taxonomies/attachment-tag.php:16
+msgid "Trenne Schlagwörter durch Kommas"
+msgstr ""
 
-#: ../includes/cmb/init.php:260
-msgid "Löschen"
-msgstr "Clear"
+#: ../taxonomies/attachment-tag.php:17
+msgid "Hinzu"
+msgstr ""
 
-#: ../includes/cmb/init.php:261
-msgid "Standard"
-msgstr "Default"
+#: ../taxonomies/attachment-tag.php:18
+msgid "Wähle aus den häufig genutzten Schlagwörtern"
+msgstr ""
 
-#: ../includes/cmb/init.php:262
-msgid "Farbe wählen"
-msgstr "Select Color"
+#: ../taxonomies/attachment-tag.php:72 ../taxonomies/attachment-tag.php:119
+msgid "Alle Schlagworte"
+msgstr ""
 
-#: ../includes/cmb/init.php:263
-msgid "Aktuelle Farbe"
-msgstr "Current Color"
+#~ msgid "CMS-Basis"
+#~ msgstr "CMS Basis"
 
-#: ../includes/cmb/init.php:282
-msgid "Verwenden Sie diese Datei"
-msgstr "Use this file"
+#~ msgid "Einstellungen &rsaquo; CMS-Basis"
+#~ msgstr "Settings &rsaquo; CMS Basis"
 
-#: ../includes/cmb/init.php:288
-msgid "[ ↑ ]&nbsp;"
-msgstr "[ ↑ ]&nbsp;"
+#~ msgid "Feld 1"
+#~ msgstr "Field 1"
 
-#: ../includes/cmb/init.php:289
-msgid "&nbsp;[ ↓ ]"
-msgstr "&nbsp;[ ↓ ]"
+#~ msgid "Hier kommt der Inhalt der Kontexthilfe."
+#~ msgstr "Here comes the Context Help content."
 
-#: ../includes/cmb/init.php:290
-msgid "Alle aktivieren / deaktivieren"
-msgstr "Select / Deselect All"
+#~ msgid "Übersicht"
+#~ msgstr "Overview"
 
-#: ../includes/cmb/init.php:1181
-msgid "Speichern"
-msgstr "Save"
+#~ msgid "Für mehr Information"
+#~ msgstr "For more information"
+
+#~ msgid "RRZE-Webteam in Github"
+#~ msgstr "RRZE-Webteam on Github"
+
+#~ msgid "Titel der Meta-Box"
+#~ msgstr "Meta Box Title"
+
+#~ msgid "Bitte versuchen Sie es erneut"
+#~ msgstr "Please Try Again"
+
+#~ msgid "Embed entfernen"
+#~ msgstr "Remove Embed"
+
+#~ msgid "Keine oEmbed Ergebnisse für %s gefunden. Für weitere Infos siehe"
+#~ msgstr "No oEmbed Results Found for %s. View more info at"
+
+#~ msgid "Gruppe hinzufügen"
+#~ msgstr "Add Group"
+
+#~ msgid "Gruppe entfernen"
+#~ msgstr "Remove Group"
+
+#~ msgid "Zeile hinzufügen"
+#~ msgstr "Add Row"
+
+#~ msgid "Entfernen"
+#~ msgstr "Remove"
+
+#~ msgid "Keine Terms"
+#~ msgstr "No terms"
+
+#~ msgid "Datei hinzufügen"
+#~ msgstr "Add File"
+
+#~ msgid "Bild entfernen"
+#~ msgstr "Remove Image"
+
+#~ msgid "Datei:"
+#~ msgstr "File:"
+
+#~ msgid "Herunterladen"
+#~ msgstr "Download"
+
+#~ msgid "Löschen"
+#~ msgstr "Clear"
+
+#~ msgid "Standard"
+#~ msgstr "Default"
+
+#~ msgid "Farbe wählen"
+#~ msgstr "Select Color"
+
+#~ msgid "Aktuelle Farbe"
+#~ msgstr "Current Color"
+
+#~ msgid "Verwenden Sie diese Datei"
+#~ msgstr "Use this file"
+
+#~ msgid "[ ↑ ]&nbsp;"
+#~ msgstr "[ ↑ ]&nbsp;"
+
+#~ msgid "&nbsp;[ ↓ ]"
+#~ msgstr "&nbsp;[ ↓ ]"
+
+#~ msgid "Alle aktivieren / deaktivieren"
+#~ msgstr "Select / Deselect All"
+
+#~ msgid "Speichern"
+#~ msgstr "Save"
 
 #~ msgid "Neu hinzufügen"
 #~ msgstr "Add New"

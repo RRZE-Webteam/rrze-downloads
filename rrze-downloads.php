@@ -3,7 +3,7 @@
 /*
   Plugin Name: RRZE-Downloads
   Plugin URI: https://github.com/RRZE-Webteam/RRZE-Downloads
-  Version: 1.1.0
+  Version: 1.2.0
   Description: Bequeme Downloadlisten aus Dateien der Mediathek
   Author: RRZE-Webteam
   Author URI: http://blogs.fau.de/webworking/

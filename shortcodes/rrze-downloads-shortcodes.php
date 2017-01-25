@@ -20,6 +20,8 @@ function rrze_downloads($atts, $content = null) {
         "showexcerpt" => false,
         "showcontent" => false,
         "errormsg" => '',
+        "orderby" => 'title',
+        "sort" => 'asc'
             ), $atts, 'shortcodedownload');
     $category = esc_attr($args['category']);
     $cat = esc_attr($args['cat']);
@@ -30,6 +32,8 @@ function rrze_downloads($atts, $content = null) {
     $htmlitempre = esc_attr($args['htmlitempre']);
     $htmlitempost = esc_attr($args['htmlitempost']);
     $errormsg = esc_attr($args['errormsg']);
+    $orderby = esc_attr($args['orderby']);
+    $sort = esc_attr($args['sort']);
 
     $search_application = filter_var($args['search_application'], FILTER_VALIDATE_BOOLEAN);
     $search_image = filter_var($args['search_image'], FILTER_VALIDATE_BOOLEAN);
@@ -41,24 +45,24 @@ function rrze_downloads($atts, $content = null) {
     $showexcerpt = filter_var($args['showexcerpt'], FILTER_VALIDATE_BOOLEAN);
     $showcontent = filter_var($args['showcontent'], FILTER_VALIDATE_BOOLEAN);
 
-
+    $orderby = !empty($orderby) && in_array(strtolower($orderby), array('title', 'date')) ? strtolower($orderby) : 'title';
+    $sort = !empty($sort) && in_array(strtoupper($sort), array('ASC', 'DESC')) ? strtoupper($sort) : 'ASC';
 
     if (empty($category)) {
         $catname = $cat;
     } else {
         $catname = $category;
     }
+
     $category = get_term_by('slug', $catname, 'attachment_category');
+
     $return = '';
-
-
-
 
     $args = array('post_type' => 'attachment',
         'post_status' => 'any',
         'posts_per_page' => -1,
-        'orderby' => 'title',
-        'order' => 'ASC',
+        'orderby' => $orderby,
+        'order' => $sort,
         'tax_query' => array(
         ),
         'suppress_filters' => true);

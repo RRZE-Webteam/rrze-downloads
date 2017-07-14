@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: rrze-downloads\n"
+"Project-Id-Version: RRZE Downloads\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-11 14:45+0200\n"
+"POT-Creation-Date: 2017-07-14 11:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: RRZE-Webteam <webmaster@rrze.fau.de>\n"
@@ -17,115 +17,116 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../rrze-downloads.php:91
+#: ../mce/langs.php:15
+msgid "Downloadliste einfügen"
+msgstr ""
+
+#: ../rrze-downloads.php:76
 #, php-format
 msgid ""
 "Ihre PHP-Version %s ist veraltet. Bitte aktualisieren Sie mindestens auf die "
 "PHP-Version %s."
 msgstr ""
 
-#: ../rrze-downloads.php:95
+#: ../rrze-downloads.php:80
 #, php-format
 msgid ""
 "Ihre Wordpress-Version %s ist veraltet. Bitte aktualisieren Sie mindestens "
 "auf die Wordpress-Version %s."
 msgstr ""
 
-#: ../shortcodes/rrze-downloads-shortcodes.php:199
+#: ../shortcodes/downloads.php:219
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:5
-#: ../taxonomies/attachment-category.php:15
-msgid "Medienkategorien"
-msgstr ""
-
-#: ../taxonomies/attachment-category.php:6
-msgid "Kategorie"
-msgstr ""
-
-#: ../taxonomies/attachment-category.php:7
-msgid "Kategorien suchen"
-msgstr ""
-
-#: ../taxonomies/attachment-category.php:8
-#: ../taxonomies/attachment-category.php:89
-#: ../taxonomies/attachment-category.php:173
-msgid "Alle Kategorien"
-msgstr ""
-
-#: ../taxonomies/attachment-category.php:9
-msgid "Übergeordnet"
-msgstr ""
-
 #: ../taxonomies/attachment-category.php:10
-msgid "Übergeordnet:"
+#: ../taxonomies/attachment-category.php:20
+msgid "Kategorien"
 msgstr ""
 
 #: ../taxonomies/attachment-category.php:11
-msgid "Kategorie bearbeiten"
+msgid "Kategorie"
 msgstr ""
 
 #: ../taxonomies/attachment-category.php:12
-msgid "Kategorie aktualisieren"
+msgid "Kategorien suchen"
 msgstr ""
 
 #: ../taxonomies/attachment-category.php:13
+#: ../taxonomies/attachment-category.php:49
+#: ../taxonomies/attachment-category.php:92
+msgid "Alle Kategorien"
+msgstr ""
+
+#: ../taxonomies/attachment-category.php:14
+msgid "Übergeordnet"
+msgstr ""
+
+#: ../taxonomies/attachment-category.php:15
+msgid "Übergeordnet:"
+msgstr ""
+
+#: ../taxonomies/attachment-category.php:16
+msgid "Kategorie bearbeiten"
+msgstr ""
+
+#: ../taxonomies/attachment-category.php:17
+msgid "Kategorie aktualisieren"
+msgstr ""
+
+#: ../taxonomies/attachment-category.php:18
 msgid "Neue Kategorie hinzufügen"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:14 ../taxonomies/attachment-tag.php:15
+#: ../taxonomies/attachment-category.php:19 ../taxonomies/attachment-tag.php:20
 msgid "Name"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:5 ../taxonomies/attachment-tag.php:19
-msgid "Schlagworte"
+#: ../taxonomies/attachment-tag.php:10 ../taxonomies/attachment-tag.php:24
+msgid "Schlagwörter"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:6
+#: ../taxonomies/attachment-tag.php:11
 msgid "Schlagwort"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:7
+#: ../taxonomies/attachment-tag.php:12
 msgid "Schlagwörter suchen"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:8
+#: ../taxonomies/attachment-tag.php:13
 msgid "Beliebte Schlagwörter"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:9
-msgid "Alle Schlagwörtern"
-msgstr ""
-
-#: ../taxonomies/attachment-tag.php:12
-msgid "Schlagwort bearbeiten"
-msgstr ""
-
-#: ../taxonomies/attachment-tag.php:13
-msgid "Schlagwort aktualisieren"
-msgstr ""
-
-#: ../taxonomies/attachment-tag.php:14
-msgid "Neues Schlagwort erstellen"
-msgstr ""
-
-#: ../taxonomies/attachment-tag.php:16
-msgid "Trenne Schlagwörter durch Kommas"
+#: ../taxonomies/attachment-tag.php:14 ../taxonomies/attachment-tag.php:53
+#: ../taxonomies/attachment-tag.php:96
+msgid "Alle Schlagwörter"
 msgstr ""
 
 #: ../taxonomies/attachment-tag.php:17
-msgid "Hinzu"
+msgid "Schlagwort bearbeiten"
 msgstr ""
 
 #: ../taxonomies/attachment-tag.php:18
-msgid "Wähle aus den häufig genutzten Schlagwörtern"
+msgid "Schlagwort aktualisieren"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:72 ../taxonomies/attachment-tag.php:119
-msgid "Alle Schlagworte"
+#: ../taxonomies/attachment-tag.php:19
+msgid "Neues Schlagwort erstellen"
+msgstr ""
+
+#: ../taxonomies/attachment-tag.php:21
+msgid "Trenne Schlagwörter durch Kommas"
+msgstr ""
+
+#: ../taxonomies/attachment-tag.php:22
+msgid "Hinzu"
+msgstr ""
+
+#: ../taxonomies/attachment-tag.php:23
+msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr ""

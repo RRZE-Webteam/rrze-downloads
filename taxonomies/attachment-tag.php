@@ -1,12 +1,17 @@
 <?php
 
-function set_attachment_tag() {
+namespace RRZE\Downloads\Taxonomies\AttachmentTag;
+
+const POST_TYPE = 'attachment';
+const TAXONOMY = 'attachment_tag';
+
+function set() {
     $labels = array(
-        'name' => __('Schlagworte', 'rrze-downloads'),
+        'name' => __('Schlagwörter', 'rrze-downloads'),
         'singular_name' => __('Schlagwort', 'rrze-downloads'),
         'search_items' => __('Schlagwörter suchen', 'rrze-downloads'),
         'popular_items' => __('Beliebte Schlagwörter', 'rrze-downloads'),
-        'all_items' => __('Alle Schlagwörtern', 'rrze-downloads'),
+        'all_items' => __('Alle Schlagwörter', 'rrze-downloads'),
         'parent_item' => null,
         'parent_item_colon' => null,
         'edit_item' => __('Schlagwort bearbeiten', 'rrze-downloads'),
@@ -16,64 +21,40 @@ function set_attachment_tag() {
         'separate_items_with_commas' => __('Trenne Schlagwörter durch Kommas', 'rrze-downloads'),
         'add_or_remove_items' => __('Hinzu', 'rrze-downloads'),
         'choose_from_most_used' => __('Wähle aus den häufig genutzten Schlagwörtern', 'rrze-downloads'),
-        'menu_name' => __('Schlagworte', 'rrze-downloads'),
+        'menu_name' => __('Schlagwörter', 'rrze-downloads')
     );
 
-    $args = array(
+    register_taxonomy(TAXONOMY, POST_TYPE, array(
         'hierarchical' => false,
         'labels' => $labels,
         'show_ui' => true,
         'show_admin_column' => true,
         'show_in_nav_menus' => false,
-        'show_tagcloud' => false,
         'query_var' => true,
-        'update_count_callback' => 'media_tag_update_count_callback',
-        'rewrite' => true,
-    );
-    
-    $taxonomy = 'attachment_tag';
-    
-    register_taxonomy($taxonomy, 'attachment', $args);     
+        'rewrite' => array('slug' => TAXONOMY),
+        'update_count_callback' => '_update_generic_term_count'
+    ));
 }
 
-add_action('init', 'set_attachment_tag');
 
-function media_tag_update_count_callback($terms = array(), $taxonomy = 'attachment_tag') {
-    global $wpdb;
-
-    $taxonomy = 'attachment_tag';
-
-    $query = "SELECT term_taxonomy_id, MAX(total) AS total FROM ((
-	SELECT tt.term_taxonomy_id, COUNT(*) AS total FROM $wpdb->term_relationships tr, $wpdb->term_taxonomy tt WHERE tr.term_taxonomy_id = tt.term_taxonomy_id AND tt.taxonomy = %s GROUP BY tt.term_taxonomy_id
-	) UNION ALL (
-	SELECT term_taxonomy_id, 0 AS total FROM $wpdb->term_taxonomy WHERE taxonomy = %s
-	)) AS unioncount GROUP BY term_taxonomy_id";
+function register() {
+    register_taxonomy_for_object_type(TAXONOMY, POST_TYPE);
+    add_action('restrict_manage_posts', 'RRZE\Downloads\Taxonomies\AttachmentTag\filter_list');
+    add_filter('parse_query', 'RRZE\Downloads\Taxonomies\AttachmentTag\filtering');
     
-    $rs_count = $wpdb->get_results($wpdb->prepare($query, $taxonomy, $taxonomy));
-
-    foreach ($rs_count as $row_count) {
-        $wpdb->update($wpdb->term_taxonomy, array('count' => $row_count->total), array('term_taxonomy_id' => $row_count->term_taxonomy_id));
-    }
+    add_action('admin_enqueue_scripts', 'RRZE\Downloads\Taxonomies\AttachmentTag\media_tag_enqueue_media_action');
 }
 
-if (is_admin()) {
-    add_action('restrict_manage_posts', 'media_tag_filter');
-    add_filter('parse_query', 'media_tag_filtering');
-    add_action('admin_enqueue_scripts', 'media_tag_enqueue_media_action');
-}
-
-function media_tag_filter() {
-    global $pagenow, $wp_query;
-    
-    if ('upload.php' == $pagenow) {
-        $taxonomy = 'attachment_tag';
-        
+function filter_list() {
+    global $wp_query;
+    $screen = get_current_screen();
+    if ($screen->parent_file == 'upload.php' && get_terms(TAXONOMY)) {
         wp_dropdown_categories(array(
-            'show_option_all' => __('Alle Schlagworte', 'rrze-downloads'),
-            'taxonomy' => $taxonomy,
-            'name' => $taxonomy,
+            'show_option_all' => __('Alle Schlagwörter', 'rrze-downloads'),
+            'taxonomy' => TAXONOMY,
+            'name' => TAXONOMY,
             'orderby' => 'name',
-            'selected' => isset($wp_query->query[$taxonomy]) ? $wp_query->query[$taxonomy] : '',
+            'selected' => ( isset($wp_query->query[TAXONOMY]) ? $wp_query->query[TAXONOMY] : '' ),
             'hierarchical' => false,
             'show_count' => true,
             'hide_empty' => true,
@@ -81,32 +62,28 @@ function media_tag_filter() {
     }
 }
 
-function media_tag_filtering($query) {
-    $taxonomy = 'attachment_tag';
+function filtering($query) {
     $qv = &$query->query_vars;
-    
-    if (!empty($qv[$taxonomy]) && is_numeric($qv[$taxonomy])) {
-        $term = get_term_by('id', $qv[$taxonomy], $taxonomy);
-        $qv[$taxonomy] = $term->slug;
+    if (!empty($qv[TAXONOMY]) && is_numeric($qv[TAXONOMY])) {
+        $term = get_term_by('id', $qv[TAXONOMY], TAXONOMY);
+        $qv[TAXONOMY] = $term->slug;
     }
-}
+}  
 
 function media_tag_enqueue_media_action() {
     global $pagenow, $wp_query;
     
     if (wp_script_is('media-editor') && 'upload.php' == $pagenow) {
 
-        $taxonomy = 'attachment_tag';
-
         $dropdown_options = array(
-            'taxonomy' => $taxonomy,
-            'name' => $taxonomy,
+            'taxonomy' => TAXONOMY,
+            'name' => TAXONOMY,
             'hide_empty' => true,
             'hierarchical' => false,
             'orderby' => 'name',
-            'selected' => isset($wp_query->query[$taxonomy]) ? $wp_query->query[$taxonomy] : '',
-            'show_count' => true,
-            'walker' => new media_tag_grid_view_walker(),
+            'selected' => isset($wp_query->query[TAXONOMY]) ? $wp_query->query[TAXONOMY] : '',
+            'show_count' => false,
+            'walker' => new dropdown(),
             'value' => 'id',
             'echo' => false
         );
@@ -116,16 +93,14 @@ function media_tag_enqueue_media_action() {
 
         echo '<script type="text/javascript">';
         echo '/* <![CDATA[ */';
-        echo 'var attachment_tags = {"' . $taxonomy . '":{"list_title":"' . html_entity_decode(__('Alle Schlagworte', 'rrze-downloads'), ENT_QUOTES, 'UTF-8') . '","term_list":[' . substr($attachment_terms, 2) . ']}};';
+        echo 'var attachment_tags = {"' . TAXONOMY . '":{"list_title":"' . html_entity_decode(__('Alle Schlagwörter', 'rrze-downloads'), ENT_QUOTES, 'UTF-8') . '","term_list":[' . substr($attachment_terms, 2) . ']}};';
         echo '/* ]]> */';
         echo '</script>';
-
-        wp_enqueue_script('rrze-downloads-media-tags', plugins_url('js/media-tags.js', dirname(__FILE__)), array('media-views'), '1.1.0', true);
     }
     
 }
 
-class media_tag_grid_view_walker extends Walker_CategoryDropdown {
+class dropdown extends \Walker_CategoryDropdown {
 
     function start_el(&$output, $category, $depth = 0, $args = array(), $id = 0) {
         $cat_name = apply_filters('list_cats', $category->name, $category);

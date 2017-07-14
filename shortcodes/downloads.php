@@ -1,32 +1,39 @@
 <?php
 
-function rrze_downloads($atts, $content = null) {
-    $args = shortcode_atts(array(
-        "category" => '',
-        "cat" => '',
-        "tags" => '',
-        "format" => 'liste',
-        "htmlpre" => '',
-        "htmlpost" => '',
-        "htmlitempre" => '',
-        "htmlitempost" => '',
-        "search_application" => false,
-        "search_image" => false,
-        "search_video" => false,
-        "search_audio" => false,
-        "search_text" => false,
-        "showsize" => true,
-        "showcreated" => false,
-        "showexcerpt" => false,
-        "showcontent" => false,
-        "errormsg" => '',
-        "orderby" => 'title',
-        "sort" => 'asc'
-            ), $atts, 'shortcodedownload');
+namespace RRZE\Downloads\Shortcodes;
+
+function downloads($atts, $content = null) {
+    
+    $args = shortcode_atts(
+        array(
+            "category" => '',
+            "cat" => '',
+            "tags" => '',
+            "type" => 'category', // category, document
+            "format" => 'liste', // table, liste
+            "htmlpre" => '',
+            "htmlpost" => '',
+            "htmlitempre" => '',
+            "htmlitempost" => '',
+            "search_application" => false,
+            "search_image" => false,
+            "search_video" => false,
+            "search_audio" => false,
+            "search_text" => false,
+            "showsize" => true,
+            "showcreated" => false,
+            "showexcerpt" => false,
+            "showcontent" => false,
+            "errormsg" => '',
+            "orderby" => 'title',
+            "sort" => 'asc'
+        ), $atts, 'shortcodedownload');
+
     $category = esc_attr($args['category']);
     $cat = esc_attr($args['cat']);
     $tags = esc_attr($args['tags']);
     $format = esc_attr($args['format']);
+    $type = esc_attr($args['type']);
     $htmlpre = esc_attr($args['htmlpre']);
     $htmlpost = esc_attr($args['htmlpost']);
     $htmlitempre = esc_attr($args['htmlitempre']);
@@ -53,8 +60,9 @@ function rrze_downloads($atts, $content = null) {
     } else {
         $catname = $category;
     }
-
-    $category = get_term_by('slug', $catname, 'attachment_category');
+    
+    $type = in_array($type, array('category', 'document')) ? $type : 'category';
+    $category = get_term_by('slug', $catname, 'attachment_' . $type);
 
     $return = '';
 
@@ -63,9 +71,9 @@ function rrze_downloads($atts, $content = null) {
         'posts_per_page' => -1,
         'orderby' => $orderby,
         'order' => $sort,
-        'tax_query' => array(
-        ),
+        'tax_query' => array(),
         'suppress_filters' => true);
+    
     if ($category) {
         $catquery = array(
             'taxonomy' => 'attachment_category',
@@ -75,6 +83,7 @@ function rrze_downloads($atts, $content = null) {
         );
         $args['tax_query'][] = $catquery;
     }
+    
     if ($tags) {
         $tagquery = array(
             'taxonomy' => 'attachment_tag',
@@ -84,30 +93,32 @@ function rrze_downloads($atts, $content = null) {
         $args['tax_query'][] = $tagquery;
     }
 
-
-
     $mimetype = array();
     if ($search_application == true) {
         $mimetype[] = 'application';
     }
+    
     if ($search_video == true) {
         $mimetype[] = 'video';
     }
+    
     if ($search_image == true) {
         $mimetype[] = 'image';
     }
+    
     if ($search_audio == true) {
         $mimetype[] = 'audio';
     }
+    
     if ($search_text == true) {
         $mimetype[] = 'text';
     }
+    
     if (!empty($mimetype)) {
         $args['post_mime_type'] = $mimetype;
     } else {
         $args['post_mime_type'] = "application";
     }
-
 
     $files = get_posts($args);
 
@@ -129,32 +140,32 @@ function rrze_downloads($atts, $content = null) {
         $contentlist = '';
 
         foreach ($files as $file) {
-
-
+            
             $size = size_format(filesize(get_attached_file($file->ID)), 2);
             $excerpt = wpautop($file->post_excerpt);
             $desc = wpautop($file->post_content);
             $created = date_i18n(get_option('date_format'), strtotime($file->post_date));
-            $parsed = parse_url(wp_get_attachment_url($file->ID) );
-            $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed[ 'path' ]));
+            $parsed = parse_url(wp_get_attachment_url($file->ID));
+            $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed['path']));
             $title = $file->post_title;
 
             $addinfo = '';
             if ($showsize || $showcreated) {
+                
                 if ($showcreated) {
                     $addinfo .= $created;
                 }
+                
                 if ($showsize == true) {
                     if ($addinfo)
                         $addinfo .= ", ";
                     $addinfo .= $size;
                 }
+                
                 if ($addinfo) {
                     $addinfo = ' (' . $addinfo . ')';
                 }
             }
-
-
 
             if ($format == 'table') {
                 $contentlist .= '<tr><th>' . $file->post_title . '</th><td><a href="' . $url . '">' . $file->post_title . '</a>';
@@ -163,9 +174,11 @@ function rrze_downloads($atts, $content = null) {
                 if ($showexcerpt == true) {
                     $contentlist .= $excerpt;
                 }
+                
                 if ($showcontent == true) {
                     $contentlist .= $desc;
                 }
+                
                 $contentlist .= '</td></tr>';
             } elseif ($format == 'liste') {
                 $contentlist .= '<li>';
@@ -174,9 +187,11 @@ function rrze_downloads($atts, $content = null) {
                 if ($showexcerpt) {
                     $contentlist .= $excerpt;
                 }
+                
                 if ($showcontent) {
                     $contentlist .= $desc;
                 }
+                
                 $contentlist .= '</li>';
             } else {
                 $contentlist .= '<' . $htmlitempre . '>';
@@ -185,9 +200,11 @@ function rrze_downloads($atts, $content = null) {
                 if ($showexcerpt) {
                     $contentlist .= $excerpt;
                 }
+                
                 if ($showcontent) {
                     $contentlist .= $desc;
                 }
+                
                 $contentlist .= '</' . $htmlitempost . '>';
             }
         }
@@ -202,7 +219,6 @@ function rrze_downloads($atts, $content = null) {
             $return .= '<p class="info">' . __('Dowloads: Es konnten keine Dateien gefunden werden.', 'rrze-downloads') . '</p>';
         }
     }
-
 
     return $return;
 }

@@ -144,16 +144,17 @@ class Media {
         ?>
                 </ul>
 
-            </div><!-- .media-terms -->
-
+            </div>
+            <?php if (current_user_can('manage_categories')): ?>
             <a href="#" class="toggle-add-media-term"><?php echo $taxonomy->labels->add_new_item ?></a>
+            <?php endif; ?>
 
             <div class="add-new-term">
 
                 <input type="text" value="">
 
         <?php
-        if (1 == $taxonomy->hierarchical) :
+        if ($taxonomy->hierarchical) :
             wp_dropdown_categories(array(
                 'taxonomy' => $taxonomy->name,
                 'class' => 'parent-' . $taxonomy->name,
@@ -164,12 +165,14 @@ class Media {
             ));
         endif;
         ?>
+        <?php if (current_user_can('manage_categories')): ?> 
+                <button class="button save-media-term" data-taxonomy="<?php echo $taxonomy->name ?>" data-id="<?php echo $post_id ?>">
+                    <?php echo $taxonomy->labels->add_new_item ?>
+                </button>
+        <?php endif; ?>
+            </div>
 
-                <button class="button save-media-term" data-taxonomy="<?php echo $taxonomy->name ?>" data-id="<?php echo $post_id ?>"><?php echo $taxonomy->labels->add_new_item ?></button>
-
-            </div><!-- .add-new-term -->
-
-        </div><!-- .media-term-section -->
+        </div>
 
         <?php
         $output = ob_get_contents();

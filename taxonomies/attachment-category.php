@@ -28,7 +28,13 @@ function set() {
         'show_in_nav_menus' => false,
         'query_var' => true,
         'rewrite' => array('slug' => TAXONOMY),
-        'update_count_callback' => '_update_generic_term_count'
+        'update_count_callback' => '_update_generic_term_count',
+        'capabilities' => array (
+            'manage_terms' => 'manage_categories',
+            'edit_terms' => 'manage_categories',
+            'delete_terms' => 'manage_categories',
+            'assign_terms' => 'edit_attachment'
+        )
     ));
 }
 

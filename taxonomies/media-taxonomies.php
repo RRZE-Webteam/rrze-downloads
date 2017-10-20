@@ -11,6 +11,7 @@ class Media {
         add_filter('attachment_fields_to_edit', array($this, 'attachment_fields_to_edit'), 10, 2);
         add_action('wp_ajax_save-media-terms', array($this, 'save_media_terms'), 0, 1);
         add_action('wp_ajax_add-media-term', array($this, 'add_media_term'), 0, 1);
+        add_filter('user_has_cap', array($this, 'add_user_caps'));
     }
     
     public function admin_enqueue_scripts() {
@@ -22,6 +23,16 @@ class Media {
         wp_enqueue_style('rrze-downloads-media-taxonomies', plugins_url('css/media-taxonomies.css', __FILE__));
         wp_enqueue_script('rrze-downloads-media-toolbar', plugins_url('js/media-toolbar.js', __FILE__), array('jquery'), false, true);
         wp_enqueue_style('rrze-downloads-media-toolbar', plugins_url('css/media-toolbar.css', __FILE__));
+    }
+    
+    public function add_user_caps($user_caps) {
+        $user = wp_get_current_user();
+
+        if (in_array('upload_files', (array) $user->allcaps)) {
+            $user_caps['edit_attachment'] = TRUE;
+        }
+
+        return $user_caps;        
     }
     
     public function attachment_fields_to_edit($fields, $post) {

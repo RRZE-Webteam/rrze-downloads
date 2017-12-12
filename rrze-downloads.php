@@ -4,7 +4,7 @@
  * Plugin Name:       RRZE Downloads
  * Plugin URI:        https://github.com/RRZE-Webteam/RRZE-Downloads
  * Description:       Bequeme Downloadlisten aus Dateien der Mediathek.
- * Version:           1.4.2
+ * Version:           1.4.3
  * Author:            RRZE-Webteam
  * License:           GNU General Public License v2
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,7 @@
 namespace RRZE\Downloads;
 
 const RRZE_PHP_VERSION = '5.5';
-const RRZE_WP_VERSION = '4.8';
+const RRZE_WP_VERSION = '4.9';
 
 add_action('plugins_loaded', 'RRZE\Downloads\init');
 register_activation_hook(__FILE__, 'RRZE\Downloads\activation');

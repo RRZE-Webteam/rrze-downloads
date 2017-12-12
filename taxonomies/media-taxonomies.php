@@ -4,7 +4,7 @@ namespace RRZE\Downloads\Taxonomies;
 
 class Media {
     
-    private $allowed_taxonomies = array('attachment_category', 'attachment_tag');
+    private $allowed_taxonomies = array('attachment_category', 'attachment_tag', 'attachment_document');
     
     public function __construct() {
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));

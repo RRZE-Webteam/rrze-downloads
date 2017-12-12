@@ -76,7 +76,7 @@ function downloads($atts, $content = null) {
     
     if ($category) {
         $catquery = array(
-            'taxonomy' => 'attachment_category',
+            'taxonomy' => 'attachment_' . $type,
             'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
             'terms' => $category->term_id,
             'include_children' => false

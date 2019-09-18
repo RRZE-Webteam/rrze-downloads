@@ -1,6 +1,6 @@
 <?php
 
-namespace RRZE\Downloads\Config;
+namespace RRZE\Downloads;
 
 defined('ABSPATH') || exit;
 

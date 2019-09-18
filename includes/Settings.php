@@ -149,14 +149,14 @@ class Settings {
     }
 
     protected function setMenu() {
-        $this->settingsMenu = getmenuSettings();
+      $this->settingsMenu = getmenuSettings();
     }
 
     /**
      * Einstellungsbereiche einstellen.
      */
     protected function setSections() {
-        $this->settingsSections = getSections();
+      $this->settingsSections = getSections();
     }
 
     /**
@@ -164,14 +164,14 @@ class Settings {
      * @param array   $section
      */
     protected function addSection($section) {
-        $this->settingsSections[] = $section;
+      $this->settingsSections[] = $section;
     }
 
     /**
      * Einstellungsfelder einstellen.
      */
     protected function setFields() {
-        $this->settingsFields = getFields();
+      $this->settingsFields = getFields();
     }
 
     /**
@@ -180,15 +180,15 @@ class Settings {
      * @param [type] $field   [description]
      */
     protected function addField($section, $field) {
-        $defaults = array(
+      $defaults = array(
             'name'  => '',
             'label' => '',
             'desc'  => '',
             'type'  => 'text'
-        );
+      );
 
-        $arg = wp_parse_args($field, $defaults);
-        $this->settingsFields[$section][] = $arg;
+      $arg = wp_parse_args($field, $defaults);
+      $this->settingsFields[$section][] = $arg;
     }
 
     /**
@@ -196,17 +196,17 @@ class Settings {
      * @return array
      */
     protected function defaultOptions() {
-        $options = [];
+      $options = [];
 
-        foreach ($this->settingsFields as $section => $field) {
-            foreach ($field as $option) {
-                $name = $option['name'];
-                $default = isset($option['default']) ? $option['default'] : '';
-                $options = array_merge($options, [$section . '_' . $name => $default]);
-            }
+      foreach ($this->settingsFields as $section => $field) {
+        foreach ($field as $option) {
+          $name = $option['name'];
+          $default = isset($option['default']) ? $option['default'] : '';
+          $options = array_merge($options, [$section . '_' . $name => $default]);
         }
+      }
 
-        return $options;
+      return $options;
     }
 
     /**
@@ -214,13 +214,13 @@ class Settings {
      * @return array
      */
     public function getOptions() {
-        $defaults = $this->defaultOptions();
+      $defaults = $this->defaultOptions();
 
-        $options = (array) get_option($this->optionName);
-        $options = wp_parse_args($options, $defaults);
-        $options = array_intersect_key($options, $defaults);
+      $options = (array) get_option($this->optionName);
+      $options = wp_parse_args($options, $defaults);
+      $options = array_intersect_key($options, $defaults);
 
-        return $options;
+      return $options;
     }
 
     /**

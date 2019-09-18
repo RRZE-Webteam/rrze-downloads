@@ -48,7 +48,10 @@ spl_autoload_register(function ($class) {
     $relativeClass = substr($class, $len);
     $file = $base_dir . str_replace('\\', '/', $relativeClass) . '.php';
 
+    error_log('BK new $file = '. $file);
+
     if (file_exists($file)) {
+      error_log('BK new exists');
         require $file;
     }
 });

@@ -151,18 +151,31 @@ function getFields() {
         ]              
       ]
     ],
-    'additional' => [
+    'icons_mimetypes' => [
       [
-        'name'    => 'enable_classnames',
-        'label'   => __('Enable Classnames?', 'rrze-downloads'),
-        'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
+        'name'    => 'all_mimetypes',
+        'label'   => __('Select all file types', 'rrze-downloads'),
+        'desc'    => __('Add an icon to all file types', 'rrze-downloads'),
         'type'    => 'checkbox',
         'default' => 'no',
         'options' => [
           'yes' => __('yes', 'rrze-downloads'),
           'no' => __('no', 'rrze-downloads')
         ]
-      ],
+      ]
+    ],
+      'additional' => [
+        [
+          'name'    => 'enable_classnames',
+          'label'   => __('Enable Classnames?', 'rrze-downloads'),
+          'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
+          'type'    => 'checkbox',
+          'default' => 'no',
+          'options' => [
+            'yes' => __('yes', 'rrze-downloads'),
+            'no' => __('no', 'rrze-downloads')
+          ]
+        ],
       [
         'name'    => 'classnames',
         'label'   => __('Classname(s)', 'rrze-downloads'),
@@ -250,11 +263,15 @@ function getFields() {
     
   foreach ($mime_types as $mt) {
     $ret['icons_mimetypes'][] = [
-          'name'    => 'mimetype_link_icon_options[enable_' . $mt . ']',
-          'label'   => __('Add icon to ' . $mt, 'rrze-downloads'),
-          'desc'    => __('Add an icon to ' . $mt . ' files', 'rrze-downloads'),
-          'type'    => 'checkbox',
-          'default' => ''
+      'name'    => 'mimetype_link_icon_' . $mt,
+      'label'   => __('Add icon to ' . $mt, 'rrze-downloads'),
+      'desc'    => __('Add an icon to ' . $mt . ' files', 'rrze-downloads'),
+      'type'    => 'checkbox',
+      'default' => 'no',
+      'options' => [
+        'yes' => __('yes', 'rrze-downloads'),
+        'no' => __('no', 'rrze-downloads')
+      ]
     ];
   } 
   

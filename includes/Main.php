@@ -7,6 +7,7 @@ defined('ABSPATH') || exit;
 use RRZE\Downloads\Settings;
 use RRZE\Downloads\Shortcode;
 
+
  
  /**
  * Hauptklasse (Main)

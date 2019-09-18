@@ -39,94 +39,94 @@ msgid ""
 "auf die Wordpress-Version %s."
 msgstr ""
 
-#: ../shortcodes/downloads.php:219
+#: ..includes/Shortcode.php:219
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:10
-#: ../taxonomies/attachment-category.php:20
+#: ../assets/taxonomies/attachment-category.php:10
+#: ../assets/taxonomies/attachment-category.php:20
 msgid "Kategorien"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:11
+#: ../assets/taxonomies/attachment-category.php:11
 msgid "Kategorie"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:12
+#: ../assets/taxonomies/attachment-category.php:12
 msgid "Kategorien suchen"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:13
-#: ../taxonomies/attachment-category.php:49
-#: ../taxonomies/attachment-category.php:92
+#: ../assets/taxonomies/attachment-category.php:13
+#: ../assets/taxonomies/attachment-category.php:49
+#: ../assets/taxonomies/attachment-category.php:92
 msgid "Alle Kategorien"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:14
+#: ../assets/taxonomies/attachment-category.php:14
 msgid "Übergeordnet"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:15
+#: ../assets/taxonomies/attachment-category.php:15
 msgid "Übergeordnet:"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:16
+#: ../assets/taxonomies/attachment-category.php:16
 msgid "Kategorie bearbeiten"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:17
+#: ../assets/taxonomies/attachment-category.php:17
 msgid "Kategorie aktualisieren"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:18
+#: ../assets/taxonomies/attachment-category.php:18
 msgid "Neue Kategorie hinzufügen"
 msgstr ""
 
-#: ../taxonomies/attachment-category.php:19 ../taxonomies/attachment-tag.php:20
+#: ../assets/taxonomies/attachment-category.php:19 ../assets/taxonomies/attachment-tag.php:20
 msgid "Name"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:10 ../taxonomies/attachment-tag.php:24
+#: ../assets/taxonomies/attachment-tag.php:10 ../assets/taxonomies/attachment-tag.php:24
 msgid "Schlagwörter"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:11
+#: ../assets/taxonomies/attachment-tag.php:11
 msgid "Schlagwort"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:12
+#: ../assets/taxonomies/attachment-tag.php:12
 msgid "Schlagwörter suchen"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:13
+#: ../assets/taxonomies/attachment-tag.php:13
 msgid "Beliebte Schlagwörter"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:14 ../taxonomies/attachment-tag.php:53
-#: ../taxonomies/attachment-tag.php:96
+#: ../assets/taxonomies/attachment-tag.php:14 ../assets/taxonomies/attachment-tag.php:53
+#: ../assets/taxonomies/attachment-tag.php:96
 msgid "Alle Schlagwörter"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:17
+#: ../assets/taxonomies/attachment-tag.php:17
 msgid "Schlagwort bearbeiten"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:18
+#: ../assets/taxonomies/attachment-tag.php:18
 msgid "Schlagwort aktualisieren"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:19
+#: ../assets/taxonomies/attachment-tag.php:19
 msgid "Neues Schlagwort erstellen"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:21
+#: ../assets/taxonomies/attachment-tag.php:21
 msgid "Trenne Schlagwörter durch Kommas"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:22
+#: ../assets/taxonomies/attachment-tag.php:22
 msgid "Hinzu"
 msgstr ""
 
-#: ../taxonomies/attachment-tag.php:23
+#: ../assets/taxonomies/attachment-tag.php:23
 msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr ""

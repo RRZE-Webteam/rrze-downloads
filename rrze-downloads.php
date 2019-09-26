@@ -1,17 +1,13 @@
 <?php
 
 /*
-Plugin Name:     RRZE Downloads
-Plugin URI:      https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads
-Description:     this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes
-Version:         2.0.0
-Author:          RRZE Webteam
-Author URI:      https://blogs.fau.de/webworking/
-License:         GNU General Public License v2
-License URI:     http://www.gnu.org/licenses/gpl-2.0.html
-Domain Path:     /languages
-Text Domain:     rrzw-downloads
-*/
+ * License:           GNU General Public License v2
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path:       /languages
+ * Text Domain:       rrze-downloads
+ * GitHub Plugin URI: https://github.com/RRZE-Webteam/RRZE-Downloads
+ * GitHub Branch:     master
+ */
 
 namespace RRZE\Downloads;
 

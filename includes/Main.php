@@ -5,8 +5,6 @@ namespace RRZE\Downloads;
 defined('ABSPATH') || exit;
 
 use RRZE\Downloads\Settings;
-use RRZE\Downloads\Shortcode;
-
 
  
  /**
@@ -32,21 +30,19 @@ class Main
      * Es wird ausgeführt, sobald die Klasse instanziiert wird.
      */
     public function onLoaded() {
-      add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
+
+        // wp_enqueue_script(
+        //     'rrze-downloads-js',
+        //     ['wp-blocks', 'wp-i18n', 'wp-element' , 'wp-components' , 'wp-editor'], null
+        // ); 
+      // add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
 
       // Settings-Klasse wird instanziiert.
       $settings = new Settings($this->pluginFile);
       $settings->onLoaded();
 
-      // Shortcode-Klasse wird instanziiert.
-      $shortcode = new Shortcode($this->pluginFile, $settings);
-      $shortcode->onLoaded();
-    }
-
-    /**
-     * Enqueue der globale Skripte.
-     */
-    public function enqueueScripts() {
-        wp_register_style('rrze-downloads', plugins_url('assets/css/rrze-downloads.min.css', plugin_basename($this->pluginFile)));
+      // Shortcode wird eingebunden.
+      include 'Shortcode.php';
+    
     }
 }

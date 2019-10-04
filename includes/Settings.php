@@ -88,19 +88,19 @@ class Settings {
       */
      public $defaults = array(
        'internal_domains'		=> array(),
-       'image_size'			=> 16,
-       'image_type'			=> 'png',
-       'leftorright'			=> 'left',
+       'icondimensions'			=> 16,
+       'icontype'			=> 'png',
+       'iconalign'			=> 'left',
        'show_file_size'		=> false,
        'precision'				=> 2,
        'use_cache'				=> true,
-       'cache_time'			=> 604800, // seconds: 1 hour = 3600, 1 day = 86400, 1 week = 604800
-       'enable_async'			=> false,
-       'enable_async_debug'	=> false,
-       'enable_hidden_class'	=> true,
-       'hidden_classname'		=> array( 'wp-caption', ),
+       'cachetime'			=> 604800, // seconds: 1 hour = 3600, 1 day = 86400, 1 week = 604800
+       'use_async'			=> false,
+       'use_async_debug'	=> false,
+       'use_classnames'	=> true,
+       'classnames'		=> array( 'wp-caption', ),
        'version'				=> null,
-       //'upgrading'			=> false, // will never change, not saved to db, only used to distinguish a call from the upgrade method
+       'upgrading'			=> false, // will never change, not saved to db, only used to distinguish a call from the upgrade method
      );
     
      /**
@@ -217,8 +217,17 @@ class Settings {
       $defaults = $this->defaultOptions();
 
       $options = (array) get_option($this->optionName);
+      
+      // error_log('VOR MERGE: $options -> ' . implode('|', $options));
+      // BK EDIT 23.09.2019 : bug! $options enthält ausschließlich die default-Werte 
+      
       $options = wp_parse_args($options, $defaults);
       $options = array_intersect_key($options, $defaults);
+
+
+
+// error_log( 'Settings.php -> getOptions() -> ' . implode('|', $options) . ' $this->optionName = ' . $this->optionName);
+
 
       return $options;
     }
@@ -687,7 +696,7 @@ class Settings {
         $value = esc_textarea($this->getOption($args['section'], $args['id'], $args['default']));
         $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
         $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-
+    
         $html = sprintf(
             '<textarea rows="5" cols="55" class="%1$s-text" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]"%5$s>%6$s</textarea>',
             $size,
@@ -698,7 +707,7 @@ class Settings {
             $value
         );
         $html .= $this->getFieldDescription($args);
-
+    
         echo $html;
     }
 
@@ -709,23 +718,23 @@ class Settings {
     public function callbackWysiwyg($args) {
         $value = $this->getOption($args['section'], $args['id'], $args['default']);
         $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : '500px';
-
+    
         echo '<div style="max-width: ' . $size . ';">';
-
+    
         $editor_settings = [
             'teeny' => true,
             'textarea_name' => sprintf('%1$s[%2$s_%3$s]', $this->optionName, $args['section'], $args['id']),
             'textarea_rows' => 10
         ];
-
+    
         if (isset($args['options']) && is_array($args['options'])) {
             $editor_settings = array_merge($editor_settings, $args['options']);
         }
-
+    
         wp_editor($value, $args['section'] . '-' . $args['id'], $editor_settings);
-
+    
         echo '</div>';
-
+    
         echo $this->getFieldDescription($args);
     }
 
@@ -738,7 +747,7 @@ class Settings {
         $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
         $id = $args['section']  . '[' . $args['id'] . ']';
         $label = isset($args['options']['button_label']) ? $args['options']['button_label'] : __('Choose File');
-
+    
         $html = sprintf(
             '<input type="text" class="%1$s-text settings-media-url" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s"/>',
             $size,
@@ -749,7 +758,7 @@ class Settings {
         );
         $html .= '<input type="button" class="button settings-media-browse" value="' . $label . '">';
         $html .= $this->getFieldDescription($args);
-
+    
         echo $html;
     }
 
@@ -760,7 +769,7 @@ class Settings {
     public function callbackPassword($args) {
         $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
         $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-
+    
         $html = sprintf(
             '<input type="password" class="%1$s-text" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s">',
             $size,
@@ -770,7 +779,7 @@ class Settings {
             $value
         );
         $html .= $this->getFieldDescription($args);
-
+    
         echo $html;
     }
 
@@ -781,7 +790,7 @@ class Settings {
     public function callbackColor($args) {
         $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
         $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-
+    
         $html = sprintf(
             '<input type="text" class="%1$s-text wp-color-picker-field" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s" data-default-color="%6$s">',
             $size,
@@ -792,7 +801,7 @@ class Settings {
             $args['default']
         );
         $html .= $this->getFieldDescription($args);
-
+    
         echo $html;
     }
 }

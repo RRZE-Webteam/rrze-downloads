@@ -15,7 +15,7 @@ function mce_plugin_translation() {
         'adddownloadlist' => __('Downloadliste einfügen', 'rrze-downloads'),
     );
     $locale = \_WP_Editors::$mce_locale;
-    $translated = 'tinyMCE.addI18n("' . $locale . '.rrze_downloads_mce_plugin", ' . json_encode($strings) . ");\n";
+    $translated = 'tinyMCE.addI18n("' . $locale . '.rrze-downloads_mce_plugin", ' . json_encode($strings) . ");\n";
 
     return $translated;
 }

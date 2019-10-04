@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
  * @var array	array of mimetypes
  */
 $mime_types = array(
-  '3g2', '3gp',
+  '3g2', '3gp', 
   'ai', 'air', 'asf', 'avi',
   'bib',
   'cls', 'csv',
@@ -40,7 +40,7 @@ $mime_types = array(
  * @return array [description]
  */
 function getOptionName() {
-    return 'rrze_downloads';
+    return 'rrze-downloads';
 }
 
 /**
@@ -49,8 +49,8 @@ function getOptionName() {
  */
 function getMenuSettings() {
     return [
-        'page_title'    => __('Downloads', 'rrze-downloads'),
-        'menu_title'    => __('Downloads', 'rrze-downloads'),
+       'page_title'    => __('Downloads', 'rrze-downloads'),
+        'menu_title'    => __('RRZE Downloads', 'rrze-downloads'),
         'capability'    => 'manage_options',
         'menu_slug'     => 'rrze-downloads',
         'title'         => __('Downloads Settings', 'rrze-downloads'),
@@ -64,9 +64,10 @@ function getMenuSettings() {
 function getHelpTab() {
     return [
         [
-            'id'        => 'downloads-help',
-            'content'   => [
-                '<p>' . __('Here comes the Context Help content.', 'rrze-downloads') . '</p>'
+            'id'        => 'rrze-downloads',
+            'content'   => ['<p>' .
+      								sprintf( __( 'This plugin will automatically add an icon or a preview image next to links of the activated file types. If you like, you can also let the plugin add the file size of the linked file to the page.', 'rrze-downloads' ), 'http://wordpress.org/plugins/mimetypes-link-icons/" target="_blank" class="ext-link' ) . '</p>
+      								<p>' . esc_html__( 'On this settings page you can choose to show an icon or a preview image will be shown and specify the icon size, icon type (white matte gif or transparent png) and the icon alignment. Click on tab "File Types Settings" to select the file types for which this plugin will be enabled. "Additional Settings" allow you to specify exceptions, format the file size and set caching options.', 'rrze-downloads' ) . '</p>'
             ],
             'title'     => __('Overview', 'downloads'),
             'sidebar'   => sprintf('<p><strong>%1$s:</strong></p><p><a href="https://blogs.fau.de/webworking">RRZE Webworking</a></p><p><a href="https://github.com/RRZE Webteam">%2$s</a></p>', __('For more information', 'rrze-downloads'), __('RRZE Webteam on Github', 'rrze-downloads'))
@@ -104,22 +105,23 @@ function getFields() {
   $ret = [
     'icons' => [
       [
-        'name'    => 'icon-preview',
+        'name'    => 'icon_preview',
         'label'   => __('Show downloads with', 'rrze-downloads'),
         'desc'    => __('Choose whether to show icons or preview images next to each download', 'rrze-downloads'),
         'type'    => 'radio',
         'default' => 'icons',
         'options' => [
           'icons' => __('Icons', 'rrze-downloads'),
-          'previews' => __('Preview images', 'rrze-downloads')
+          'previews' => __('Preview images', 'rrze-downloads'),
+          'plain' => __('just plain links', 'rrze-downloads')
         ]
       ],
       [
-        'name'    => 'iconsize',
+        'name'    => 'icondimensions',
         'label'   => __('Image Size', 'rrze-downloads'),
         'desc'    => __('Size: width x height in pixels', 'rrze-downloads'),
         'type'    => 'select',
-        'default' => '16',
+        'default' => '24',
         'options' => [
           '16' => __('16 x 16', 'rrze-downloads'),
           '24' => __('24 x 24', 'rrze-downloads'),
@@ -133,10 +135,11 @@ function getFields() {
         'label'   => __('Image Type', 'rrze-downloads'),
         'desc'    => __('File type of the icon.', 'rrze-downloads'),
         'type'    => 'select',
-        'default' => 'png',
+        'default' => 'svg',
         'options' => [
+          'gif'  => __('GIF', 'rrze-downloads'),
           'png' => __('PNG', 'rrze-downloads'),
-          'gif'  => __('GIF', 'rrze-downloads')
+          'svg'  => __('SVG', 'rrze-downloads')
         ]
       ],
       [
@@ -164,18 +167,18 @@ function getFields() {
         ]
       ]
     ],
-      'additional' => [
-        [
-          'name'    => 'enable_classnames',
-          'label'   => __('Enable Classnames?', 'rrze-downloads'),
-          'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
-          'type'    => 'checkbox',
-          'default' => 'no',
-          'options' => [
-            'yes' => __('yes', 'rrze-downloads'),
-            'no' => __('no', 'rrze-downloads')
-          ]
-        ],
+    'additional' => [
+      [
+        'name'    => 'use_classnames',
+        'label'   => __('Enable Classnames?', 'rrze-downloads'),
+        'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
+        'type'    => 'checkbox',
+        'default' => 'no',
+        'options' => [
+          'yes' => __('yes', 'rrze-downloads'),
+          'no' => __('no', 'rrze-downloads')
+        ]
+      ],
       [
         'name'    => 'classnames',
         'label'   => __('Classname(s)', 'rrze-downloads'),
@@ -225,14 +228,14 @@ function getFields() {
         'label'   => __('Time to cache:', 'rrze-downloads'),
         'desc'    => __('Amount of time to cache retrieved file sizes: ', 'rrze-downloads'),
         'type'    => 'select',
-        'default' => '168',
+        'default' => '604800',
         'options' => [
-          '1' => __('1 hour', 'rrze-downloads'),
-          '24' => __('1 day', 'rrze-downloads'),
-          '168' => __('1 week', 'rrze-downloads'),
-          '336' => __('2 weeks', 'rrze-downloads'),
-          '504' => __('3 weeks', 'rrze-downloads'),
-          '672' => __('4 weeks', 'rrze-downloads')
+          '3600' => __('1 hour', 'rrze-downloads'),
+          '86400' => __('1 day', 'rrze-downloads'),
+          '604800' => __('1 week', 'rrze-downloads'),
+          '1209600' => __('2 weeks', 'rrze-downloads'),
+          '1814400' => __('3 weeks', 'rrze-downloads'),
+          '2419200' => __('4 weeks', 'rrze-downloads')
         ]
       ],      
       [

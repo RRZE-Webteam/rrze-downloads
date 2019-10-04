@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-04 12:45+0000\n"
+"POT-Creation-Date: 2019-10-04 12:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
@@ -315,7 +315,7 @@ msgid "Tick this box for debugging if using asynchronous replacement."
 msgstr ""
 
 #: config/config.php:271
-msgid "Add an icon"
+msgid " files"
 msgstr ""
 
 #: includes/Shortcode.php:281
@@ -433,4 +433,7 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://blogs.fau.de/webworking/"
+msgstr ""
+
+msgid "Add an icon to "
 msgstr ""

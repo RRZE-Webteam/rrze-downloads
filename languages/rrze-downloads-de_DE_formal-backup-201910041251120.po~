@@ -1,21 +1,21 @@
 # Copyright (C) 2019 RRZE Webteam
 # This file is distributed under the same license as the RRZE Downloads plugin.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RRZE-Downloads\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: benjamin <benjamin.klemencic@fau.de>\n"
+"Language-Team: Deutsch (Sie)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-04 12:45+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-10-04 12:46+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+"Language: de_DE_formal\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
 
 #: rrze-downloads.php:81
 #, php-format
@@ -47,7 +47,7 @@ msgstr ""
 
 #: config/config.php:56
 msgid "Downloads Settings"
-msgstr ""
+msgstr "Downloads Einstellungen"
 
 #: config/config.php:69
 msgid ""
@@ -55,6 +55,9 @@ msgid ""
 "of the activated file types. If you like, you can also let the plugin add "
 "the file size of the linked file to the page."
 msgstr ""
+"Dieses Plugin wird automatisch ein Icon oder ein Vorschaubild neben den Link "
+"aktivierter Dateitypen hinzufügen. Sie können das Plugin auch die Dateigröße "
+"der verlinkten Datei anzeigen lassen."
 
 #: config/config.php:70
 msgid ""
@@ -65,10 +68,17 @@ msgid ""
 "\"Additional Settings\" allow you to specify exceptions, format the file "
 "size and set caching options."
 msgstr ""
+"Auf dieser Einstellungsseite können Sie wählen, ob ein Icon oder ein "
+"Vorschaubild angezeigt werden soll. Darüberhinaus können Sie festlegen: die "
+"Größe des Icons, den Dateityp des Icons und die Ausrichtung zum Link-Text. "
+"Klicken Sie auf \"Dateityp Einstellungen\" um zu bestimmen, für welche "
+"Dateitypen das Plugin aktiv sein soll. Unter \"Weitere Einstellungen\" "
+"können Sie angeben, ob ein Exzerpt angezeigt werden soll, sowie die "
+"Dateigröße und die Zwischenspeicherung."
 
 #: config/config.php:73
 msgid "For more information"
-msgstr ""
+msgstr "Für weitere Informationen"
 
 #: config/config.php:73
 msgid "RRZE Webteam on Github"
@@ -76,23 +86,25 @@ msgstr ""
 
 #: config/config.php:86
 msgid "Icons Settings"
-msgstr ""
+msgstr "Icons Einstellungen"
 
 #: config/config.php:90
 msgid "File Types Settings"
-msgstr ""
+msgstr "Dateityp Einstellungen"
 
 #: config/config.php:94
 msgid "Additional Settings"
-msgstr ""
+msgstr "Weitere Einstellungen"
 
 #: config/config.php:109
 msgid "Show downloads with"
-msgstr ""
+msgstr "Zeige Downloads mit"
 
 #: config/config.php:110
 msgid "Choose whether to show icons or preview images next to each download"
 msgstr ""
+"Wählen Sie, ob zu den Downloads Icons oder Vorschaubilder angezeigt werden "
+"sollen"
 
 #: config/config.php:114
 msgid "Icons"
@@ -100,19 +112,19 @@ msgstr ""
 
 #: config/config.php:115
 msgid "Preview images"
-msgstr ""
+msgstr "Vorschaubilder"
 
 #: config/config.php:116
 msgid "just plain links"
-msgstr ""
+msgstr "Nur Textlinks"
 
 #: config/config.php:121
 msgid "Image Size"
-msgstr ""
+msgstr "Bild Größe"
 
 #: config/config.php:122
 msgid "Size: width x height in pixels"
-msgstr ""
+msgstr "Größe: Breite x Höhe in Pixel"
 
 #: config/config.php:126
 msgid "16 x 16"
@@ -136,11 +148,11 @@ msgstr ""
 
 #: config/config.php:135
 msgid "Image Type"
-msgstr ""
+msgstr "Bild Typ"
 
 #: config/config.php:136
 msgid "File type of the icon."
-msgstr ""
+msgstr "Dateityp des Icons"
 
 #: config/config.php:140
 msgid "GIF"
@@ -156,41 +168,41 @@ msgstr ""
 
 #: config/config.php:147
 msgid "Align icon"
-msgstr ""
+msgstr "Icon ausrichten"
 
 #: config/config.php:148
 msgid "Show icon on the left or right side of the link"
-msgstr ""
+msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
 
 #: config/config.php:152
 msgid "Left"
-msgstr ""
+msgstr "links"
 
 #: config/config.php:153
 msgid "Right"
-msgstr ""
+msgstr "rechts"
 
 #: config/config.php:160
 msgid "Select all file types"
-msgstr ""
+msgstr "Alle Dateitypen auswählen"
 
 #: config/config.php:161
 msgid "Add an icon to all file types"
-msgstr ""
+msgstr "Füge Icons zu allen Dateitypen hinzu"
 
 #: config/config.php:165 config/config.php:178 config/config.php:196
 #: config/config.php:222 config/config.php:259 config/config.php:275
 msgid "yes"
-msgstr ""
+msgstr "ja"
 
 #: config/config.php:166 config/config.php:179 config/config.php:197
 #: config/config.php:223 config/config.php:260 config/config.php:276
 msgid "no"
-msgstr ""
+msgstr "nein"
 
 #: config/config.php:173
 msgid "Enable Classnames?"
-msgstr ""
+msgstr "Klassennamen aktivieren?"
 
 #: config/config.php:174
 msgid ""
@@ -200,23 +212,25 @@ msgstr ""
 
 #: config/config.php:184
 msgid "Classname(s)"
-msgstr ""
+msgstr "Klassenname(n)"
 
 #: config/config.php:185
 msgid "Enter one or more classnames seperated by comma \",\" to exclude them."
 msgstr ""
+"Geben Sie eine oder mehrere Klassennamen getrennt durch Komma \",\" ein, um "
+"diese auszuschließen."
 
 #: config/config.php:191
 msgid "Show File Size?"
-msgstr ""
+msgstr "Dateigröße anzeigen?"
 
 #: config/config.php:192
 msgid "Display the file size of the attachment / linked file."
-msgstr ""
+msgstr "Zeige die Größe des angefügten oder verlinkten Datei an. "
 
 #: config/config.php:202
 msgid "Precision (decimals)"
-msgstr ""
+msgstr "Genauigkeit (Dezimalstellen)"
 
 #: config/config.php:203
 msgid "Sizes less than 1 kB will always have 0 decimals."
@@ -248,49 +262,52 @@ msgstr ""
 
 #: config/config.php:217
 msgid "Cache retrieved file sizes."
-msgstr ""
+msgstr "Speichere die erhaltene Dateigrößen."
 
 #: config/config.php:218
 msgid ""
 "If the file sizes of the files you link to do not change very often, it is "
 "recommended to cache the results for a faster page loading."
 msgstr ""
+"Wenn die Größe der Dateien, die Sie verlinken, sich nicht oft ändern, ist es "
+"empfehlenswert, die Ergebnisse zwischenzuspeichern, um die "
+"Ladegeschwindigkeit der Webseite schneller laden zu verbessern."
 
 #: config/config.php:228
 msgid "Time to cache:"
-msgstr ""
+msgstr "Zeit um zu cachen"
 
 #: config/config.php:229
 msgid "Amount of time to cache retrieved file sizes: "
-msgstr ""
+msgstr "Zeitspanne um erhaltene Dateigrößen zwischenzuspeichern:"
 
 #: config/config.php:233
 msgid "1 hour"
-msgstr ""
+msgstr "1 Stunde"
 
 #: config/config.php:234
 msgid "1 day"
-msgstr ""
+msgstr "1 Tag"
 
 #: config/config.php:235
 msgid "1 week"
-msgstr ""
+msgstr "1 Woche"
 
 #: config/config.php:236
 msgid "2 weeks"
-msgstr ""
+msgstr "2 Wochen"
 
 #: config/config.php:237
 msgid "3 weeks"
-msgstr ""
+msgstr "3 Wochen"
 
 #: config/config.php:238
 msgid "4 weeks"
-msgstr ""
+msgstr "4 Wochen"
 
 #: config/config.php:243
 msgid "Replacement Mode"
-msgstr ""
+msgstr "Ersetzungsmodus"
 
 #: config/config.php:244
 msgid ""
@@ -304,23 +321,24 @@ msgstr ""
 
 #: config/config.php:249
 msgid "asynchronous"
-msgstr ""
+msgstr "asynchron"
 
 #: config/config.php:254
 msgid "Enable Debug Mode?"
-msgstr ""
+msgstr "Debug Mode aktivieren?"
 
 #: config/config.php:255
 msgid "Tick this box for debugging if using asynchronous replacement."
 msgstr ""
+"Klicken Sie hier, um zu debuggen, wenn asynchroner Austausch aktiviert ist."
 
 #: config/config.php:271
 msgid "Add an icon"
-msgstr ""
+msgstr "Icon hinzufügen"
 
 #: includes/Shortcode.php:281
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
-msgstr ""
+msgstr "Downloads: Es konnten keine Dateien gefunden werden."
 
 #: assets/mce-langs.php:15
 msgid "Downloadliste einfügen"
@@ -422,6 +440,8 @@ msgid ""
 "this will add a list with available download files. Shortcode is [downloads] "
 "- see settings for additional attributes"
 msgstr ""
+"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
+"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
 
 #. Plugin URI of the plugin
 msgid "https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads"

@@ -20,7 +20,15 @@ function downloads_block_init() {
 		),
 		filemtime( "$dir/$index_js" )
 	);
-
+	
+	// $locale_data = wp_get_jed_locale_data( 'gutenberg' );
+	// 
+	// 
+	// wp_add_inline_script(
+	// 	'wp-i18n',
+	// 	'wp.i18n.setLocaleData( ' . json_encode( $locale_data ) . ' );'
+	// );
+	
 	register_block_type( 'rrze-downloads/downloads', array(
 		'editor_script' => 'downloadsOutput',
 		'render_callback'  => 'downloadsHandler',

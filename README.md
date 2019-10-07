@@ -41,9 +41,4 @@ orderby
 sort
 </pre>
 
-Beispiele:
-<pre>
-[downloads category="folien"]
-[downloads category="schulung" tags="vpn,windows,anyconnect"]
-[downloads category="schulung" tags="vpn,linux,macosx" showexcerpt="true"]
-</pre>
+Beispiele und detailierte Informationen zu den Attributen finden Sie unter <a href="https://www.wordpress.rrze.fau.de/plugins/fau-und-rrze-plugins/rrze-downloads/">https://www.wordpress.rrze.fau.de/plugins/fau-und-rrze-plugins/rrze-downloads/</a>

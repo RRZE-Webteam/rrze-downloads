@@ -31,6 +31,8 @@ function downloadsHandler( $atts ) {
 
 function downloadsOutput( $args ) {
   $output = '';
+  $sp = '&nbsp;&nbsp;';
+  
 
   $category = esc_attr($args['category']);
   $cat = esc_attr($args['cat']);
@@ -157,33 +159,37 @@ function downloadsOutput( $args ) {
         }
       }
 
-      $sp = '<span class="noline">&nbsp;&nbsp;&nbsp;</span>';
-
 
       foreach ($files as $file) {
 
-        if ( ( $icon_options['icons_mimetypes_all_mimetypes'] == 'on' ) || in_array( $myfiletype, $filetypes ) ){
-          
-          $size = '';
+        $parsed = parse_url(wp_get_attachment_url($file->ID));
+        $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed['path']));
+        $myfiletype = substr( $url, strrpos( $url, '.' ) + 1 );
 
-          if ( $icon_options['additional_filesize'] == 'on' ) {
-            $size = size_format(filesize(get_attached_file($file->ID)), $icon_options['additional_precision']);
-          }
-          $excerpt = wpautop($file->post_excerpt);
-          $desc = wpautop($file->post_content);
-          $created = date_i18n(get_option('date_format'), strtotime($file->post_date));
-          $parsed = parse_url(wp_get_attachment_url($file->ID));
-          $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed['path']));
-          $myfiletype = substr( $url, strrpos( $url, '.' ) + 1 );
-          $title = $file->post_title;
-          $img = '';
+          
+        $size = '';
+
+        if ( $icon_options['additional_filesize'] == 'on' ) {
+          $size = size_format(filesize(get_attached_file($file->ID)), $icon_options['additional_precision']);
+        }
+        $excerpt = wpautop($file->post_excerpt);
+        $desc = wpautop($file->post_content);
+        $created = date_i18n(get_option('date_format'), strtotime($file->post_date));
+        // $parsed = parse_url(wp_get_attachment_url($file->ID));
+        // $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed['path']));
+        // $myfiletype = substr( $url, strrpos( $url, '.' ) + 1 );
+        $title = $file->post_title;
+        $img = '';
+        $link = $title . $addinfo;
+
+        if ( $icon_options['icons_mimetypes_all_mimetypes'] == 'on'  ||  in_array( $myfiletype, $filetypes ) ){
 
           if ( $icon_options["icons_icon_preview"] == 'icons' ){
-            $img_src = '/wp-content/plugins/rrze-downloads/assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
+            $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
+            
+            if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
+              $img_src =  get_site_url() . '/wp-content/plugins/RRZE-Downloads/' . $img_src;
 
-            if ( file_exists( $_SERVER['DOCUMENT_ROOT'] . '/wordpress' . $img_src ) ) {
-              
-              $img_src = '..' . $img_src;
               if ( $icon_options["icons_icontype"] == 'svg' ) {
 
                 $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"></object>';
@@ -201,30 +207,28 @@ function downloadsOutput( $args ) {
             }
           }
           
-          $addinfo = '';
-          if ($showsize || $showcreated) {
-              
-              if ($showcreated) {
-                  $addinfo .= $created;
-              }
-              
-              if ($showsize == true) {
-                  if ($addinfo)
-                      $addinfo .= ', ';
-                  $addinfo .= $size;
-              }
-              
-              if ($addinfo) {
-                  $addinfo = '<span class="noline">&nbsp;&nbsp;(' . $addinfo . ')</span>';
-              }
+          $link = ( $img ? ( $icon_options["icons_iconalign"] == 'left' ? $img . $sp . $link : $link . $sp . $img ) : $link );
+//          $link = ( $icon_options["icons_iconalign"] == 'left' ? $img . $sp . $link : $link . $sp . $img );
+        }
+        
+        $addinfo = '';
+        if ($showsize || $showcreated) {
+            
+          if ($showcreated) {
+              $addinfo .= $created;
+          }
+          
+          if ($showsize == true) {
+              if ($addinfo)
+                  $addinfo .= ', ';
+              $addinfo .= $size;
+          }
+          
+          if ($addinfo) {
+              $addinfo = $sp . '(' . $addinfo . ')';
           }
         }
 
-        if ( $icon_options["icons_iconalign"] == 'left' ) {
-          $link = $img . ( $icon_options["icons_icon_preview"] != 'plain' ? $sp : '' ) . $title . $addinfo;
-        } else {
-          $link = $title . $addinfo . ( $icon_options["icons_icon_preview"] != 'plain' ? $sp : '' ) . $img;
-        }
 
         if ($format == 'table') {
             $contentlist .= '<tr><th>' . $title . '</th>';

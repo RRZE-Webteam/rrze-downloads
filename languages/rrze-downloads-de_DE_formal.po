@@ -9,40 +9,136 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-04 12:45+0000\n"
-"PO-Revision-Date: 2019-10-04 12:51+0000\n"
+"POT-Creation-Date: 2019-10-01T14:01:48+00:00\n"
+"PO-Revision-Date: 2019-10-01 14:17+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
 "Language: de_DE_formal\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.3.0; wp-5.2.3"
 
-#: rrze-downloads.php:81
-#, php-format
-msgid ""
-"The server is running PHP version %1$s. The Plugin requires at least PHP "
-"version %2$s."
+#. Plugin Name of the plugin
+#: config/config.php:53
+msgid "RRZE Downloads"
 msgstr ""
 
-#: rrze-downloads.php:84
-#, php-format
-msgid ""
-"The server is running WordPress version %1$s. The Plugin requires at least "
-"WordPress version %2$s."
+#. Plugin URI of the plugin
+msgid "https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads"
 msgstr ""
 
-#: rrze-downloads.php:154
-#, php-format
-msgid "Plugins: %1$s: %2$s"
+#. Description of the plugin
+msgid ""
+"this will add a list with available download files. Shortcode is [downloads] "
+"- see settings for additional attributes"
+msgstr ""
+"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
+"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
+
+#. Author of the plugin
+msgid "RRZE Webteam"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://blogs.fau.de/webworking/"
+msgstr ""
+
+#: assets/mce-langs.php:15
+msgid "Downloadliste einfügen"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:10
+#: assets/taxonomies/attachment-category.php:20
+msgid "Kategorien"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:11
+msgid "Kategorie"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:12
+msgid "Kategorien suchen"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:13
+#: assets/taxonomies/attachment-category.php:55
+#: assets/taxonomies/attachment-category.php:98
+msgid "Alle Kategorien"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:14
+msgid "Übergeordnet"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:15
+msgid "Übergeordnet:"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:16
+msgid "Kategorie bearbeiten"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:17
+msgid "Kategorie aktualisieren"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:18
+msgid "Neue Kategorie hinzufügen"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:19
+#: assets/taxonomies/attachment-tag.php:20
+msgid "Name"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:10
+#: assets/taxonomies/attachment-tag.php:24
+msgid "Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:11
+msgid "Schlagwort"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:12
+msgid "Schlagwörter suchen"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:13
+msgid "Beliebte Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:14
+#: assets/taxonomies/attachment-tag.php:59
+#: assets/taxonomies/attachment-tag.php:102
+msgid "Alle Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:17
+msgid "Schlagwort bearbeiten"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:18
+msgid "Schlagwort aktualisieren"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:19
+msgid "Neues Schlagwort erstellen"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:21
+msgid "Trenne Schlagwörter durch Kommas"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:22
+msgid "Hinzu"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:23
+msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr ""
 
 #: config/config.php:52
 msgid "Downloads"
-msgstr ""
-
-#. Plugin Name of the plugin
-#: config/config.php:53
-msgid "RRZE Downloads"
 msgstr ""
 
 #: config/config.php:56
@@ -55,9 +151,6 @@ msgid ""
 "of the activated file types. If you like, you can also let the plugin add "
 "the file size of the linked file to the page."
 msgstr ""
-"Dieses Plugin wird automatisch ein Icon oder ein Vorschaubild neben den Link "
-"aktivierter Dateitypen hinzufügen. Sie können das Plugin auch die Dateigröße "
-"der verlinkten Datei anzeigen lassen."
 
 #: config/config.php:70
 msgid ""
@@ -68,13 +161,6 @@ msgid ""
 "\"Additional Settings\" allow you to specify exceptions, format the file "
 "size and set caching options."
 msgstr ""
-"Auf dieser Einstellungsseite können Sie wählen, ob ein Icon oder ein "
-"Vorschaubild angezeigt werden soll. Darüberhinaus können Sie festlegen: die "
-"Größe des Icons, den Dateityp des Icons und die Ausrichtung zum Link-Text. "
-"Klicken Sie auf \"Dateityp Einstellungen\" um zu bestimmen, für welche "
-"Dateitypen das Plugin aktiv sein soll. Unter \"Weitere Einstellungen\" "
-"können Sie angeben, ob ein Exzerpt angezeigt werden soll, sowie die "
-"Dateigröße und die Zwischenspeicherung."
 
 #: config/config.php:73
 msgid "For more information"
@@ -83,18 +169,6 @@ msgstr "Für weitere Informationen"
 #: config/config.php:73
 msgid "RRZE Webteam on Github"
 msgstr ""
-
-#: config/config.php:86
-msgid "Icons Settings"
-msgstr "Icons Einstellungen"
-
-#: config/config.php:90
-msgid "File Types Settings"
-msgstr "Dateityp Einstellungen"
-
-#: config/config.php:94
-msgid "Additional Settings"
-msgstr "Weitere Einstellungen"
 
 #: config/config.php:109
 msgid "Show downloads with"
@@ -209,8 +283,6 @@ msgid ""
 "Use this option to disable the mime type links (ie: around an image or "
 "caption) excluding the following classname(s):"
 msgstr ""
-"Wählen Sie diese Option, um die MIME Typ Links (z.B. um ein Bild oder eine "
-"Überschrift) mit Ausnahme der folgenden Klassennamen zu deaktivieren:"
 
 #: config/config.php:184
 msgid "Classname(s)"
@@ -236,7 +308,7 @@ msgstr "Genauigkeit (Dezimalstellen)"
 
 #: config/config.php:203
 msgid "Sizes less than 1 kB will always have 0 decimals."
-msgstr "Größen unter 1 kB werden immer 0 Dezimalstellen haben."
+msgstr ""
 
 #: config/config.php:207
 msgid "0"
@@ -316,13 +388,10 @@ msgid ""
 "Switch to asynchronous replacement if your theme conflicts with this plugin. "
 "Asynchronous replacement uses JavaScript instead of PHP to find your links."
 msgstr ""
-"Wechseln Sie zu asynchronem Ersetzen, wenn Ihr Theme Konflikte mit diesem "
-"Plugin hat. Asynchrones Ersetzen verwendet Javascript anstelle von PHP um "
-"Ihre Links zu finden."
 
 #: config/config.php:248
 msgid "synchronous"
-msgstr "synchron"
+msgstr ""
 
 #: config/config.php:249
 msgid "asynchronous"
@@ -337,125 +406,139 @@ msgid "Tick this box for debugging if using asynchronous replacement."
 msgstr ""
 "Klicken Sie hier, um zu debuggen, wenn asynchroner Austausch aktiviert ist."
 
+#: config/config.php:270
+msgid "Add icon to "
+msgstr "Füge Icon hinzu "
+
 #: config/config.php:271
-msgid "Add an icon"
-msgstr "Icon hinzufügen"
+msgid "Add an icon to "
+msgstr "Füge ein Icon zu "
 
 #: includes/Shortcode.php:281
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
 msgstr "Downloads: Es konnten keine Dateien gefunden werden."
 
-#: assets/mce-langs.php:15
-msgid "Downloadliste einfügen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:10
-#: assets/taxonomies/attachment-category.php:20
-msgid "Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:11
-msgid "Kategorie"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:12
-msgid "Kategorien suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:13
-#: assets/taxonomies/attachment-category.php:55
-#: assets/taxonomies/attachment-category.php:98
-msgid "Alle Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:14
-msgid "Übergeordnet"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:15
-msgid "Übergeordnet:"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:16
-msgid "Kategorie bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:17
-msgid "Kategorie aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:18
-msgid "Neue Kategorie hinzufügen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:19
-#: assets/taxonomies/attachment-tag.php:20
-msgid "Name"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:10
-#: assets/taxonomies/attachment-tag.php:24
-msgid "Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:11
-msgid "Schlagwort"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:12
-msgid "Schlagwörter suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:13
-msgid "Beliebte Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:14
-#: assets/taxonomies/attachment-tag.php:59
-#: assets/taxonomies/attachment-tag.php:102
-msgid "Alle Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:17
-msgid "Schlagwort bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:18
-msgid "Schlagwort aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:19
-msgid "Neues Schlagwort erstellen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:21
-msgid "Trenne Schlagwörter durch Kommas"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:22
-msgid "Hinzu"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:23
-msgid "Wähle aus den häufig genutzten Schlagwörtern"
-msgstr ""
-
-#. Description of the plugin
+#: rrze-downloads.php:81
 msgid ""
-"this will add a list with available download files. Shortcode is [downloads] "
-"- see settings for additional attributes"
-msgstr ""
-"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
-"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
-
-#. Plugin URI of the plugin
-msgid "https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads"
+"The server is running PHP version %1$s. The Plugin requires at least PHP "
+"version %2$s."
 msgstr ""
 
-#. Author of the plugin
-msgid "RRZE Webteam"
+#: rrze-downloads.php:84
+msgid ""
+"The server is running WordPress version %1$s. The Plugin requires at least "
+"WordPress version %2$s."
 msgstr ""
 
-#. Author URI of the plugin
-msgid "https://blogs.fau.de/webworking/"
+#: rrze-downloads.php:154
+msgid "Plugins: %1$s: %2$s"
 msgstr ""
+
+#: blocks/downloads/index.js:9
+msgid "RRZE downloads block"
+msgstr ""
+
+#: blocks/downloads/index.js:20
+msgid "Click to open settings on the right side."
+msgstr ""
+"Klicken Sie hier, um die Einstellungen auf der rechten Seite zu öffnen."
+
+#: blocks/downloads/index.js:25
+msgid "display"
+msgstr "Anzeige"
+
+#: blocks/downloads/index.js:30
+msgid "format"
+msgstr "Format"
+
+#: blocks/downloads/index.js:33
+msgid "list"
+msgstr "Liste"
+
+#: blocks/downloads/index.js:34
+msgid "table"
+msgstr "Tabelle"
+
+#: blocks/downloads/index.js:39
+msgid "category"
+msgstr "Kategorie"
+
+#: blocks/downloads/index.js:45
+msgid "cat"
+msgstr ""
+
+#: blocks/downloads/index.js:51
+msgid "tags"
+msgstr "Tags"
+
+#: blocks/downloads/index.js:57
+msgid "type"
+msgstr "Typ"
+
+#: blocks/downloads/index.js:63
+msgid "htmlpre"
+msgstr "HTML davor"
+
+#: blocks/downloads/index.js:69
+msgid "htmlpost"
+msgstr "HTML danach"
+
+#: blocks/downloads/index.js:75
+msgid "htmlitempre"
+msgstr "HTML Item davor"
+
+#: blocks/downloads/index.js:81
+msgid "htmlitempost"
+msgstr "HTML Item danach"
+
+#: blocks/downloads/index.js:87
+msgid "search_application"
+msgstr "Suche Programme"
+
+#: blocks/downloads/index.js:92
+msgid "search_image"
+msgstr "Suche Bilder"
+
+#: blocks/downloads/index.js:97
+msgid "search_video"
+msgstr "Suche Videos"
+
+#: blocks/downloads/index.js:102
+msgid "search_audio"
+msgstr "Suche Audio-Dateien"
+
+#: blocks/downloads/index.js:107
+msgid "search_text"
+msgstr "Suche Text"
+
+#: blocks/downloads/index.js:112
+msgid "showsize"
+msgstr "Dateigröße anzeigen"
+
+#: blocks/downloads/index.js:117
+msgid "showexcerpt"
+msgstr "Exzerpt anzeigen"
+
+#: blocks/downloads/index.js:122
+msgid "showcontent"
+msgstr "Inhalt anzeigen"
+
+#: blocks/downloads/index.js:127
+msgid "errormsg"
+msgstr "Fehlermeldung"
+
+#: blocks/downloads/index.js:133
+msgid "orderby"
+msgstr "sortieren nach"
+
+#: blocks/downloads/index.js:136
+msgid "title"
+msgstr "Titel"
+
+#: blocks/downloads/index.js:137
+msgid "date"
+msgstr ""
+
+#: blocks/downloads/index.js:142
+msgid "sort"
+msgstr "sortieren"

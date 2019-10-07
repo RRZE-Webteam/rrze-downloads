@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-  
   var eventhandler = function(e) {
      e.preventDefault();      
   }
@@ -109,10 +108,14 @@ jQuery(document).ready(function($) {
 
   function setIconsPreviews() {
     var mode = getCookie();
+// alert('mode:' + mode);    
     if ( mode == 'previews' || mode == 'plain' ) {
-      // "Previews" has been selected -> Disable options for icons:
-      disableField( 'icons:icondimensions,icontype,iconalign' );  
-      $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', true );
+      disableField( 'icons:icondimensions,icontype' );  
+      if ( mode == 'plain' ) {
+        // "Plain text" has been selected -> Disable options for icons:
+        disableField( 'icons:iconalign' );  
+        $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', true );
+      }
       // Disable tab "File Types Settings":
       $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
       $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );

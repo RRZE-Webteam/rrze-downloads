@@ -108,24 +108,30 @@ jQuery(document).ready(function($) {
 
   function setIconsPreviews() {
     var mode = getCookie();
-// alert('mode:' + mode);    
-    if ( mode == 'previews' || mode == 'plain' ) {
-      disableField( 'icons:icondimensions,icontype' );  
-      if ( mode == 'plain' ) {
-        // "Plain text" has been selected -> Disable options for icons:
-        disableField( 'icons:iconalign' );  
+
+    switch (mode) {
+      case 'icons':
+        enableField( 'icons:icondimensions,icontype,iconalign' );  
+        $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
+        // Enable tab "File Types Settings":
+        $( '#icons_mimetypes-tab' ).removeAttr( 'style' );
+        $( '#icons_mimetypes-tab' ).unbind( 'click', eventhandler);
+        break;
+      case 'previews':
+        disableField( 'icons:icondimensions,icontype' );  
+        enableField( 'icons:iconalign' );  
+        $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
+        // Disable tab "File Types Settings":
+        $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
+        $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );
+        break;
+      case 'plain':
+        disableField( 'icons:icondimensions,icontype,iconalign' );  
         $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', true );
-      }
-      // Disable tab "File Types Settings":
-      $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
-      $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );
-    } else {
-      // "Icons" has been selected -> Enable options for icons:
-      enableField( 'icons:icondimensions,icontype,iconalign' );  
-      $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
-      // Enable tab "File Types Settings":
-      $( '#icons_mimetypes-tab' ).removeAttr( 'style' );
-      $( '#icons_mimetypes-tab' ).unbind( 'click', eventhandler);
+        // Disable tab "File Types Settings":
+        $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
+        $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );
+        break;
     }
   }
 

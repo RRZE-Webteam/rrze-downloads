@@ -1,4 +1,4 @@
-RRZE Calendar
+RRZE Downloads
 =============
 
 Wordpress-Plugin

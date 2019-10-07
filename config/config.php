@@ -83,15 +83,15 @@ function getSections() {
     return [
       [
         'id'    => 'icons',
-        'title' => __('Icons Settings', 'rrze-downloads')
+        'title' => __('Icons Settings', 'downloads')
       ],
       [
         'id'    => 'icons_mimetypes',
-        'title' => __('File Types Settings', 'rrze-downloads')
+        'title' => __('File Types Settings', 'downloads')
       ],
       [
         'id'    => 'additional',
-        'title' => __('Additional Settings', 'rrze-downloads')
+        'title' => __('Additional Settings', 'downloads')
       ]
     ];
 }
@@ -267,8 +267,8 @@ function getFields() {
   foreach ($mime_types as $mt) {
     $ret['icons_mimetypes'][] = [
       'name'    => 'mimetype_link_icon_' . $mt,
-      'label'   => __($mt, 'rrze-downloads'),
-      'desc'    => __('Add an icon', 'rrze-downloads'),
+      'label'   => __('Add icon to ' . $mt, 'rrze-downloads'),
+      'desc'    => __('Add an icon to ' . $mt . ' files', 'rrze-downloads'),
       'type'    => 'checkbox',
       'default' => 'no',
       'options' => [

@@ -35,8 +35,8 @@ include 'blocks/downloads.php';
 
 use RRZE\Downloads\Main;
 
-const RRZE_PHP_VERSION = '5.5';
-const RRZE_WP_VERSION = '4.9';
+const RRZE_PHP_VERSION = '7.3';
+const RRZE_WP_VERSION = '5.2';
 
 
 // Automatische Laden von Klassen.

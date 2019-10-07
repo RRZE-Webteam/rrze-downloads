@@ -21,9 +21,7 @@ registerBlockType( 'rrze-downloads/downloads', {
 				var ret = [];
 			
 				for (var i = 0; i < aLength; i++) {
-					parts = fields[i].split('|');
-//					ret.push( createElement( TextControl, { value: eval( 'attributes.' + fields[i] ), label: __( fields[i], 'rrze-downloads' ), type: 'text', onChange: changeField.bind( fields[i] ) } ) );
-					ret.push( createElement( TextControl, { value: eval( 'attributes.' + parts[0] ), label: __( parts[1], 'rrze-downloads' ), type: 'text', onChange: changeField.bind( parts[0] ) } ) );
+					ret.push( createElement( TextControl, { value: eval( 'attributes.' + fields[i] ), label: __( fields[i], 'rrze-downloads' ), type: 'text', onChange: changeField.bind( fields[i] ) } ) );
 				}
 			
 				return ret;
@@ -34,9 +32,7 @@ registerBlockType( 'rrze-downloads/downloads', {
 				var ret = [];
 			
 				for (var i = 0; i < aLength; i++) {
-					parts = fields[i].split('|');
-//					ret.push( createElement( ToggleControl, { checked: eval( 'attributes.' + fields[i] ), label: __( fields[i], 'rrze-downloads' ), onChange: changeField.bind( fields[i] ) } ) );
-					ret.push( createElement( ToggleControl, { checked: eval( 'attributes.' + parts[0] ), label: __( parts[1], 'rrze-downloads' ), onChange: changeField.bind( parts[0] ) } ) );
+					ret.push( createElement( ToggleControl, { checked: eval( 'attributes.' + fields[i] ), label: __( fields[i], 'rrze-downloads' ), onChange: changeField.bind( fields[i] ) } ) );
 				}
 			
 				return ret;
@@ -53,30 +49,27 @@ registerBlockType( 'rrze-downloads/downloads', {
 					var opts = '';
 
 					for (var y = 0; y < yL; y++) {
-						parts = opt[y].split('|');
-//						opts += "{value:'" + opt[y] + "', label: __('" + opt[y] + "', 'rrze-downloads')},";
-						opts += "{value:'" + parts[0] + "', label: __('" + parts[1] + "', 'rrze-downloads')},";
+						opts += "{value:'" + opt[y] + "', label: __('" + opt[y] + "', 'rrze-downloads')},";
 					}
 					opts = opts.substring(0, opts.length - 1 );
 					
-					parts = tmp[0].split('|');
-//					ret.push( createElement( SelectControl, { value: eval( 'attributes.' + tmp[0] ), label: __( tmp[0], 'rrze-downloads' ), onChange: changeField.bind( tmp[0] ),  options: eval('[' + opts +']') } ) );
-					ret.push( createElement( SelectControl, { value: eval( 'attributes.' + parts[0] ), label: __( parts[1], 'rrze-downloads' ), onChange: changeField.bind( parts[0] ),  options: eval('[' + opts +']') } ) );
+					ret.push( createElement( SelectControl, { value: eval( 'attributes.' + tmp[0] ), label: __( tmp[0], 'rrze-downloads' ), onChange: changeField.bind( tmp[0] ),  options: eval('[' + opts +']') } ) );
 				}
 
 				return ret;
 			}
 
-			var elementsText = createTexts( ['category|Kategorie', 'cat|Cat', 'tags|Tags', 'type|Typ', 'htmlpre|HTML vorher', 'htmlpost|HTML nachher', 'htmlitempre|HTML item vorher', 'htmlitempost|HTML item nachher'] );
-			var elementsToggle = createToggles( ['search_application|Programme suchen', 'search_image|Bilder suchen', 'search_video|Videos suchen', 'search_audio|Audiodateien suchen', 'search_text|Texte suchen', 'showsize|Größe anzeigen', 'showexcerpt|Exzerpt anzeigen', 'showcontent|Inhalt anzeigen'] );
-			var formatSelect = createSelects( ['format|Format:list|Liste,table|Tabelle'] );
-			var elementsSelect = createSelects( ['orderby|Sortieren nach:title|Titel,date|Datum','sort|Sortierreihenfolge:ASC|ASC,DESC|DESC'] );
+			var elementsText = createTexts( ['category', 'cat', 'tags', 'type', 'htmlpre', 'htmlpost', 'htmlitempre', 'htmlitempost'] );
+			var elementsToggle = createToggles( ['search_application', 'search_image', 'search_video', 'search_audio', 'search_text', 'showsize', 'showexcerpt', 'showcontent'] );
+			var displayToggle = createToggles( ['display'] );
+			var formatSelect = createSelects( ['format:list,table'] );
+			var elementsSelect = createSelects( ['orderby:title,date','sort:ASC,DESC'] );
 
 			return createElement('div', {}, [
-//				createElement( 'div', {}, __( 'Click to open settings on the right side.', 'rrze-downloads') ),
-				createElement( 'div', {}, __( 'Klicken Sie hier, um die Einstellungen auf der rechten Seite zu öffnen.', 'rrze-downloads') ),
+				createElement( 'div', {}, __( 'Click to open settings on the right side.', 'rrze-downloads') ),
 				createElement( InspectorControls, {},
 					[
+						displayToggle,
 						formatSelect,
 						elementsText,
 						elementsToggle,

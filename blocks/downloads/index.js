@@ -69,7 +69,6 @@ registerBlockType( 'rrze-downloads/downloads', {
 
 			var elementsText = createTexts( ['category|Kategorie', 'cat|Cat', 'tags|Tags', 'type|Typ', 'htmlpre|HTML vorher', 'htmlpost|HTML nachher', 'htmlitempre|HTML item vorher', 'htmlitempost|HTML item nachher'] );
 			var elementsToggle = createToggles( ['search_application|Programme suchen', 'search_image|Bilder suchen', 'search_video|Videos suchen', 'search_audio|Audiodateien suchen', 'search_text|Texte suchen', 'showsize|Größe anzeigen', 'showexcerpt|Exzerpt anzeigen', 'showcontent|Inhalt anzeigen'] );
-			var displayToggle = createToggles( ['display|Anzeigen'] );
 			var formatSelect = createSelects( ['format|Format:list|Liste,table|Tabelle'] );
 			var elementsSelect = createSelects( ['orderby|Sortieren nach:title|Titel,date|Datum','sort|Sortierreihenfolge:ASC|ASC,DESC|DESC'] );
 
@@ -78,7 +77,6 @@ registerBlockType( 'rrze-downloads/downloads', {
 				createElement( 'div', {}, __( 'Klicken Sie hier, um die Einstellungen auf der rechten Seite zu öffnen.', 'rrze-downloads') ),
 				createElement( InspectorControls, {},
 					[
-						displayToggle,
 						formatSelect,
 						elementsText,
 						elementsToggle,

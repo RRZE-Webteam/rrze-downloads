@@ -133,14 +133,18 @@ function mce_buttons($plugin_array) {
 }
 
 // WP_Image_Editor_GD ist für die Preview-Erstellung nötig
+// function cv_image_editor_default_to_gd( $editors ) {
+//     $gd_editor = 'WP_Image_Editor_GD';
+//     $editors = array_diff( $editors, array( $gd_editor ) );
+//     array_unshift( $editors, $gd_editor );
+//     return $editors;
+// }
+
 function cv_image_editor_default_to_gd( $editors ) {
-    $gd_editor = 'WP_Image_Editor_GD';
-    $editors = array_diff( $editors, array( $gd_editor ) );
-    array_unshift( $editors, $gd_editor );
-    return $editors;
-}
-
-
+        $gd_editor = 'WP_Image_Editor_GD';
+        return array( $gd_editor ) ;
+    }
+    
 
 /**
  * Wird durchgeführt, nachdem das WP-Grundsystem hochgefahren

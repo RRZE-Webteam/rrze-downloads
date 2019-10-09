@@ -188,7 +188,7 @@ function downloadsOutput( $args ) {
             $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
             
             if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
-              $img_src =  get_site_url() . '/wp-content/plugins/RRZE-Downloads/' . $img_src;
+              $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
 
               if ( $icon_options["icons_icontype"] == 'svg' ) {
 

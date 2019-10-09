@@ -140,10 +140,6 @@ function mce_buttons($plugin_array) {
 //     return $editors;
 // }
 
-function cv_image_editor_default_to_gd( $editors ) {
-        $gd_editor = 'WP_Image_Editor_GD';
-        return array( $gd_editor ) ;
-    }
     
 
 /**
@@ -184,7 +180,7 @@ function loaded() {
         add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
         add_action('admin_init', 'RRZE\Downloads\mce_external_plugins');
 
-        add_filter( 'wp_image_editors', 'cv_image_editor_default_to_gd' );
+        // add_filter( 'wp_image_editors', 'cv_image_editor_default_to_gd' );
 
         // Das Plugin wird nicht mehr ausgeführt.
         return;

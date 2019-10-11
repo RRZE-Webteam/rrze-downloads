@@ -1,0 +1,7 @@
+/* media-toolbar */
+.attachments-browser .media-toolbar {
+    height: auto;
+}
+.attachments-browser .attachments, .attachments-browser .uploader-inline {
+    top: 72px;
+}

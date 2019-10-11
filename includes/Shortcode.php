@@ -134,7 +134,7 @@ function downloadsOutput( $args ) {
         $posthtml = "</table>";
         $prehtml_entry = '<tr><td>';
         $posthtml_entry = "</td></tr>";
-      } elseif ($format == 'liste') {
+      } elseif ($format == 'list') {
           $prehtml = '<ul class="files">';
           $posthtml = "</ul>";
           $prehtml_entry = '<li>';
@@ -232,7 +232,7 @@ function downloadsOutput( $args ) {
                 $contentlist .= $desc;
             }
             $contentlist .= $posthtml_entry;
-        } elseif ($format == 'liste') {
+        } elseif ($format == 'list') {
             $contentlist .= $prehtml_entry . '<a href="' . $url . '">' . $link . '</a>';
             if ($showexcerpt) {
                 $contentlist .= $excerpt;

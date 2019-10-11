@@ -48,10 +48,8 @@ jQuery(document).ready(function($) {
 
   function setFilesize() {
     if ( $( '#icons-filesize' ).attr('checked') ) {
-      // enableField( 'additional:precision,cache' ); 
       enableField( 'icons:precision' ); 
     } else {
-      // disableField( 'additional:precision,cache,cachetime' );  
       disableField( 'icons:precision' );  
     }
   }

@@ -161,17 +161,17 @@ function downloadsOutput( $args ) {
 
 
       foreach ($files as $file) {
-
         $parsed = parse_url(wp_get_attachment_url($file->ID));
         $url = dirname($parsed['path']) . '/' . rawurlencode(basename($parsed['path']));
         $myfiletype = substr( $url, strrpos( $url, '.' ) + 1 );
-
           
         $size = '';
 
-        if ( $icon_options['icons_filesize'] == 'on' ) {
-          $size = size_format(filesize(get_attached_file($file->ID)), $icon_options['icons_precision']);
+        if ( $icon_options['icons_filesize'] == 'on' || $showsize ) {
+            $precision = ( $icon_options['icons_filesize'] == 'on' ? $icon_options['icons_precision'] : 2);
+            $size = size_format( filesize(get_attached_file($file->ID)), $precision );
         }
+
         $excerpt = wpautop($file->post_excerpt);
         $desc = wpautop($file->post_content);
         $created = date_i18n(get_option('date_format'), strtotime($file->post_date));

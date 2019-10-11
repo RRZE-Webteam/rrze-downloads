@@ -134,6 +134,19 @@ function loaded() {
         return;
     }
 
+    if (is_admin()) {
+        require_once('assets/taxonomies/media-taxonomies.php');
+        new Taxonomies\Media();
+    }    
+    require_once('assets/taxonomies/attachment-category.php');
+    require_once('assets/taxonomies/attachment-tag.php');
+
+    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\set');
+    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\register');
+
+    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
+    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
+
     // Hauptklasse (Main) wird instanziiert.
     $main = new Main(__FILE__);
     $main->onLoaded();

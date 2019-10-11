@@ -6,7 +6,7 @@ const {InspectorControls} = wp.editor; //Block inspector wrapper
 const {TextControl, SelectControl, ToggleControl} = wp.components; //Block inspector wrapper
 
 registerBlockType( 'rrze-downloads/downloads', {
-		title: __( 'RRZE downloads block', 'rrze-downloads' ),
+		title: __( 'RRZE Downloads', 'rrze-downloads' ),
 		category: 'widgets',
 		edit(props){
 			const attributes =  props.attributes;
@@ -61,7 +61,6 @@ registerBlockType( 'rrze-downloads/downloads', {
 
 			var elementsText = createTexts( ['category', 'cat', 'tags', 'type', 'htmlpre', 'htmlpost', 'htmlitempre', 'htmlitempost'] );
 			var elementsToggle = createToggles( ['search_application', 'search_image', 'search_video', 'search_audio', 'search_text', 'showsize', 'showexcerpt', 'showcontent'] );
-			var displayToggle = createToggles( ['display'] );
 			var formatSelect = createSelects( ['format:list,table'] );
 			var elementsSelect = createSelects( ['orderby:title,date','sort:ASC,DESC'] );
 
@@ -69,7 +68,6 @@ registerBlockType( 'rrze-downloads/downloads', {
 				createElement( 'div', {}, __( 'Click to open settings on the right side.', 'rrze-downloads') ),
 				createElement( InspectorControls, {},
 					[
-						displayToggle,
 						formatSelect,
 						elementsText,
 						elementsToggle,

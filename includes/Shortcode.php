@@ -140,8 +140,8 @@ function downloadsOutput( $args ) {
           $prehtml_entry = '<li>';
           $posthtml_entry = '</li>';
       } else {
-        $prehtml = '<';
-        $posthtml = '/>';
+        $prehtml = '';
+        $posthtml = '';
         
       }
 
@@ -242,7 +242,7 @@ function downloadsOutput( $args ) {
             }
             $contentlist .= $posthtml_entry;
         } else {
-            $contentlist .= '<' . $htmlitempre . '>';
+            $contentlist .= ($htmlitempre?'<' . $htmlitempre . '>':'');
             $contentlist .= '<a href="' . $url . '">' . $link . '</a>';
             if ($showexcerpt) {
                 $contentlist .= $excerpt;
@@ -250,7 +250,8 @@ function downloadsOutput( $args ) {
             if ($showcontent) {
                 $contentlist .= $desc;
             }
-            $contentlist .= '</' . $htmlitempost . '>';
+            $contentlist .= ($htmlitempost?'</' . $htmlitempost . '>':'');
+            $contentlist .= ($htmlitempre?'':'<br/>');
         }
       }
 

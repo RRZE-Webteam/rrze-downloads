@@ -25,9 +25,6 @@ function downloads_block_init() {
 		'editor_script' => 'downloadsOutput',
 		'render_callback'  => 'downloadsHandler',
 		'attributes'         =>   [
-			"display" => [
-				'default' => true
-			],
 			"format" => [
 				'default' => 'liste'
 			],

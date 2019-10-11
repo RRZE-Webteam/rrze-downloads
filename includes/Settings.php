@@ -72,8 +72,6 @@ class Settings {
      * Settings für mime types link icons folgen:
      */
 
-  
-
      /**
       * @var array   array of mimetypes which default to true / 'on' status
       */
@@ -217,17 +215,8 @@ class Settings {
       $defaults = $this->defaultOptions();
 
       $options = (array) get_option($this->optionName);
-      
-      // error_log('VOR MERGE: $options -> ' . implode('|', $options));
-      // BK EDIT 23.09.2019 : bug! $options enthält ausschließlich die default-Werte 
-      
       $options = wp_parse_args($options, $defaults);
       $options = array_intersect_key($options, $defaults);
-
-
-
-// error_log( 'Settings.php -> getOptions() -> ' . implode('|', $options) . ' $this->optionName = ' . $this->optionName);
-
 
       return $options;
     }
@@ -494,62 +483,7 @@ class Settings {
         return $desc;
     }
 
-    /**
-     * Zeigt ein Textfeld für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackText($args) {
-        $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-        $type = isset($args['type']) ? $args['type'] : 'text';
-        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-
-        $html = sprintf(
-            '<input type="%1$s" class="%2$s-text" id="%4$s-%5$s" name="%3$s[%4$s_%5$s]" value="%6$s"%7$s>',
-            $type,
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $value,
-            $placeholder
-        );
-        $html .= $this->getFieldDescription($args);
-
-        echo $html;
-    }
-
-    /**
-     * Zeigt ein Zahlenfeld für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackNumber($args) {
-        $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-        $type = isset($args['type']) ? $args['type'] : 'number';
-        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-        $min = ($args['min'] == '') ? '' : ' min="' . $args['min'] . '"';
-        $max = ($args['max'] == '') ? '' : ' max="' . $args['max'] . '"';
-        $step = ($args['step'] == '') ? '' : ' step="' . $args['step'] . '"';
-
-        $html = sprintf(
-            '<input type="%1$s" class="%2$s-number" id="%4$s-%5$s" name="%3$s[%4$s_%5$s]" value="%6$s"%7$s%8$s%9$s%10$s>',
-            $type,
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $value,
-            $placeholder,
-            $min,
-            $max,
-            $step
-        );
-        $html .= $this->getFieldDescription($args);
-
-        echo $html;
-    }
-
+    
     /**
      * Zeigt ein Kontrollkästchen (Checkbox) für ein Einstellungsfeld an.
      * @param array   $args Argumente des Einstellungsfelds
@@ -685,123 +619,6 @@ class Settings {
         $html .= sprintf('</select>');
         $html .= $this->getFieldDescription($args);
 
-        echo $html;
-    }
-
-    /**
-     * Zeigt ein Textfeld für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackTextarea($args) {
-        $value = esc_textarea($this->getOption($args['section'], $args['id'], $args['default']));
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-    
-        $html = sprintf(
-            '<textarea rows="5" cols="55" class="%1$s-text" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]"%5$s>%6$s</textarea>',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $placeholder,
-            $value
-        );
-        $html .= $this->getFieldDescription($args);
-    
-        echo $html;
-    }
-
-    /**
-     * Zeigt ein Rich-Text-Textfeld (WP-Editor) für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackWysiwyg($args) {
-        $value = $this->getOption($args['section'], $args['id'], $args['default']);
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : '500px';
-    
-        echo '<div style="max-width: ' . $size . ';">';
-    
-        $editor_settings = [
-            'teeny' => true,
-            'textarea_name' => sprintf('%1$s[%2$s_%3$s]', $this->optionName, $args['section'], $args['id']),
-            'textarea_rows' => 10
-        ];
-    
-        if (isset($args['options']) && is_array($args['options'])) {
-            $editor_settings = array_merge($editor_settings, $args['options']);
-        }
-    
-        wp_editor($value, $args['section'] . '-' . $args['id'], $editor_settings);
-    
-        echo '</div>';
-    
-        echo $this->getFieldDescription($args);
-    }
-
-    /**
-     * Zeigt ein Datei-Upload-Feld für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackFile($args) {
-        $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-        $id = $args['section']  . '[' . $args['id'] . ']';
-        $label = isset($args['options']['button_label']) ? $args['options']['button_label'] : __('Choose File');
-    
-        $html = sprintf(
-            '<input type="text" class="%1$s-text settings-media-url" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s"/>',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $value
-        );
-        $html .= '<input type="button" class="button settings-media-browse" value="' . $label . '">';
-        $html .= $this->getFieldDescription($args);
-    
-        echo $html;
-    }
-
-    /**
-     * Zeigt ein Passwortfeld für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackPassword($args) {
-        $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
-        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-    
-        $html = sprintf(
-            '<input type="password" class="%1$s-text" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s">',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $value
-        );
-        $html .= $this->getFieldDescription($args);
-    
-        echo $html;
-    }
-
-    /**
-     * Zeigt ein Farbauswahlfeld (WP-Color-Picker) für ein Einstellungsfeld an.
-     * @param array   $args Argumente des Einstellungsfelds
-     */
-    public function callbackColor($args) {
-        $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
-        $size = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
-    
-        $html = sprintf(
-            '<input type="text" class="%1$s-text wp-color-picker-field" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]" value="%5$s" data-default-color="%6$s">',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            $value,
-            $args['default']
-        );
-        $html .= $this->getFieldDescription($args);
-    
         echo $html;
     }
 }

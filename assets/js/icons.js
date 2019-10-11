@@ -1,9 +1,4 @@
 jQuery(document).ready(function($) {
-
-  // var eventhandler = function(e) {
-  //    e.preventDefault();      
-  // }
-  
   var disabled_color = '#b4b9be';
 
   function strcmp(a, b) {
@@ -51,41 +46,15 @@ jQuery(document).ready(function($) {
     }
   }
 
-  // function setClassnames() {
-  //   if ( $( '#additional-use_classnames' ).attr('checked') ) {
-  //     enableField( 'additional:classnames' );  
-  //   } else {
-  //     disableField( 'additional:classnames' );  
-  //   }
-  // }
-  
-  // function setCache() {
-  //   if ( $( '#additional-cache' ).attr('checked') ) {
-  //     enableField( 'additional:cachetime' );  
-  //   } else {
-  //     disableField( 'additional:cachetime' );  
-  //   }
-  // }
-
   function setFilesize() {
     if ( $( '#icons-filesize' ).attr('checked') ) {
       // enableField( 'additional:precision,cache' ); 
       enableField( 'icons:precision' ); 
-      setCache(); 
     } else {
       // disableField( 'additional:precision,cache,cachetime' );  
       disableField( 'icons:precision' );  
     }
   }
-
-  // function setReplacement() {
-  //   if ( $( 'input[type=radio][name="rrze-downloads[additional_replacement]"]:checked' ).val() == 'asynchronous' ) {
-  //     enableField( 'additional:asynchronous_debug' );  
-  //   } else {
-  //     $( '#additional-asynchronous_debug' ).attr('checked', false);
-  //     disableField( 'additional:asynchronous_debug' );  
-  //   }
-  // }
 
   function setMimetypes(init = false) {
     if ( $( '#icons_mimetypes-all_mimetypes' ).attr('checked') ) {
@@ -117,23 +86,13 @@ jQuery(document).ready(function($) {
         enableField( 'icons:icondimensions,icontype,iconalign' );  
         $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
         // Enable tab "File Types Settings":
-        $( '#icons_mimetypes-tab' ).removeAttr( 'style' );
-        $( '#icons_mimetypes-tab' ).unbind( 'click', eventhandler);
+        $( '#icons_mimetypes-tab' ).fadeIn(300);
         break;
-      // case 'previews':
-      //   disableField( 'icons:icondimensions,icontype' );  
-      //   enableField( 'icons:iconalign' );  
-      //   $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
-      //   // Disable tab "File Types Settings":
-      //   $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
-      //   $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );
-      //   break;
       case 'plain':
         disableField( 'icons:icondimensions,icontype,iconalign' );  
         $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', true );
         // Disable tab "File Types Settings":
-        $( '#icons_mimetypes-tab' ).css( {'color': disabled_color, 'cursor': 'default'} );
-        $( '#icons_mimetypes-tab' ).bind( 'click', eventhandler );
+        $( '#icons_mimetypes-tab' ).fadeOut(300);
         break;
     }
   }
@@ -142,27 +101,11 @@ jQuery(document).ready(function($) {
   $( '#icons_mimetypes-all_mimetypes' ).change( function() {
     setMimetypes();
   });
-  
-  // // click on checkbox "Enable classnames?"
-  // $( '#additional-use_classnames' ).change( function() {
-  //   setClassnames();
-  // });
-
 
   // click on checkbox "Show File Size?"
   $( '#icons-filesize' ).change( function() {
     setFilesize();
   });
-
-  // // click on checkbox "Cache retrieved file sizes."
-  // $( '#additional-cache' ).change( function() {
-  //   setCache();
-  // });
-
-  // // click on radiobutton "Replacement Mode"
-  // $( 'input[type=radio][name="rrze-downloads[additional_replacement]' ).change( function() {
-  //   setReplacement();
-  // });
 
   // click on radiobutton "Icons or Previews" 
   $( 'input[type=radio][name="rrze-downloads[icons_icon_preview]"]' ).change( function() {
@@ -170,14 +113,9 @@ jQuery(document).ready(function($) {
     setIconsPreviews();
   });
 
-
-
   // default settings will be set on load and after store:
   function onLoaded() {
-    // setClassnames();
     setFilesize();
-    // setCache();
-    // setReplacement();
     setMimetypes( true );
     setIconsPreviews();
   }

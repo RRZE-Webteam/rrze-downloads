@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-10-11 08:32+0000\n"
-"PO-Revision-Date: 2019-10-11 08:34+0000\n"
+"PO-Revision-Date: 2019-10-11 08:33+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
 "Language: de_DE_formal\n"
@@ -184,8 +184,7 @@ msgstr "Genauigkeit (Dezimalstellen)"
 
 #: config/config.php:165
 msgid "Sizes less than 1 kB will always have 0 decimals."
-msgstr ""
-"Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
+msgstr "Dateigrößen kleiner als 1 kB werden immer 0 Dezimalstellen haben."
 
 #: config/config.php:169
 msgid "0"

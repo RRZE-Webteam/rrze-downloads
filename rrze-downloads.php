@@ -28,16 +28,12 @@ defined('ABSPATH') || exit;
 
 // Laden der Konfigurationsdatei
 require_once 'config/config.php';
-
-
 include 'blocks/downloads.php';
-
 
 use RRZE\Downloads\Main;
 
 const RRZE_PHP_VERSION = '7.3';
 const RRZE_WP_VERSION = '5.2';
-
 
 // Automatische Laden von Klassen.
 spl_autoload_register(function ($class) {
@@ -99,10 +95,6 @@ function activation() {
         deactivate_plugins(plugin_basename(__FILE__));
         wp_die($error);
     }
-
-    // Ab hier können die Funktionen hinzugefügt werden,
-    // die bei der Aktivierung des Plugins aufgerufen werden müssen.
-    // Bspw. wp_schedule_event, flush_rewrite_rules, etc.
 }
 
 /**
@@ -114,41 +106,12 @@ function deactivation() {
     // Bspw. delete_option, wp_clear_scheduled_hook, flush_rewrite_rules, etc.
 }
 
-
-function mce_external_plugins() {
-    if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-        add_filter('mce_external_languages', 'RRZE\Downloads\mce_locale');
-        add_filter('mce_external_plugins', 'RRZE\Downloads\mce_buttons');
-    }
-}
-
-function mce_locale($locales) {
-    $locales ['rrze-downloads'] = plugin_dir_path ( __FILE__ ) . 'assets/mce-langs.php';
-    return $locales;
-}
-
-function mce_buttons($plugin_array) {
-    $plugin_array['rrzedownloadshortcode'] = plugin_dir_url(__FILE__) . 'assets/js/shortcode-button.js';
-    return $plugin_array;
-}
-
-// WP_Image_Editor_GD ist für die Preview-Erstellung nötig
-// function cv_image_editor_default_to_gd( $editors ) {
-//     $gd_editor = 'WP_Image_Editor_GD';
-//     $editors = array_diff( $editors, array( $gd_editor ) );
-//     array_unshift( $editors, $gd_editor );
-//     return $editors;
-// }
-
-    
-
 /**
  * Wird durchgeführt, nachdem das WP-Grundsystem hochgefahren
  * und alle Plugins eingebunden wurden.
  */
 function loaded() {
-  
-    // Sprachdateien werden eingebunden.
+      // Sprachdateien werden eingebunden.
     loadTextDomain();
 
     // Überprüft die Systemvoraussetzungen.
@@ -158,7 +121,6 @@ function loaded() {
             $pluginName = $pluginData['Name'];
             $tag = is_plugin_active_for_network(plugin_basename(__FILE__)) ? 'network_admin_notices' : 'admin_notices';
 
-
             add_action($tag, function () use ($pluginName, $error) {
                 printf(
                     '<div class="notice notice-error"><p>' . __('Plugins: %1$s: %2$s', 'rrze-downloads') . '</p></div>',
@@ -166,26 +128,11 @@ function loaded() {
                     esc_html($error)
                 );
             });
-            require_once('assets/taxonomies/media-taxonomies.php');
-            new Taxonomies\Media();
         });
         
-        require_once('assets/taxonomies/attachment-category.php');
-        require_once('assets/taxonomies/attachment-tag.php');
-        
-        add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\set');
-        add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
-
-        add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\register');
-        add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
-        add_action('admin_init', 'RRZE\Downloads\mce_external_plugins');
-
-        // add_filter( 'wp_image_editors', 'cv_image_editor_default_to_gd' );
-
         // Das Plugin wird nicht mehr ausgeführt.
         return;
     }
-
 
     // Hauptklasse (Main) wird instanziiert.
     $main = new Main(__FILE__);

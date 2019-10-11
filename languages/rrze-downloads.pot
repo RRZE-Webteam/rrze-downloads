@@ -10,28 +10,28 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-07 15:29+0000\n"
+"POT-Creation-Date: 2019-10-11 08:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
-#: rrze-downloads.php:81
+#: rrze-downloads.php:77
 #, php-format
 msgid ""
 "The server is running PHP version %1$s. The Plugin requires at least PHP "
 "version %2$s."
 msgstr ""
 
-#: rrze-downloads.php:84
+#: rrze-downloads.php:80
 #, php-format
 msgid ""
 "The server is running WordPress version %1$s. The Plugin requires at least "
 "WordPress version %2$s."
 msgstr ""
 
-#: rrze-downloads.php:154
+#: rrze-downloads.php:126
 #, php-format
 msgid "Plugins: %1$s: %2$s"
 msgstr ""
@@ -75,346 +75,155 @@ msgid "RRZE Webteam on Github"
 msgstr ""
 
 #: config/config.php:86
-msgid "Icons Settings"
+msgid "Settings"
 msgstr ""
 
 #: config/config.php:90
-msgid "File Types Settings"
+msgid "Icons Settings"
 msgstr ""
 
-#: config/config.php:94
-msgid "Additional Settings"
-msgstr ""
-
-#: config/config.php:109
+#: config/config.php:105
 msgid "Show downloads with"
 msgstr ""
 
-#: config/config.php:110
-msgid "Choose whether to show icons or preview images next to each download"
+#: config/config.php:106
+msgid "Choose whether to show icons or not next to each download."
 msgstr ""
 
-#: config/config.php:114
+#: config/config.php:110
 msgid "Icons"
 msgstr ""
 
-#: config/config.php:115
-msgid "Preview images"
-msgstr ""
-
-#: config/config.php:116
+#: config/config.php:111
 msgid "just plain links"
 msgstr ""
 
-#: config/config.php:121
-msgid "Image Size"
+#: config/config.php:116
+msgid "Icon Size"
 msgstr ""
 
-#: config/config.php:122
+#: config/config.php:117
 msgid "Size: width x height in pixels"
 msgstr ""
 
-#: config/config.php:126
+#: config/config.php:121
 msgid "16 x 16"
 msgstr ""
 
-#: config/config.php:127
+#: config/config.php:122
 msgid "24 x 24"
 msgstr ""
 
-#: config/config.php:128
+#: config/config.php:123
 msgid "48 x 48"
 msgstr ""
 
-#: config/config.php:129
+#: config/config.php:124
 msgid "64 x 64"
 msgstr ""
 
-#: config/config.php:130
+#: config/config.php:125
 msgid "128 x 128"
 msgstr ""
 
-#: config/config.php:135
-msgid "Image Type"
+#: config/config.php:130
+msgid "Icon Type"
 msgstr ""
 
-#: config/config.php:136
+#: config/config.php:131
 msgid "File type of the icon."
 msgstr ""
 
-#: config/config.php:140
+#: config/config.php:135
 msgid "GIF"
 msgstr ""
 
-#: config/config.php:141
+#: config/config.php:136
 msgid "PNG"
 msgstr ""
 
-#: config/config.php:142
+#: config/config.php:137
 msgid "SVG"
 msgstr ""
 
-#: config/config.php:147
+#: config/config.php:142
 msgid "Align icon"
 msgstr ""
 
-#: config/config.php:148
+#: config/config.php:143
 msgid "Show icon on the left or right side of the link"
 msgstr ""
 
-#: config/config.php:152
+#: config/config.php:147
 msgid "Left"
 msgstr ""
 
-#: config/config.php:153
+#: config/config.php:148
 msgid "Right"
 msgstr ""
 
-#: config/config.php:160
-msgid "Select all file types"
-msgstr ""
-
-#: config/config.php:161
-msgid "Add an icon to all file types"
-msgstr ""
-
-#: config/config.php:165 config/config.php:178 config/config.php:196
-#: config/config.php:222 config/config.php:259 config/config.php:275
-msgid "yes"
-msgstr ""
-
-#: config/config.php:166 config/config.php:179 config/config.php:197
-#: config/config.php:223 config/config.php:260 config/config.php:276
-msgid "no"
-msgstr ""
-
-#: config/config.php:173
-msgid "Enable Classnames?"
-msgstr ""
-
-#: config/config.php:174
-msgid ""
-"Use this option to disable the mime type links (ie: around an image or "
-"caption) excluding the following classname(s):"
-msgstr ""
-
-#: config/config.php:184
-msgid "Classname(s)"
-msgstr ""
-
-#: config/config.php:185
-msgid "Enter one or more classnames seperated by comma \",\" to exclude them."
-msgstr ""
-
-#: config/config.php:191
+#: config/config.php:153
 msgid "Show File Size?"
 msgstr ""
 
-#: config/config.php:192
+#: config/config.php:154
 msgid "Display the file size of the attachment / linked file."
 msgstr ""
 
-#: config/config.php:202
+#: config/config.php:158 config/config.php:186 config/config.php:296
+msgid "yes"
+msgstr ""
+
+#: config/config.php:159 config/config.php:187 config/config.php:297
+msgid "no"
+msgstr ""
+
+#: config/config.php:164
 msgid "Precision (decimals)"
 msgstr ""
 
-#: config/config.php:203
+#: config/config.php:165
 msgid "Sizes less than 1 kB will always have 0 decimals."
 msgstr ""
 
-#: config/config.php:207
+#: config/config.php:169
 msgid "0"
 msgstr ""
 
-#: config/config.php:208
+#: config/config.php:170
 msgid "1"
 msgstr ""
 
-#: config/config.php:209
+#: config/config.php:171
 msgid "2"
 msgstr ""
 
-#: config/config.php:210
+#: config/config.php:172
 msgid "3"
 msgstr ""
 
-#: config/config.php:211
+#: config/config.php:173
 msgid "4"
 msgstr ""
 
-#: config/config.php:212
+#: config/config.php:174
 msgid "5"
 msgstr ""
 
-#: config/config.php:217
-msgid "Cache retrieved file sizes."
+#: config/config.php:181
+msgid "Select all file types"
 msgstr ""
 
-#: config/config.php:218
-msgid ""
-"If the file sizes of the files you link to do not change very often, it is "
-"recommended to cache the results for a faster page loading."
+#: config/config.php:182
+msgid "Add an icon to all file types"
 msgstr ""
 
-#: config/config.php:228
-msgid "Time to cache:"
-msgstr ""
-
-#: config/config.php:229
-msgid "Amount of time to cache retrieved file sizes: "
-msgstr ""
-
-#: config/config.php:233
-msgid "1 hour"
-msgstr ""
-
-#: config/config.php:234
-msgid "1 day"
-msgstr ""
-
-#: config/config.php:235
-msgid "1 week"
-msgstr ""
-
-#: config/config.php:236
-msgid "2 weeks"
-msgstr ""
-
-#: config/config.php:237
-msgid "3 weeks"
-msgstr ""
-
-#: config/config.php:238
-msgid "4 weeks"
-msgstr ""
-
-#: config/config.php:243
-msgid "Replacement Mode"
-msgstr ""
-
-#: config/config.php:244
-msgid ""
-"Switch to asynchronous replacement if your theme conflicts with this plugin. "
-"Asynchronous replacement uses JavaScript instead of PHP to find your links."
-msgstr ""
-
-#: config/config.php:248
-msgid "synchronous"
-msgstr ""
-
-#: config/config.php:249
-msgid "asynchronous"
-msgstr ""
-
-#: config/config.php:254
-msgid "Enable Debug Mode?"
-msgstr ""
-
-#: config/config.php:255
-msgid "Tick this box for debugging if using asynchronous replacement."
-msgstr ""
-
-#: config/config.php:271
+#: config/config.php:292
 msgid "Add an icon to"
 msgstr ""
 
-#: includes/Shortcode.php:280
+#: includes/Shortcode.php:264
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
-msgstr ""
-
-#: assets/mce-langs.php:15
-msgid "Downloadliste einfügen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:10
-#: assets/taxonomies/attachment-category.php:20
-msgid "Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:11
-msgid "Kategorie"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:12
-msgid "Kategorien suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:13
-#: assets/taxonomies/attachment-category.php:55
-#: assets/taxonomies/attachment-category.php:98
-msgid "Alle Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:14
-msgid "Übergeordnet"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:15
-msgid "Übergeordnet:"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:16
-msgid "Kategorie bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:17
-msgid "Kategorie aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:18
-msgid "Neue Kategorie hinzufügen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:19
-#: assets/taxonomies/attachment-tag.php:20
-msgid "Name"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:10
-#: assets/taxonomies/attachment-tag.php:24
-msgid "Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:11
-msgid "Schlagwort"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:12
-msgid "Schlagwörter suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:13
-msgid "Beliebte Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:14
-#: assets/taxonomies/attachment-tag.php:59
-#: assets/taxonomies/attachment-tag.php:102
-msgid "Alle Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:17
-msgid "Schlagwort bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:18
-msgid "Schlagwort aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:19
-msgid "Neues Schlagwort erstellen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:21
-msgid "Trenne Schlagwörter durch Kommas"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:22
-msgid "Hinzu"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:23
-msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr ""
 
 #. Description of the plugin

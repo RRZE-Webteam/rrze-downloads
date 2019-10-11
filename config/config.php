@@ -88,11 +88,7 @@ function getSections() {
       [
         'id'    => 'icons_mimetypes',
         'title' => __('Icons Settings', 'rrze-downloads')
-      ],
-      // [
-      //   'id'    => 'additional',
-      //   'title' => __('Additional Settings', 'rrze-downloads')
-      // ]
+      ]
     ];
 }
 
@@ -107,18 +103,17 @@ function getFields() {
       [
         'name'    => 'icon_preview',
         'label'   => __('Show downloads with', 'rrze-downloads'),
-        'desc'    => __('Choose whether to show icons or preview images next to each download', 'rrze-downloads'),
+        'desc'    => __('Choose whether to show icons or not next to each download.', 'rrze-downloads'),
         'type'    => 'radio',
         'default' => 'icons',
         'options' => [
           'icons' => __('Icons', 'rrze-downloads'),
-          // 'previews' => __('Preview images', 'rrze-downloads'),
           'plain' => __('just plain links', 'rrze-downloads')
         ]
       ],
       [
         'name'    => 'icondimensions',
-        'label'   => __('Image Size', 'rrze-downloads'),
+        'label'   => __('Icon Size', 'rrze-downloads'),
         'desc'    => __('Size: width x height in pixels', 'rrze-downloads'),
         'type'    => 'select',
         'default' => '24',
@@ -132,7 +127,7 @@ function getFields() {
       ],
       [
         'name'    => 'icontype',
-        'label'   => __('Image Type', 'rrze-downloads'),
+        'label'   => __('Icon Type', 'rrze-downloads'),
         'desc'    => __('File type of the icon.', 'rrze-downloads'),
         'type'    => 'select',
         'default' => 'svg',

@@ -16,7 +16,7 @@ function downloadsHandler( $atts ) {
         "search_video" => false,
         "search_audio" => false,
         "search_text" => false,
-        "showsize" => true,
+        "showsize" => false,
         "showcreated" => false,
         "showexcerpt" => false,
         "showcontent" => false,
@@ -167,7 +167,7 @@ function downloadsOutput( $args ) {
           
         $size = '';
 
-        if ( $icon_options['icons_filesize'] == 'on' || $showsize ) {
+        if ( ($icon_options['icons_filesize'] == 'on') || $showsize ) {
             $precision = ( $icon_options['icons_filesize'] == 'on' ? $icon_options['icons_precision'] : 2);
             $size = size_format( filesize(get_attached_file($file->ID)), $precision );
         }

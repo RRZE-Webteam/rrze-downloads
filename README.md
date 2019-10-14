@@ -19,7 +19,6 @@ Erzeugt eine Listeansicht aller in der Mediathek verfügbaren Download-Dateien.
 Attribute:
 <pre>
 category
-cat
 tags
 type
 format

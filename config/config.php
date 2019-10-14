@@ -107,7 +107,8 @@ function getFields() {
       [
         'name'    => 'icon_preview',
         'label'   => __('Show downloads with', 'rrze-downloads'),
-        'desc'    => __('Choose whether to show icons or not next to each download.', 'rrze-downloads'),
+        // 'desc'    => __('Choose whether to show icons or not next to each download.', 'rrze-downloads'),
+        'desc'    => '',
         'type'    => 'radio',
         'default' => 'icons',
         'options' => [

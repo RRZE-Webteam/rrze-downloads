@@ -66,7 +66,7 @@ registerBlockType( 'rrze-downloads/downloads', {
 				return ret;
 			}
 
-			var elementsText = createTexts( ['category|Kategorie', 'cat|Cat', 'tags|Tags', 'type|Typ', 'htmlpre|HTMLpre', 'htmlpost|HTMLpost', 'htmlitempre|HTMLitempre', 'htmlitempost|HTMLitempost'] );
+			var elementsText = createTexts( ['category|Kategorie', 'tags|Tags', 'type|Typ', 'htmlpre|HTMLpre', 'htmlpost|HTMLpost', 'htmlitempre|HTMLitempre', 'htmlitempost|HTMLitempost'] );
 			var elementsToggle = createToggles( ['search_application|Programme suchen', 'search_image|Bilder suchen', 'search_video|Videos suchen', 'search_audio|Audiodateien suchen', 'search_text|Texte suchen', 'showsize|Dateigröße anzeigen', 'showexcerpt|Exzerpt anzeigen', 'showcontent|Inhalt anzeigen'] );
 			var formatSelect = createSelects( ['format|Format:list|Liste,table|Tabelle'] );
 			var elementsSelect = createSelects( ['orderby|Sortierung nach:title|Titel,date|Datum','sort|Sortierreihenfolge:ASC|a-z,DESC|z-a'] );

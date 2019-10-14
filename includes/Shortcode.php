@@ -35,7 +35,6 @@ function downloadsOutput( $args ) {
   
 
   $category = esc_attr($args['category']);
-  $cat = esc_attr($args['cat']);
   $tags = esc_attr($args['tags']);
   $format = esc_attr($args['format']);
   $type = esc_attr($args['type']);
@@ -60,14 +59,8 @@ function downloadsOutput( $args ) {
   $orderby = !empty($orderby) && in_array(strtolower($orderby), array('title', 'date')) ? strtolower($orderby) : 'title';
   $sort = !empty($sort) && in_array(strtoupper($sort), array('ASC', 'DESC')) ? strtoupper($sort) : 'ASC';
 
-  if (empty($category)) {
-      $catname = $cat;
-  } else {
-      $catname = $category;
-  }
-  
   $type = in_array($type, array('category', 'document')) ? $type : 'category';
-  $category = get_term_by('slug', $catname, 'attachment_' . $type);
+  $category = get_term_by('slug', $category, 'attachment_' . $type);
 
   $args = array('post_type' => 'attachment',
       'post_status' => 'any',

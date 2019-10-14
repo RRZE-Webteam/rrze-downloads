@@ -31,9 +31,6 @@ function downloads_block_init() {
 			"category" => [
 				'default' => ''
 			],
-			"cat" => [
-				'default' => ''
-			],
 			"tags" => [
 				'default' => ''
 			],

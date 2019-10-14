@@ -5,6 +5,9 @@ namespace RRZE\Downloads\Config;
 
 defined('ABSPATH') || exit;
 
+// Auf true setzen, wenn der Server Preview Bilder aus PDFs und z.B. DOCs erstellen kann:
+define('PREVIEW_ENABLED', true);
+
 
 /**
  * @var array	array of mimetypes
@@ -87,7 +90,7 @@ function getSections() {
       ],
       [
         'id'    => 'icons_mimetypes',
-        'title' => __('Icons Settings', 'rrze-downloads')
+        'title' => __('File Types', 'rrze-downloads')
       ]
     ];
 }
@@ -98,6 +101,7 @@ function getSections() {
  */
 function getFields() {
   global $mime_types;
+  
   $ret = [
     'icons' => [
       [
@@ -108,6 +112,7 @@ function getFields() {
         'default' => 'icons',
         'options' => [
           'icons' => __('Icons', 'rrze-downloads'),
+          // 'previews' => __('Preview images', 'rrze-downloads',
           'plain' => __('just plain links', 'rrze-downloads')
         ]
       ],
@@ -179,7 +184,7 @@ function getFields() {
       [
         'name'    => 'all_mimetypes',
         'label'   => __('Select all file types', 'rrze-downloads'),
-        'desc'    => __('Add an icon to all file types', 'rrze-downloads'),
+        'desc'    => __('Add an icon / a preview to all file types', 'rrze-downloads'),
         'type'    => 'checkbox',
         'default' => 'no',
         'options' => [
@@ -188,108 +193,17 @@ function getFields() {
         ]
       ]
     ]
-    // 'additional' => [
-    //   [
-    //     'name'    => 'use_classnames',
-    //     'label'   => __('Enable Classnames?', 'rrze-downloads'),
-    //     'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
-    //     'type'    => 'checkbox',
-    //     'default' => 'no',
-    //     'options' => [
-    //       'yes' => __('yes', 'rrze-downloads'),
-    //       'no' => __('no', 'rrze-downloads')
-    //     ]
-    //   ],
-    //   [
-    //     'name'    => 'classnames',
-    //     'label'   => __('Classname(s)', 'rrze-downloads'),
-    //     'desc'    => __('Enter one or more classnames seperated by comma "," to exclude them.', 'rrze-downloads'),
-    //     'type'    => 'text',
-    //     'default' => 'wp-caption'
-    //   ],
-    //   [
-    //     'name'    => 'filesize',
-    //     'label'   => __('Show File Size?', 'rrze-downloads'),
-    //     'desc'    => __('Display the file size of the attachment / linked file.', 'rrze-downloads'),
-    //     'type'    => 'checkbox',
-    //     'default' => 'no',
-    //     'options' => [
-    //       'yes' => __('yes', 'rrze-downloads'),
-    //       'no' => __('no', 'rrze-downloads')
-    //     ]
-    //   ],
-    //   [
-    //     'name'    => 'precision',
-    //     'label'   => __('Precision (decimals)', 'rrze-downloads'),
-    //     'desc'    => __('Sizes less than 1 kB will always have 0 decimals.', 'rrze-downloads'),
-    //     'type'    => 'select',
-    //     'default' => '2',
-    //     'options' => [
-    //       '0' => __('0', 'rrze-downloads'),
-    //       '1' => __('1', 'rrze-downloads'),
-    //       '2' => __('2', 'rrze-downloads'),
-    //       '3' => __('3', 'rrze-downloads'),
-    //       '4' => __('4', 'rrze-downloads'),
-    //       '5' => __('5', 'rrze-downloads')
-    //     ]
-    //   ],      
-    //   [
-    //     'name'    => 'cache',
-    //     'label'   => __('Cache retrieved file sizes.', 'rrze-downloads'),
-    //     'desc'    => __('If the file sizes of the files you link to do not change very often, it is recommended to cache the results for a faster page loading.', 'rrze-downloads'),
-    //     'type'    => 'checkbox',
-    //     'default' => 'yes',
-    //     'options' => [
-    //       'yes' => __('yes', 'rrze-downloads'),
-    //       'no' => __('no', 'rrze-downloads')
-    //     ]
-    //   ],      
-    //   [
-    //     'name'    => 'cachetime',
-    //     'label'   => __('Time to cache:', 'rrze-downloads'),
-    //     'desc'    => __('Amount of time to cache retrieved file sizes: ', 'rrze-downloads'),
-    //     'type'    => 'select',
-    //     'default' => '604800',
-    //     'options' => [
-    //       '3600' => __('1 hour', 'rrze-downloads'),
-    //       '86400' => __('1 day', 'rrze-downloads'),
-    //       '604800' => __('1 week', 'rrze-downloads'),
-    //       '1209600' => __('2 weeks', 'rrze-downloads'),
-    //       '1814400' => __('3 weeks', 'rrze-downloads'),
-    //       '2419200' => __('4 weeks', 'rrze-downloads')
-    //     ]
-    //   ],      
-    //   [
-    //     'name'    => 'replacement',
-    //     'label'   => __('Replacement Mode', 'rrze-downloads'),
-    //     'desc'    => __('Switch to asynchronous replacement if your theme conflicts with this plugin. Asynchronous replacement uses JavaScript instead of PHP to find your links.', 'rrze-downloads'),
-    //     'type'    => 'radio',
-    //     'default' => 'synchronous',
-    //     'options' => [
-    //       'synchronous' => __('synchronous', 'rrze-downloads'),
-    //       'asynchronous' => __('asynchronous', 'rrze-downloads')
-    //     ]
-    //   ],      
-    //   [
-    //     'name'    => 'asynchronous_debug',
-    //     'label'   => __('Enable Debug Mode?', 'rrze-downloads'),
-    //     'desc'    => __('Tick this box for debugging if using asynchronous replacement.', 'rrze-downloads'),
-    //     'type'    => 'checkbox',
-    //     'default' => 'no',
-    //     'options' => [
-    //       'yes' => __('yes', 'rrze-downloads'),
-    //       'no' => __('no', 'rrze-downloads')
-    //     ]
-    //   ]      
-    // ]
   ];
-    
+
+  if (PREVIEW_ENABLED) {
+    $ret['icons'][0]['options'] = array_merge( array_slice($ret['icons'][0]['options'], 0, 1), array('previews' => __('Preview images', 'rrze-downloads')), array_slice($ret['icons'][0]['options'], 1, 1) );
+  }
     
   foreach ($mime_types as $mt) {
     $ret['icons_mimetypes'][] = [
       'name'    => 'mimetype_link_icon_' . $mt,
       'label'   => $mt,
-      'desc'    => __('Add an icon to', 'rrze-downloads'),
+      'desc'    => __('Add an icon / a preview', 'rrze-downloads'),
       'type'    => 'checkbox',
       'default' => 'no',
       'options' => [

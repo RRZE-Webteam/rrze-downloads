@@ -86,6 +86,13 @@ jQuery(document).ready(function($) {
         // Enable tab "File Types Settings":
         $( '#icons_mimetypes-tab' ).fadeIn(300);
         break;
+      case 'previews':
+        disableField( 'icons:icondimensions,icontype' );  
+        enableField( 'icons:iconalign' );  
+        $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', false );
+        // Enable tab "File Types Settings":
+        $( '#icons_mimetypes-tab' ).fadeIn(300);
+        break;
       case 'plain':
         disableField( 'icons:icondimensions,icontype,iconalign' );  
         $( 'input[type=radio][name="rrze-downloads[icons_iconalign]"]' ).attr( 'disabled', true );

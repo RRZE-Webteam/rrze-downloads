@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-11 08:32+0000\n"
-"PO-Revision-Date: 2019-10-11 08:34+0000\n"
+"POT-Creation-Date: 2019-10-14 11:52+0000\n"
+"PO-Revision-Date: 2019-10-14 11:53+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
 "Language: de_DE_formal\n"
@@ -36,27 +36,27 @@ msgstr ""
 msgid "Plugins: %1$s: %2$s"
 msgstr ""
 
-#: config/config.php:52
+#: config/config.php:55
 msgid "Downloads"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: config/config.php:53
+#: config/config.php:56
 msgid "RRZE Downloads"
 msgstr ""
 
-#: config/config.php:56
+#: config/config.php:59
 msgid "Downloads Settings"
 msgstr "Downloads Einstellungen"
 
-#: config/config.php:69
+#: config/config.php:72
 msgid ""
 "This plugin will automatically add an icon or a preview image next to links "
 "of the activated file types. If you like, you can also let the plugin add "
 "the file size of the linked file to the page."
 msgstr ""
 
-#: config/config.php:70
+#: config/config.php:73
 msgid ""
 "On this settings page you can choose to show an icon or a preview image will "
 "be shown and specify the icon size, icon type (white matte gif or "
@@ -66,166 +66,261 @@ msgid ""
 "size and set caching options."
 msgstr ""
 
-#: config/config.php:73
+#: config/config.php:76
 msgid "For more information"
 msgstr "Für weitere Informationen"
 
-#: config/config.php:73
+#: config/config.php:76
 msgid "RRZE Webteam on Github"
 msgstr ""
 
-#: config/config.php:86
+#: config/config.php:89
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: config/config.php:90
-msgid "Icons Settings"
-msgstr "Icons Einstellungen"
+#: config/config.php:93
+msgid "File Types"
+msgstr "Dateitypen"
 
-#: config/config.php:105
+#: config/config.php:109
 msgid "Show downloads with"
 msgstr "Zeige Downloads mit"
 
-#: config/config.php:106
+#: config/config.php:110
 msgid "Choose whether to show icons or not next to each download."
 msgstr "Wählen Sie, ob ein Icon neben den Downloads angezeigt werden soll."
 
-#: config/config.php:110
+#: config/config.php:114
 msgid "Icons"
 msgstr ""
 
-#: config/config.php:111
+#: config/config.php:116
 msgid "just plain links"
 msgstr "Nur Textlinks"
 
-#: config/config.php:116
+#: config/config.php:121
 msgid "Icon Size"
 msgstr "Icon Größe"
 
-#: config/config.php:117
+#: config/config.php:122
 msgid "Size: width x height in pixels"
 msgstr "Größe: Breite x Höhe in Pixel"
 
-#: config/config.php:121
+#: config/config.php:126
 msgid "16 x 16"
 msgstr ""
 
-#: config/config.php:122
+#: config/config.php:127
 msgid "24 x 24"
 msgstr ""
 
-#: config/config.php:123
+#: config/config.php:128
 msgid "48 x 48"
 msgstr ""
 
-#: config/config.php:124
+#: config/config.php:129
 msgid "64 x 64"
 msgstr ""
 
-#: config/config.php:125
+#: config/config.php:130
 msgid "128 x 128"
 msgstr ""
 
-#: config/config.php:130
+#: config/config.php:135
 msgid "Icon Type"
 msgstr "Icon Typ"
 
-#: config/config.php:131
+#: config/config.php:136
 msgid "File type of the icon."
 msgstr "Dateityp des Icons"
 
-#: config/config.php:135
+#: config/config.php:140
 msgid "GIF"
 msgstr ""
 
-#: config/config.php:136
+#: config/config.php:141
 msgid "PNG"
 msgstr ""
 
-#: config/config.php:137
+#: config/config.php:142
 msgid "SVG"
 msgstr ""
 
-#: config/config.php:142
+#: config/config.php:147
 msgid "Align icon"
 msgstr "Icon ausrichten"
 
-#: config/config.php:143
+#: config/config.php:148
 msgid "Show icon on the left or right side of the link"
 msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
 
-#: config/config.php:147
+#: config/config.php:152
 msgid "Left"
 msgstr "links"
 
-#: config/config.php:148
+#: config/config.php:153
 msgid "Right"
 msgstr "rechts"
 
-#: config/config.php:153
+#: config/config.php:158
 msgid "Show File Size?"
 msgstr "Dateigröße anzeigen?"
 
-#: config/config.php:154
+#: config/config.php:159
 msgid "Display the file size of the attachment / linked file."
 msgstr "Zeige die Größe der angefügten oder verlinkten Datei an. "
 
-#: config/config.php:158 config/config.php:186 config/config.php:296
+#: config/config.php:163 config/config.php:191 config/config.php:210
 msgid "yes"
 msgstr "ja"
 
-#: config/config.php:159 config/config.php:187 config/config.php:297
+#: config/config.php:164 config/config.php:192 config/config.php:211
 msgid "no"
 msgstr "nein"
 
-#: config/config.php:164
+#: config/config.php:169
 msgid "Precision (decimals)"
 msgstr "Genauigkeit (Dezimalstellen)"
 
-#: config/config.php:165
+#: config/config.php:170
 msgid "Sizes less than 1 kB will always have 0 decimals."
 msgstr ""
 "Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
 
-#: config/config.php:169
+#: config/config.php:174
 msgid "0"
 msgstr ""
 
-#: config/config.php:170
+#: config/config.php:175
 msgid "1"
 msgstr ""
 
-#: config/config.php:171
+#: config/config.php:176
 msgid "2"
 msgstr ""
 
-#: config/config.php:172
+#: config/config.php:177
 msgid "3"
 msgstr ""
 
-#: config/config.php:173
+#: config/config.php:178
 msgid "4"
 msgstr ""
 
-#: config/config.php:174
+#: config/config.php:179
 msgid "5"
 msgstr ""
 
-#: config/config.php:181
+#: config/config.php:186
 msgid "Select all file types"
 msgstr "Alle Dateitypen auswählen"
 
-#: config/config.php:182
-msgid "Add an icon to all file types"
-msgstr "Füge Icons zu allen Dateitypen hinzu"
+#: config/config.php:187
+msgid "Add an icon / a preview to all file types"
+msgstr "Icons / Vorschaubilder für alle Dateitypen hinzufügen"
 
-#: config/config.php:292
-msgid "Add an icon to"
-msgstr "Icon hinzufügen"
+#: config/config.php:199
+msgid "Preview images"
+msgstr "Vorschaubilder"
 
-#: includes/Shortcode.php:264
+#: config/config.php:206
+msgid "Add an icon / a preview"
+msgstr "Icon / Vorschaubild hinzufügen"
+
+#: includes/Shortcode.php:265
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
 msgstr "Downloads: Es konnten keine Dateien gefunden werden."
+
+#: assets/taxonomies/attachment-category.php:10
+#: assets/taxonomies/attachment-category.php:20
+msgid "Kategorien"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:11
+msgid "Kategorie"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:12
+msgid "Kategorien suchen"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:13
+#: assets/taxonomies/attachment-category.php:55
+#: assets/taxonomies/attachment-category.php:98
+msgid "Alle Kategorien"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:14
+msgid "Übergeordnet"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:15
+msgid "Übergeordnet:"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:16
+msgid "Kategorie bearbeiten"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:17
+msgid "Kategorie aktualisieren"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:18
+msgid "Neue Kategorie hinzufügen"
+msgstr ""
+
+#: assets/taxonomies/attachment-category.php:19
+#: assets/taxonomies/attachment-tag.php:20
+msgid "Name"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:10
+#: assets/taxonomies/attachment-tag.php:24
+msgid "Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:11
+msgid "Schlagwort"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:12
+msgid "Schlagwörter suchen"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:13
+msgid "Beliebte Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:14
+#: assets/taxonomies/attachment-tag.php:59
+#: assets/taxonomies/attachment-tag.php:102
+msgid "Alle Schlagwörter"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:17
+msgid "Schlagwort bearbeiten"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:18
+msgid "Schlagwort aktualisieren"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:19
+msgid "Neues Schlagwort erstellen"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:21
+msgid "Trenne Schlagwörter durch Kommas"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:22
+msgid "Hinzu"
+msgstr ""
+
+#: assets/taxonomies/attachment-tag.php:23
+msgid "Wähle aus den häufig genutzten Schlagwörtern"
+msgstr ""
 
 #. Description of the plugin
 msgid ""

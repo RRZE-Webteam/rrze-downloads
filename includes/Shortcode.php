@@ -196,9 +196,9 @@ function downloadsOutput( $args ) {
             if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
               $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
               if ( $icon_options["icons_icontype"] == 'svg' ) {
-                $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"></object>';
+                $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"><p>Icon ' . $icon_options["icons_icontype"] . '</p></object>';
               } else {
-                $img = '<img src="' . $img_src . '" alt="" height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '">';
+                $img = '<img src="' . $img_src . '" alt="Icon ' . $icon_options["icons_icontype"] . ' " height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '">';
               }
             } else {
               $img = 'Icon is missing';

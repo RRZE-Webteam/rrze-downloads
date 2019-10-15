@@ -5,12 +5,15 @@ namespace RRZE\Downloads\Config;
 
 defined('ABSPATH') || exit;
 
+// Auf true setzen, wenn der Server Preview Bilder aus PDFs und z.B. DOCs erstellen kann:
+define('PREVIEW_ENABLED', true);
+
 
 /**
  * @var array	array of mimetypes
  */
 $mime_types = array(
-  '3g2', '3gp',
+  '3g2', '3gp', 
   'ai', 'air', 'asf', 'avi',
   'bib',
   'cls', 'csv',
@@ -40,7 +43,7 @@ $mime_types = array(
  * @return array [description]
  */
 function getOptionName() {
-    return 'rrze_downloads';
+    return 'rrze-downloads';
 }
 
 /**
@@ -49,8 +52,8 @@ function getOptionName() {
  */
 function getMenuSettings() {
     return [
-        'page_title'    => __('Downloads', 'rrze-downloads'),
-        'menu_title'    => __('Downloads', 'rrze-downloads'),
+       'page_title'    => __('Downloads', 'rrze-downloads'),
+        'menu_title'    => __('RRZE Downloads', 'rrze-downloads'),
         'capability'    => 'manage_options',
         'menu_slug'     => 'rrze-downloads',
         'title'         => __('Downloads Settings', 'rrze-downloads'),
@@ -64,9 +67,10 @@ function getMenuSettings() {
 function getHelpTab() {
     return [
         [
-            'id'        => 'downloads-help',
-            'content'   => [
-                '<p>' . __('Here comes the Context Help content.', 'rrze-downloads') . '</p>'
+            'id'        => 'rrze-downloads',
+            'content'   => ['<p>' .
+      								sprintf( __( 'This plugin will automatically add an icon or a preview image next to links of the activated file types. If you like, you can also let the plugin add the file size of the linked file to the page.', 'rrze-downloads' ), 'http://wordpress.org/plugins/mimetypes-link-icons/" target="_blank" class="ext-link' ) . '</p>
+      								<p>' . esc_html__( 'On this settings page you can choose to show an icon or a preview image will be shown and specify the icon size, icon type (white matte gif or transparent png) and the icon alignment. Click on tab "File Types Settings" to select the file types for which this plugin will be enabled. "Additional Settings" allow you to specify exceptions, format the file size and set caching options.', 'rrze-downloads' ) . '</p>'
             ],
             'title'     => __('Overview', 'downloads'),
             'sidebar'   => sprintf('<p><strong>%1$s:</strong></p><p><a href="https://blogs.fau.de/webworking">RRZE Webworking</a></p><p><a href="https://github.com/RRZE Webteam">%2$s</a></p>', __('For more information', 'rrze-downloads'), __('RRZE Webteam on Github', 'rrze-downloads'))
@@ -82,15 +86,11 @@ function getSections() {
     return [
       [
         'id'    => 'icons',
-        'title' => __('Icons Settings', 'downloads')
+        'title' => __('Settings', 'rrze-downloads')
       ],
       [
         'id'    => 'icons_mimetypes',
-        'title' => __('File Types Settings', 'downloads')
-      ],
-      [
-        'id'    => 'additional',
-        'title' => __('Additional Settings', 'downloads')
+        'title' => __('File Types', 'rrze-downloads')
       ]
     ];
 }
@@ -101,25 +101,28 @@ function getSections() {
  */
 function getFields() {
   global $mime_types;
+  
   $ret = [
     'icons' => [
       [
-        'name'    => 'icon-preview',
+        'name'    => 'icon_preview',
         'label'   => __('Show downloads with', 'rrze-downloads'),
-        'desc'    => __('Choose whether to show icons or preview images next to each download', 'rrze-downloads'),
+        // 'desc'    => __('Choose whether to show icons or not next to each download.', 'rrze-downloads'),
+        'desc'    => '',
         'type'    => 'radio',
         'default' => 'icons',
         'options' => [
           'icons' => __('Icons', 'rrze-downloads'),
-          'previews' => __('Preview images', 'rrze-downloads')
+          // 'previews' => __('Preview images', 'rrze-downloads',
+          'plain' => __('just plain links', 'rrze-downloads')
         ]
       ],
       [
-        'name'    => 'iconsize',
-        'label'   => __('Image Size', 'rrze-downloads'),
+        'name'    => 'icondimensions',
+        'label'   => __('Icon Size', 'rrze-downloads'),
         'desc'    => __('Size: width x height in pixels', 'rrze-downloads'),
         'type'    => 'select',
-        'default' => '16',
+        'default' => '24',
         'options' => [
           '16' => __('16 x 16', 'rrze-downloads'),
           '24' => __('24 x 24', 'rrze-downloads'),
@@ -130,13 +133,14 @@ function getFields() {
       ],
       [
         'name'    => 'icontype',
-        'label'   => __('Image Type', 'rrze-downloads'),
+        'label'   => __('Icon Type', 'rrze-downloads'),
         'desc'    => __('File type of the icon.', 'rrze-downloads'),
         'type'    => 'select',
-        'default' => 'png',
+        'default' => 'svg',
         'options' => [
+          'gif'  => __('GIF', 'rrze-downloads'),
           'png' => __('PNG', 'rrze-downloads'),
-          'gif'  => __('GIF', 'rrze-downloads')
+          'svg'  => __('SVG', 'rrze-downloads')
         ]
       ],
       [
@@ -149,39 +153,6 @@ function getFields() {
           'left' => __('Left', 'rrze-downloads'),
           'right'  => __('Right', 'rrze-downloads')
         ]              
-      ]
-    ],
-    'icons_mimetypes' => [
-      [
-        'name'    => 'all_mimetypes',
-        'label'   => __('Select all file types', 'rrze-downloads'),
-        'desc'    => __('Add an icon to all file types', 'rrze-downloads'),
-        'type'    => 'checkbox',
-        'default' => 'no',
-        'options' => [
-          'yes' => __('yes', 'rrze-downloads'),
-          'no' => __('no', 'rrze-downloads')
-        ]
-      ]
-    ],
-      'additional' => [
-        [
-          'name'    => 'enable_classnames',
-          'label'   => __('Enable Classnames?', 'rrze-downloads'),
-          'desc'    => __('Use this option to disable the mime type links (ie: around an image or caption) excluding the following classname(s):', 'rrze-downloads'),
-          'type'    => 'checkbox',
-          'default' => 'no',
-          'options' => [
-            'yes' => __('yes', 'rrze-downloads'),
-            'no' => __('no', 'rrze-downloads')
-          ]
-        ],
-      [
-        'name'    => 'classnames',
-        'label'   => __('Classname(s)', 'rrze-downloads'),
-        'desc'    => __('Enter one or more classnames seperated by comma "," to exclude them.', 'rrze-downloads'),
-        'type'    => 'text',
-        'default' => 'wp-caption'
       ],
       [
         'name'    => 'filesize',
@@ -208,64 +179,32 @@ function getFields() {
           '4' => __('4', 'rrze-downloads'),
           '5' => __('5', 'rrze-downloads')
         ]
-      ],      
+      ]
+    ],
+    'icons_mimetypes' => [
       [
-        'name'    => 'cache',
-        'label'   => __('Cache retrieved file sizes.', 'rrze-downloads'),
-        'desc'    => __('If the file sizes of the files you link to do not change very often, it is recommended to cache the results for a faster page loading.', 'rrze-downloads'),
-        'type'    => 'checkbox',
-        'default' => 'yes',
-        'options' => [
-          'yes' => __('yes', 'rrze-downloads'),
-          'no' => __('no', 'rrze-downloads')
-        ]
-      ],      
-      [
-        'name'    => 'cachetime',
-        'label'   => __('Time to cache:', 'rrze-downloads'),
-        'desc'    => __('Amount of time to cache retrieved file sizes: ', 'rrze-downloads'),
-        'type'    => 'select',
-        'default' => '168',
-        'options' => [
-          '1' => __('1 hour', 'rrze-downloads'),
-          '24' => __('1 day', 'rrze-downloads'),
-          '168' => __('1 week', 'rrze-downloads'),
-          '336' => __('2 weeks', 'rrze-downloads'),
-          '504' => __('3 weeks', 'rrze-downloads'),
-          '672' => __('4 weeks', 'rrze-downloads')
-        ]
-      ],      
-      [
-        'name'    => 'replacement',
-        'label'   => __('Replacement Mode', 'rrze-downloads'),
-        'desc'    => __('Switch to asynchronous replacement if your theme conflicts with this plugin. Asynchronous replacement uses JavaScript instead of PHP to find your links.', 'rrze-downloads'),
-        'type'    => 'radio',
-        'default' => 'synchronous',
-        'options' => [
-          'synchronous' => __('synchronous', 'rrze-downloads'),
-          'asynchronous' => __('asynchronous', 'rrze-downloads')
-        ]
-      ],      
-      [
-        'name'    => 'asynchronous_debug',
-        'label'   => __('Enable Debug Mode?', 'rrze-downloads'),
-        'desc'    => __('Tick this box for debugging if using asynchronous replacement.', 'rrze-downloads'),
+        'name'    => 'all_mimetypes',
+        'label'   => __('Select all file types', 'rrze-downloads'),
+        'desc'    => __('Add an icon / a preview to all file types', 'rrze-downloads'),
         'type'    => 'checkbox',
         'default' => 'no',
         'options' => [
           'yes' => __('yes', 'rrze-downloads'),
           'no' => __('no', 'rrze-downloads')
         ]
-      ]      
+      ]
     ]
   ];
-    
+
+  if (PREVIEW_ENABLED) {
+    $ret['icons'][0]['options'] = array_merge( array_slice($ret['icons'][0]['options'], 0, 1), array('previews' => __('Preview images', 'rrze-downloads')), array_slice($ret['icons'][0]['options'], 1, 1) );
+  }
     
   foreach ($mime_types as $mt) {
     $ret['icons_mimetypes'][] = [
       'name'    => 'mimetype_link_icon_' . $mt,
-      'label'   => __('Add icon to ' . $mt, 'rrze-downloads'),
-      'desc'    => __('Add an icon to ' . $mt . ' files', 'rrze-downloads'),
+      'label'   => $mt,
+      'desc'    => __('Add an icon / a preview', 'rrze-downloads'),
       'type'    => 'checkbox',
       'default' => 'no',
       'options' => [

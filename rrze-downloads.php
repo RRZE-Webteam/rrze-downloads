@@ -1,18 +1,17 @@
 <?php
 
 /*
- * Plugin Name:       RRZE Downloads
- * Plugin URI:        https://github.com/RRZE-Webteam/RRZE-Downloads
- * Description:       Bequeme Downloadlisten aus Dateien der Mediathek.
- * Version:           1.4.4
- * Author:            RRZE-Webteam
- * License:           GNU General Public License v2
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
- * Domain Path:       /languages
- * Text Domain:       rrze-downloads
- * GitHub Plugin URI: https://github.com/RRZE-Webteam/RRZE-Downloads
- * GitHub Branch:     master
- */
+Plugin Name:     RRZE Downloads
+Plugin URI:      https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads
+Description:     this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes
+Version:         2.0.0
+Author:          RRZE Webteam
+Author URI:      https://blogs.fau.de/webworking/
+License:         GNU General Public License v2
+License URI:     http://www.gnu.org/licenses/gpl-2.0.html
+Domain Path:     /languages
+Text Domain:     rrze-downloads
+*/
 
 namespace RRZE\Downloads;
 
@@ -29,12 +28,12 @@ defined('ABSPATH') || exit;
 
 // Laden der Konfigurationsdatei
 require_once 'config/config.php';
+include 'blocks/downloads.php';
 
 use RRZE\Downloads\Main;
 
-const RRZE_PHP_VERSION = '5.5';
-const RRZE_WP_VERSION = '4.9';
-
+const RRZE_PHP_VERSION = '7.3';
+const RRZE_WP_VERSION = '5.2';
 
 // Automatische Laden von Klassen.
 spl_autoload_register(function ($class) {
@@ -49,10 +48,7 @@ spl_autoload_register(function ($class) {
     $relativeClass = substr($class, $len);
     $file = $base_dir . str_replace('\\', '/', $relativeClass) . '.php';
 
-    error_log('BK new $file = '. $file);
-
     if (file_exists($file)) {
-      error_log('BK new exists');
         require $file;
     }
 });
@@ -68,7 +64,7 @@ add_action('plugins_loaded', __NAMESPACE__ . '\loaded');
  * Einbindung der Sprachdateien.
  */
 function loadTextDomain() {
-    load_plugin_textdomain('rrzw-downloads', false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
+    load_plugin_textdomain('rrze-downloads', false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
 }
 
 /**
@@ -99,10 +95,6 @@ function activation() {
         deactivate_plugins(plugin_basename(__FILE__));
         wp_die($error);
     }
-
-    // Ab hier können die Funktionen hinzugefügt werden,
-    // die bei der Aktivierung des Plugins aufgerufen werden müssen.
-    // Bspw. wp_schedule_event, flush_rewrite_rules, etc.
 }
 
 /**
@@ -114,30 +106,12 @@ function deactivation() {
     // Bspw. delete_option, wp_clear_scheduled_hook, flush_rewrite_rules, etc.
 }
 
-
-function mce_external_plugins() {
-    if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
-        add_filter('mce_external_languages', 'RRZE\Downloads\mce_locale');
-        add_filter('mce_external_plugins', 'RRZE\Downloads\mce_buttons');
-    }
-}
-
-function mce_locale($locales) {
-    $locales ['rrze-downloads'] = plugin_dir_path ( __FILE__ ) . 'assets/mce-langs.php';
-    return $locales;
-}
-
-function mce_buttons($plugin_array) {
-    $plugin_array['rrzedownloadshortcode'] = plugin_dir_url(__FILE__) . 'assets/js/shortcode-button.js';
-    return $plugin_array;
-}
-
 /**
  * Wird durchgeführt, nachdem das WP-Grundsystem hochgefahren
  * und alle Plugins eingebunden wurden.
  */
 function loaded() {
-    // Sprachdateien werden eingebunden.
+      // Sprachdateien werden eingebunden.
     loadTextDomain();
 
     // Überprüft die Systemvoraussetzungen.
@@ -147,7 +121,6 @@ function loaded() {
             $pluginName = $pluginData['Name'];
             $tag = is_plugin_active_for_network(plugin_basename(__FILE__)) ? 'network_admin_notices' : 'admin_notices';
 
-
             add_action($tag, function () use ($pluginName, $error) {
                 printf(
                     '<div class="notice notice-error"><p>' . __('Plugins: %1$s: %2$s', 'rrze-downloads') . '</p></div>',
@@ -155,24 +128,24 @@ function loaded() {
                     esc_html($error)
                 );
             });
-            require_once('assets/taxonomies/media-taxonomies.php');
-            new Taxonomies\Media();
         });
-        
-        require_once('assets/taxonomies/attachment-category.php');
-        require_once('assets/taxonomies/attachment-tag.php');
-        
-        add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\set');
-        add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
-
-        add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\register');
-        add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
-        add_action('admin_init', 'RRZE\Downloads\mce_external_plugins');
         
         // Das Plugin wird nicht mehr ausgeführt.
         return;
     }
 
+    if (is_admin()) {
+        require_once('assets/taxonomies/media-taxonomies.php');
+        new Taxonomies\Media();
+    }    
+    require_once('assets/taxonomies/attachment-category.php');
+    require_once('assets/taxonomies/attachment-tag.php');
+
+    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\set');
+    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\register');
+
+    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
+    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
 
     // Hauptklasse (Main) wird instanziiert.
     $main = new Main(__FILE__);

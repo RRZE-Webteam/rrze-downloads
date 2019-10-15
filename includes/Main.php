@@ -5,15 +5,12 @@ namespace RRZE\Downloads;
 defined('ABSPATH') || exit;
 
 use RRZE\Downloads\Settings;
-use RRZE\Downloads\Shortcode;
+use RRZE\Downloads\TinyMCEButtons;
 
-
- 
- /**
+  /**
  * Hauptklasse (Main)
  */
-class Main
-{
+class Main {
     /**
      * Der vollständige Pfad- und Dateiname der Plugin-Datei.
      * @var string
@@ -26,27 +23,23 @@ class Main
      */
     public function __construct($pluginFile) {
         $this->pluginFile = $pluginFile;
+
+        remove_filter('the_content', 'wpautop');
+        add_filter('the_content', 'wpautop', 12);
+
+        new TinyMCEButtons();
     }
 
     /**
      * Es wird ausgeführt, sobald die Klasse instanziiert wird.
      */
     public function onLoaded() {
-      add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
 
       // Settings-Klasse wird instanziiert.
       $settings = new Settings($this->pluginFile);
       $settings->onLoaded();
 
-      // Shortcode-Klasse wird instanziiert.
-      $shortcode = new Shortcode($this->pluginFile, $settings);
-      $shortcode->onLoaded();
-    }
-
-    /**
-     * Enqueue der globale Skripte.
-     */
-    public function enqueueScripts() {
-        wp_register_style('rrze-downloads', plugins_url('assets/css/rrze-downloads.min.css', plugin_basename($this->pluginFile)));
+      // Shortcode wird eingebunden.
+      include 'Shortcode.php';
     }
 }

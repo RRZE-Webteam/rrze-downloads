@@ -263,3 +263,4 @@ function downloadsOutput( $args ) {
 }
 
 add_shortcode('downloads', 'downloadsHandler');
+add_shortcode('download', 'downloadsHandler');

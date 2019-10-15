@@ -6,7 +6,7 @@ namespace RRZE\Downloads\Config;
 defined('ABSPATH') || exit;
 
 // Auf true setzen, wenn der Server Preview Bilder aus PDFs und z.B. DOCs erstellen kann:
-define('PREVIEW_ENABLED', true);
+define('PREVIEW_ENABLED', false);
 
 
 /**

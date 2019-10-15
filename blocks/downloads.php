@@ -7,7 +7,7 @@ function downloads_block_init() {
 	}
 	$dir = dirname( __FILE__ );
 
-	$index_js = 'downloads/index.js';
+	$index_js = 'downloads/index.min.js';
 	wp_register_script(
 		'downloadsOutput',
 		plugins_url( $index_js, __FILE__ ),

@@ -19,10 +19,10 @@ class Media {
             return;
         }
         
-        wp_enqueue_script('rrze-downloads-media-taxonomies', plugins_url('js/media-taxonomies.js', __FILE__), array('jquery'), false, true);
-        wp_enqueue_style('rrze-downloads-media-taxonomies', plugins_url('css/media-taxonomies.css', __FILE__));
-        wp_enqueue_script('rrze-downloads-media-toolbar', plugins_url('js/media-toolbar.js', __FILE__), array('jquery'), false, true);
-        wp_enqueue_style('rrze-downloads-media-toolbar', plugins_url('css/media-toolbar.css', __FILE__));
+        wp_enqueue_script('rrze-downloads-media-taxonomies', plugins_url('js/media-taxonomies.min.js', __FILE__), array('jquery'), false, true);
+        wp_enqueue_style('rrze-downloads-media-taxonomies', plugins_url('css/media-taxonomies.min.css', __FILE__));
+        wp_enqueue_script('rrze-downloads-media-toolbar', plugins_url('js/media-toolbar.min.js', __FILE__), array('jquery'), false, true);
+        wp_enqueue_style('rrze-downloads-media-toolbar', plugins_url('css/media-toolbar.min.css', __FILE__));
     }
     
     public function add_user_caps($user_caps) {

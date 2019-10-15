@@ -463,7 +463,7 @@ class Settings {
      * @return void
      */
     public function adminEnqueueScripts() {
-      wp_register_script('icons-settings', plugins_url('assets/js/icons.js', plugin_basename($this->pluginFile)));
+      wp_register_script('icons-settings', plugins_url('assets/js/icons.min.js', plugin_basename($this->pluginFile)));
       wp_enqueue_script('icons-settings');
       wp_enqueue_script('jquery');
     }

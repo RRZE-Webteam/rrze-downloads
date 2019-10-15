@@ -17,7 +17,7 @@ class TinyMCEButtons {
     }
 
     public function addButtons($pluginArray) {
-        $pluginArray['downloadsshortcodes'] = plugins_url('../assets/js/tinymce-shortcodes.js', plugin_basename(__FILE__));
+        $pluginArray['downloadsshortcodes'] = plugins_url('../assets/js/tinymce-shortcodes.min.js', plugin_basename(__FILE__));
         return $pluginArray;
     }
 }

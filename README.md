@@ -14,7 +14,10 @@ RRZE Downloads
 
 [downloads]
 ------------------
-Erzeugt eine Listeansicht aller in der Mediathek verfügbaren Download-Dateien.
+Erzeugt wahlweise eine Listeansicht, Tabelle oder reine Textlinks aller in der Mediathek verfügbaren Download-Dateien.
+
+Ist der Server so konfiguriert, dass beim Upload von PDFs oder z.B. DOCs automatisch Vorschaubilder generiert werden, sollte die Konstante PREVIEW_ENABLED in config.php auf "true" gesetzt werden, um neben reinen Textlinks und Icons auch Vorschaubilder auswählbar zu machen.
+
 
 Attribute:
 <pre>

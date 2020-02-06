@@ -16,60 +16,60 @@ function getShortcodeSettings(){
 			'blockname' => 'downloads',
 			'title' => 'RRZE Downloads',
 			'category' => 'widgets',
-			'icon' => 'admin-download',
+			'icon' => 'download',
 			'show_block' => 'content', // 'right' or 'content' 
-			'message' => __( 'Find the settings on the right side', 'rrze-jobs' )
+			'message' => __( 'Find the settings on the right side', 'rrze-downloads' )
     ],
     'format' => [
 			'field_type' => 'select',
 			'values' => [
-				'list' => __( 'List', 'rrze-jobs' ),
-				'table' => __( 'Table', 'rrze-jobs' )
+				'list' => __( 'List', 'rrze-downloads' ),
+				'table' => __( 'Table', 'rrze-downloads' )
 			],
 			'default' => 'list',
-			'label' => __( 'Order by', 'rrze-jobs' ),
+			'label' => __( 'Order by', 'rrze-downloads' ),
 			'type' => 'string'
     ],
 		'category' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'Category', 'rrze-jobs' ),
+			'label' => __( 'Category', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'tags' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'Tags', 'rrze-jobs' ),
+			'label' => __( 'Tags', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'type' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'Type', 'rrze-jobs' ),
+			'label' => __( 'Type', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'htmlpre' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'HTMLpre', 'rrze-jobs' ),
+			'label' => __( 'HTMLpre', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'htmlpost' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'HTMLpost', 'rrze-jobs' ),
+			'label' => __( 'HTMLpost', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'htmlitempre' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'HTMLitempre', 'rrze-jobs' ),
+			'label' => __( 'HTMLitempre', 'rrze-downloads' ),
 			'type' => 'string'
 		],
 		'htmlitempost' => [
 			'field_type' => 'text',
 			'default' => '',
-			'label' => __( 'HTMLitempost', 'rrze-jobs' ),
+			'label' => __( 'HTMLitempost', 'rrze-downloads' ),
 			'type' => 'string'
     ],
     'search_application' => [
@@ -129,22 +129,22 @@ function getShortcodeSettings(){
 		'orderby' => [
 			'field_type' => 'select',
 			'values' => [
-				'title' => __( 'Title', 'rrze-jobs' ),
-				'date' => __( 'Date', 'rrze-jobs' )
+				'title' => __( 'Title', 'rrze-downloads' ),
+				'date' => __( 'Date', 'rrze-downloads' )
 			],
 			'default' => 'title',
-			'label' => __( 'Format', 'rrze-jobs' ),
+			'label' => __( 'Format', 'rrze-downloads' ),
 			'type' => 'string'
     ],
     'sort' => [
 			'field_type' => 'radio',
 			'values' => [
-				'ASC' => __( 'Ascending', 'rrze-jobs' ),
-				'DESC' => __( 'Descending', 'rrze-jobs' )
+				'ASC' => __( 'Ascending', 'rrze-downloads' ),
+				'DESC' => __( 'Descending', 'rrze-downloads' )
 			],
 			'selected' => 'ASC',
 			'default' => 'ASC',
-			'label' => __( 'Order', 'rrze-jobs' ),
+			'label' => __( 'Order', 'rrze-downloads' ),
 			'type' => 'string'
 		]
 	];

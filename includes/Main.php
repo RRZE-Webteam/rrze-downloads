@@ -41,5 +41,6 @@ class Main {
 
       // Shortcode wird eingebunden.
       include 'Shortcode.php';
+      $shortcode = new Shortcode();
     }
 }

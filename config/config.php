@@ -9,6 +9,148 @@ defined('ABSPATH') || exit;
 define('PREVIEW_ENABLED', false);
 
 
+function getShortcodeSettings(){
+	return [
+		'block' => [
+			'blocktype' => 'rrze-downloads/downloads', 
+			'blockname' => 'downloads',
+			'title' => 'RRZE Downloads',
+			'category' => 'widgets',
+			'icon' => 'download',
+			'show_block' => 'content', // 'right' or 'content' 
+			'message' => __( 'Find the settings on the right side', 'rrze-downloads' )
+    ],
+    'format' => [
+			'field_type' => 'select',
+			'values' => [
+				'list' => __( 'List', 'rrze-downloads' ),
+				'table' => __( 'Table', 'rrze-downloads' )
+			],
+			'default' => 'list',
+			'label' => __( 'Order by', 'rrze-downloads' ),
+			'type' => 'string'
+    ],
+		'category' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'Category', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'tags' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'Tags', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'type' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'Type', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'htmlpre' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'HTMLpre', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'htmlpost' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'HTMLpost', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'htmlitempre' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'HTMLitempre', 'rrze-downloads' ),
+			'type' => 'string'
+		],
+		'htmlitempost' => [
+			'field_type' => 'text',
+			'default' => '',
+			'label' => __( 'HTMLitempost', 'rrze-downloads' ),
+			'type' => 'string'
+    ],
+    'search_application' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Search application', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'search_image' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Search image', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'search_video' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Search video', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'search_audio' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Search audio', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'show_title' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Show title', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'search_text' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Search text', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'showsize' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Show size', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => TRUE
+    ],
+    'showexcerpt' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Show excerpt', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+    'showcontent' => [
+      'field_type' => 'toggle',
+      'label' => __( 'Show content', 'rrze-rss' ),
+      'type' => 'boolean',
+      'checked'   => FALSE
+    ],
+		'orderby' => [
+			'field_type' => 'select',
+			'values' => [
+				'title' => __( 'Title', 'rrze-downloads' ),
+				'date' => __( 'Date', 'rrze-downloads' )
+			],
+			'default' => 'title',
+			'label' => __( 'Format', 'rrze-downloads' ),
+			'type' => 'string'
+    ],
+    'sort' => [
+			'field_type' => 'radio',
+			'values' => [
+				'ASC' => __( 'Ascending', 'rrze-downloads' ),
+				'DESC' => __( 'Descending', 'rrze-downloads' )
+			],
+			'selected' => 'ASC',
+			'default' => 'ASC',
+			'label' => __( 'Order', 'rrze-downloads' ),
+			'type' => 'string'
+		]
+	];
+}
+
+
 /**
  * @var array	array of mimetypes
  */

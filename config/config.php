@@ -74,55 +74,55 @@ function getShortcodeSettings(){
     ],
     'search_application' => [
       'field_type' => 'toggle',
-      'label' => __( 'Search application', 'rrze-rss' ),
+      'label' => __( 'Search application', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'search_image' => [
       'field_type' => 'toggle',
-      'label' => __( 'Search image', 'rrze-rss' ),
+      'label' => __( 'Search image', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'search_video' => [
       'field_type' => 'toggle',
-      'label' => __( 'Search video', 'rrze-rss' ),
+      'label' => __( 'Search video', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'search_audio' => [
       'field_type' => 'toggle',
-      'label' => __( 'Search audio', 'rrze-rss' ),
+      'label' => __( 'Search audio', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'show_title' => [
       'field_type' => 'toggle',
-      'label' => __( 'Show title', 'rrze-rss' ),
+      'label' => __( 'Show title', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'search_text' => [
       'field_type' => 'toggle',
-      'label' => __( 'Search text', 'rrze-rss' ),
+      'label' => __( 'Search text', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'showsize' => [
       'field_type' => 'toggle',
-      'label' => __( 'Show size', 'rrze-rss' ),
+      'label' => __( 'Show size', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => TRUE
     ],
     'showexcerpt' => [
       'field_type' => 'toggle',
-      'label' => __( 'Show excerpt', 'rrze-rss' ),
+      'label' => __( 'Show excerpt', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],
     'showcontent' => [
       'field_type' => 'toggle',
-      'label' => __( 'Show content', 'rrze-rss' ),
+      'label' => __( 'Show content', 'rrze-downloads' ),
       'type' => 'boolean',
       'checked'   => FALSE
     ],

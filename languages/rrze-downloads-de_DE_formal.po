@@ -1,21 +1,19 @@
-# Copyright (C) 2019 RRZE Webteam
-# This file is distributed under the same license as the RRZE Downloads plugin.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RRZE-Downloads\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Benjamin <benjamin.klemencic@fau.de>\n"
+"Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2020-02-12 11:23+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-02-12 11:26+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
 
 #: rrze-downloads.php:76
 #, php-format
@@ -38,23 +36,23 @@ msgstr ""
 
 #: config/config.php:21
 msgid "Find the settings on the right side"
-msgstr ""
+msgstr "Nehmen Sie die Einstellungen auf der rechten Seite vor"
 
 #: config/config.php:26
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: config/config.php:27
 msgid "Table"
-msgstr ""
+msgstr "Tabelle"
 
 #: config/config.php:30
 msgid "Order by"
-msgstr ""
+msgstr "Sortieren nach"
 
 #: config/config.php:36
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #: config/config.php:42
 msgid "Tags"
@@ -62,7 +60,7 @@ msgstr ""
 
 #: config/config.php:48
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: config/config.php:54
 msgid "HTMLpre"
@@ -82,47 +80,47 @@ msgstr ""
 
 #: config/config.php:77
 msgid "Search application"
-msgstr ""
+msgstr "Programme suchen"
 
 #: config/config.php:83
 msgid "Search image"
-msgstr ""
+msgstr "Bilder suchen"
 
 #: config/config.php:89
 msgid "Search video"
-msgstr ""
+msgstr "Videos suchen"
 
 #: config/config.php:95
 msgid "Search audio"
-msgstr ""
+msgstr "Audio-Dateien suchen"
 
 #: config/config.php:101
 msgid "Show title"
-msgstr ""
+msgstr "Titel anzeigen"
 
 #: config/config.php:107
 msgid "Search text"
-msgstr ""
+msgstr "Texte suchen"
 
 #: config/config.php:113
 msgid "Show size"
-msgstr ""
+msgstr "Größe anzeigen"
 
 #: config/config.php:119
 msgid "Show excerpt"
-msgstr ""
+msgstr "Exzerpt anzeigen"
 
 #: config/config.php:125
 msgid "Show content"
-msgstr ""
+msgstr "Inhalt anzeigen"
 
 #: config/config.php:132
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: config/config.php:133
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: config/config.php:136
 msgid "Format"
@@ -130,15 +128,15 @@ msgstr ""
 
 #: config/config.php:142
 msgid "Ascending"
-msgstr ""
+msgstr "Aufsteigend"
 
 #: config/config.php:143
 msgid "Descending"
-msgstr ""
+msgstr "Absteigend"
 
 #: config/config.php:147
 msgid "Order"
-msgstr ""
+msgstr "Sortierung"
 
 #: config/config.php:197
 msgid "Downloads"
@@ -151,7 +149,7 @@ msgstr ""
 
 #: config/config.php:201
 msgid "Downloads Settings"
-msgstr ""
+msgstr "Downloads Einstellungen"
 
 #: config/config.php:214
 msgid ""
@@ -172,7 +170,7 @@ msgstr ""
 
 #: config/config.php:218
 msgid "For more information"
-msgstr ""
+msgstr "Für weitere Informationen"
 
 #: config/config.php:218
 msgid "RRZE Webteam on Github"
@@ -180,15 +178,15 @@ msgstr ""
 
 #: config/config.php:231
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: config/config.php:235
 msgid "File Types"
-msgstr ""
+msgstr "Dateitypen"
 
 #: config/config.php:251
 msgid "Show downloads with"
-msgstr ""
+msgstr "Zeige Downloads mit"
 
 #: config/config.php:257
 msgid "Icons"
@@ -196,15 +194,15 @@ msgstr ""
 
 #: config/config.php:259
 msgid "just plain links"
-msgstr ""
+msgstr "Nur Textlinks"
 
 #: config/config.php:264
 msgid "Icon Size"
-msgstr ""
+msgstr "Icon Größe"
 
 #: config/config.php:265
 msgid "Size: width x height in pixels"
-msgstr ""
+msgstr "Größe: Breite x Höhe in Pixel"
 
 #: config/config.php:269
 msgid "16 x 16"
@@ -228,11 +226,11 @@ msgstr ""
 
 #: config/config.php:278
 msgid "Icon Type"
-msgstr ""
+msgstr "Icon Typ"
 
 #: config/config.php:279
 msgid "File type of the icon."
-msgstr ""
+msgstr "Dateityp des Icons"
 
 #: config/config.php:283
 msgid "GIF"
@@ -248,43 +246,44 @@ msgstr ""
 
 #: config/config.php:290
 msgid "Align icon"
-msgstr ""
+msgstr "Icon ausrichten"
 
 #: config/config.php:291
 msgid "Show icon on the left or right side of the link"
-msgstr ""
+msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
 
 #: config/config.php:295
 msgid "Left"
-msgstr ""
+msgstr "links"
 
 #: config/config.php:296
 msgid "Right"
-msgstr ""
+msgstr "rechts"
 
 #: config/config.php:301
 msgid "Show File Size?"
-msgstr ""
+msgstr "Dateigröße anzeigen?"
 
 #: config/config.php:302
 msgid "Display the file size of the attachment / linked file."
-msgstr ""
+msgstr "Zeige die Größe der angefügten oder verlinkten Datei an. "
 
 #: config/config.php:306 config/config.php:334 config/config.php:353
 msgid "yes"
-msgstr ""
+msgstr "ja"
 
 #: config/config.php:307 config/config.php:335 config/config.php:354
 msgid "no"
-msgstr ""
+msgstr "nein"
 
 #: config/config.php:312
 msgid "Precision (decimals)"
-msgstr ""
+msgstr "Genauigkeit (Dezimalstellen)"
 
 #: config/config.php:313
 msgid "Sizes less than 1 kB will always have 0 decimals."
 msgstr ""
+"Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
 
 #: config/config.php:317
 msgid "0"
@@ -312,23 +311,23 @@ msgstr ""
 
 #: config/config.php:329
 msgid "Select all file types"
-msgstr ""
+msgstr "Alle Dateitypen auswählen"
 
 #: config/config.php:330
 msgid "Add an icon / a preview to all file types"
-msgstr ""
+msgstr "Icons / Vorschaubilder für alle Dateitypen hinzufügen"
 
 #: config/config.php:342
 msgid "Preview images"
-msgstr ""
+msgstr "Vorschaubilder"
 
 #: config/config.php:349
 msgid "Add an icon / a preview"
-msgstr ""
+msgstr "Icon / Vorschaubild hinzufügen"
 
 #: includes/Shortcode.php:270
 msgid "Dowloads: Es konnten keine Dateien gefunden werden."
-msgstr ""
+msgstr "Downloads: Es konnten keine Dateien gefunden werden."
 
 #: assets/taxonomies/attachment-category.php:10
 #: assets/taxonomies/attachment-category.php:20
@@ -421,11 +420,12 @@ msgstr ""
 msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr ""
 
-#. Description of the plugin
 msgid ""
 "this will add a list with available download files. Shortcode is [downloads] "
 "- see settings for additional attributes"
 msgstr ""
+"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
+"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
 
 #. Plugin URI of the plugin
 msgid "https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads"

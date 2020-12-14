@@ -11,7 +11,7 @@ class Shortcode {
      */
     public function __construct() {
         $this->settings = getShortcodeSettings();
-        add_action( 'init',  [$this, 'gutenberg_init'] );
+        add_action( 'init',  [$this, 'initGutenberg'] );
         add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ], 10, 2 );
         add_shortcode( 'download', [ $this, 'shortcodeOutput' ], 10, 2 );
     }
@@ -274,10 +274,18 @@ class Shortcode {
         return $output;
     }
 
-    public function gutenberg_init() {
-        // Skip block registration if Gutenberg is not enabled/merged.
+    public function initGutenberg() {
         if ( ! function_exists( 'register_block_type' ) ) {
-            return;
+            return;        
+        }
+
+        // check if RRZE-Settings if classic editor is enabled
+        $rrze_settings = (array) get_option( 'rrze_settings' );
+        if ( isset( $rrze_settings['writing'] ) ) {
+            $rrze_settings = (array) $rrze_settings['writing'];
+            if ( isset( $rrze_settings['enable_classic_editor'] ) && $rrze_settings['enable_classic_editor'] ) {
+                return;
+            }
         }
 
         $js = '../assets/js/gutenberg.js';
@@ -295,17 +303,23 @@ class Shortcode {
             ),
             filemtime( dirname( __FILE__ ) . '/' . $js )
         );
-
         wp_localize_script( $editor_script, 'blockname', $this->settings['block']['blockname'] );
+
+        $theme_style = 'theme-css';
+        wp_register_style($theme_style, get_template_directory_uri() . '/style.css', array('wp-editor'), null);
+
+        $editor_style = 'plugin-css';
+        wp_register_style($editor_style, plugins_url('../assets/css/gutenberg.css', __FILE__ ));
 
         register_block_type( $this->settings['block']['blocktype'], array(
             'editor_script' => $editor_script,
+            'editor_style' => $editor_style,
+            'style' => $theme_style,
             'render_callback' => [$this, 'shortcodeOutput'],
-            'attributes' => $this->settings
+            'attributes' => $this->settings,
             ) 
         );
 
         wp_localize_script( $editor_script, $this->settings['block']['blockname'] . 'Config', $this->settings );
     }
-
 }

@@ -11,6 +11,7 @@ class Shortcode {
      */
     public function __construct() {
         $this->settings = getShortcodeSettings();
+        add_action( 'admin_enqueue_scripts', [$this, 'enqueueGutenberg'] );
         add_action( 'init',  [$this, 'initGutenberg'] );
         add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ], 10, 2 );
         add_shortcode( 'download', [ $this, 'shortcodeOutput' ], 10, 2 );
@@ -155,15 +156,16 @@ class Shortcode {
             $icon_options = get_option('rrze-downloads');
 
             // if "icons" then fill array with filetypes to show
+            $icon_options_exist = false;
             if (!empty( $icon_options )) {
+                $icon_options_exist = true;
                 foreach ( $icon_options as $key => $value ) {
-                $my_options[$key] = $value;
-                if (( strpos( $key, 'icons_mimetypes_mimetype_link_icon_' ) !==false ) && ( $value <=> 'off' )) {
-                    $filetypes[] = substr( $key, 35 );
-                }
+                    $my_options[$key] = $value;
+                    if (( strpos( $key, 'icons_mimetypes_mimetype_link_icon_' ) !==false ) && ( $value <=> 'off' )) {
+                        $filetypes[] = substr( $key, 35 );
+                    }
                 }
             }
-
 
             foreach ($files as $file) {
                 $parsed = parse_url(wp_get_attachment_url($file->ID));
@@ -172,8 +174,8 @@ class Shortcode {
                 
                 $size = '';
 
-                if ( ($icon_options['icons_filesize'] == 'on') || $showsize ) {
-                    $precision = ( $icon_options['icons_filesize'] == 'on' ? $icon_options['icons_precision'] : 2);
+                if ( ($icon_options_exist && $icon_options['icons_filesize'] == 'on') || $showsize ) {
+                    $precision = ( $icon_options_exist && $icon_options['icons_filesize'] == 'on' ? $icon_options['icons_precision'] : 2);
                     $size = size_format( filesize(get_attached_file($file->ID)), $precision );
                 }
 
@@ -202,27 +204,27 @@ class Shortcode {
 
                 $link = $title . $addinfo;
 
-                if ( $icon_options['icons_mimetypes_all_mimetypes'] == 'on'  ||  in_array( $myfiletype, $filetypes ) ){
-                if ( $icon_options["icons_icon_preview"] == 'icons' ){
-                    $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
-                    if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
-                    $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
-                    if ( $icon_options["icons_icontype"] == 'svg' ) {
-                        $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"><p>Icon ' . $icon_options["icons_icontype"] . '</p></object>';
-                    } else {
-                        $img = '<img src="' . $img_src . '" alt="Icon ' . $icon_options["icons_icontype"] . ' " height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '">';
+                if ( ($icon_options_exist && $icon_options['icons_mimetypes_all_mimetypes'] == 'on')  ||  in_array( $myfiletype, $filetypes ) ){
+                    if ( $icon_options["icons_icon_preview"] == 'icons' ){
+                        $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
+                        if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
+                            $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
+                            if ( $icon_options["icons_icontype"] == 'svg' ) {
+                                $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"><p>Icon ' . $icon_options["icons_icontype"] . '</p></object>';
+                            } else {
+                                $img = '<img src="' . $img_src . '" alt="Icon ' . $icon_options["icons_icontype"] . ' " height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '">';
+                            }
+                        } else {
+                            $img = 'Icon is missing';
+                        }
+                    } elseif ( $icon_options["icons_icon_preview"] == 'previews' ) {
+                        $img = wp_get_attachment_image($file->ID);
+                        if ( !$img ) { 
+                            $img = 'Preview is missing';
+                        }
                     }
-                    } else {
-                    $img = 'Icon is missing';
-                    }
-                } elseif ( $icon_options["icons_icon_preview"] == 'previews' ) {
-                    $img = wp_get_attachment_image($file->ID);
-                    if ( !$img ) { 
-                    $img = 'Preview is missing';
-                    }
-                }
-                
-                $link = ( $img ? ( $icon_options["icons_iconalign"] == 'left' ? $img . $sp . $link : $link . $sp . $img ) : $link );
+                    
+                    $link = ( $img ? ( $icon_options["icons_iconalign"] == 'left' ? $img . $sp . $link : $link . $sp . $img ) : $link );
                 }
                 
 
@@ -288,20 +290,6 @@ class Shortcode {
             }
         }
 
-        // include gutenberg lib
-        wp_enqueue_script(
-            'RRZE-Gutenberg',
-            plugins_url( '../assets/js/gutenberg.js', __FILE__ ),
-            array(
-                'wp-blocks',
-                'wp-i18n',
-                'wp-element',
-                'wp-components',
-                'wp-editor'
-            ),
-            NULL
-        );
-
         // get prefills for dropdowns
         // $this->settings = $this->fillGutenbergOptions();
 
@@ -335,4 +323,25 @@ class Shortcode {
             ) 
         );
     }
+
+    public function enqueueGutenberg(){
+        if ( ! function_exists( 'register_block_type' ) ) {
+            return;        
+        }
+
+        // include gutenberg lib
+        wp_enqueue_script(
+            'RRZE-Gutenberg',
+            plugins_url( '../assets/js/gutenberg.js', __FILE__ ),
+            array(
+                'wp-blocks',
+                'wp-i18n',
+                'wp-element',
+                'wp-components',
+                'wp-editor'
+            ),
+            NULL
+        );
+    }
+
 }

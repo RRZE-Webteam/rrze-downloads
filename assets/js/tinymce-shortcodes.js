@@ -1,12 +1,1 @@
-(function() {
-    tinymce.PluginManager.add('downloadsshortcodes', function(editor) {
-        editor.addMenuItem('insertShortcodesDownloads', {
-            icon: 'link',
-            text: 'Downloads',
-            context: 'insert',
-            onclick: function() {
-                editor.insertContent('[downloads category="" tags="" type="" format="" htmlpre="" htmlpost="" htmlitempre="" htmlitempost="" search_application="" search_image="" search_video="" search_audio="" search_text="" showsize="" showcreated="" showexcerpt="" showcontent="" errormsg="" orderby="" sort=""]<br>');
-            }
-        });
-    });
-})();
+tinymce.PluginManager.add("rrze_shortcode",(function(editor){if("undefined"!=typeof phpvar)for(i=0;i<phpvar.length;i++)shortcode=phpvar[i].shortcode,editor.addMenuItem("insert_"+phpvar[i].name,{id:i,icon:phpvar[i].icon,text:phpvar[i].title,context:"insert",onclick:function(){editor.insertContent(phpvar[this.settings.id].shortcode)}})}));

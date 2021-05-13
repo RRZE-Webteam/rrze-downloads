@@ -5,14 +5,18 @@ use function RRZE\Downloads\Config\getShortcodeSettings;
 
 class Shortcode {
     private $settings = '';
+    private $pluginname = '';
 
     /**
      * Shortcode-Klasse wird instanziiert.
      */
     public function __construct() {
         $this->settings = getShortcodeSettings();
+        $this->pluginname = $this->settings['block']['blockname'];
         add_action( 'admin_enqueue_scripts', [$this, 'enqueueGutenberg'] );
         add_action( 'init',  [$this, 'initGutenberg'] );
+        add_action('admin_head', [$this, 'setMCEConfig']);
+        add_filter('mce_external_plugins', [$this, 'addMCEButtons']);
         add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ], 10, 2 );
         add_shortcode( 'download', [ $this, 'shortcodeOutput' ], 10, 2 );
     }
@@ -333,4 +337,31 @@ class Shortcode {
         );
     }
 
+    public function setMCEConfig(){
+        $shortcode = '';
+        foreach($this->settings as $att => $details){
+            if ($att != 'block'){
+                $shortcode .= ' ' . $att . '=""';
+            }
+        }
+        $shortcode = '[' . $this->pluginname . ' ' . $shortcode . ']';
+        ?>
+        <script type='text/javascript'>
+            tmp = [{
+                'name': <?php echo json_encode($this->pluginname); ?>,
+                'title': <?php echo json_encode($this->settings['block']['title']); ?>,
+                'icon': <?php echo json_encode($this->settings['block']['tinymce_icon']); ?>,
+                'shortcode': <?php echo json_encode($shortcode); ?>,
+            }];
+            phpvar = (typeof phpvar === 'undefined' ? tmp : phpvar.concat(tmp)); 
+        </script> 
+        <?php        
+    }
+
+    public function addMCEButtons($pluginArray){
+        if (current_user_can('edit_posts') &&  current_user_can('edit_pages')) {
+            $pluginArray['rrze_shortcode'] = plugins_url('../assets/js/tinymce-shortcodes.js', plugin_basename(__FILE__));
+        }
+        return $pluginArray;
+    }
 }

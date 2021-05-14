@@ -5,7 +5,6 @@ namespace RRZE\Downloads;
 defined('ABSPATH') || exit;
 
 use RRZE\Downloads\Settings;
-use RRZE\Downloads\TinyMCEButtons;
 
   /**
  * Hauptklasse (Main)
@@ -26,8 +25,6 @@ class Main {
 
         remove_filter('the_content', 'wpautop');
         add_filter('the_content', 'wpautop', 12);
-
-        new TinyMCEButtons();
     }
 
     /**

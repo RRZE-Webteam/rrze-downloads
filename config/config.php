@@ -17,8 +17,7 @@ function getShortcodeSettings(){
 			'title' => 'RRZE Downloads',
 			'category' => 'widgets',
 			'icon' => 'download',
-			'show_block' => 'content', // 'right' or 'content' 
-			'message' => __( 'Find the settings on the right side', 'rrze-downloads' )
+            'tinymce_icon' => 'save'
     ],
     'format' => [
 			'field_type' => 'select',

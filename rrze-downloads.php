@@ -4,7 +4,7 @@
 Plugin Name:     RRZE Downloads
 Plugin URI:      https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads
 Description:     this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes
-Version:         2.2.6
+Version:         2.2.7
 Author:          RRZE Webteam
 Author URI:      https://blogs.fau.de/webworking/
 License:         GNU General Public License v2
@@ -31,8 +31,8 @@ require_once 'config/config.php';
 
 use RRZE\Downloads\Main;
 
-const RRZE_PHP_VERSION = '7.3';
-const RRZE_WP_VERSION = '5.2';
+const RRZE_PHP_VERSION = '7.4';
+const RRZE_WP_VERSION = '5.8';
 
 // Automatische Laden von Klassen.
 spl_autoload_register(function ($class) {

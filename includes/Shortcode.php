@@ -17,8 +17,8 @@ class Shortcode {
         add_action( 'init',  [$this, 'initGutenberg'] );
         add_action('admin_head', [$this, 'setMCEConfig']);
         add_filter('mce_external_plugins', [$this, 'addMCEButtons']);
-        add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ], 10, 2 );
-        add_shortcode( 'download', [ $this, 'shortcodeOutput' ], 10, 2 );
+        add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ]);
+        add_shortcode( 'download', [ $this, 'shortcodeOutput' ]);
     }
 
 

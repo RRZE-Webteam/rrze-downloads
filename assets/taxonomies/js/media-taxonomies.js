@@ -18,11 +18,11 @@ jQuery(document).ready(function () {
         });
 
         row.addClass('media-save-terms');
-        container.find('input').prop('disabled', 'disabled');
+        //container.find('input').prop('disabled', 'disabled');
 
         jQuery.post(ajaxurl, data, function (response) {
             row.removeClass('media-save-terms');
-            container.find('input').removeProp('disabled');
+            //container.find('input').removeProp('disabled');
         });
 
     });

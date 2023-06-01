@@ -40,7 +40,7 @@
 }
 
 .media-save-terms:before {
-    background: url( '../images/spinner.gif ') no-repeat #fff;
+    background: url('spinner.gif') no-repeat #fff;
     content: '';
     display: block;
     height: 20px;

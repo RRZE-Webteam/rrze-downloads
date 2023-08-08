@@ -23,8 +23,8 @@ class Main {
     public function __construct($pluginFile) {
         $this->pluginFile = $pluginFile;
 
-        remove_filter('the_content', 'wpautop');
-        add_filter('the_content', 'wpautop', 12);
+   //     remove_filter('the_content', 'wpautop');
+   //     add_filter('the_content', 'wpautop', 12);
     }
 
     /**

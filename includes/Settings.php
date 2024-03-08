@@ -25,7 +25,7 @@ class Settings {
      * @var string
      */
     protected $optionName;
-
+    protected $optionsPage;
     /**
      * Einstellungsoptionen
      * @var array

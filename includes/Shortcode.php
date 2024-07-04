@@ -213,11 +213,7 @@ class Shortcode {
                         $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
                         if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
                             $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
-                            if ( $icon_options["icons_icontype"] == 'svg' ) {
-                                $img = '<object height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" data="' . $img_src . '" type="image/svg+xml"><p>Icon ' . $icon_options["icons_icontype"] . '</p></object>';
-                            } else {
-                                $img = '<img src="' . $img_src . '" alt="Icon ' . $icon_options["icons_icontype"] . ' " height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '">';
-                            }
+                            $img = '<img src="' . $img_src . '" alt="' . strtoupper($myfiletype) . '" height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" style="box-shadow: none; margin-bottom: '. ($icon_options["icons_icondimensions"] / 4) . 'px;">';
                         } else {
                             $img = 'Icon is missing';
                         }

@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RRZE-Downloads\n"
-"Last-Translator: Benjamin <benjamin.klemencic@fau.de>\n"
+"Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2020-02-12 11:23+0000\n"
-"PO-Revision-Date: 2020-02-12 11:26+0000\n"
+"PO-Revision-Date: 2024-07-04 11:05+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: rrze-downloads\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2"
+"X-Loco-Version: 2.6.10; wp-6.5.5"
 
 #: rrze-downloads.php:76
 #, php-format
@@ -32,7 +32,7 @@ msgstr ""
 #: rrze-downloads.php:125
 #, php-format
 msgid "Plugins: %1$s: %2$s"
-msgstr ""
+msgstr "Plugins: %1$s: %2$s"
 
 #: config/config.php:21
 msgid "Find the settings on the right side"
@@ -56,7 +56,7 @@ msgstr "Kategorie"
 
 #: config/config.php:42
 msgid "Tags"
-msgstr ""
+msgstr "Schlagwörter"
 
 #: config/config.php:48
 msgid "Type"
@@ -64,19 +64,19 @@ msgstr "Typ"
 
 #: config/config.php:54
 msgid "HTMLpre"
-msgstr ""
+msgstr "HTMLpre"
 
 #: config/config.php:60
 msgid "HTMLpost"
-msgstr ""
+msgstr "HTMLpost"
 
 #: config/config.php:66
 msgid "HTMLitempre"
-msgstr ""
+msgstr "HTMLitempre"
 
 #: config/config.php:72
 msgid "HTMLitempost"
-msgstr ""
+msgstr "HTMLitempost"
 
 #: config/config.php:77
 msgid "Search application"
@@ -124,7 +124,7 @@ msgstr "Datum"
 
 #: config/config.php:136
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: config/config.php:142
 msgid "Ascending"
@@ -140,12 +140,12 @@ msgstr "Sortierung"
 
 #: config/config.php:197
 msgid "Downloads"
-msgstr ""
+msgstr "Downloads"
 
 #. Plugin Name of the plugin
 #: config/config.php:198
 msgid "RRZE Downloads"
-msgstr ""
+msgstr "RRZE Downloads"
 
 #: config/config.php:201
 msgid "Downloads Settings"
@@ -174,7 +174,7 @@ msgstr "Für weitere Informationen"
 
 #: config/config.php:218
 msgid "RRZE Webteam on Github"
-msgstr ""
+msgstr "RRZE Webteam on Github"
 
 #: config/config.php:231
 msgid "Settings"
@@ -190,7 +190,7 @@ msgstr "Zeige Downloads mit"
 
 #: config/config.php:257
 msgid "Icons"
-msgstr ""
+msgstr "Icons"
 
 #: config/config.php:259
 msgid "just plain links"
@@ -206,23 +206,23 @@ msgstr "Größe: Breite x Höhe in Pixel"
 
 #: config/config.php:269
 msgid "16 x 16"
-msgstr ""
+msgstr "16 x 16"
 
 #: config/config.php:270
 msgid "24 x 24"
-msgstr ""
+msgstr "24 x 24"
 
 #: config/config.php:271
 msgid "48 x 48"
-msgstr ""
+msgstr "48"
 
 #: config/config.php:272
 msgid "64 x 64"
-msgstr ""
+msgstr "64 x 64"
 
 #: config/config.php:273
 msgid "128 x 128"
-msgstr ""
+msgstr "128 X 128"
 
 #: config/config.php:278
 msgid "Icon Type"
@@ -234,15 +234,15 @@ msgstr "Dateityp des Icons"
 
 #: config/config.php:283
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: config/config.php:284
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
 #: config/config.php:285
 msgid "SVG"
-msgstr ""
+msgstr "SVG"
 
 #: config/config.php:290
 msgid "Align icon"
@@ -287,27 +287,27 @@ msgstr ""
 
 #: config/config.php:317
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: config/config.php:318
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: config/config.php:319
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: config/config.php:320
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: config/config.php:321
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: config/config.php:322
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: config/config.php:329
 msgid "Select all file types"
@@ -332,93 +332,93 @@ msgstr "Downloads: Es konnten keine Dateien gefunden werden."
 #: assets/taxonomies/attachment-category.php:10
 #: assets/taxonomies/attachment-category.php:20
 msgid "Kategorien"
-msgstr ""
+msgstr "Kategorien"
 
 #: assets/taxonomies/attachment-category.php:11
 msgid "Kategorie"
-msgstr ""
+msgstr "Kategorie"
 
 #: assets/taxonomies/attachment-category.php:12
 msgid "Kategorien suchen"
-msgstr ""
+msgstr "Kategorien suchen"
 
 #: assets/taxonomies/attachment-category.php:13
 #: assets/taxonomies/attachment-category.php:55
 #: assets/taxonomies/attachment-category.php:98
 msgid "Alle Kategorien"
-msgstr ""
+msgstr "Alle Kategorien"
 
 #: assets/taxonomies/attachment-category.php:14
 msgid "Übergeordnet"
-msgstr ""
+msgstr "Übergeordnet"
 
 #: assets/taxonomies/attachment-category.php:15
 msgid "Übergeordnet:"
-msgstr ""
+msgstr "Übergeordnet:"
 
 #: assets/taxonomies/attachment-category.php:16
 msgid "Kategorie bearbeiten"
-msgstr ""
+msgstr "Kategorie bearbeiten"
 
 #: assets/taxonomies/attachment-category.php:17
 msgid "Kategorie aktualisieren"
-msgstr ""
+msgstr "Kategorie aktualisieren"
 
 #: assets/taxonomies/attachment-category.php:18
 msgid "Neue Kategorie hinzufügen"
-msgstr ""
+msgstr "Neue Kategorie hinzufügen"
 
 #: assets/taxonomies/attachment-category.php:19
 #: assets/taxonomies/attachment-tag.php:20
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: assets/taxonomies/attachment-tag.php:10
 #: assets/taxonomies/attachment-tag.php:24
 msgid "Schlagwörter"
-msgstr ""
+msgstr "Schlagwörter"
 
 #: assets/taxonomies/attachment-tag.php:11
 msgid "Schlagwort"
-msgstr ""
+msgstr "Schlagwort"
 
 #: assets/taxonomies/attachment-tag.php:12
 msgid "Schlagwörter suchen"
-msgstr ""
+msgstr "Schlagwörter suchen"
 
 #: assets/taxonomies/attachment-tag.php:13
 msgid "Beliebte Schlagwörter"
-msgstr ""
+msgstr "Beliebte Schlagwörter"
 
 #: assets/taxonomies/attachment-tag.php:14
 #: assets/taxonomies/attachment-tag.php:59
 #: assets/taxonomies/attachment-tag.php:102
 msgid "Alle Schlagwörter"
-msgstr ""
+msgstr "Alle Schlagwörter"
 
 #: assets/taxonomies/attachment-tag.php:17
 msgid "Schlagwort bearbeiten"
-msgstr ""
+msgstr "Schlagwort bearbeiten"
 
 #: assets/taxonomies/attachment-tag.php:18
 msgid "Schlagwort aktualisieren"
-msgstr ""
+msgstr "Schlagwort aktualisieren"
 
 #: assets/taxonomies/attachment-tag.php:19
 msgid "Neues Schlagwort erstellen"
-msgstr ""
+msgstr "Neues Schlagwort erstellen"
 
 #: assets/taxonomies/attachment-tag.php:21
 msgid "Trenne Schlagwörter durch Kommas"
-msgstr ""
+msgstr "Trenne Schlagwörter durch Kommas"
 
 #: assets/taxonomies/attachment-tag.php:22
 msgid "Hinzu"
-msgstr ""
+msgstr "Hinzu"
 
 #: assets/taxonomies/attachment-tag.php:23
 msgid "Wähle aus den häufig genutzten Schlagwörtern"
-msgstr ""
+msgstr "Wähle aus den häufig genutzten Schlagwörtern"
 
 msgid ""
 "this will add a list with available download files. Shortcode is [downloads] "
@@ -428,13 +428,13 @@ msgstr ""
 "ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
 
 #. Plugin URI of the plugin
-msgid "https://gitlab.rrze.fau.de/rrze-webteam/rrze-downloads"
-msgstr ""
+msgid "https://github.com/RRZE-Webteam/rrze-downloads"
+msgstr "https://github.com/RRZE-Webteam/rrze-downloads"
 
 #. Author of the plugin
 msgid "RRZE Webteam"
-msgstr ""
+msgstr "RRZE Webteam"
 
 #. Author URI of the plugin
 msgid "https://blogs.fau.de/webworking/"
-msgstr ""
+msgstr "https://blogs.fau.de/webworking/"

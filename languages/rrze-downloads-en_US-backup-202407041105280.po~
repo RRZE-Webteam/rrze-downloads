@@ -1,0 +1,245 @@
+# Copyright (C) 2019 RRZE Webteam
+# This file is distributed under the same license as the RRZE Downloads plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: RRZE Downloads 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RRZE-Downloads\n"
+"Last-Translator: benjamin <benjamin.klemencic@fau.de>\n"
+"Language-Team: English (United States)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-10-11 08:28+0000\n"
+"PO-Revision-Date: 2019-10-11 08:28+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: rrze-downloads\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
+
+#: rrze-downloads.php:77
+#, php-format
+msgid ""
+"The server is running PHP version %1$s. The Plugin requires at least PHP "
+"version %2$s."
+msgstr ""
+
+#: rrze-downloads.php:80
+#, php-format
+msgid ""
+"The server is running WordPress version %1$s. The Plugin requires at least "
+"WordPress version %2$s."
+msgstr ""
+
+#: rrze-downloads.php:126
+#, php-format
+msgid "Plugins: %1$s: %2$s"
+msgstr ""
+
+#: config/config.php:52
+msgid "Downloads"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: config/config.php:53
+msgid "RRZE Downloads"
+msgstr ""
+
+#: config/config.php:56
+msgid "Downloads Settings"
+msgstr ""
+
+#: config/config.php:69
+msgid ""
+"This plugin will automatically add an icon or a preview image next to links "
+"of the activated file types. If you like, you can also let the plugin add "
+"the file size of the linked file to the page."
+msgstr ""
+
+#: config/config.php:70
+msgid ""
+"On this settings page you can choose to show an icon or a preview image will "
+"be shown and specify the icon size, icon type (white matte gif or "
+"transparent png) and the icon alignment. Click on tab \"File Types "
+"Settings\" to select the file types for which this plugin will be enabled. "
+"\"Additional Settings\" allow you to specify exceptions, format the file "
+"size and set caching options."
+msgstr ""
+
+#: config/config.php:73
+msgid "For more information"
+msgstr ""
+
+#: config/config.php:73
+msgid "RRZE Webteam on Github"
+msgstr ""
+
+#: config/config.php:86
+msgid "Settings"
+msgstr ""
+
+#: config/config.php:90
+msgid "Icons Settings"
+msgstr ""
+
+#: config/config.php:109
+msgid "Show downloads with"
+msgstr ""
+
+#: config/config.php:110
+msgid "Choose whether to show icons or preview images next to each download"
+msgstr ""
+
+#: config/config.php:114
+msgid "Icons"
+msgstr ""
+
+#: config/config.php:116
+msgid "just plain links"
+msgstr ""
+
+#: config/config.php:121
+msgid "Image Size"
+msgstr ""
+
+#: config/config.php:122
+msgid "Size: width x height in pixels"
+msgstr ""
+
+#: config/config.php:126
+msgid "16 x 16"
+msgstr ""
+
+#: config/config.php:127
+msgid "24 x 24"
+msgstr ""
+
+#: config/config.php:128
+msgid "48 x 48"
+msgstr ""
+
+#: config/config.php:129
+msgid "64 x 64"
+msgstr ""
+
+#: config/config.php:130
+msgid "128 x 128"
+msgstr ""
+
+#: config/config.php:135
+msgid "Image Type"
+msgstr ""
+
+#: config/config.php:136
+msgid "File type of the icon."
+msgstr ""
+
+#: config/config.php:140
+msgid "GIF"
+msgstr ""
+
+#: config/config.php:141
+msgid "PNG"
+msgstr ""
+
+#: config/config.php:142
+msgid "SVG"
+msgstr ""
+
+#: config/config.php:147
+msgid "Align icon"
+msgstr ""
+
+#: config/config.php:148
+msgid "Show icon on the left or right side of the link"
+msgstr ""
+
+#: config/config.php:152
+msgid "Left"
+msgstr ""
+
+#: config/config.php:153
+msgid "Right"
+msgstr ""
+
+#: config/config.php:158
+msgid "Show File Size?"
+msgstr ""
+
+#: config/config.php:159
+msgid "Display the file size of the attachment / linked file."
+msgstr ""
+
+#: config/config.php:163 config/config.php:191 config/config.php:301
+msgid "yes"
+msgstr ""
+
+#: config/config.php:164 config/config.php:192 config/config.php:302
+msgid "no"
+msgstr ""
+
+#: config/config.php:169
+msgid "Precision (decimals)"
+msgstr ""
+
+#: config/config.php:170
+msgid "Sizes less than 1 kB will always have 0 decimals."
+msgstr ""
+
+#: config/config.php:174
+msgid "0"
+msgstr ""
+
+#: config/config.php:175
+msgid "1"
+msgstr ""
+
+#: config/config.php:176
+msgid "2"
+msgstr ""
+
+#: config/config.php:177
+msgid "3"
+msgstr ""
+
+#: config/config.php:178
+msgid "4"
+msgstr ""
+
+#: config/config.php:179
+msgid "5"
+msgstr ""
+
+#: config/config.php:186
+msgid "Select all file types"
+msgstr ""
+
+#: config/config.php:187
+msgid "Add an icon to all file types"
+msgstr ""
+
+#: config/config.php:297
+msgid "Add an icon to"
+msgstr ""
+
+#: includes/Shortcode.php:264
+msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"this will add a list with available download files. Shortcode is [downloads] "
+"- see settings for additional attributes"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/RRZE-Webteam/rrze-downloads"
+msgstr ""
+
+#. Author of the plugin
+msgid "RRZE Webteam"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://blogs.fau.de/webworking/"
+msgstr ""

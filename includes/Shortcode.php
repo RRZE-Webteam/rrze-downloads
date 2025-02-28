@@ -13,8 +13,6 @@ class Shortcode {
     public function __construct() {
         $this->settings = getShortcodeSettings();
         $this->pluginname = $this->settings['block']['blockname'];
-        add_action( 'admin_enqueue_scripts', [$this, 'enqueueGutenberg'] );
-        add_action( 'init',  [$this, 'initGutenberg'] );
         add_action('admin_head', [$this, 'setMCEConfig']);
         add_filter('mce_external_plugins', [$this, 'addMCEButtons']);
         add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ]);
@@ -274,63 +272,6 @@ class Shortcode {
         }
 
         return $output;
-    }
-
-    public function isGutenberg(){
-        $postID = get_the_ID();
-        if ($postID && !use_block_editor_for_post($postID)){
-            return false;
-        }
-
-        return true;        
-    }
-
-    public function initGutenberg() {
-        if (! $this->isGutenberg()){
-            return;
-        }
-
-        // register js-script to inject php config to call gutenberg lib
-        $editor_script = $this->settings['block']['blockname'] . '-block';        
-        $js = '../assets/js/' . $editor_script . '.js';
-
-        wp_register_script(
-            $editor_script,
-            plugins_url( $js, __FILE__ ),
-            array(
-                'RRZE-Gutenberg',
-            ),
-            NULL
-        );
-        wp_localize_script( $editor_script, $this->settings['block']['blockname'] . 'Config', $this->settings );
-
-        // register block
-        register_block_type( $this->settings['block']['blocktype'], array(
-            'editor_script' => $editor_script,
-            'render_callback' => [$this, 'shortcodeOutput'],
-            'attributes' => $this->settings
-            ) 
-        );
-    }
-
-    public function enqueueGutenberg(){
-        if (! $this->isGutenberg()){
-            return;
-        }
-
-        // include gutenberg lib
-        wp_enqueue_script(
-            'RRZE-Gutenberg',
-            plugins_url( '../assets/js/gutenberg.js', __FILE__ ),
-            array(
-                'wp-blocks',
-                'wp-i18n',
-                'wp-element',
-                'wp-components',
-                'wp-editor'
-            ),
-            NULL
-        );
     }
 
     public function setMCEConfig(){

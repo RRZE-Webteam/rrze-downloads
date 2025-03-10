@@ -32,7 +32,7 @@ const CustomQueryControls = ({
       ) => Category[];
     };
     return {
-      categories: getEntityRecords("taxonomy", "category"),
+      categories: getEntityRecords("attachement", "category"),
     };
   }, []);
 

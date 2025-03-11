@@ -1,9 +1,10 @@
-import { useSelect } from "@wordpress/data";
-import { QueryControls } from "@wordpress/components";
+import {useSelect} from "@wordpress/data";
+import {FormTokenField, ComboboxControl, __experimentalText as Text} from "@wordpress/components";
+import {__} from "@wordpress/i18n";
 
 type CustomQueryControlsProps = {
   attributes: {
-    cat: string;
+    category: string;
     num: number;
   };
   setAttributes: (attributes: Partial<CustomQueryControlsProps["attributes"]>) => void;
@@ -17,85 +18,93 @@ interface Category {
   link: string;
   parent: number;
   taxonomy: string;
+  description: string;
 }
 
-const CustomQueryControls = ({
-  attributes,
-  setAttributes,
-}: CustomQueryControlsProps) => {
-  const { categories } = useSelect((select) => {
-    const { getEntityRecords } = select("core") as {
+interface CategoryOption {
+  label: string;
+  files: number;
+  description?: string;
+  value: string;
+}
+
+const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsProps) => {
+  const {categories} = useSelect((select) => {
+    const {getEntityRecords} = select("core") as {
       getEntityRecords: (
-        entity?: string,
-        type?: string,
+        kind: string,
+        name: string,
         query?: { per_page: number }
       ) => Category[];
     };
+
     return {
-      categories: getEntityRecords("attachement", "category"),
+      categories: getEntityRecords("taxonomy", "attachment_category", {
+        per_page: -1,
+      }),
     };
   }, []);
 
-  const cat = attributes.cat || "";
+  const {category = ""} = attributes;
+  const selectedCategorySlugs = category.split(",").filter(Boolean);
 
   const categorySuggestions = categories
-    ? categories.reduce(
-        (acc, category) => {
-          acc[category.slug] = category;
-          return acc;
-        },
-        {} as Record<string, Category>
-      )
-    : {};
-
-  const selectedCategorySlugs = cat.split(",");
-
-  const selectedCategories = categories
-    ? categories
-        .filter((category) => selectedCategorySlugs.includes(category.slug))
-        .map(({ id, name, parent }) => ({ id, name, parent }))
+    ? categories.map((category) => category.slug)
     : [];
 
-  const onCategoryChange = (
-    newValue: string | Array<string | { id: number; value: string }>
-  ) => {
-    let currentCategorySlugs = cat.toLowerCase().split(",").filter(Boolean);
-
-    const newValueSlugs = (Array.isArray(newValue) ? newValue : [newValue])
-      .map((item) => {
-        const slug =
-          typeof item === "string"
-            ? item
-            : categories.find((category) => category.id === item.id)?.slug;
-        return categories.find((category) => category.slug === slug)
-          ? slug
-          : null;
-      })
-      .filter((slug) => slug);
-
-    currentCategorySlugs = currentCategorySlugs.filter((slug) =>
-      newValueSlugs.includes(slug)
-    );
-    newValueSlugs.forEach((slug) => {
-      if (!currentCategorySlugs.includes(slug)) {
-        currentCategorySlugs.push(slug);
-      }
-    });
-
-    setAttributes({ cat: currentCategorySlugs.join(",") });
+  const onCategoryChange = (newSlug: string | null) => {
+    setAttributes({category: newSlug});
   };
 
+  const categoryOptions = categories
+    ? categories.map((category) => ({
+      label: category.name,
+      value: category.slug,
+      files: category.count,
+      description: category.description,
+    }))
+    : [];
+
+  const renderExperimentalRenderItem = (item: any) => {
+    return (
+      <>
+        <div style={{marginBottom: ".2rem"}}>
+          <strong>{item.item.label}</strong><br/>
+        </div>
+        <small>{item.item.files}{(item.item.files > 1) ? __(" files in this category: ", "rrze-downloads") : __(" file in this category: ", "rrze-downloads")}</small>
+        {item.item.description && (
+          <>
+            <br/>
+            <small><em>{item.item.description}</em></small>
+          </>
+        )}
+      </>
+    )
+  }
+
   return (
-    <QueryControls
-      categorySuggestions={categorySuggestions}
-      numberOfItems={attributes.num}
-      onCategoryChange={onCategoryChange}
-      onNumberOfItemsChange={(value) => setAttributes({ num: value })}
-      selectedCategories={selectedCategories}
-      minItems = {1}
-      maxItems = {15}
-    />
+    <>
+      {(categoryOptions.length > 0) ? (
+        <ComboboxControl
+          __experimentalRenderItem={renderExperimentalRenderItem}
+          options={categoryOptions}
+          onChange={onCategoryChange}
+          label={__("Filter by Category", "rrze-downloads")}
+          help={__("Select a category to filter the downloads by.", "rrze-downloads")}
+        />
+      ) : (
+        <>
+          <Text>{__("You currently have no Media Categories setup and in use. Follow these steps to create a custom Media Category:", "rrze-downloads")}</Text>
+          <ol>
+            <li>{__("Navigate to Dashboard > Media Library > Categories", "rrze-downloads")}</li>
+            <li>{__("Create a new Media Category with a descriptive name and a description.", "rrze-downloads")}</li>
+            <li>{__("Start adding new Media items to your categories via your WordPress Media Library (Dashboard > Media Library)", "rrze-downloads")}</li>
+            <li>{__("Save your current post or page and refresh the Editor to filter your download list by your newly created Media Library.", "rrze-downloads")}</li>
+          </ol>
+        </>
+      )}
+    </>
   );
 };
 
-export { CustomQueryControls };
+export {CustomQueryControls};

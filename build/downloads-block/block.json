@@ -14,11 +14,19 @@
       "type": "string",
       "default": ""
     },
+    "num": {
+      "type": "number",
+      "default": 5
+    },
     "tags": {
       "type": "string",
       "default": ""
     },
     "search_audio": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_image": {
       "type": "boolean",
       "default": false
     },
@@ -50,12 +58,12 @@
       "type": "boolean",
       "default": false
     },
-    "num": {
-      "type": "number",
-      "default": 0
+    "isInitialSetup": {
+      "type": "boolean",
+      "default": true
     }
   },
-  "textdomain": "rrze-elements-blocks",
+  "textdomain": "rrze-downloads",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"

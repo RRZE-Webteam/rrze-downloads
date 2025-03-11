@@ -22,6 +22,7 @@ class Shortcode {
 
 
     public function shortcodeOutput( $atts ) {
+        error_log('Shortcode: ' . print_r($atts, true));
         $atts = shortcode_atts([
             'category' => '',
             "cat" => '',

@@ -13,5 +13,6 @@
   },
   "include": [
     "./src/**/*",
+    "types/server-side-render.d.ts"
   ]
 }

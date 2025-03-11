@@ -84,7 +84,8 @@ class Blocks
      */
     public function renderBlock($attributes) {
         $default_atts = array(
-            'category'           => '',
+            'category' => '',
+            "cat" => '',
             'tags'               => '',
             'type'               => '',
             'format'             => 'liste',

@@ -42,25 +42,29 @@
       "type": "boolean",
       "default": false
     },
-    "show_size": {
+    "showsize": {
+      "type": "boolean",
+      "default": true
+    },
+    "showcontent": {
       "type": "boolean",
       "default": false
     },
-    "show_content": {
+    "showexcerpt": {
       "type": "boolean",
       "default": false
     },
-    "show_excerpt": {
-      "type": "boolean",
-      "default": false
-    },
-    "show_created": {
+    "showcreated": {
       "type": "boolean",
       "default": false
     },
     "isInitialSetup": {
       "type": "boolean",
       "default": true
+    },
+    "format": {
+      "type": "string",
+      "default": "liste"
     }
   },
   "textdomain": "rrze-downloads",

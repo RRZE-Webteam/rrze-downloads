@@ -20,7 +20,7 @@ class Blocks
      */
     public function rrze_rrze_downloads_block_init()
     {
-        $this->rrze_register_blocks_and_translations();
+        $this->registerDownloadsBlockAndTranslations();
     }
 
 //    /**
@@ -39,16 +39,27 @@ class Blocks
     /**
      * Registers blocks and localizations.
      */
-    private function rrze_register_blocks_and_translations()
+    private function registerDownloadsBlockAndTranslations(): void
     {
-        register_block_type(plugin_dir_path(__DIR__) . 'build/downloads-block', [
+        $downloadsBlockPath = plugin_dir_path(__DIR__) . 'build/downloads-block';
+        register_block_type($downloadsBlockPath, [
             'render_callback' => [$this, 'renderBlock'],
         ]);
+        $scriptHandle       = generate_block_asset_handle('rrze-downloads/downloads', 'editorScript');
 
-        $script_handle = generate_block_asset_handle('rrze-downloads/downloads', 'editorScript');
-        wp_set_script_translations($script_handle, 'rrze-downloads', plugin_dir_path(__DIR__) . 'languages');
-        load_plugin_textdomain('rrze-downloads', false, dirname(plugin_basename(__DIR__)) . '/languages');
+        wp_set_script_translations(
+            $scriptHandle,
+            'rrze-downloads',
+            plugin_dir_path(__DIR__) . 'languages'
+        );
+
+        load_plugin_textdomain(
+            'rrze-downloads',
+            false,
+            dirname(plugin_basename(__DIR__)) . '/languages'
+        );
     }
+
 
     /**
      * Adds custom block category if not already present.

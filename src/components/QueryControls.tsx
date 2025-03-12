@@ -91,6 +91,7 @@ const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsPro
           onChange={onCategoryChange}
           label={__("Filter by Category", "rrze-downloads")}
           help={__("Select a category to filter the downloads by.", "rrze-downloads")}
+          value={attributes.category}
         />
       ) : (
         <>

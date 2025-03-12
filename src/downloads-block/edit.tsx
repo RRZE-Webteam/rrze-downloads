@@ -194,11 +194,6 @@ export default function Edit({attributes, setAttributes}: EditProps) {
           <InspectorControls>
             <PanelBody title={__("Filter options", "rrze-downloads")} initialOpen={false}>
               <div>
-                <Spacer
-                  paddingBottom={"1rem"}
-                >
-                  <Heading level={3}>{__("Filter by Media Category", "rrze-downloads")}</Heading>
-                </Spacer>
                 <Spacer paddingRight={"0.2rem"}>
                   <CustomQueryControls
                     attributes={{
@@ -210,7 +205,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
                 </Spacer>
               </div>
               <div>
-                <Spacer paddingBottom={"1rem"}>
+                <Spacer paddingTop={"1rem"}>
                   <Heading level={3}>{__("Filter by File Type", "rrze-downloads")}</Heading>
                 </ Spacer>
                 <CheckboxControl

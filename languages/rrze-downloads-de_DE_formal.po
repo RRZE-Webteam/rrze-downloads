@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
 "POT-Creation-Date: 2025-03-12T13:39:09+00:00\n"
-"PO-Revision-Date: 2025-03-12 14:48+0100\n"
+"PO-Revision-Date: 2025-03-12 18:28+0100\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch (Sie)\n"
 "Language: de\n"
@@ -212,7 +212,7 @@ msgstr "Exzerpt anzeigen"
 
 #: config/config.php:125 build/downloads-block/index.js:1
 msgid "Show content"
-msgstr "Inhalt anzeigen"
+msgstr "Beschreibung anzeigen"
 
 #: config/config.php:132 build/downloads-block/index.js:1
 msgid "Title"
@@ -335,7 +335,7 @@ msgstr "Icon Typ"
 
 #: config/config.php:287
 msgid "File type of the icon."
-msgstr "Dateityp des Icons"
+msgstr "Dateityp des Icons."
 
 #: config/config.php:291
 msgid "GIF"
@@ -359,11 +359,11 @@ msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
 
 #: config/config.php:303
 msgid "Left"
-msgstr "links"
+msgstr "Links"
 
 #: config/config.php:304
 msgid "Right"
-msgstr "rechts"
+msgstr "Rechts"
 
 #: config/config.php:309
 msgid "Show File Size?"
@@ -371,7 +371,7 @@ msgstr "Dateigröße anzeigen?"
 
 #: config/config.php:310
 msgid "Display the file size of the attachment / linked file."
-msgstr "Zeige die Größe der angefügten oder verlinkten Datei an. "
+msgstr "Zeige die Größe der angefügten oder verlinkten Datei an."
 
 #: config/config.php:314 config/config.php:342 config/config.php:361
 msgid "yes"
@@ -592,7 +592,7 @@ msgstr "Tabelle"
 
 #: build/downloads-block/index.js:1
 msgid "Show file size"
-msgstr "Dateigrösse anzeigen"
+msgstr "Dateigröße anzeigen"
 
 #: build/downloads-block/index.js:1
 msgid "Should the file size be displayed in kB?"
@@ -608,7 +608,7 @@ msgstr "Soll das Upload-Datum angezeigt werden?"
 
 #: build/downloads-block/index.js:1
 msgid "Show Excerpt"
-msgstr "Textauszug anzeigen"
+msgstr "Beschriftung anzeigen"
 
 #: build/downloads-block/index.js:1
 msgid "Should the Media Caption be displayed?"

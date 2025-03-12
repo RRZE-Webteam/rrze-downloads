@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
 "POT-Creation-Date: 2025-03-12T13:39:09+00:00\n"
-"PO-Revision-Date: 2025-03-12 14:47+0100\n"
+"PO-Revision-Date: 2025-03-12 18:27+0100\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -209,7 +209,7 @@ msgstr "Exzerpt anzeigen"
 
 #: config/config.php:125 build/downloads-block/index.js:1
 msgid "Show content"
-msgstr "Inhalt anzeigen"
+msgstr "Beschreibung anzeigen"
 
 #: config/config.php:132 build/downloads-block/index.js:1
 msgid "Title"
@@ -589,7 +589,7 @@ msgstr "Tabelle"
 
 #: build/downloads-block/index.js:1
 msgid "Show file size"
-msgstr "Dateigrösse anzeigen"
+msgstr "Dateigröße anzeigen"
 
 #: build/downloads-block/index.js:1
 msgid "Should the file size be displayed in kB?"
@@ -605,7 +605,7 @@ msgstr "Soll das Upload-Datum angezeigt werden?"
 
 #: build/downloads-block/index.js:1
 msgid "Show Excerpt"
-msgstr "Textauszug anzeigen"
+msgstr "Beschriftung anzeigen"
 
 #: build/downloads-block/index.js:1
 msgid "Should the Media Caption be displayed?"

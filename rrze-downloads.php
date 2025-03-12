@@ -146,7 +146,6 @@ function loaded() {
     add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
     add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
 
-    // Hauptklasse (Main) wird instanziiert.
     $main = new Main(__FILE__);
     $main->onLoaded();
 }

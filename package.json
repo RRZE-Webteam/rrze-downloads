@@ -1,0 +1,56 @@
+{
+  "name": "rrze-downloads",
+  "version": "1.0.14",
+  "description": "RRZE Downloads: Manage Categories for the WP Media Library",
+  "main": "build/index.js",
+  "textdomain": "rrze-downloads",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "start": "wp-scripts start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RRZE-Webteam/rrze-downloads",
+    "issues": "https://github.com/RRZE-Webteam/rrze-downloads/issues",
+    "clone": "git+https://github.com/RRZE-Webteam/rrze-downloads.git"
+  },
+  "browserslist": [
+    "last 3 years",
+    "ie 11"
+  ],
+  "supports": {
+    "email": "webmaster@fau.de",
+    "docs": "https://www.wordpress.rrze.fau.de/plugins/fau-und-rrze-plugins/downloads/"
+  },
+  "author": {
+    "name": "RRZE-Webteam <webmaster@fau.de>",
+    "url": "https://www.wordpress.rrze.fau.de/person/webmaster"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
+    "@playwright/test": "^1.51.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^22.13.10",
+    "@types/wordpress__block-editor": "^11.5.16",
+    "@types/wordpress__blocks": "^12.5.17",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@wordpress/components": "^29.5.0",
+    "@wordpress/scripts": "^30.12.0",
+    "@wordpress/server-side-render": "^5.19.0",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-tsdoc": "^0.4.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2"
+  }
+}

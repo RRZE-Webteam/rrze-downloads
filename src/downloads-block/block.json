@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rrze-downloads/downloads",
+  "version": "2.2.13",
+  "title": "Downloads",
+  "category": "rrze",
+  "description": "Outputs a list of downloads from your WordPress Media Library.",
+  "supports": {
+    "html": false
+  },
+  "keywords": [
+    "downloads",
+    "download",
+    "files",
+    "file",
+    "rrze downloads",
+    "rrze"
+  ],
+  "attributes": {
+    "category": {
+      "type": "string",
+      "default": ""
+    },
+    "num": {
+      "type": "number",
+      "default": 5
+    },
+    "tags": {
+      "type": "string",
+      "default": ""
+    },
+    "search_audio": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_image": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_video": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_text": {
+      "type": "boolean",
+      "default": false
+    },
+    "search_application": {
+      "type": "boolean",
+      "default": false
+    },
+    "showsize": {
+      "type": "boolean",
+      "default": true
+    },
+    "showcontent": {
+      "type": "boolean",
+      "default": false
+    },
+    "showexcerpt": {
+      "type": "boolean",
+      "default": false
+    },
+    "showcreated": {
+      "type": "boolean",
+      "default": false
+    },
+    "isInitialSetup": {
+      "type": "boolean",
+      "default": true
+    },
+    "format": {
+      "type": "string",
+      "default": "liste"
+    },
+    "errormsg": {
+      "type": "string",
+      "default": ""
+    },
+    "orderby": {
+      "type": "string",
+      "default": "title"
+    },
+    "sort": {
+      "type": "string",
+      "default": "asc"
+    }
+  },
+  "textdomain": "rrze-downloads",
+  "editorScript": "file:./index.ts",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "example": {
+    "attributes": {
+      "isInitialSetup": false
+    }
+  }
+}

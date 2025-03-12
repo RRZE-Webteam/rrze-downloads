@@ -1,336 +1,51 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RRZE-Downloads\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
+"POT-Creation-Date: 2025-03-12T13:39:09+00:00\n"
+"PO-Revision-Date: 2025-03-12 14:48+0100\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch (Sie)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-12 11:23+0000\n"
-"PO-Revision-Date: 2024-07-04 11:06+0000\n"
-"X-Generator: Loco https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 "X-Domain: rrze-downloads\n"
-"Language: de_DE_formal\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.6.10; wp-6.5.5\n"
 "X-Loco-Fallback: de_DE\n"
 "X-Loco-Template: languages/rrze-downloads-de_DE.po\n"
-"X-Loco-Template-Mode: PO,JSON"
-
-#: rrze-downloads.php:76
-#, php-format
-msgid ""
-"The server is running PHP version %1$s. The Plugin requires at least PHP "
-"version %2$s."
-msgstr ""
-
-#: rrze-downloads.php:79
-#, php-format
-msgid ""
-"The server is running WordPress version %1$s. The Plugin requires at least "
-"WordPress version %2$s."
-msgstr ""
-
-#: rrze-downloads.php:125
-#, php-format
-msgid "Plugins: %1$s: %2$s"
-msgstr "Plugins: %1$s: %2$s"
-
-#: config/config.php:21
-msgid "Find the settings on the right side"
-msgstr "Nehmen Sie die Einstellungen auf der rechten Seite vor"
-
-#: config/config.php:26
-msgid "List"
-msgstr "Liste"
-
-#: config/config.php:27
-msgid "Table"
-msgstr "Tabelle"
-
-#: config/config.php:30
-msgid "Order by"
-msgstr "Sortieren nach"
-
-#: config/config.php:36
-msgid "Category"
-msgstr "Kategorie"
-
-#: config/config.php:42
-msgid "Tags"
-msgstr "Schlagwörter"
-
-#: config/config.php:48
-msgid "Type"
-msgstr "Typ"
-
-#: config/config.php:54
-msgid "HTMLpre"
-msgstr "HTMLpre"
-
-#: config/config.php:60
-msgid "HTMLpost"
-msgstr "HTMLpost"
-
-#: config/config.php:66
-msgid "HTMLitempre"
-msgstr "HTMLitempre"
-
-#: config/config.php:72
-msgid "HTMLitempost"
-msgstr "HTMLitempost"
-
-#: config/config.php:77
-msgid "Search application"
-msgstr "Programme suchen"
-
-#: config/config.php:83
-msgid "Search image"
-msgstr "Bilder suchen"
-
-#: config/config.php:89
-msgid "Search video"
-msgstr "Videos suchen"
-
-#: config/config.php:95
-msgid "Search audio"
-msgstr "Audio-Dateien suchen"
-
-#: config/config.php:101
-msgid "Show title"
-msgstr "Titel anzeigen"
-
-#: config/config.php:107
-msgid "Search text"
-msgstr "Texte suchen"
-
-#: config/config.php:113
-msgid "Show size"
-msgstr "Größe anzeigen"
-
-#: config/config.php:119
-msgid "Show excerpt"
-msgstr "Exzerpt anzeigen"
-
-#: config/config.php:125
-msgid "Show content"
-msgstr "Inhalt anzeigen"
-
-#: config/config.php:132
-msgid "Title"
-msgstr "Titel"
-
-#: config/config.php:133
-msgid "Date"
-msgstr "Datum"
-
-#: config/config.php:136
-msgid "Format"
-msgstr "Format"
-
-#: config/config.php:142
-msgid "Ascending"
-msgstr "Aufsteigend"
-
-#: config/config.php:143
-msgid "Descending"
-msgstr "Absteigend"
-
-#: config/config.php:147
-msgid "Order"
-msgstr "Sortierung"
-
-#: config/config.php:197
-msgid "Downloads"
-msgstr "Downloads"
+"X-Loco-Template-Mode: PO,JSON\n"
 
 #. Plugin Name of the plugin
-#: config/config.php:198
+#: rrze-downloads.php config/config.php:204
 msgid "RRZE Downloads"
 msgstr "RRZE Downloads"
 
-#: config/config.php:201
-msgid "Downloads Settings"
-msgstr "Downloads Einstellungen"
+#. Plugin URI of the plugin
+#: rrze-downloads.php
+msgid "https://github.com/RRZE-Webteam/rrze-downloads"
+msgstr "https://github.com/RRZE-Webteam/rrze-downloads"
 
-#: config/config.php:214
+#. Description of the plugin
+#: rrze-downloads.php
 msgid ""
-"This plugin will automatically add an icon or a preview image next to links "
-"of the activated file types. If you like, you can also let the plugin add "
-"the file size of the linked file to the page."
+"this will add a list with available download files. Shortcode is [downloads] "
+"- see settings for additional attributes"
 msgstr ""
+"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
+"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
 
-#: config/config.php:215
-msgid ""
-"On this settings page you can choose to show an icon or a preview image will "
-"be shown and specify the icon size, icon type (white matte gif or "
-"transparent png) and the icon alignment. Click on tab \"File Types "
-"Settings\" to select the file types for which this plugin will be enabled. "
-"\"Additional Settings\" allow you to specify exceptions, format the file "
-"size and set caching options."
-msgstr ""
+#. Author of the plugin
+#: rrze-downloads.php
+msgid "RRZE Webteam"
+msgstr "RRZE Webteam"
 
-#: config/config.php:218
-msgid "For more information"
-msgstr "Für weitere Informationen"
-
-#: config/config.php:218
-msgid "RRZE Webteam on Github"
-msgstr "RRZE Webteam on Github"
-
-#: config/config.php:231
-msgid "Settings"
-msgstr "Einstellungen"
-
-#: config/config.php:235
-msgid "File Types"
-msgstr "Dateitypen"
-
-#: config/config.php:251
-msgid "Show downloads with"
-msgstr "Zeige Downloads mit"
-
-#: config/config.php:257
-msgid "Icons"
-msgstr "Icons"
-
-#: config/config.php:259
-msgid "just plain links"
-msgstr "Nur Textlinks"
-
-#: config/config.php:264
-msgid "Icon Size"
-msgstr "Icon Größe"
-
-#: config/config.php:265
-msgid "Size: width x height in pixels"
-msgstr "Größe: Breite x Höhe in Pixel"
-
-#: config/config.php:269
-msgid "16 x 16"
-msgstr "16 x 16"
-
-#: config/config.php:270
-msgid "24 x 24"
-msgstr "24 x 24"
-
-#: config/config.php:271
-msgid "48 x 48"
-msgstr "48"
-
-#: config/config.php:272
-msgid "64 x 64"
-msgstr "64 x 64"
-
-#: config/config.php:273
-msgid "128 x 128"
-msgstr "128 X 128"
-
-#: config/config.php:278
-msgid "Icon Type"
-msgstr "Icon Typ"
-
-#: config/config.php:279
-msgid "File type of the icon."
-msgstr "Dateityp des Icons"
-
-#: config/config.php:283
-msgid "GIF"
-msgstr "GIF"
-
-#: config/config.php:284
-msgid "PNG"
-msgstr "PNG"
-
-#: config/config.php:285
-msgid "SVG"
-msgstr "SVG"
-
-#: config/config.php:290
-msgid "Align icon"
-msgstr "Icon ausrichten"
-
-#: config/config.php:291
-msgid "Show icon on the left or right side of the link"
-msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
-
-#: config/config.php:295
-msgid "Left"
-msgstr "links"
-
-#: config/config.php:296
-msgid "Right"
-msgstr "rechts"
-
-#: config/config.php:301
-msgid "Show File Size?"
-msgstr "Dateigröße anzeigen?"
-
-#: config/config.php:302
-msgid "Display the file size of the attachment / linked file."
-msgstr "Zeige die Größe der angefügten oder verlinkten Datei an. "
-
-#: config/config.php:306 config/config.php:334 config/config.php:353
-msgid "yes"
-msgstr "ja"
-
-#: config/config.php:307 config/config.php:335 config/config.php:354
-msgid "no"
-msgstr "nein"
-
-#: config/config.php:312
-msgid "Precision (decimals)"
-msgstr "Genauigkeit (Dezimalstellen)"
-
-#: config/config.php:313
-msgid "Sizes less than 1 kB will always have 0 decimals."
-msgstr ""
-"Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
-
-#: config/config.php:317
-msgid "0"
-msgstr "0"
-
-#: config/config.php:318
-msgid "1"
-msgstr "1"
-
-#: config/config.php:319
-msgid "2"
-msgstr "2"
-
-#: config/config.php:320
-msgid "3"
-msgstr "3"
-
-#: config/config.php:321
-msgid "4"
-msgstr "4"
-
-#: config/config.php:322
-msgid "5"
-msgstr "5"
-
-#: config/config.php:329
-msgid "Select all file types"
-msgstr "Alle Dateitypen auswählen"
-
-#: config/config.php:330
-msgid "Add an icon / a preview to all file types"
-msgstr "Icons / Vorschaubilder für alle Dateitypen hinzufügen"
-
-#: config/config.php:342
-msgid "Preview images"
-msgstr "Vorschaubilder"
-
-#: config/config.php:349
-msgid "Add an icon / a preview"
-msgstr "Icon / Vorschaubild hinzufügen"
-
-#: includes/Shortcode.php:270
-msgid "Dowloads: Es konnten keine Dateien gefunden werden."
-msgstr "Downloads: Es konnten keine Dateien gefunden werden."
+#. Author URI of the plugin
+#: rrze-downloads.php
+msgid "https://blogs.fau.de/webworking/"
+msgstr "https://blogs.fau.de/webworking/"
 
 #: assets/taxonomies/attachment-category.php:10
 #: assets/taxonomies/attachment-category.php:20
@@ -346,8 +61,8 @@ msgid "Kategorien suchen"
 msgstr "Kategorien suchen"
 
 #: assets/taxonomies/attachment-category.php:13
-#: assets/taxonomies/attachment-category.php:55
-#: assets/taxonomies/attachment-category.php:98
+#: assets/taxonomies/attachment-category.php:56
+#: assets/taxonomies/attachment-category.php:99
 msgid "Alle Kategorien"
 msgstr "Alle Kategorien"
 
@@ -423,21 +138,562 @@ msgstr "Hinzu"
 msgid "Wähle aus den häufig genutzten Schlagwörtern"
 msgstr "Wähle aus den häufig genutzten Schlagwörtern"
 
+#: config/config.php:26 build/downloads-block/index.js:1
+msgid "List"
+msgstr "Liste"
+
+#: config/config.php:27 build/downloads-block/index.js:1
+msgid "Table"
+msgstr "Tabelle"
+
+#: config/config.php:30
+msgid "Order by"
+msgstr "Sortieren nach"
+
+#: config/config.php:36
+msgid "Category"
+msgstr "Kategorie"
+
+#: config/config.php:42
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#: config/config.php:48
+msgid "Type"
+msgstr "Typ"
+
+#: config/config.php:54
+msgid "HTMLpre"
+msgstr "HTMLpre"
+
+#: config/config.php:60
+msgid "HTMLpost"
+msgstr "HTMLpost"
+
+#: config/config.php:66
+msgid "HTMLitempre"
+msgstr "HTMLitempre"
+
+#: config/config.php:72
+msgid "HTMLitempost"
+msgstr "HTMLitempost"
+
+#: config/config.php:77
+msgid "Search application"
+msgstr "Programme suchen"
+
+#: config/config.php:83
+msgid "Search image"
+msgstr "Bilder suchen"
+
+#: config/config.php:89
+msgid "Search video"
+msgstr "Videos suchen"
+
+#: config/config.php:95
+msgid "Search audio"
+msgstr "Audio-Dateien suchen"
+
+#: config/config.php:101
+msgid "Show title"
+msgstr "Titel anzeigen"
+
+#: config/config.php:107
+msgid "Search text"
+msgstr "Texte suchen"
+
+#: config/config.php:113
+msgid "Show size"
+msgstr "Größe anzeigen"
+
+#: config/config.php:119
+msgid "Show excerpt"
+msgstr "Exzerpt anzeigen"
+
+#: config/config.php:125 build/downloads-block/index.js:1
+msgid "Show content"
+msgstr "Inhalt anzeigen"
+
+#: config/config.php:132 build/downloads-block/index.js:1
+msgid "Title"
+msgstr "Titel"
+
+#: config/config.php:133 build/downloads-block/index.js:1
+msgid "Date"
+msgstr "Datum"
+
+#: config/config.php:136
+msgid "Format"
+msgstr "Format"
+
+#: config/config.php:142
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: config/config.php:143
+msgid "Descending"
+msgstr "Absteigend"
+
+#: config/config.php:147 build/downloads-block/index.js:1
+msgid "Order"
+msgstr "Sortierung"
+
+#: config/config.php:203
+msgid "Downloads"
+msgstr "Downloads"
+
+#: config/config.php:207
+msgid "Downloads Settings"
+msgstr "Downloads Einstellungen"
+
+#: config/config.php:222
 msgid ""
-"this will add a list with available download files. Shortcode is [downloads] "
-"- see settings for additional attributes"
+"This plugin will automatically add an icon or a preview image next to links "
+"of the activated file types. If you like, you can also let the plugin add "
+"the file size of the linked file to the page."
 msgstr ""
-"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
-"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
+"Dieses Plugin fügt automatisch ein Symbol oder ein Vorschaubild neben den "
+"Links der aktivierten Dateitypen ein. Wenn du möchtest, kannst du das Plugin "
+"auch die Dateigröße der verlinkten Datei auf der Seite hinzufügen lassen."
 
-#. Plugin URI of the plugin
-msgid "https://github.com/RRZE-Webteam/rrze-downloads"
-msgstr "https://github.com/RRZE-Webteam/rrze-downloads"
+#: config/config.php:223
+msgid ""
+"On this settings page you can choose to show an icon or a preview image will "
+"be shown and specify the icon size, icon type (white matte gif or "
+"transparent png) and the icon alignment. Click on tab \"File Types "
+"Settings\" to select the file types for which this plugin will be enabled. "
+"\"Additional Settings\" allow you to specify exceptions, format the file "
+"size and set caching options."
+msgstr ""
+"Auf dieser Einstellungsseite kannst du wählen, ob ein Icon oder ein "
+"Vorschaubild angezeigt werden soll, und die Icon-Größe, den Icon-Typ (weißes "
+"mattes gif oder transparentes png) und die Ausrichtung des Icons festlegen. "
+"Klicke auf die Registerkarte \"Dateitypeneinstellungen\", um die Dateitypen "
+"auszuwählen, für die das Plugin aktiviert werden soll. unter \"Zusätzliche "
+"Einstellungen\" kannst du Ausnahmen festlegen, die Dateigröße formatieren "
+"und Caching-Optionen einstellen."
 
-#. Author of the plugin
-msgid "RRZE Webteam"
-msgstr "RRZE Webteam"
+#: config/config.php:226
+msgid "For more information"
+msgstr "Für weitere Informationen"
 
-#. Author URI of the plugin
-msgid "https://blogs.fau.de/webworking/"
-msgstr "https://blogs.fau.de/webworking/"
+#: config/config.php:226
+msgid "RRZE Webteam on Github"
+msgstr "RRZE Webteam on Github"
+
+#: config/config.php:240
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: config/config.php:244
+msgid "File Types"
+msgstr "Dateitypen"
+
+#: config/config.php:259
+msgid "Show downloads with"
+msgstr "Zeige Downloads mit"
+
+#: config/config.php:265
+msgid "Icons"
+msgstr "Icons"
+
+#: config/config.php:267
+msgid "just plain links"
+msgstr "Nur Textlinks"
+
+#: config/config.php:272
+msgid "Icon Size"
+msgstr "Icon Größe"
+
+#: config/config.php:273
+msgid "Size: width x height in pixels"
+msgstr "Größe: Breite x Höhe in Pixel"
+
+#: config/config.php:277
+msgid "16 x 16"
+msgstr "16 x 16"
+
+#: config/config.php:278
+msgid "24 x 24"
+msgstr "24 x 24"
+
+#: config/config.php:279
+msgid "48 x 48"
+msgstr "48"
+
+#: config/config.php:280
+msgid "64 x 64"
+msgstr "64 x 64"
+
+#: config/config.php:281
+msgid "128 x 128"
+msgstr "128 X 128"
+
+#: config/config.php:286
+msgid "Icon Type"
+msgstr "Icon Typ"
+
+#: config/config.php:287
+msgid "File type of the icon."
+msgstr "Dateityp des Icons"
+
+#: config/config.php:291
+msgid "GIF"
+msgstr "GIF"
+
+#: config/config.php:292
+msgid "PNG"
+msgstr "PNG"
+
+#: config/config.php:293
+msgid "SVG"
+msgstr "SVG"
+
+#: config/config.php:298
+msgid "Align icon"
+msgstr "Icon ausrichten"
+
+#: config/config.php:299
+msgid "Show icon on the left or right side of the link"
+msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
+
+#: config/config.php:303
+msgid "Left"
+msgstr "links"
+
+#: config/config.php:304
+msgid "Right"
+msgstr "rechts"
+
+#: config/config.php:309
+msgid "Show File Size?"
+msgstr "Dateigröße anzeigen?"
+
+#: config/config.php:310
+msgid "Display the file size of the attachment / linked file."
+msgstr "Zeige die Größe der angefügten oder verlinkten Datei an. "
+
+#: config/config.php:314 config/config.php:342 config/config.php:361
+msgid "yes"
+msgstr "ja"
+
+#: config/config.php:315 config/config.php:343 config/config.php:362
+msgid "no"
+msgstr "nein"
+
+#: config/config.php:320
+msgid "Precision (decimals)"
+msgstr "Genauigkeit (Dezimalstellen)"
+
+#: config/config.php:321
+msgid "Sizes less than 1 kB will always have 0 decimals."
+msgstr ""
+"Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
+
+#: config/config.php:325
+msgid "0"
+msgstr "0"
+
+#: config/config.php:326
+msgid "1"
+msgstr "1"
+
+#: config/config.php:327
+msgid "2"
+msgstr "2"
+
+#: config/config.php:328
+msgid "3"
+msgstr "3"
+
+#: config/config.php:329
+msgid "4"
+msgstr "4"
+
+#: config/config.php:330
+msgid "5"
+msgstr "5"
+
+#: config/config.php:337
+msgid "Select all file types"
+msgstr "Alle Dateitypen auswählen"
+
+#: config/config.php:338
+msgid "Add an icon / a preview to all file types"
+msgstr "Icons / Vorschaubilder für alle Dateitypen hinzufügen"
+
+#: config/config.php:350
+msgid "Preview images"
+msgstr "Vorschaubilder"
+
+#: config/config.php:357
+msgid "Add an icon / a preview"
+msgstr "Icon / Vorschaubild hinzufügen"
+
+#: includes/Blocks.php:71
+msgid "RRZE Plugins"
+msgstr "RRZE-Plugins"
+
+#: includes/Shortcode.php:271
+msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+msgstr "Downloads: Es konnten keine Dateien gefunden werden."
+
+#: rrze-downloads.php:76
+msgid ""
+"The server is running PHP version %1$s. The Plugin requires at least PHP "
+"version %2$s."
+msgstr ""
+"Auf dem Server wird die PHP-Version %1$s ausgeführt. Das Plugin benötigt "
+"mindestens die PHP-Version %2$s."
+
+#: rrze-downloads.php:79
+msgid ""
+"The server is running WordPress version %1$s. The Plugin requires at least "
+"WordPress version %2$s."
+msgstr ""
+"Auf dem Server wird die WordPress-Version %1$s ausgeführt. Das Plugin "
+"benötigt mindestens die WordPress-Version %2$s."
+
+#: rrze-downloads.php:125
+msgid "Plugins: %1$s: %2$s"
+msgstr "Plugins: %1$s: %2$s"
+
+#: build/downloads-block/index.js:1
+msgid " files in this category: "
+msgstr " Dateien in dieser Kategorie: "
+
+#: build/downloads-block/index.js:1
+msgid " file in this category: "
+msgstr " Datei in dieser Kategorie: "
+
+#: build/downloads-block/index.js:1
+msgid "Filter by Category"
+msgstr "Nach Kategorien filtern"
+
+#: build/downloads-block/index.js:1
+msgid "Select a category to filter the downloads by."
+msgstr "Wähle eine Kategorie aus, nach der du die Downloads filtern möchtest."
+
+#: build/downloads-block/index.js:1
+msgid ""
+"You currently have no Media Categories setup and in use. Follow these steps "
+"to create a custom Media Category:"
+msgstr ""
+"Du hast derzeit keine Medienkategorien eingerichtet. Folge diesen Schritten, "
+"um eine eigene Medienkategorie zu erstellen:"
+
+#: build/downloads-block/index.js:1
+msgid "Navigate to Dashboard > Media Library > Categories"
+msgstr "Navigiere zu Dashboard > Medienbibliothek > Kategorien"
+
+#: build/downloads-block/index.js:1
+msgid "Create a new Media Category with a descriptive name and a description."
+msgstr ""
+"Erstelle eine neue Medienkategorie mit einem aussagekräftigen Namen und "
+"einer Beschreibung."
+
+#: build/downloads-block/index.js:1
+msgid ""
+"Start adding new Media items to your categories via your WordPress Media "
+"Library (Dashboard > Media Library)"
+msgstr ""
+"Füge neue Medienelemente über deine WordPress-Mediathek (Dashboard > Medien) "
+"zu deinen Kategorien hinzu"
+
+#: build/downloads-block/index.js:1
+msgid ""
+"Save your current post or page and refresh the Editor to filter your "
+"download list by your newly created Media Library."
+msgstr ""
+"Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
+"Editor, um deine Download-Liste nach deinen neu kategorisierten Medien zu "
+"filtern."
+
+#: build/downloads-block/index.js:1
+msgid "Downloads Block"
+msgstr "Downloads Block"
+
+#: build/downloads-block/index.js:1
+msgid "Configure your downloads block.."
+msgstr "Konfiguriere deinen Download-Block..."
+
+#: build/downloads-block/index.js:1
+msgid "Filter by Media Category"
+msgstr "Nach Medienkategorie filtern"
+
+#: build/downloads-block/index.js:1
+msgid "Filter by File Type"
+msgstr "Dateitypen"
+
+#: build/downloads-block/index.js:1
+msgid "Text files"
+msgstr "Textdateien"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Download list contain Text files?"
+msgstr "Soll die Download-Liste Textdateien enthalten?"
+
+#: build/downloads-block/index.js:1
+msgid "PDF & Application files"
+msgstr "PDFs"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Download list contain PDF or other Application files?"
+msgstr "Soll die Download-Liste PDF- oder andere Anwendungsdateien enthalten?"
+
+#: build/downloads-block/index.js:1
+msgid "Images"
+msgstr "Bilder"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Download list contain jpg/jpeg, png or other image formats?"
+msgstr ""
+"Soll die Download-Liste jpg/jpeg, png oder andere Bildformate enthalten?"
+
+#: build/downloads-block/index.js:1
+msgid "Audio files"
+msgstr "Audio Dateien"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Download list contain audio files?"
+msgstr "Soll die Download-Liste Audiodateien enthalten?"
+
+#: build/downloads-block/index.js:1
+msgid "Finish initial setup"
+msgstr "Ersteinrichtung beenden"
+
+#: build/downloads-block/index.js:1
+msgid "Data Preview"
+msgstr "Datenvorschau"
+
+#: build/downloads-block/index.js:1
+msgid "Filter options"
+msgstr "Filtermöglichkeiten"
+
+#: build/downloads-block/index.js:1
+msgid "Appearance"
+msgstr "Darstellungsoptionen"
+
+#: build/downloads-block/index.js:1
+msgid "Format options"
+msgstr "Format"
+
+#: build/downloads-block/index.js:1
+msgid "Select a layout for the Download list."
+msgstr "Wähle ein Layout für die Download-Liste."
+
+#: build/downloads-block/index.js:1
+msgid "Liste"
+msgstr "Liste"
+
+#: build/downloads-block/index.js:1
+msgid "Tabelle"
+msgstr "Tabelle"
+
+#: build/downloads-block/index.js:1
+msgid "Show file size"
+msgstr "Dateigrösse anzeigen"
+
+#: build/downloads-block/index.js:1
+msgid "Should the file size be displayed in kB?"
+msgstr "Soll die Dateigröße in kB angezeigt werden?"
+
+#: build/downloads-block/index.js:1
+msgid "Show creation date"
+msgstr "Erstellungsdatum anzeigen"
+
+#: build/downloads-block/index.js:1
+msgid "Should the upload date be displayed?"
+msgstr "Soll das Upload-Datum angezeigt werden?"
+
+#: build/downloads-block/index.js:1
+msgid "Show Excerpt"
+msgstr "Textauszug anzeigen"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Media Caption be displayed?"
+msgstr "Soll die Medienunterschrift angezeigt werden?"
+
+#: build/downloads-block/index.js:1
+msgid "Should the Medias description be displayed?"
+msgstr "Soll die Beschreibung der Medien angezeigt werden?"
+
+#: build/downloads-block/index.js:1
+msgid ""
+"Modify the error message that is displayed, when no Media items are found."
+msgstr ""
+"Ändere die Fehlermeldung, die angezeigt wird, wenn keine Medienelemente "
+"gefunden werden."
+
+#: build/downloads-block/index.js:1
+msgid "Custom Error Message"
+msgstr "Benutzerdefinierte Fehlermeldung"
+
+#: build/downloads-block/index.js:1
+msgid "Order & Sorting direction"
+msgstr "Reihenfolge & Sortierung"
+
+#: build/downloads-block/index.js:1
+msgid "Sort your Download list by title or creation date."
+msgstr "Sortiere deine Download-Liste nach Titel oder Erstellungsdatum."
+
+#: build/downloads-block/index.js:1
+msgid "Sorting direction"
+msgstr "Sortierung"
+
+#: build/downloads-block/index.js:1
+msgid "Display your Download list ascending or descending"
+msgstr ""
+"Zeige deine Download-Liste in aufsteigender oder absteigender Reihenfolge an"
+
+#: build/downloads-block/index.js:1
+msgid "Ascending order"
+msgstr "Aufsteigende Anordnung"
+
+#: build/downloads-block/index.js:1
+msgid "Descending order"
+msgstr "Absteigende Anordnung"
+
+#: build/downloads-block/block.json
+msgctxt "block title"
+msgid "Downloads"
+msgstr "Downloads"
+
+#: build/downloads-block/block.json
+msgctxt "block description"
+msgid "Outputs a list of downloads from your WordPress Media Library."
+msgstr ""
+"Gibt eine Liste der Downloads aus deiner WordPress-Medienbibliothek aus."
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "downloads"
+msgstr "Downloads"
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "download"
+msgstr "Download"
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "files"
+msgstr "Dateien"
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "file"
+msgstr "Datei"
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "rrze downloads"
+msgstr "rrze downloads"
+
+#: build/downloads-block/block.json
+msgctxt "block keyword"
+msgid "rrze"
+msgstr "Rrze"
+
+#~ msgid "Find the settings on the right side"
+#~ msgstr "Nehmen Sie die Einstellungen auf der rechten Seite vor"

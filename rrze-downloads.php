@@ -4,7 +4,7 @@
 Plugin Name:     RRZE Downloads
 Plugin URI:      https://github.com/RRZE-Webteam/rrze-downloads
 Description:     this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes
-Version:         2.2.12
+Version:         2.2.13
 Author:          RRZE Webteam
 Author URI:      https://blogs.fau.de/webworking/
 License:         GNU General Public License v2
@@ -146,7 +146,6 @@ function loaded() {
     add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
     add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
 
-    // Hauptklasse (Main) wird instanziiert.
     $main = new Main(__FILE__);
     $main->onLoaded();
 }

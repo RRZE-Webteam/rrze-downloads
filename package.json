@@ -1,6 +1,6 @@
 {
   "name": "rrze-downloads",
-  "version": "1.0.14",
+  "version": "2.2.13",
   "description": "RRZE Downloads: Manage Categories for the WP Media Library",
   "main": "build/index.js",
   "textdomain": "rrze-downloads",

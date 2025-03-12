@@ -22,6 +22,7 @@ import {
   ToolbarItem,
   ToolbarDropdownMenu,
   PanelBody,
+  TextControl
 } from "@wordpress/components";
 
 import {
@@ -54,6 +55,9 @@ interface EditProps {
     showexcerpt: boolean;
     showcreated: boolean;
     showcontent: boolean;
+    errormsg: string;
+    orderby: string;
+    sort: string;
   },
   setAttributes: (attributes: Partial<EditProps["attributes"]>) => void;
 }
@@ -77,7 +81,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
   const formatOptions: ToolbarFormatOption[] = [
     {
       key: "liste",
-      title: __("Liste", "rrze-downloads"),
+      title: __("List", "rrze-downloads"),
       icon: listIcon,
       onClick: () => {
         setAttributes({format: "liste"});
@@ -85,7 +89,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
     },
     {
       key: "table",
-      title: __("Tabelle", "rrze-downloads"),
+      title: __("Table", "rrze-downloads"),
       icon: tableIcon,
       onClick: () => {
         setAttributes({format: "table"});
@@ -188,12 +192,12 @@ export default function Edit({attributes, setAttributes}: EditProps) {
       ) : (
         <>
           <InspectorControls>
-            <PanelBody title={__("Filter options", "rrze-downloads")}>
+            <PanelBody title={__("Filter options", "rrze-downloads")} initialOpen={false}>
               <div>
                 <Spacer
                   paddingBottom={"1rem"}
                 >
-                  <Heading level={4}>{__("Filter by Media Category", "rrze-downloads")}</Heading>
+                  <Heading level={3}>{__("Filter by Media Category", "rrze-downloads")}</Heading>
                 </Spacer>
                 <Spacer paddingRight={"0.2rem"}>
                   <CustomQueryControls
@@ -207,7 +211,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
               </div>
               <div>
                 <Spacer paddingBottom={"1rem"}>
-                  <Heading level={4}>{__("Filter by File Type", "rrze-downloads")}</Heading>
+                  <Heading level={3}>{__("Filter by File Type", "rrze-downloads")}</Heading>
                 </ Spacer>
                 <CheckboxControl
                   label={__("Text files", "rrze-downloads")}
@@ -243,7 +247,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
                 />
               </div>
             </PanelBody>
-            <PanelBody title={__("Appearance", "rrze-downloads")}>
+            <PanelBody title={__("Appearance", "rrze-downloads")} initialOpen={false}>
               <>
                 <ToggleGroupControl
                   __next40pxDefaultSize
@@ -294,6 +298,54 @@ export default function Edit({attributes, setAttributes}: EditProps) {
                     showcontent: !attributes.showcontent,
                   })}
                 />
+                <TextControl
+                  __next40pxDefaultSize
+                  __nextHasNoMarginBottom
+                  help={__("Modify the error message that is displayed, when no Media items are found.", "rrze-downloads")}
+                  label={__("Custom Error Message", "rrze-downloads")}
+                  onChange={(newErrorMessage) => {
+                    setAttributes({errormsg: newErrorMessage})
+                  }}
+                  value={attributes.errormsg}
+                />
+              </>
+            </PanelBody>
+            <PanelBody title={__("Order & Sorting direction", "rrze-downloads")} initialOpen={false}>
+              <>
+                <ToggleGroupControl
+                  __next40pxDefaultSize
+                  isBlock
+                  label={__("Order", "rrze-downloads")}
+                  onChange={(newOrder: string) => setAttributes({orderby: newOrder})}
+                  value={attributes.orderby}
+                  help={__("Sort your Download list by title or creation date.", "rrze-downloads")}
+                >
+                  <ToggleGroupControlOption
+                    label={__("Title", "rrze-downloads")}
+                    value="title"
+                  />
+                  <ToggleGroupControlOption
+                    label={__("Date", "rrze-downloads")}
+                    value="date"
+                  />
+                </ToggleGroupControl>
+                <ToggleGroupControl
+                  __next40pxDefaultSize
+                  isBlock
+                  label={__("Sorting direction", "rrze-downloads")}
+                  onChange={(newOrder: string) => setAttributes({sort: newOrder})}
+                  value={attributes.sort}
+                  help={__("Display your Download list ascending or descending", "rrze-downloads")}
+                >
+                  <ToggleGroupControlOption
+                    label={__("Ascending order", "rrze-downloads")}
+                    value="asc"
+                  />
+                  <ToggleGroupControlOption
+                    label={__("Descending order", "rrze-downloads")}
+                    value="desc"
+                  />
+                </ToggleGroupControl>
               </>
             </PanelBody>
           </InspectorControls>
@@ -302,7 +354,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
               <ToolbarItem>
                 {() => (
                   <ToolbarDropdownMenu
-                    icon={stylesIcon}
+                    icon={attributes.format === "liste" ? listIcon : tableIcon}
                     label={__("Change the Layout", "rrze-elements-blocks")}
                     controls={formatOptions}
                   />

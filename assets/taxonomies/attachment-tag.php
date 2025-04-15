@@ -30,6 +30,7 @@ function set() {
         'show_ui' => true,
         'show_admin_column' => true,
         'show_in_nav_menus' => false,
+        'show_in_rest' => true,
         'query_var' => true,
         'rewrite' => array('slug' => TAXONOMY),
         'update_count_callback' => '_update_generic_term_count',

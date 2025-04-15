@@ -58,6 +58,7 @@ interface EditProps {
     errormsg: string;
     orderby: string;
     sort: string;
+    tags: string;
   },
   setAttributes: (attributes: Partial<EditProps["attributes"]>) => void;
 }
@@ -125,6 +126,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
                       attributes={{
                         category: attributes.category || "",
                         num: attributes.num,
+                        tags: attributes.tags,
                       }}
                       setAttributes={setAttributes}
                     />
@@ -199,6 +201,7 @@ export default function Edit({attributes, setAttributes}: EditProps) {
                     attributes={{
                       category: attributes.category || "",
                       num: attributes.num,
+                      tags: attributes.tags,
                     }}
                     setAttributes={setAttributes}
                   />

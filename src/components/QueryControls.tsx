@@ -124,7 +124,7 @@ const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsPro
         }}
         __experimentalShowHowTo={false}
       />
-      {(tagSuggestions.length > 0) && (
+      {(tagSuggestions.length === 0) && (
         <>
           <Text>{__("You currently have no Media Tags setup and in use. Follow these steps to create a custom Media Tag:", "rrze-downloads")}</Text>
           <ol>

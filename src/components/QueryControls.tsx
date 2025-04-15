@@ -6,6 +6,7 @@ type CustomQueryControlsProps = {
   attributes: {
     category: string;
     num: number;
+    tags: string;
   };
   setAttributes: (attributes: Partial<CustomQueryControlsProps["attributes"]>) => void;
 };
@@ -29,7 +30,7 @@ interface CategoryOption {
 }
 
 const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsProps) => {
-  const {categories} = useSelect((select) => {
+  const {categories, tags} = useSelect((select) => {
     const {getEntityRecords} = select("core") as {
       getEntityRecords: (
         kind: string,
@@ -42,11 +43,16 @@ const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsPro
       categories: getEntityRecords("taxonomy", "attachment_category", {
         per_page: -1,
       }),
+      tags: getEntityRecords("taxonomy", "attachment_tag", {
+        per_page: -1,
+      }),
     };
   }, []);
 
   const {category = ""} = attributes;
   const selectedCategorySlugs = category.split(",").filter(Boolean);
+
+  const tagSuggestions = tags?.map((tag) => tag.slug) || [];
 
   const categorySuggestions = categories
     ? categories.map((category) => category.slug)
@@ -101,6 +107,31 @@ const CustomQueryControls = ({attributes, setAttributes}: CustomQueryControlsPro
             <li>{__("Create a new Media Category with a descriptive name and a description.", "rrze-downloads")}</li>
             <li>{__("Start adding new Media items to your categories via your WordPress Media Library (Dashboard > Media Library)", "rrze-downloads")}</li>
             <li>{__("Save your current post or page and refresh the Editor to filter your download list by your newly created Media Library.", "rrze-downloads")}</li>
+          </ol>
+        </>
+      )}
+      <FormTokenField
+        label={__("Select Tags", "rrze-downloads")}
+        value={attributes.tags ? attributes.tags.split(",").filter(Boolean) : []}
+        disabled={tagSuggestions.length === 0}
+        suggestions={tagSuggestions}
+        onChange={(newTokens: string[]) => {
+          const filteredTokens = newTokens.filter((token) =>
+            tagSuggestions.includes(token)
+          );
+
+          setAttributes({tags: filteredTokens.join(",")});
+        }}
+        __experimentalShowHowTo={false}
+      />
+      {(tagSuggestions.length > 0) && (
+        <>
+          <Text>{__("You currently have no Media Tags setup and in use. Follow these steps to create a custom Media Tag:", "rrze-downloads")}</Text>
+          <ol>
+            <li>{__("Navigate to Dashboard > Media Library > Tags", "rrze-downloads")}</li>
+            <li>{__("Create a new Media Tag with a descriptive name and a description.", "rrze-downloads")}</li>
+            <li>{__("Start adding new Media items to your tags via your WordPress Media Library (Dashboard > Media Library)", "rrze-downloads")}</li>
+            <li>{__("Save your current post or page and refresh the Editor to filter your download list by your newly created Media Library Tags.", "rrze-downloads")}</li>
           </ol>
         </>
       )}

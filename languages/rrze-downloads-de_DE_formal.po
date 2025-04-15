@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
-"POT-Creation-Date: 2025-03-12T13:39:09+00:00\n"
-"PO-Revision-Date: 2025-03-12 18:28+0100\n"
+"POT-Creation-Date: 2025-04-15T09:00:16+00:00\n"
+"PO-Revision-Date: 2025-04-15 11:05+0200\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch (Sie)\n"
 "Language: de\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 "X-Domain: rrze-downloads\n"
 "X-Loco-Version: 2.6.10; wp-6.5.5\n"
 "X-Loco-Fallback: de_DE\n"
@@ -109,8 +109,8 @@ msgid "Beliebte Schlagwörter"
 msgstr "Beliebte Schlagwörter"
 
 #: assets/taxonomies/attachment-tag.php:14
-#: assets/taxonomies/attachment-tag.php:59
-#: assets/taxonomies/attachment-tag.php:102
+#: assets/taxonomies/attachment-tag.php:60
+#: assets/taxonomies/attachment-tag.php:103
 msgid "Alle Schlagwörter"
 msgstr "Alle Schlagwörter"
 
@@ -430,7 +430,7 @@ msgstr "Vorschaubilder"
 msgid "Add an icon / a preview"
 msgstr "Icon / Vorschaubild hinzufügen"
 
-#: includes/Blocks.php:71
+#: includes/Blocks.php:82
 msgid "RRZE Plugins"
 msgstr "RRZE-Plugins"
 
@@ -507,6 +507,45 @@ msgid ""
 msgstr ""
 "Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
 "Editor, um deine Download-Liste nach deinen neu kategorisierten Medien zu "
+"filtern."
+
+#: build/downloads-block/index.js:1
+msgid "Select Tags"
+msgstr "Filtern Sie nach Schlagwörtern"
+
+#: build/downloads-block/index.js:1
+msgid ""
+"You currently have no Media Tags setup and in use. Follow these steps to "
+"create a custom Media Tag:"
+msgstr ""
+"Sie haben derzeit keine Schlagwörter eingerichtet. Folge diesen Schritten, "
+"um Schlagwörter für Medien zu erstellen:"
+
+#: build/downloads-block/index.js:1
+msgid "Navigate to Dashboard > Media Library > Tags"
+msgstr "Navigieren Sie zu Dashboard > Medienbibliothek > Schlagwörter"
+
+#: build/downloads-block/index.js:1
+msgid "Create a new Media Tag with a descriptive name and a description."
+msgstr ""
+"Erstellen Sie eine neue Medienkategorie mit einem aussagekräftigen Namen und "
+"einer Beschreibung."
+
+#: build/downloads-block/index.js:1
+msgid ""
+"Start adding new Media items to your tags via your WordPress Media Library "
+"(Dashboard > Media Library)"
+msgstr ""
+"Fügen Sie neue Medienelemente über Ihre WordPress-Mediathek (Dashboard > "
+"Medien) zu Ihrer Kategorien hinzu"
+
+#: build/downloads-block/index.js:1
+msgid ""
+"Save your current post or page and refresh the Editor to filter your "
+"download list by your newly created Media Library Tags."
+msgstr ""
+"Speichern Sie den aktuellen Beitrag oder Seite und aktualisiere Sie den "
+"Editor, um Ihre Download-Liste nach den neu kategorisierten Medien zu "
 "filtern."
 
 #: build/downloads-block/index.js:1

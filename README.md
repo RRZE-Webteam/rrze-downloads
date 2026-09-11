@@ -1,18 +1,29 @@
+[![Aktuelle Version](https://img.shields.io/github/package-json/v/rrze-webteam/rrze-downloads/main?label=Version)](https://github.com/RRZE-Webteam/rrze-downloads)
+[![Release Version](https://img.shields.io/github/v/release/rrze-webteam/rrze-downloads?label=Release+Version)](https://github.com/rrze-webteam/rrze-downloads/releases/)
+[![GitHub License](https://img.shields.io/github/license/rrze-webteam/rrze-downloads)](https://github.com/RRZE-Webteam/rrze-downloads)
+[![GitHub issues](https://img.shields.io/github/issues/RRZE-Webteam/rrze-downloads)](https://github.com/RRZE-Webteam/rrze-downloads/issues)
+
 # RRZE Downloads
 
 Anzeige von Listen von Mediendateien als Downloadliste, sowie zusätzlich Einführung von Taxonomien (Kategorien und Tags) für Meiden in der Meidenbibliothek
 
-## Download
+## Contributors
 
-GitHub-Repo: https://github.com/RRZE-Webteam/rrze-downloads
-
-## Autor
-
-RRZE-Webteam, http://www.rrze.fau.de
+* RRZE-Webteam, http://www.rrze.fau.de 
 
 ## Copyright
 
 GNU General Public License (GPL) Version 3
+
+## Documentation
+
+See documenation at https://www.wp.rrze.fau.de
+
+## Feedback
+
+* https://github.com/RRZE-Webteam/rrze-ac/issues
+* webmaster@rrze.fau.de
+
 
 
 ## Hinweis

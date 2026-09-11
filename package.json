@@ -1,15 +1,29 @@
 {
-  "name": "rrze-downloads",
-  "version": "2.2.14",
-  "description": "RRZE Downloads: Manage Categories for the WP Media Library",
-  "main": "build/index.js",
-  "textdomain": "rrze-downloads",
-  "license": "GPL-3.0-or-later",
+    "title": "RRZE Downloads",
+    "domainpath": "/languages",  
+    "name": "rrze-downloads",
+    "version": "2.2.14",
+    "description": "RRZE Downloads: Manage Categories for the WP Media Library",
+    "main": "build/index.js",
+    "textdomain": "rrze-downloads",
   "private": true,
   "scripts": {
     "build": "wp-scripts build",
     "format": "wp-scripts format",
     "start": "wp-scripts start"
+  },
+
+  "compatibility": {
+    "wprequires": "6.8",
+    "wptestedup": "7.1",
+    "phprequires": "8.2"
+  },
+  "supports": {
+    "email": "webmaster@fau.de"
+  },
+  "author": {
+    "name": "RRZE Webteam (webmaster@fau.de)",
+    "url": "https://www.wp.rrze.fau.de/"
   },
   "repository": {
     "type": "git",
@@ -17,18 +31,10 @@
     "issues": "https://github.com/RRZE-Webteam/rrze-downloads/issues",
     "clone": "git+https://github.com/RRZE-Webteam/rrze-downloads.git"
   },
-  "browserslist": [
-    "last 3 years",
-    "ie 11"
-  ],
-  "supports": {
-    "email": "webmaster@fau.de",
-    "docs": "https://www.wordpress.rrze.fau.de/plugins/fau-und-rrze-plugins/downloads/"
-  },
-  "author": {
-    "name": "RRZE-Webteam <webmaster@fau.de>",
-    "url": "https://www.wordpress.rrze.fau.de/person/webmaster"
-  },
+  "license": "GNU General Public License Version 3",
+  "licenseurl": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "tags": "Plugin, WordPress, Multisite, RRZE, FAU, Access Control",
+    
   "devDependencies": {
     "@babel/core": "^7.26.9",
     "@babel/preset-env": "^7.26.9",

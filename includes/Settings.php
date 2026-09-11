@@ -4,12 +4,6 @@ namespace RRZE\Downloads;
 
 defined('ABSPATH') || exit;
 
-use function RRZE\Downloads\Config\getOptionName;
-use function RRZE\Downloads\Config\getMenuSettings;
-use function RRZE\Downloads\Config\getHelpTab;
-use function RRZE\Downloads\Config\getSections;
-use function RRZE\Downloads\Config\getFields;
-
 /**
  * Settings-Klasse
  */
@@ -138,7 +132,7 @@ class Settings {
         $this->setFields();
         $this->setTabs();
 
-        $this->optionName = getOptionName();
+        $this->optionName = Config::get('option_name');
         $this->options = $this->getOptions();
 
         add_action('admin_init', [$this, 'adminInit']);
@@ -147,14 +141,14 @@ class Settings {
     }
 
     protected function setMenu() {
-      $this->settingsMenu = getmenuSettings();
+      $this->settingsMenu = Config::getMenuSettings();
     }
 
     /**
      * Einstellungsbereiche einstellen.
      */
     protected function setSections() {
-      $this->settingsSections = getSections();
+      $this->settingsSections = Config::getSections();
     }
 
     /**
@@ -169,7 +163,7 @@ class Settings {
      * Einstellungsfelder einstellen.
      */
     protected function setFields() {
-      $this->settingsFields = getFields();
+      $this->settingsFields = Config::getFields();
     }
 
     /**
@@ -245,6 +239,12 @@ class Settings {
     public function sanitizeOptions($options) {
         if (!$options) {
             return $options;
+        }
+
+        foreach (Config::get('taxonomy_option_keys') as $taxonomy => $optionKey) {
+            if (Taxonomies::isProvidedByRrzeSettings($taxonomy)) {
+                unset($options[$optionKey]);
+            }
         }
 
         foreach ($options as $key => $value) {
@@ -350,7 +350,7 @@ class Settings {
             return;
         }
 
-        $helpTab = getHelpTab();
+        $helpTab = Config::getHelpTab();
 
         if (empty($helpTab)) {
             return;
@@ -372,6 +372,8 @@ class Settings {
      * Initialisierung und Registrierung der Bereiche und Felder.
      */
     public function adminInit() {
+        $this->prepareTaxonomyFields();
+
         // Hinzufügen von Einstellungsbereichen
         foreach ($this->settingsSections as $section) {
             if (isset($section['desc']) && !empty($section['desc'])) {
@@ -401,6 +403,9 @@ class Settings {
                     'class' => isset($option['class']) ? $option['class'] : $name,
                     'label_for' => "{$section}[{$name}]",
                     'desc' => isset($option['desc']) ? $option['desc'] : '',
+                    'checkbox_label' => isset($option['checkbox_label']) ? $option['checkbox_label'] : '',
+                    'disabled' => !empty($option['disabled']),
+                    'notice' => isset($option['notice']) ? $option['notice'] : '',
                     'name' => $label,
                     'section' => $section,
                     'size' => isset($option['size']) ? $option['size'] : null,
@@ -462,10 +467,24 @@ class Settings {
      * Enqueue Skripte und Style
      * @return void
      */
-    public function adminEnqueueScripts() {
-      wp_register_script('icons-settings', plugins_url('assets/js/icons.min.js', plugin_basename($this->pluginFile)));
-      wp_enqueue_script('icons-settings');
-      wp_enqueue_script('jquery');
+    public function adminEnqueueScripts($hookSuffix = '') {
+      if ($hookSuffix !== $this->optionsPage) {
+          return;
+      }
+
+      wp_enqueue_script(
+          'rrze-downloads-admin',
+          plugins_url('build/js/rrze-downloads-admin.js', plugin_basename($this->pluginFile)),
+          ['jquery'],
+          Config::get('version'),
+          true
+      );
+      wp_enqueue_style(
+          'rrze-downloads-admin',
+          plugins_url('build/css/rrze-downloads-admin.css', plugin_basename($this->pluginFile)),
+          [],
+          Config::get('version')
+      );
     }
 
 
@@ -490,33 +509,63 @@ class Settings {
      */
     public function callbackCheckbox($args) {
         $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
+        $disabled = !empty($args['disabled']);
+        $checkboxLabel = $args['checkbox_label'] ?: $args['desc'];
 
-        $html = '<fieldset>';
+        $html = sprintf(
+            '<fieldset class="%s">',
+            $disabled ? 'rrze-downloads-settings-readonly' : ''
+        );
         $html .= sprintf(
             '<label for="%1$s-%2$s">',
             $args['section'],
             $args['id']
         );
+        if (!$disabled) {
+            $html .= sprintf(
+                '<input type="hidden" name="%1$s[%2$s_%3$s]" value="off">',
+                $this->optionName,
+                $args['section'],
+                $args['id']
+            );
+        }
         $html .= sprintf(
-            '<input type="hidden" name="%1$s[%2$s_%3$s]" value="off">',
-            $this->optionName,
-            $args['section'],
-            $args['id']
-        );
-        $html .= sprintf(
-            '<input type="checkbox" class="checkbox" id="%2$s-%3$s" name="%1$s[%2$s_%3$s]" value="on" %4$s>',
+            '<input type="checkbox" class="checkbox" id="%2$s-%3$s" name="%1$s[%2$s_%3$s]" value="on" %4$s %5$s>',
             $this->optionName,
             $args['section'],
             $args['id'],
-            checked($value, 'on', false)
+            checked($disabled || $value === 'on', true, false),
+            $disabled ? 'disabled aria-disabled="true"' : ''
         );
         $html .= sprintf(
             '%1$s</label>',
-            $args['desc']
+            $checkboxLabel
         );
+        if (!empty($args['notice'])) {
+            $html .= sprintf(
+                '<div class="notice notice-info inline"><p>%s</p></div>',
+                $args['notice']
+            );
+        }
         $html .= '</fieldset>';
 
         echo $html;
+    }
+
+    protected function prepareTaxonomyFields(): void {
+        if (empty($this->settingsFields['taxonomies'])) {
+            return;
+        }
+
+        foreach ($this->settingsFields['taxonomies'] as &$field) {
+            if (!Taxonomies::isProvidedByRrzeSettings($field['name'])) {
+                continue;
+            }
+
+            $field['disabled'] = true;
+            $field['notice'] = __('This taxonomy is already available network-wide through RRZE Settings.', 'rrze-downloads');
+        }
+        unset($field);
     }
 
     /**

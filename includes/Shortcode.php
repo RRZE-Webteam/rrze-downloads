@@ -1,22 +1,14 @@
 <?php
 namespace RRZE\Downloads;
 
-use function RRZE\Downloads\Config\getShortcodeSettings;
-
 class Shortcode {
-    private $settings = '';
-    private $pluginname = '';
-
     /**
      * Shortcode-Klasse wird instanziiert.
      */
     public function __construct() {
-        $this->settings = getShortcodeSettings();
-        $this->pluginname = $this->settings['block']['blockname'];
-        add_action('admin_head', [$this, 'setMCEConfig']);
-        add_filter('mce_external_plugins', [$this, 'addMCEButtons']);
-        add_shortcode( 'downloads', [ $this, 'shortcodeOutput' ]);
-        add_shortcode( 'download', [ $this, 'shortcodeOutput' ]);
+        foreach (Config::get('shortcodes') as $shortcode) {
+            add_shortcode($shortcode, [$this, 'shortcodeOutput']);
+        }
     }
 
 
@@ -25,6 +17,7 @@ class Shortcode {
         error_log('Shortcode: ' . print_r($atts, true));
         $atts = shortcode_atts([
             'category' => '',
+            'document' => '',
             "cat" => '',
             "tags" => '',
             "type" => 'category', // category, document
@@ -51,6 +44,7 @@ class Shortcode {
         $sp = '&nbsp;&nbsp;';
   
         $category = esc_attr($atts['category']);
+        $document = esc_attr($atts['document']);
         $tags = esc_attr($atts['tags']);
         $format = esc_attr($atts['format']);
         $type = esc_attr($atts['type']);
@@ -75,8 +69,12 @@ class Shortcode {
         $orderby = !empty($orderby) && in_array(strtolower($orderby), array('title', 'date')) ? strtolower($orderby) : 'title';
         $sort = !empty($sort) && in_array(strtoupper($sort), array('ASC', 'DESC')) ? strtoupper($sort) : 'ASC';
 
-        $type = in_array($type, array('category', 'document')) ? $type : 'category';
-        $category = get_term_by('slug', $category, 'attachment_' . $type);
+        $type = in_array($type, array('category', 'document'), true) ? $type : 'category';
+        $attachmentTaxonomies = Config::get('attachment_taxonomies');
+        $categoryTaxonomy = $attachmentTaxonomies[$type];
+        $category = Taxonomies::isAvailable($categoryTaxonomy)
+            ? get_term_by('slug', $category, $categoryTaxonomy)
+            : false;
 
         $atts = array('post_type' => 'attachment',
             'post_status' => 'any',
@@ -88,17 +86,27 @@ class Shortcode {
   
         if ($category) {
             $catquery = array(
-                'taxonomy' => 'attachment_' . $type,
+                'taxonomy' => $categoryTaxonomy,
                 'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
                 'terms' => $category->term_id,
                 'include_children' => false
             );
             $atts['tax_query'][] = $catquery;
         }
+
+        if ($document && Taxonomies::isAvailable(Config::get('attachment_document_taxonomy'))) {
+            $documentQuery = array(
+                'taxonomy' => Config::get('attachment_document_taxonomy'),
+                'field' => 'slug',
+                'terms' => $document,
+                'include_children' => false,
+            );
+            $atts['tax_query'][] = $documentQuery;
+        }
   
-        if ($tags) {
+        if ($tags && Taxonomies::isAvailable(Config::get('attachment_tag_taxonomy'))) {
             $tagquery = array(
-                'taxonomy' => 'attachment_tag',
+                'taxonomy' => Config::get('attachment_tag_taxonomy'),
                 'field' => 'slug',
                 'terms' => explode(',', $tags),
             );
@@ -156,7 +164,7 @@ class Shortcode {
 
             $contentlist = '';
             $filetypes = array();
-            $icon_options = get_option('rrze-downloads');
+            $icon_options = get_option(Config::get('option_name'));
 
             // if "icons" then fill array with filetypes to show
             $icon_options_exist = false;
@@ -209,7 +217,7 @@ class Shortcode {
 
                 if ( ($icon_options_exist && $icon_options['icons_mimetypes_all_mimetypes'] == 'on')  ||  in_array( $myfiletype, $filetypes ) ){
                     if ( $icon_options["icons_icon_preview"] == 'icons' ){
-                        $img_src = 'assets/img/' . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
+                        $img_src = Config::get('icon_asset_path') . $myfiletype . '-icon-' . $icon_options["icons_icondimensions"] . 'x' . $icon_options["icons_icondimensions"] . '.' . $icon_options["icons_icontype"];
                         if ( file_exists( plugin_dir_path ( __DIR__ ) . $img_src ) ) {
                             $img_src =  get_site_url() . '/wp-content/plugins/rrze-downloads/' . $img_src;
                             $img = '<img src="' . $img_src . '" alt="' . strtoupper($myfiletype) . '" height="' . $icon_options["icons_icondimensions"] . '" width="' . $icon_options["icons_icondimensions"] . '" style="box-shadow: none; margin-bottom: '. ($icon_options["icons_icondimensions"] / 4) . 'px;">';
@@ -268,38 +276,10 @@ class Shortcode {
             if ($errormsg) {
                 $output .= '<p class="attention">' . $errormsg . '</p>';
             } else {
-                $output .= '<p class="info">' . __('Dowloads: Es konnten keine Dateien gefunden werden.', 'rrze-downloads') . '</p>';
+                $output .= '<p class="info">' . __('Downloads: No files found.', 'rrze-downloads') . '</p>';
             }
         }
 
         return $output;
-    }
-
-    public function setMCEConfig(){
-        $shortcode = '';
-        foreach($this->settings as $att => $details){
-            if ($att != 'block'){
-                $shortcode .= ' ' . $att . '=""';
-            }
-        }
-        $shortcode = '[' . $this->pluginname . ' ' . $shortcode . ']';
-        ?>
-        <script type='text/javascript'>
-            tmp = [{
-                'name': <?php echo json_encode($this->pluginname); ?>,
-                'title': <?php echo json_encode($this->settings['block']['title']); ?>,
-                'icon': <?php echo json_encode($this->settings['block']['tinymce_icon']); ?>,
-                'shortcode': <?php echo json_encode($shortcode); ?>,
-            }];
-            phpvar = (typeof phpvar === 'undefined' ? tmp : phpvar.concat(tmp)); 
-        </script> 
-        <?php        
-    }
-
-    public function addMCEButtons($pluginArray){
-        if (current_user_can('edit_posts') &&  current_user_can('edit_pages')) {
-            $pluginArray['rrze_shortcode'] = plugins_url('../assets/js/tinymce-shortcodes.js', plugin_basename(__FILE__));
-        }
-        return $pluginArray;
     }
 }

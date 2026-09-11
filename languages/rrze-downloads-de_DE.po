@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
-"POT-Creation-Date: 2025-04-15T09:00:16+00:00\n"
+"POT-Creation-Date: 2026-09-11T15:51:19+00:00\n"
 "PO-Revision-Date: 2025-04-15 11:02+0200\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.6.10; wp-6.5.5\n"
 
 #. Plugin Name of the plugin
-#: rrze-downloads.php config/config.php:204
+#: rrze-downloads.php
 msgid "RRZE Downloads"
 msgstr "RRZE Downloads"
 
@@ -27,223 +27,129 @@ msgstr "https://github.com/RRZE-Webteam/rrze-downloads"
 
 #. Description of the plugin
 #: rrze-downloads.php
-msgid ""
-"this will add a list with available download files. Shortcode is [downloads] "
-"- see settings for additional attributes"
+msgid "RRZE Downloads: Manage Categories for the WP Media Library"
 msgstr ""
-"Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. Shortcode "
-"ist [downloads] - In der Hilfe finden Sie weitere Einstellmöglichkeiten"
 
 #. Author of the plugin
 #: rrze-downloads.php
-msgid "RRZE Webteam"
-msgstr "RRZE Webteam"
+msgid "RRZE Webteam (webmaster@fau.de)"
+msgstr ""
 
 #. Author URI of the plugin
 #: rrze-downloads.php
-msgid "https://blogs.fau.de/webworking/"
-msgstr "https://blogs.fau.de/webworking/"
+msgid "https://www.wp.rrze.fau.de/"
+msgstr ""
 
-#: assets/taxonomies/attachment-category.php:10
-#: assets/taxonomies/attachment-category.php:20
-msgid "Kategorien"
-msgstr "Kategorien"
+#: includes/Blocks.php:92
+msgid "RRZE Plugins"
+msgstr "RRZE-Plugins"
 
-#: assets/taxonomies/attachment-category.php:11
-msgid "Kategorie"
-msgstr "Kategorie"
-
-#: assets/taxonomies/attachment-category.php:12
-msgid "Kategorien suchen"
-msgstr "Kategorien suchen"
-
-#: assets/taxonomies/attachment-category.php:13
-#: assets/taxonomies/attachment-category.php:56
-#: assets/taxonomies/attachment-category.php:99
-msgid "Alle Kategorien"
-msgstr "Alle Kategorien"
-
-#: assets/taxonomies/attachment-category.php:14
-msgid "Übergeordnet"
-msgstr "Übergeordnet"
-
-#: assets/taxonomies/attachment-category.php:15
-msgid "Übergeordnet:"
-msgstr "Übergeordnet:"
-
-#: assets/taxonomies/attachment-category.php:16
-msgid "Kategorie bearbeiten"
-msgstr "Kategorie bearbeiten"
-
-#: assets/taxonomies/attachment-category.php:17
-msgid "Kategorie aktualisieren"
-msgstr "Kategorie aktualisieren"
-
-#: assets/taxonomies/attachment-category.php:18
-msgid "Neue Kategorie hinzufügen"
-msgstr "Neue Kategorie hinzufügen"
-
-#: assets/taxonomies/attachment-category.php:19
-#: assets/taxonomies/attachment-tag.php:20
-msgid "Name"
-msgstr "Name"
-
-#: assets/taxonomies/attachment-tag.php:10
-#: assets/taxonomies/attachment-tag.php:24
-msgid "Schlagwörter"
-msgstr "Schlagwörter"
-
-#: assets/taxonomies/attachment-tag.php:11
-msgid "Schlagwort"
-msgstr "Schlagwort"
-
-#: assets/taxonomies/attachment-tag.php:12
-msgid "Schlagwörter suchen"
-msgstr "Schlagwörter suchen"
-
-#: assets/taxonomies/attachment-tag.php:13
-msgid "Beliebte Schlagwörter"
-msgstr "Beliebte Schlagwörter"
-
-#: assets/taxonomies/attachment-tag.php:14
-#: assets/taxonomies/attachment-tag.php:60
-#: assets/taxonomies/attachment-tag.php:103
-msgid "Alle Schlagwörter"
-msgstr "Alle Schlagwörter"
-
-#: assets/taxonomies/attachment-tag.php:17
-msgid "Schlagwort bearbeiten"
-msgstr "Schlagwort bearbeiten"
-
-#: assets/taxonomies/attachment-tag.php:18
-msgid "Schlagwort aktualisieren"
-msgstr "Schlagwort aktualisieren"
-
-#: assets/taxonomies/attachment-tag.php:19
-msgid "Neues Schlagwort erstellen"
-msgstr "Neues Schlagwort erstellen"
-
-#: assets/taxonomies/attachment-tag.php:21
-msgid "Trenne Schlagwörter durch Kommas"
-msgstr "Trenne Schlagwörter durch Kommas"
-
-#: assets/taxonomies/attachment-tag.php:22
-msgid "Hinzu"
-msgstr "Hinzu"
-
-#: assets/taxonomies/attachment-tag.php:23
-msgid "Wähle aus den häufig genutzten Schlagwörtern"
-msgstr "Wähle aus den häufig genutzten Schlagwörtern"
-
-#: config/config.php:26 build/downloads-block/index.js:1
+#: includes/Config.php:124
 msgid "List"
 msgstr "Liste"
 
-#: config/config.php:27 build/downloads-block/index.js:1
+#: includes/Config.php:125
 msgid "Table"
 msgstr "Tabelle"
 
-#: config/config.php:30
+#: includes/Config.php:128
 msgid "Order by"
 msgstr "Sortieren nach"
 
-#: config/config.php:36
+#: includes/Config.php:134 includes/Taxonomies/attachment-category.php:11
 msgid "Category"
 msgstr "Kategorie"
 
-#: config/config.php:42
+#: includes/Config.php:140 includes/Taxonomies/attachment-tag.php:10
+#: includes/Taxonomies/attachment-tag.php:24
 msgid "Tags"
 msgstr "Schlagwörter"
 
-#: config/config.php:48
+#: includes/Config.php:146
 msgid "Type"
 msgstr "Typ"
 
-#: config/config.php:54
+#: includes/Config.php:152
 msgid "HTMLpre"
 msgstr "HTMLpre"
 
-#: config/config.php:60
+#: includes/Config.php:158
 msgid "HTMLpost"
 msgstr "HTMLpost"
 
-#: config/config.php:66
+#: includes/Config.php:164
 msgid "HTMLitempre"
 msgstr "HTMLitempre"
 
-#: config/config.php:72
+#: includes/Config.php:170
 msgid "HTMLitempost"
 msgstr "HTMLitempost"
 
-#: config/config.php:77
+#: includes/Config.php:175
 msgid "Search application"
 msgstr "Programme suchen"
 
-#: config/config.php:83
+#: includes/Config.php:181
 msgid "Search image"
 msgstr "Bilder suchen"
 
-#: config/config.php:89
+#: includes/Config.php:187
 msgid "Search video"
 msgstr "Videos suchen"
 
-#: config/config.php:95
+#: includes/Config.php:193
 msgid "Search audio"
 msgstr "Audio-Dateien suchen"
 
-#: config/config.php:101
+#: includes/Config.php:199
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: config/config.php:107
+#: includes/Config.php:205
 msgid "Search text"
 msgstr "Texte suchen"
 
-#: config/config.php:113
+#: includes/Config.php:211
 msgid "Show size"
 msgstr "Größe anzeigen"
 
-#: config/config.php:119
+#: includes/Config.php:217
 msgid "Show excerpt"
 msgstr "Exzerpt anzeigen"
 
-#: config/config.php:125 build/downloads-block/index.js:1
+#: includes/Config.php:223
 msgid "Show content"
 msgstr "Beschreibung anzeigen"
 
-#: config/config.php:132 build/downloads-block/index.js:1
+#: includes/Config.php:230
 msgid "Title"
 msgstr "Titel"
 
-#: config/config.php:133 build/downloads-block/index.js:1
+#: includes/Config.php:231
 msgid "Date"
 msgstr "Datum"
 
-#: config/config.php:136
+#: includes/Config.php:234
 msgid "Format"
 msgstr "Format"
 
-#: config/config.php:142
+#: includes/Config.php:240
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: config/config.php:143
+#: includes/Config.php:241
 msgid "Descending"
 msgstr "Absteigend"
 
-#: config/config.php:147 build/downloads-block/index.js:1
+#: includes/Config.php:245
 msgid "Order"
 msgstr "Sortierung"
 
-#: config/config.php:203
+#: includes/Config.php:253
 msgid "Downloads"
 msgstr "Downloads"
 
-#: config/config.php:207
-msgid "Downloads Settings"
-msgstr "Downloads Einstellungen"
-
-#: config/config.php:222
+#: includes/Config.php:267
 msgid ""
 "This plugin will automatically add an icon or a preview image next to links "
 "of the activated file types. If you like, you can also let the plugin add "
@@ -253,7 +159,7 @@ msgstr ""
 "Links der aktivierten Dateitypen ein. Wenn du möchtest, kannst du das Plugin "
 "auch die Dateigröße der verlinkten Datei auf der Seite hinzufügen lassen."
 
-#: config/config.php:223
+#: includes/Config.php:269
 msgid ""
 "On this settings page you can choose to show an icon or a preview image will "
 "be shown and specify the icon size, icon type (white matte gif or "
@@ -270,172 +176,372 @@ msgstr ""
 "Einstellungen\" kannst du Ausnahmen festlegen, die Dateigröße formatieren "
 "und Caching-Optionen einstellen."
 
-#: config/config.php:226
+#: includes/Config.php:272
+msgid "Overview"
+msgstr ""
+
+#: includes/Config.php:275
 msgid "For more information"
 msgstr "Für weitere Informationen"
 
-#: config/config.php:226
+#: includes/Config.php:276
 msgid "RRZE Webteam on Github"
 msgstr "RRZE Webteam on Github"
 
-#: config/config.php:240
+#: includes/Config.php:286
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: config/config.php:244
+#: includes/Config.php:290
 msgid "File Types"
 msgstr "Dateitypen"
 
-#: config/config.php:259
+#: includes/Config.php:294
+msgid "Media Taxonomies"
+msgstr ""
+
+#: includes/Config.php:304
 msgid "Show downloads with"
 msgstr "Zeige Downloads mit"
 
-#: config/config.php:265
+#: includes/Config.php:309
 msgid "Icons"
 msgstr "Icons"
 
-#: config/config.php:267
+#: includes/Config.php:310
 msgid "just plain links"
 msgstr "Nur Textlinks"
 
-#: config/config.php:272
+#: includes/Config.php:315
 msgid "Icon Size"
 msgstr "Icon Größe"
 
-#: config/config.php:273
+#: includes/Config.php:316
 msgid "Size: width x height in pixels"
 msgstr "Größe: Breite x Höhe in Pixel"
 
-#: config/config.php:277
+#: includes/Config.php:320
 msgid "16 x 16"
 msgstr "16 x 16"
 
-#: config/config.php:278
+#: includes/Config.php:321
 msgid "24 x 24"
 msgstr "24 x 24"
 
-#: config/config.php:279
+#: includes/Config.php:322
 msgid "48 x 48"
 msgstr "48"
 
-#: config/config.php:280
+#: includes/Config.php:323
 msgid "64 x 64"
 msgstr "64 x 64"
 
-#: config/config.php:281
+#: includes/Config.php:324
 msgid "128 x 128"
 msgstr "128 X 128"
 
-#: config/config.php:286
+#: includes/Config.php:329
 msgid "Icon Type"
 msgstr "Icon Typ"
 
-#: config/config.php:287
+#: includes/Config.php:330
 msgid "File type of the icon."
 msgstr "Dateityp des Icons."
 
-#: config/config.php:291
+#: includes/Config.php:334
 msgid "GIF"
 msgstr "GIF"
 
-#: config/config.php:292
+#: includes/Config.php:335
 msgid "PNG"
 msgstr "PNG"
 
-#: config/config.php:293
+#: includes/Config.php:336
 msgid "SVG"
 msgstr "SVG"
 
-#: config/config.php:298
+#: includes/Config.php:341
 msgid "Align icon"
 msgstr "Icon ausrichten"
 
-#: config/config.php:299
+#: includes/Config.php:342
 msgid "Show icon on the left or right side of the link"
 msgstr "Zeige Icon auf der linken oder rechten Seite des Links an"
 
-#: config/config.php:303
+#: includes/Config.php:346
 msgid "Left"
 msgstr "Links"
 
-#: config/config.php:304
+#: includes/Config.php:347
 msgid "Right"
 msgstr "Rechts"
 
-#: config/config.php:309
+#: includes/Config.php:352
 msgid "Show File Size?"
 msgstr "Dateigröße anzeigen?"
 
-#: config/config.php:310
+#: includes/Config.php:353
 msgid "Display the file size of the attachment / linked file."
 msgstr "Zeige die Größe der angefügten oder verlinkten Datei an."
 
-#: config/config.php:314 config/config.php:342 config/config.php:361
+#: includes/Config.php:357 includes/Config.php:400 includes/Config.php:449
 msgid "yes"
 msgstr "ja"
 
-#: config/config.php:315 config/config.php:343 config/config.php:362
+#: includes/Config.php:358 includes/Config.php:401 includes/Config.php:450
 msgid "no"
 msgstr "nein"
 
-#: config/config.php:320
+#: includes/Config.php:363
 msgid "Precision (decimals)"
 msgstr "Genauigkeit (Dezimalstellen)"
 
-#: config/config.php:321
+#: includes/Config.php:364
 msgid "Sizes less than 1 kB will always have 0 decimals."
 msgstr ""
 "Dateigrößen kleiner als 1 kB werden immer ohne Dezimalstellen angezeigt."
 
-#: config/config.php:325
+#: includes/Config.php:368
 msgid "0"
 msgstr "0"
 
-#: config/config.php:326
+#: includes/Config.php:369
 msgid "1"
 msgstr "1"
 
-#: config/config.php:327
+#: includes/Config.php:370
 msgid "2"
 msgstr "2"
 
-#: config/config.php:328
+#: includes/Config.php:371
 msgid "3"
 msgstr "3"
 
-#: config/config.php:329
+#: includes/Config.php:372
 msgid "4"
 msgstr "4"
 
-#: config/config.php:330
+#: includes/Config.php:373
 msgid "5"
 msgstr "5"
 
-#: config/config.php:337
-msgid "Select all file types"
-msgstr "Alle Dateitypen auswählen"
+#: includes/Config.php:378
+msgid "Default file type for Downloads blocks"
+msgstr "Standard-Dateityp für Downloads-Blöcke"
 
-#: config/config.php:338
-msgid "Add an icon / a preview to all file types"
-msgstr "Icons / Vorschaubilder für alle Dateitypen hinzufügen"
+#: includes/Config.php:379
+msgid ""
+"Used when a new Downloads block is inserted or no file type is selected."
+msgstr ""
+"Wird verwendet, wenn ein neuer Downloads-Block eingefügt oder kein Dateityp "
+"ausgewählt ist."
 
-#: config/config.php:350
+#: includes/Config.php:383
+msgid "All file types"
+msgstr "Alle Dateitypen"
+
+#: includes/Config.php:384
+msgid "PDF and application files"
+msgstr "PDF- und Anwendungsdateien"
+
+#: includes/Config.php:385
+msgid "Audio files"
+msgstr "Audio Dateien"
+
+#: includes/Config.php:386
+msgid "Images"
+msgstr "Bilder"
+
+#: includes/Config.php:387
+msgid "Text files"
+msgstr "Textdateien"
+
+#: includes/Config.php:388
+msgid "Video files"
+msgstr "Videodateien"
+
+#: includes/Config.php:395
+#, fuzzy
+msgid "Enable icons or previews for all file types"
+msgstr "Icons oder Vorschaubilder für alle Dateitypen aktivieren"
+
+#: includes/Config.php:396
+msgid "Replaces the individual file type selections below."
+msgstr "Ersetzt die einzelnen Dateityp-Auswahlen weiter unten."
+
+#: includes/Config.php:408
+msgid "Media Documents"
+msgstr "Mediendokumente"
+
+#: includes/Config.php:409
+msgid "Register Media Documents"
+msgstr "Mediendokumente registrieren"
+
+#: includes/Config.php:416
+msgid "Media Categories"
+msgstr "Medienkategorien"
+
+#: includes/Config.php:417
+msgid "Register Media Categories"
+msgstr "Medienkategorien registrieren"
+
+#: includes/Config.php:424
+msgid "Media Tags"
+msgstr "Medien-Schlagwörter"
+
+#: includes/Config.php:425
+msgid "Register Media Tags"
+msgstr "Medien-Schlagwörter registrieren"
+
+#: includes/Config.php:436
 msgid "Preview images"
 msgstr "Vorschaubilder"
 
-#: config/config.php:357
+#: includes/Config.php:445
 msgid "Add an icon / a preview"
 msgstr "Icon / Vorschaubild hinzufügen"
 
-#: includes/Blocks.php:82
-msgid "RRZE Plugins"
-msgstr "RRZE-Plugins"
+#: includes/Settings.php:566
+msgid "This taxonomy is already available network-wide through RRZE Settings."
+msgstr ""
+"Diese Taxonomie wird bereits netzwerkweit durch RRZE Settings bereitgestellt."
 
-#: includes/Shortcode.php:271
-msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+#: includes/Shortcode.php:279
+msgid "Downloads: No files found."
 msgstr "Downloads: Es konnten keine Dateien gefunden werden."
 
-#: rrze-downloads.php:76
+#: includes/Taxonomies/attachment-category.php:10
+#: includes/Taxonomies/attachment-category.php:20
+msgid "Categories"
+msgstr "Kategorien"
+
+#: includes/Taxonomies/attachment-category.php:12
+msgid "Search Categories"
+msgstr "Kategorien suchen"
+
+#: includes/Taxonomies/attachment-category.php:13
+#: includes/Taxonomies/attachment-category.php:55
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+#: includes/Taxonomies/attachment-category.php:14
+msgid "Parent Category"
+msgstr "Übergeordnet"
+
+#: includes/Taxonomies/attachment-category.php:15
+msgid "Parent Category:"
+msgstr "Übergeordnet:"
+
+#: includes/Taxonomies/attachment-category.php:16
+msgid "Edit Category"
+msgstr "Kategorie bearbeiten"
+
+#: includes/Taxonomies/attachment-category.php:17
+msgid "Update Category"
+msgstr "Kategorie aktualisieren"
+
+#: includes/Taxonomies/attachment-category.php:18
+msgid "Add New Category"
+msgstr "Neue Kategorie hinzufügen"
+
+#: includes/Taxonomies/attachment-category.php:19
+#: includes/Taxonomies/attachment-document.php:21
+#: includes/Taxonomies/attachment-tag.php:20
+msgid "Name"
+msgstr "Name"
+
+#: includes/Taxonomies/attachment-document.php:12
+#: includes/Taxonomies/attachment-document.php:22
+msgid "Documents"
+msgstr "Dokumente"
+
+#: includes/Taxonomies/attachment-document.php:13
+msgid "Document"
+msgstr "Dokument"
+
+#: includes/Taxonomies/attachment-document.php:14
+msgid "Search Documents"
+msgstr "Dokumente suchen"
+
+#: includes/Taxonomies/attachment-document.php:15
+#: includes/Taxonomies/attachment-document.php:60
+msgid "All Documents"
+msgstr "Alle Dokumente"
+
+#: includes/Taxonomies/attachment-document.php:16
+msgid "Parent Document"
+msgstr "Übergeordnetes Dokument"
+
+#: includes/Taxonomies/attachment-document.php:17
+msgid "Parent Document:"
+msgstr "Übergeordnetes Dokument:"
+
+#: includes/Taxonomies/attachment-document.php:18
+msgid "Edit Document"
+msgstr "Dokument bearbeiten"
+
+#: includes/Taxonomies/attachment-document.php:19
+msgid "Update Document"
+msgstr "Dokument aktualisieren"
+
+#: includes/Taxonomies/attachment-document.php:20
+msgid "Add New Document"
+msgstr "Neues Dokument hinzufügen"
+
+#: includes/Taxonomies/attachment-tag.php:11
+msgid "Tag"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:12
+msgid "Search Tags"
+msgstr "Schlagwörter suchen"
+
+#: includes/Taxonomies/attachment-tag.php:13
+msgid "Popular Tags"
+msgstr "Beliebte Schlagwörter"
+
+#: includes/Taxonomies/attachment-tag.php:14
+#: includes/Taxonomies/attachment-tag.php:59
+msgid "All Tags"
+msgstr "Alle Schlagwörter"
+
+#: includes/Taxonomies/attachment-tag.php:17
+msgid "Edit Tag"
+msgstr "Schlagwort bearbeiten"
+
+#: includes/Taxonomies/attachment-tag.php:18
+msgid "Update Tag"
+msgstr "Schlagwort aktualisieren"
+
+#: includes/Taxonomies/attachment-tag.php:19
+msgid "Add New Tag"
+msgstr "Neues Schlagwort erstellen"
+
+#: includes/Taxonomies/attachment-tag.php:21
+msgid "Separate tags with commas"
+msgstr "Trenne Schlagwörter durch Kommas"
+
+#: includes/Taxonomies/attachment-tag.php:22
+msgid "Add or remove tags"
+msgstr "Hinzufügen oder entfernen"
+
+#: includes/Taxonomies/attachment-tag.php:23
+msgid "Choose from the most used tags"
+msgstr "Wähle aus den häufig genutzten Schlagwörtern"
+
+#: includes/Taxonomies/media-taxonomies.php:97
+msgid "You are not allowed to edit these media terms."
+msgstr "Sie sind nicht berechtigt, diese Medienbegriffe zu bearbeiten."
+
+#: includes/Taxonomies/media-taxonomies.php:123
+msgid "Invalid media term request."
+msgstr "Ungültige Anfrage für einen Medienbegriff."
+
+#: includes/Taxonomies/media-taxonomies.php:127
+msgid "You are not allowed to add media terms."
+msgstr "Sie sind nicht berechtigt, Medienbegriffe hinzuzufügen."
+
+#: rrze-downloads.php:68
 msgid ""
 "The server is running PHP version %1$s. The Plugin requires at least PHP "
 "version %2$s."
@@ -443,7 +549,7 @@ msgstr ""
 "Auf dem Server wird die PHP-Version %1$s ausgeführt. Das Plugin benötigt "
 "mindestens die PHP-Version %2$s."
 
-#: rrze-downloads.php:79
+#: rrze-downloads.php:71
 msgid ""
 "The server is running WordPress version %1$s. The Plugin requires at least "
 "WordPress version %2$s."
@@ -451,283 +557,402 @@ msgstr ""
 "Auf dem Server wird die WordPress-Version %1$s ausgeführt. Das Plugin "
 "benötigt mindestens die WordPress-Version %2$s."
 
-#: rrze-downloads.php:125
+#: rrze-downloads.php:115
 msgid "Plugins: %1$s: %2$s"
 msgstr "Plugins: %1$s: %2$s"
 
-#: build/downloads-block/index.js:1
-msgid " files in this category: "
-msgstr " Dateien in dieser Kategorie: "
-
-#: build/downloads-block/index.js:1
-msgid " file in this category: "
-msgstr " Datei in dieser Kategorie: "
-
-#: build/downloads-block/index.js:1
-msgid "Filter by Category"
-msgstr "Nach Kategorien filtern"
-
-#: build/downloads-block/index.js:1
-msgid "Select a category to filter the downloads by."
-msgstr "Wähle eine Kategorie aus, nach der du die Downloads filtern möchtest."
-
-#: build/downloads-block/index.js:1
-msgid ""
-"You currently have no Media Categories setup and in use. Follow these steps "
-"to create a custom Media Category:"
-msgstr ""
-"Du hast derzeit keine Medienkategorien eingerichtet. Folge diesen Schritten, "
-"um eine eigene Medienkategorie zu erstellen:"
-
-#: build/downloads-block/index.js:1
-msgid "Navigate to Dashboard > Media Library > Categories"
-msgstr "Navigiere zu Dashboard > Medienbibliothek > Kategorien"
-
-#: build/downloads-block/index.js:1
-msgid "Create a new Media Category with a descriptive name and a description."
-msgstr ""
-"Erstelle eine neue Medienkategorie mit einem aussagekräftigen Namen und "
-"einer Beschreibung."
-
-#: build/downloads-block/index.js:1
-msgid ""
-"Start adding new Media items to your categories via your WordPress Media "
-"Library (Dashboard > Media Library)"
-msgstr ""
-"Füge neue Medienelemente über deine WordPress-Mediathek (Dashboard > Medien) "
-"zu deinen Kategorien hinzu"
-
-#: build/downloads-block/index.js:1
-msgid ""
-"Save your current post or page and refresh the Editor to filter your "
-"download list by your newly created Media Library."
-msgstr ""
-"Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
-"Editor, um deine Download-Liste nach deinen neu kategorisierten Medien zu "
-"filtern."
-
-#: build/downloads-block/index.js:1
-msgid "Select Tags"
-msgstr "Nach Schlagwörtern filtern"
-
-#: build/downloads-block/index.js:1
-msgid ""
-"You currently have no Media Tags setup and in use. Follow these steps to "
-"create a custom Media Tag:"
-msgstr ""
-"Du hast derzeit keine Schlagwörter für Medien eingerichtet. Folge diesen "
-"Schritten, um Schlagwörter für Medien zu erstellen:"
-
-#: build/downloads-block/index.js:1
-msgid "Navigate to Dashboard > Media Library > Tags"
-msgstr "Navigiere zu Dashboard > Medienbibliothek > Schlagwörter"
-
-#: build/downloads-block/index.js:1
-msgid "Create a new Media Tag with a descriptive name and a description."
-msgstr "Erstelle ein neues Schlagwort mit einem aussagekräftigen Namen."
-
-#: build/downloads-block/index.js:1
-msgid ""
-"Start adding new Media items to your tags via your WordPress Media Library "
-"(Dashboard > Media Library)"
-msgstr ""
-"Verschlagworte neue Medienelemente über deine WordPress-Mediathek (Dashboard "
-"> Medien)"
-
-#: build/downloads-block/index.js:1
-msgid ""
-"Save your current post or page and refresh the Editor to filter your "
-"download list by your newly created Media Library Tags."
-msgstr ""
-"Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
-"Editor, um deine Download-Liste nach deinen neu angelegten Schlagwörtern zu "
-"filtern."
-
-#: build/downloads-block/index.js:1
-msgid "Downloads Block"
-msgstr "Downloads Block"
-
-#: build/downloads-block/index.js:1
-msgid "Configure your downloads block.."
-msgstr "Konfiguriere deinen Download-Block..."
-
-#: build/downloads-block/index.js:1
-msgid "Filter by Media Category"
-msgstr "Nach Medienkategorie filtern"
-
-#: build/downloads-block/index.js:1
-msgid "Filter by File Type"
-msgstr "Dateitypen"
-
-#: build/downloads-block/index.js:1
-msgid "Text files"
-msgstr "Textdateien"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain Text files?"
-msgstr "Soll die Download-Liste Textdateien enthalten?"
-
-#: build/downloads-block/index.js:1
-msgid "PDF & Application files"
-msgstr "PDFs"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain PDF or other Application files?"
-msgstr "Soll die Download-Liste PDF- oder andere Anwendungsdateien enthalten?"
-
-#: build/downloads-block/index.js:1
-msgid "Images"
-msgstr "Bilder"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain jpg/jpeg, png or other image formats?"
-msgstr ""
-"Soll die Download-Liste jpg/jpeg, png oder andere Bildformate enthalten?"
-
-#: build/downloads-block/index.js:1
-msgid "Audio files"
-msgstr "Audio Dateien"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain audio files?"
-msgstr "Soll die Download-Liste Audiodateien enthalten?"
-
-#: build/downloads-block/index.js:1
-msgid "Finish initial setup"
-msgstr "Ersteinrichtung beenden"
-
-#: build/downloads-block/index.js:1
-msgid "Data Preview"
-msgstr "Datenvorschau"
-
-#: build/downloads-block/index.js:1
-msgid "Filter options"
-msgstr "Filtermöglichkeiten"
-
-#: build/downloads-block/index.js:1
-msgid "Appearance"
-msgstr "Darstellungsoptionen"
-
-#: build/downloads-block/index.js:1
-msgid "Format options"
-msgstr "Format"
-
-#: build/downloads-block/index.js:1
-msgid "Select a layout for the Download list."
-msgstr "Wähle ein Layout für die Download-Liste."
-
-#: build/downloads-block/index.js:1
-msgid "Liste"
-msgstr "Liste"
-
-#: build/downloads-block/index.js:1
-msgid "Tabelle"
-msgstr "Tabelle"
-
-#: build/downloads-block/index.js:1
-msgid "Show file size"
-msgstr "Dateigröße anzeigen"
-
-#: build/downloads-block/index.js:1
-msgid "Should the file size be displayed in kB?"
-msgstr "Soll die Dateigröße in kB angezeigt werden?"
-
-#: build/downloads-block/index.js:1
-msgid "Show creation date"
-msgstr "Erstellungsdatum anzeigen"
-
-#: build/downloads-block/index.js:1
-msgid "Should the upload date be displayed?"
-msgstr "Soll das Upload-Datum angezeigt werden?"
-
-#: build/downloads-block/index.js:1
-msgid "Show Excerpt"
-msgstr "Beschriftung anzeigen"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Media Caption be displayed?"
-msgstr "Soll die Medienunterschrift angezeigt werden?"
-
-#: build/downloads-block/index.js:1
-msgid "Should the Medias description be displayed?"
-msgstr "Soll die Beschreibung der Medien angezeigt werden?"
-
-#: build/downloads-block/index.js:1
-msgid ""
-"Modify the error message that is displayed, when no Media items are found."
-msgstr ""
-"Ändere die Fehlermeldung, die angezeigt wird, wenn keine Medienelemente "
-"gefunden werden."
-
-#: build/downloads-block/index.js:1
-msgid "Custom Error Message"
-msgstr "Benutzerdefinierte Fehlermeldung"
-
-#: build/downloads-block/index.js:1
-msgid "Order & Sorting direction"
-msgstr "Reihenfolge & Sortierung"
-
-#: build/downloads-block/index.js:1
-msgid "Sort your Download list by title or creation date."
-msgstr "Sortiere deine Download-Liste nach Titel oder Erstellungsdatum."
-
-#: build/downloads-block/index.js:1
-msgid "Sorting direction"
-msgstr "Sortierung"
-
-#: build/downloads-block/index.js:1
-msgid "Display your Download list ascending or descending"
-msgstr ""
-"Zeige deine Download-Liste in aufsteigender oder absteigender Reihenfolge an"
-
-#: build/downloads-block/index.js:1
-msgid "Ascending order"
-msgstr "Aufsteigende Anordnung"
-
-#: build/downloads-block/index.js:1
-msgid "Descending order"
-msgstr "Absteigende Anordnung"
-
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block title"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block description"
 msgid "Outputs a list of downloads from your WordPress Media Library."
 msgstr ""
 "Gibt eine Liste der Downloads aus deiner WordPress-Medienbibliothek aus."
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "downloads"
 msgstr "Downloads"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "download"
 msgstr "Download"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "files"
 msgstr "Dateien"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "file"
 msgstr "Datei"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "rrze downloads"
 msgstr "rrze downloads"
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "rrze"
 msgstr "rrze"
+
+#~ msgid "Enable Media Documents"
+#~ msgstr "Mediendokumente aktivieren"
+
+#~ msgid "Register Media Documents when no other active plugin provides them."
+#~ msgstr ""
+#~ "Mediendokumente registrieren, wenn kein anderes aktives Plugin sie "
+#~ "bereitstellt."
+
+#~ msgid "Enable Media Categories"
+#~ msgstr "Medienkategorien aktivieren"
+
+#~ msgid "Register Media Categories when no other active plugin provides them."
+#~ msgstr ""
+#~ "Medienkategorien registrieren, wenn kein anderes aktives Plugin sie "
+#~ "bereitstellt."
+
+#~ msgid "Enable Media Tags"
+#~ msgstr "Medien-Schlagwörter aktivieren"
+
+#~ msgid "Register Media Tags when no other active plugin provides them."
+#~ msgstr ""
+#~ "Medien-Schlagwörter registrieren, wenn kein anderes aktives Plugin sie "
+#~ "bereitstellt."
+
+#~ msgid "No Media Categories are available."
+#~ msgstr "Keine Medienkategorien sind verfügbar."
+
+#~ msgid "Select a category to filter the downloads by."
+#~ msgstr ""
+#~ "Wähle eine Kategorie aus, nach der du die Downloads filtern möchtest."
+
+#~ msgid "Filter by Category"
+#~ msgstr "Nach Kategorien filtern"
+
+#~ msgid "No Media Documents are available."
+#~ msgstr "Keine Mediendokumente sind verfügbar."
+
+#~ msgid "Select a document category to filter the downloads by."
+#~ msgstr ""
+#~ "Wähle eine Dokumentenkategorie aus, nach der du die Downloads filtern "
+#~ "möchtest."
+
+#~ msgid "Filter by Document Category"
+#~ msgstr "Nach Dokumentenkategorie filtern"
+
+#~ msgid "Select Tags"
+#~ msgstr "Nach Schlagwörtern filtern"
+
+#~ msgid "No Media Tags are available."
+#~ msgstr "Keine Medien-Schlagwörter sind verfügbar."
+
+#~ msgid "Filters"
+#~ msgstr "Filter"
+
+#~ msgid "PDF & application files"
+#~ msgstr "PDF- und Anwendungsdateien"
+
+#~ msgid "Layout"
+#~ msgstr "Darstellung"
+
+#~ msgid "Show file size"
+#~ msgstr "Dateigröße anzeigen"
+
+#~ msgid "Show creation date"
+#~ msgstr "Erstellungsdatum anzeigen"
+
+#~ msgid "Show caption"
+#~ msgstr "Beschriftung anzeigen"
+
+#~ msgid "Show description"
+#~ msgstr "Beschreibung anzeigen"
+
+#~ msgid "Message when no downloads are found"
+#~ msgstr "Meldung, wenn keine Downloads gefunden werden"
+
+#~ msgid "Sorting"
+#~ msgstr "Sortierung"
+
+#~ msgid "Direction"
+#~ msgstr "Richtung"
+
+#~ msgid "Downloads Block"
+#~ msgstr "Downloads Block"
+
+#~ msgid "Select all file types"
+#~ msgstr "Alle Dateitypen auswählen"
+
+#~ msgid "Default file type"
+#~ msgstr "Standard-Dateityp"
+
+#~ msgid "Select a document to filter the downloads by."
+#~ msgstr "Wähle ein Dokument aus, nach dem du die Downloads filtern möchtest."
+
+#~ msgid " files in this category: "
+#~ msgstr " Dateien in dieser Kategorie: "
+
+#~ msgid " file in this category: "
+#~ msgstr " Datei in dieser Kategorie: "
+
+#~ msgid ""
+#~ "You currently have no Media Categories setup and in use. Follow these "
+#~ "steps to create a custom Media Category:"
+#~ msgstr ""
+#~ "Du hast derzeit keine Medienkategorien eingerichtet. Folge diesen "
+#~ "Schritten, um eine eigene Medienkategorie zu erstellen:"
+
+#~ msgid "Navigate to Dashboard > Media Library > Categories"
+#~ msgstr "Navigiere zu Dashboard > Medienbibliothek > Kategorien"
+
+#~ msgid ""
+#~ "Create a new Media Category with a descriptive name and a description."
+#~ msgstr ""
+#~ "Erstelle eine neue Medienkategorie mit einem aussagekräftigen Namen und "
+#~ "einer Beschreibung."
+
+#~ msgid ""
+#~ "Start adding new Media items to your categories via your WordPress Media "
+#~ "Library (Dashboard > Media Library)"
+#~ msgstr ""
+#~ "Füge neue Medienelemente über deine WordPress-Mediathek (Dashboard > "
+#~ "Medien) zu deinen Kategorien hinzu"
+
+#~ msgid ""
+#~ "Save your current post or page and refresh the Editor to filter your "
+#~ "download list by your newly created Media Library."
+#~ msgstr ""
+#~ "Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
+#~ "Editor, um deine Download-Liste nach deinen neu kategorisierten Medien zu "
+#~ "filtern."
+
+#~ msgid ""
+#~ "You currently have no Media Documents setup and in use. Follow these "
+#~ "steps to create a custom Media Document:"
+#~ msgstr ""
+#~ "Du hast derzeit keine Mediendokumente eingerichtet. Folge diesen "
+#~ "Schritten, um ein eigenes Mediendokument zu erstellen:"
+
+#~ msgid "Navigate to Dashboard > Media Library > Documents"
+#~ msgstr "Navigiere zu Dashboard > Medienbibliothek > Dokumente"
+
+#~ msgid ""
+#~ "Create a new Media Document with a descriptive name and a description."
+#~ msgstr ""
+#~ "Erstelle ein neues Mediendokument mit einem aussagekräftigen Namen und "
+#~ "einer Beschreibung."
+
+#~ msgid ""
+#~ "Start adding new Media items to your documents via your WordPress Media "
+#~ "Library (Dashboard > Media Library)"
+#~ msgstr ""
+#~ "Füge neue Medienelemente über deine WordPress-Mediathek (Dashboard > "
+#~ "Medien) zu deinen Dokumenten hinzu."
+
+#~ msgid ""
+#~ "Save your current post or page and refresh the Editor to filter your "
+#~ "download list by your newly created Media Document."
+#~ msgstr ""
+#~ "Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
+#~ "Editor, um deine Download-Liste nach deinem neu angelegten Mediendokument "
+#~ "zu filtern."
+
+#~ msgid ""
+#~ "You currently have no Media Tags setup and in use. Follow these steps to "
+#~ "create a custom Media Tag:"
+#~ msgstr ""
+#~ "Du hast derzeit keine Schlagwörter für Medien eingerichtet. Folge diesen "
+#~ "Schritten, um Schlagwörter für Medien zu erstellen:"
+
+#~ msgid "Navigate to Dashboard > Media Library > Tags"
+#~ msgstr "Navigiere zu Dashboard > Medienbibliothek > Schlagwörter"
+
+#~ msgid "Create a new Media Tag with a descriptive name and a description."
+#~ msgstr "Erstelle ein neues Schlagwort mit einem aussagekräftigen Namen."
+
+#~ msgid ""
+#~ "Start adding new Media items to your tags via your WordPress Media "
+#~ "Library (Dashboard > Media Library)"
+#~ msgstr ""
+#~ "Verschlagworte neue Medienelemente über deine WordPress-Mediathek "
+#~ "(Dashboard > Medien)"
+
+#~ msgid ""
+#~ "Save your current post or page and refresh the Editor to filter your "
+#~ "download list by your newly created Media Library Tags."
+#~ msgstr ""
+#~ "Speichere deinen aktuellen Beitrag oder deine Seite und aktualisiere den "
+#~ "Editor, um deine Download-Liste nach deinen neu angelegten Schlagwörtern "
+#~ "zu filtern."
+
+#~ msgid "Filter downloads"
+#~ msgstr "Downloads filtern"
+
+#~ msgid "Filter by File Type"
+#~ msgstr "Dateitypen"
+
+#~ msgid "Should the Download list contain Text files?"
+#~ msgstr "Soll die Download-Liste Textdateien enthalten?"
+
+#~ msgid "Should the Download list contain PDF or other Application files?"
+#~ msgstr ""
+#~ "Soll die Download-Liste PDF- oder andere Anwendungsdateien enthalten?"
+
+#~ msgid ""
+#~ "Should the Download list contain jpg/jpeg, png or other image formats?"
+#~ msgstr ""
+#~ "Soll die Download-Liste jpg/jpeg, png oder andere Bildformate enthalten?"
+
+#~ msgid "Should the Download list contain audio files?"
+#~ msgstr "Soll die Download-Liste Audiodateien enthalten?"
+
+#~ msgid "Finish initial setup"
+#~ msgstr "Ersteinrichtung beenden"
+
+#~ msgid "Data Preview"
+#~ msgstr "Datenvorschau"
+
+#~ msgid "Appearance"
+#~ msgstr "Darstellungsoptionen"
+
+#~ msgid "Format options"
+#~ msgstr "Format"
+
+#~ msgid "Select a layout for the Download list."
+#~ msgstr "Wähle ein Layout für die Download-Liste."
+
+#~ msgid "Should the file size be displayed in kB?"
+#~ msgstr "Soll die Dateigröße in kB angezeigt werden?"
+
+#~ msgid "Should the upload date be displayed?"
+#~ msgstr "Soll das Upload-Datum angezeigt werden?"
+
+#~ msgid "Show Excerpt"
+#~ msgstr "Beschriftung anzeigen"
+
+#~ msgid "Should the Media Caption be displayed?"
+#~ msgstr "Soll die Medienunterschrift angezeigt werden?"
+
+#~ msgid "Should the Medias description be displayed?"
+#~ msgstr "Soll die Beschreibung der Medien angezeigt werden?"
+
+#~ msgid ""
+#~ "Modify the error message that is displayed, when no Media items are found."
+#~ msgstr ""
+#~ "Ändere die Fehlermeldung, die angezeigt wird, wenn keine Medienelemente "
+#~ "gefunden werden."
+
+#~ msgid "Custom Error Message"
+#~ msgstr "Benutzerdefinierte Fehlermeldung"
+
+#~ msgid "Order & Sorting direction"
+#~ msgstr "Reihenfolge & Sortierung"
+
+#~ msgid "Sort your Download list by title or creation date."
+#~ msgstr "Sortiere deine Download-Liste nach Titel oder Erstellungsdatum."
+
+#~ msgid "Display your Download list ascending or descending"
+#~ msgstr ""
+#~ "Zeige deine Download-Liste in aufsteigender oder absteigender Reihenfolge "
+#~ "an"
+
+#~ msgid "Ascending order"
+#~ msgstr "Aufsteigende Anordnung"
+
+#~ msgid "Descending order"
+#~ msgstr "Absteigende Anordnung"
+
+#~ msgid ""
+#~ "this will add a list with available download files. Shortcode is "
+#~ "[downloads] - see settings for additional attributes"
+#~ msgstr ""
+#~ "Dies wird eine Liste mit verfügbaren Download-Datein hinzufügen. "
+#~ "Shortcode ist [downloads] - In der Hilfe finden Sie weitere "
+#~ "Einstellmöglichkeiten"
+
+#~ msgid "RRZE Webteam"
+#~ msgstr "RRZE Webteam"
+
+#~ msgid "https://blogs.fau.de/webworking/"
+#~ msgstr "https://blogs.fau.de/webworking/"
+
+#~ msgid "Kategorien"
+#~ msgstr "Kategorien"
+
+#~ msgid "Kategorie"
+#~ msgstr "Kategorie"
+
+#~ msgid "Kategorien suchen"
+#~ msgstr "Kategorien suchen"
+
+#~ msgid "Alle Kategorien"
+#~ msgstr "Alle Kategorien"
+
+#~ msgid "Übergeordnet"
+#~ msgstr "Übergeordnet"
+
+#~ msgid "Übergeordnet:"
+#~ msgstr "Übergeordnet:"
+
+#~ msgid "Kategorie bearbeiten"
+#~ msgstr "Kategorie bearbeiten"
+
+#~ msgid "Kategorie aktualisieren"
+#~ msgstr "Kategorie aktualisieren"
+
+#~ msgid "Neue Kategorie hinzufügen"
+#~ msgstr "Neue Kategorie hinzufügen"
+
+#~ msgid "Schlagwörter"
+#~ msgstr "Schlagwörter"
+
+#~ msgid "Schlagwort"
+#~ msgstr "Schlagwort"
+
+#~ msgid "Schlagwörter suchen"
+#~ msgstr "Schlagwörter suchen"
+
+#~ msgid "Beliebte Schlagwörter"
+#~ msgstr "Beliebte Schlagwörter"
+
+#~ msgid "Alle Schlagwörter"
+#~ msgstr "Alle Schlagwörter"
+
+#~ msgid "Schlagwort bearbeiten"
+#~ msgstr "Schlagwort bearbeiten"
+
+#~ msgid "Schlagwort aktualisieren"
+#~ msgstr "Schlagwort aktualisieren"
+
+#~ msgid "Neues Schlagwort erstellen"
+#~ msgstr "Neues Schlagwort erstellen"
+
+#~ msgid "Trenne Schlagwörter durch Kommas"
+#~ msgstr "Trenne Schlagwörter durch Kommas"
+
+#~ msgid "Hinzu"
+#~ msgstr "Hinzu"
+
+#~ msgid "Wähle aus den häufig genutzten Schlagwörtern"
+#~ msgstr "Wähle aus den häufig genutzten Schlagwörtern"
+
+#~ msgid "Downloads Settings"
+#~ msgstr "Downloads Einstellungen"
+
+#~ msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+#~ msgstr "Downloads: Es konnten keine Dateien gefunden werden."
+
+#~ msgid "Liste"
+#~ msgstr "Liste"
+
+#~ msgid "Tabelle"
+#~ msgstr "Tabelle"
 
 #~ msgid "Find the settings on the right side"
 #~ msgstr "Nehmen Sie die Einstellungen auf der rechten Seite vor"

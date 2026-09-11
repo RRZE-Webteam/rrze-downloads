@@ -1,18 +1,39 @@
 {
-    "title": "RRZE Downloads",
-    "domainpath": "/languages",  
-    "name": "rrze-downloads",
-    "version": "2.2.14",
-    "description": "RRZE Downloads: Manage Categories for the WP Media Library",
-    "main": "build/index.js",
-    "textdomain": "rrze-downloads",
+  "title": "RRZE Downloads",
+  "name": "rrze-downloads",
+  "version": "2.2.17-11",
+  "description": "RRZE Downloads: Manage Categories for the WP Media Library",
+  "main": "rrze-downloads.php",
+  "textdomain": "rrze-downloads",
+  "domainPath": "/languages",
   "private": true,
-  "scripts": {
-    "build": "wp-scripts build",
-    "format": "wp-scripts format",
-    "start": "wp-scripts start"
+  "source": {
+    "js": "./src/js/",
+    "adminJs": "./src/js/admin/",
+    "sass": "./src/scss/"
   },
-
+  "target": {
+    "js": "./build/js/",
+    "css": "./build/css/"
+  },
+  "scripts": {
+    "readme": "node scripts/build-readme.js",
+    "version:dev": "node scripts/build-version.js dev",
+    "version:prod": "node scripts/build-version.js prod",
+    "version:release": "node scripts/build-version.js release",
+    "build:assets": "node scripts/build-assets.js dev",
+    "build:assets:dev": "node scripts/build-assets.js dev",
+    "build:assets:prod": "node scripts/build-assets.js prod",
+    "watch:assets": "node scripts/build-assets.js dev --watch",
+    "start": "npm run watch:assets",
+    "dev": "npm run build:assets:dev && npm run version:dev && npm run build:wp && npm run readme",
+    "build": "npm run build:assets:dev && npm run version:prod && npm run build:wp && npm run readme",
+    "prod": "npm run build:assets:prod && npm run version:prod && npm run build:wp && npm run readme",
+    "release": "npm run build:assets:prod && npm run version:release && npm run build:wp && npm run readme",
+    "build:wp": "wp-scripts build",
+    "format": "wp-scripts format",
+    "start:wp": "wp-scripts start"
+  },
   "compatibility": {
     "wprequires": "6.8",
     "wptestedup": "7.1",
@@ -34,29 +55,13 @@
   "license": "GNU General Public License Version 3",
   "licenseurl": "https://www.gnu.org/licenses/gpl-3.0.html",
   "tags": "Plugin, WordPress, Multisite, RRZE, FAU, Access Control",
-    
   "devDependencies": {
-    "@babel/core": "^7.26.9",
-    "@babel/preset-env": "^7.26.9",
-    "@babel/preset-react": "^7.26.3",
-    "@eslint/eslintrc": "^3.3.0",
-    "@eslint/js": "^9.22.0",
-    "@playwright/test": "^1.51.0",
-    "@svgr/webpack": "^8.1.0",
-    "@types/node": "^22.13.10",
-    "@types/wordpress__block-editor": "^11.5.16",
-    "@types/wordpress__blocks": "^12.5.17",
-    "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@typescript-eslint/parser": "^8.26.1",
-    "@wordpress/components": "^29.5.0",
-    "@wordpress/scripts": "^30.12.0",
-    "@wordpress/server-side-render": "^5.19.0",
-    "autoprefixer": "^10.4.21",
-    "babel-loader": "^10.0.0",
-    "eslint": "^9.22.0",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-tsdoc": "^0.4.0",
-    "ts-loader": "^9.5.2",
-    "typescript": "^5.8.2"
+    "@types/wordpress__block-editor": "^15.0.6",
+    "@wordpress/components": "^40.1.0",
+    "@wordpress/scripts": "^35.0.0",
+    "@wordpress/server-side-render": "^6.31.0",
+    "sass": "^1.104.0",
+    "terser": "^5.51.2",
+    "typescript": "^6.0.0"
   }
 }

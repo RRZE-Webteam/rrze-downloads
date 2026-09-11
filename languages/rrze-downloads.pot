@@ -1,22 +1,21 @@
-# Copyright (C) 2025 RRZE Webteam
-# This file is distributed under the GNU General Public License v2.
+# Copyright (C) 2026 RRZE Webteam (webmaster@fau.de)
+# This file is distributed under the GNU General Public License Version 3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RRZE Downloads 2.2.13\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: RRZE Downloads 2.2.17-11\n"
+"Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/rrze-downloads/issues\n"
+"Last-Translator: RRZE Webteam <webmaster@fau.de>\n"
+"Language-Team: RRZE Webteam <webmaster@fau.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-15T09:00:16+00:00\n"
+"POT-Creation-Date: 2026-09-11T15:51:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: rrze-downloads\n"
 
 #. Plugin Name of the plugin
 #: rrze-downloads.php
-#: config/config.php:204
 msgid "RRZE Downloads"
 msgstr ""
 
@@ -27,648 +26,549 @@ msgstr ""
 
 #. Description of the plugin
 #: rrze-downloads.php
-msgid "this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes"
+msgid "RRZE Downloads: Manage Categories for the WP Media Library"
 msgstr ""
 
 #. Author of the plugin
 #: rrze-downloads.php
-msgid "RRZE Webteam"
+msgid "RRZE Webteam (webmaster@fau.de)"
 msgstr ""
 
 #. Author URI of the plugin
 #: rrze-downloads.php
-msgid "https://blogs.fau.de/webworking/"
+msgid "https://www.wp.rrze.fau.de/"
 msgstr ""
 
-#: assets/taxonomies/attachment-category.php:10
-#: assets/taxonomies/attachment-category.php:20
-msgid "Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:11
-msgid "Kategorie"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:12
-msgid "Kategorien suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:13
-#: assets/taxonomies/attachment-category.php:56
-#: assets/taxonomies/attachment-category.php:99
-msgid "Alle Kategorien"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:14
-msgid "Übergeordnet"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:15
-msgid "Übergeordnet:"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:16
-msgid "Kategorie bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:17
-msgid "Kategorie aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:18
-msgid "Neue Kategorie hinzufügen"
-msgstr ""
-
-#: assets/taxonomies/attachment-category.php:19
-#: assets/taxonomies/attachment-tag.php:20
-msgid "Name"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:10
-#: assets/taxonomies/attachment-tag.php:24
-msgid "Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:11
-msgid "Schlagwort"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:12
-msgid "Schlagwörter suchen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:13
-msgid "Beliebte Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:14
-#: assets/taxonomies/attachment-tag.php:60
-#: assets/taxonomies/attachment-tag.php:103
-msgid "Alle Schlagwörter"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:17
-msgid "Schlagwort bearbeiten"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:18
-msgid "Schlagwort aktualisieren"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:19
-msgid "Neues Schlagwort erstellen"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:21
-msgid "Trenne Schlagwörter durch Kommas"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:22
-msgid "Hinzu"
-msgstr ""
-
-#: assets/taxonomies/attachment-tag.php:23
-msgid "Wähle aus den häufig genutzten Schlagwörtern"
-msgstr ""
-
-#: config/config.php:26
-#: build/downloads-block/index.js:1
-msgid "List"
-msgstr ""
-
-#: config/config.php:27
-#: build/downloads-block/index.js:1
-msgid "Table"
-msgstr ""
-
-#: config/config.php:30
-msgid "Order by"
-msgstr ""
-
-#: config/config.php:36
-msgid "Category"
-msgstr ""
-
-#: config/config.php:42
-msgid "Tags"
-msgstr ""
-
-#: config/config.php:48
-msgid "Type"
-msgstr ""
-
-#: config/config.php:54
-msgid "HTMLpre"
-msgstr ""
-
-#: config/config.php:60
-msgid "HTMLpost"
-msgstr ""
-
-#: config/config.php:66
-msgid "HTMLitempre"
-msgstr ""
-
-#: config/config.php:72
-msgid "HTMLitempost"
-msgstr ""
-
-#: config/config.php:77
-msgid "Search application"
-msgstr ""
-
-#: config/config.php:83
-msgid "Search image"
-msgstr ""
-
-#: config/config.php:89
-msgid "Search video"
-msgstr ""
-
-#: config/config.php:95
-msgid "Search audio"
-msgstr ""
-
-#: config/config.php:101
-msgid "Show title"
-msgstr ""
-
-#: config/config.php:107
-msgid "Search text"
-msgstr ""
-
-#: config/config.php:113
-msgid "Show size"
-msgstr ""
-
-#: config/config.php:119
-msgid "Show excerpt"
-msgstr ""
-
-#: config/config.php:125
-#: build/downloads-block/index.js:1
-msgid "Show content"
-msgstr ""
-
-#: config/config.php:132
-#: build/downloads-block/index.js:1
-msgid "Title"
-msgstr ""
-
-#: config/config.php:133
-#: build/downloads-block/index.js:1
-msgid "Date"
-msgstr ""
-
-#: config/config.php:136
-msgid "Format"
-msgstr ""
-
-#: config/config.php:142
-msgid "Ascending"
-msgstr ""
-
-#: config/config.php:143
-msgid "Descending"
-msgstr ""
-
-#: config/config.php:147
-#: build/downloads-block/index.js:1
-msgid "Order"
-msgstr ""
-
-#: config/config.php:203
-msgid "Downloads"
-msgstr ""
-
-#: config/config.php:207
-msgid "Downloads Settings"
-msgstr ""
-
-#: config/config.php:222
-msgid "This plugin will automatically add an icon or a preview image next to links of the activated file types. If you like, you can also let the plugin add the file size of the linked file to the page."
-msgstr ""
-
-#: config/config.php:223
-msgid "On this settings page you can choose to show an icon or a preview image will be shown and specify the icon size, icon type (white matte gif or transparent png) and the icon alignment. Click on tab \"File Types Settings\" to select the file types for which this plugin will be enabled. \"Additional Settings\" allow you to specify exceptions, format the file size and set caching options."
-msgstr ""
-
-#: config/config.php:226
-msgid "For more information"
-msgstr ""
-
-#: config/config.php:226
-msgid "RRZE Webteam on Github"
-msgstr ""
-
-#: config/config.php:240
-msgid "Settings"
-msgstr ""
-
-#: config/config.php:244
-msgid "File Types"
-msgstr ""
-
-#: config/config.php:259
-msgid "Show downloads with"
-msgstr ""
-
-#: config/config.php:265
-msgid "Icons"
-msgstr ""
-
-#: config/config.php:267
-msgid "just plain links"
-msgstr ""
-
-#: config/config.php:272
-msgid "Icon Size"
-msgstr ""
-
-#: config/config.php:273
-msgid "Size: width x height in pixels"
-msgstr ""
-
-#: config/config.php:277
-msgid "16 x 16"
-msgstr ""
-
-#: config/config.php:278
-msgid "24 x 24"
-msgstr ""
-
-#: config/config.php:279
-msgid "48 x 48"
-msgstr ""
-
-#: config/config.php:280
-msgid "64 x 64"
-msgstr ""
-
-#: config/config.php:281
-msgid "128 x 128"
-msgstr ""
-
-#: config/config.php:286
-msgid "Icon Type"
-msgstr ""
-
-#: config/config.php:287
-msgid "File type of the icon."
-msgstr ""
-
-#: config/config.php:291
-msgid "GIF"
-msgstr ""
-
-#: config/config.php:292
-msgid "PNG"
-msgstr ""
-
-#: config/config.php:293
-msgid "SVG"
-msgstr ""
-
-#: config/config.php:298
-msgid "Align icon"
-msgstr ""
-
-#: config/config.php:299
-msgid "Show icon on the left or right side of the link"
-msgstr ""
-
-#: config/config.php:303
-msgid "Left"
-msgstr ""
-
-#: config/config.php:304
-msgid "Right"
-msgstr ""
-
-#: config/config.php:309
-msgid "Show File Size?"
-msgstr ""
-
-#: config/config.php:310
-msgid "Display the file size of the attachment / linked file."
-msgstr ""
-
-#: config/config.php:314
-#: config/config.php:342
-#: config/config.php:361
-msgid "yes"
-msgstr ""
-
-#: config/config.php:315
-#: config/config.php:343
-#: config/config.php:362
-msgid "no"
-msgstr ""
-
-#: config/config.php:320
-msgid "Precision (decimals)"
-msgstr ""
-
-#: config/config.php:321
-msgid "Sizes less than 1 kB will always have 0 decimals."
-msgstr ""
-
-#: config/config.php:325
-msgid "0"
-msgstr ""
-
-#: config/config.php:326
-msgid "1"
-msgstr ""
-
-#: config/config.php:327
-msgid "2"
-msgstr ""
-
-#: config/config.php:328
-msgid "3"
-msgstr ""
-
-#: config/config.php:329
-msgid "4"
-msgstr ""
-
-#: config/config.php:330
-msgid "5"
-msgstr ""
-
-#: config/config.php:337
-msgid "Select all file types"
-msgstr ""
-
-#: config/config.php:338
-msgid "Add an icon / a preview to all file types"
-msgstr ""
-
-#: config/config.php:350
-msgid "Preview images"
-msgstr ""
-
-#: config/config.php:357
-msgid "Add an icon / a preview"
-msgstr ""
-
-#: includes/Blocks.php:82
+#: includes/Blocks.php:92
 msgid "RRZE Plugins"
 msgstr ""
 
-#: includes/Shortcode.php:271
-msgid "Dowloads: Es konnten keine Dateien gefunden werden."
+#: includes/Config.php:124
+msgid "List"
 msgstr ""
 
-#: rrze-downloads.php:76
-msgid "The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s."
+#: includes/Config.php:125
+msgid "Table"
 msgstr ""
 
-#: rrze-downloads.php:79
-msgid "The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s."
+#: includes/Config.php:128
+msgid "Order by"
 msgstr ""
 
-#: rrze-downloads.php:125
-msgid "Plugins: %1$s: %2$s"
+#: includes/Config.php:134
+#: includes/Taxonomies/attachment-category.php:11
+msgid "Category"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid " files in this category: "
+#: includes/Config.php:140
+#: includes/Taxonomies/attachment-tag.php:10
+#: includes/Taxonomies/attachment-tag.php:24
+msgid "Tags"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid " file in this category: "
+#: includes/Config.php:146
+msgid "Type"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Filter by Category"
+#: includes/Config.php:152
+msgid "HTMLpre"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Select a category to filter the downloads by."
+#: includes/Config.php:158
+msgid "HTMLpost"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "You currently have no Media Categories setup and in use. Follow these steps to create a custom Media Category:"
+#: includes/Config.php:164
+msgid "HTMLitempre"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Navigate to Dashboard > Media Library > Categories"
+#: includes/Config.php:170
+msgid "HTMLitempost"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Create a new Media Category with a descriptive name and a description."
+#: includes/Config.php:175
+msgid "Search application"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Start adding new Media items to your categories via your WordPress Media Library (Dashboard > Media Library)"
+#: includes/Config.php:181
+msgid "Search image"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Save your current post or page and refresh the Editor to filter your download list by your newly created Media Library."
+#: includes/Config.php:187
+msgid "Search video"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Select Tags"
+#: includes/Config.php:193
+msgid "Search audio"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "You currently have no Media Tags setup and in use. Follow these steps to create a custom Media Tag:"
+#: includes/Config.php:199
+msgid "Show title"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Navigate to Dashboard > Media Library > Tags"
+#: includes/Config.php:205
+msgid "Search text"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Create a new Media Tag with a descriptive name and a description."
+#: includes/Config.php:211
+msgid "Show size"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Start adding new Media items to your tags via your WordPress Media Library (Dashboard > Media Library)"
+#: includes/Config.php:217
+msgid "Show excerpt"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Save your current post or page and refresh the Editor to filter your download list by your newly created Media Library Tags."
+#: includes/Config.php:223
+msgid "Show content"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Downloads Block"
+#: includes/Config.php:230
+msgid "Title"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Configure your downloads block.."
+#: includes/Config.php:231
+msgid "Date"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Filter by Media Category"
+#: includes/Config.php:234
+msgid "Format"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Filter by File Type"
+#: includes/Config.php:240
+msgid "Ascending"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Text files"
+#: includes/Config.php:241
+msgid "Descending"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain Text files?"
+#: includes/Config.php:245
+msgid "Order"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "PDF & Application files"
+#: includes/Config.php:253
+msgid "Downloads"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain PDF or other Application files?"
+#: includes/Config.php:267
+msgid "This plugin will automatically add an icon or a preview image next to links of the activated file types. If you like, you can also let the plugin add the file size of the linked file to the page."
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Images"
+#: includes/Config.php:269
+msgid "On this settings page you can choose to show an icon or a preview image will be shown and specify the icon size, icon type (white matte gif or transparent png) and the icon alignment. Click on tab \"File Types Settings\" to select the file types for which this plugin will be enabled. \"Additional Settings\" allow you to specify exceptions, format the file size and set caching options."
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain jpg/jpeg, png or other image formats?"
+#: includes/Config.php:272
+msgid "Overview"
 msgstr ""
 
-#: build/downloads-block/index.js:1
+#: includes/Config.php:275
+msgid "For more information"
+msgstr ""
+
+#: includes/Config.php:276
+msgid "RRZE Webteam on Github"
+msgstr ""
+
+#: includes/Config.php:286
+msgid "Settings"
+msgstr ""
+
+#: includes/Config.php:290
+msgid "File Types"
+msgstr ""
+
+#: includes/Config.php:294
+msgid "Media Taxonomies"
+msgstr ""
+
+#: includes/Config.php:304
+msgid "Show downloads with"
+msgstr ""
+
+#: includes/Config.php:309
+msgid "Icons"
+msgstr ""
+
+#: includes/Config.php:310
+msgid "just plain links"
+msgstr ""
+
+#: includes/Config.php:315
+msgid "Icon Size"
+msgstr ""
+
+#: includes/Config.php:316
+msgid "Size: width x height in pixels"
+msgstr ""
+
+#: includes/Config.php:320
+msgid "16 x 16"
+msgstr ""
+
+#: includes/Config.php:321
+msgid "24 x 24"
+msgstr ""
+
+#: includes/Config.php:322
+msgid "48 x 48"
+msgstr ""
+
+#: includes/Config.php:323
+msgid "64 x 64"
+msgstr ""
+
+#: includes/Config.php:324
+msgid "128 x 128"
+msgstr ""
+
+#: includes/Config.php:329
+msgid "Icon Type"
+msgstr ""
+
+#: includes/Config.php:330
+msgid "File type of the icon."
+msgstr ""
+
+#: includes/Config.php:334
+msgid "GIF"
+msgstr ""
+
+#: includes/Config.php:335
+msgid "PNG"
+msgstr ""
+
+#: includes/Config.php:336
+msgid "SVG"
+msgstr ""
+
+#: includes/Config.php:341
+msgid "Align icon"
+msgstr ""
+
+#: includes/Config.php:342
+msgid "Show icon on the left or right side of the link"
+msgstr ""
+
+#: includes/Config.php:346
+msgid "Left"
+msgstr ""
+
+#: includes/Config.php:347
+msgid "Right"
+msgstr ""
+
+#: includes/Config.php:352
+msgid "Show File Size?"
+msgstr ""
+
+#: includes/Config.php:353
+msgid "Display the file size of the attachment / linked file."
+msgstr ""
+
+#: includes/Config.php:357
+#: includes/Config.php:400
+#: includes/Config.php:449
+msgid "yes"
+msgstr ""
+
+#: includes/Config.php:358
+#: includes/Config.php:401
+#: includes/Config.php:450
+msgid "no"
+msgstr ""
+
+#: includes/Config.php:363
+msgid "Precision (decimals)"
+msgstr ""
+
+#: includes/Config.php:364
+msgid "Sizes less than 1 kB will always have 0 decimals."
+msgstr ""
+
+#: includes/Config.php:368
+msgid "0"
+msgstr ""
+
+#: includes/Config.php:369
+msgid "1"
+msgstr ""
+
+#: includes/Config.php:370
+msgid "2"
+msgstr ""
+
+#: includes/Config.php:371
+msgid "3"
+msgstr ""
+
+#: includes/Config.php:372
+msgid "4"
+msgstr ""
+
+#: includes/Config.php:373
+msgid "5"
+msgstr ""
+
+#: includes/Config.php:378
+msgid "Default file type for Downloads blocks"
+msgstr ""
+
+#: includes/Config.php:379
+msgid "Used when a new Downloads block is inserted or no file type is selected."
+msgstr ""
+
+#: includes/Config.php:383
+msgid "All file types"
+msgstr ""
+
+#: includes/Config.php:384
+msgid "PDF and application files"
+msgstr ""
+
+#: includes/Config.php:385
 msgid "Audio files"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Download list contain audio files?"
+#: includes/Config.php:386
+msgid "Images"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Finish initial setup"
+#: includes/Config.php:387
+msgid "Text files"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Data Preview"
+#: includes/Config.php:388
+msgid "Video files"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Filter options"
+#: includes/Config.php:395
+msgid "Enable icons or previews for all file types"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Appearance"
+#: includes/Config.php:396
+msgid "Replaces the individual file type selections below."
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Format options"
+#: includes/Config.php:408
+msgid "Media Documents"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Select a layout for the Download list."
+#: includes/Config.php:409
+msgid "Register Media Documents"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Liste"
+#: includes/Config.php:416
+msgid "Media Categories"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Tabelle"
+#: includes/Config.php:417
+msgid "Register Media Categories"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Show file size"
+#: includes/Config.php:424
+msgid "Media Tags"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the file size be displayed in kB?"
+#: includes/Config.php:425
+msgid "Register Media Tags"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Show creation date"
+#: includes/Config.php:436
+msgid "Preview images"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the upload date be displayed?"
+#: includes/Config.php:445
+msgid "Add an icon / a preview"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Show Excerpt"
+#: includes/Settings.php:566
+msgid "This taxonomy is already available network-wide through RRZE Settings."
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Media Caption be displayed?"
+#: includes/Shortcode.php:279
+msgid "Downloads: No files found."
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Should the Medias description be displayed?"
+#: includes/Taxonomies/attachment-category.php:10
+#: includes/Taxonomies/attachment-category.php:20
+msgid "Categories"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Modify the error message that is displayed, when no Media items are found."
+#: includes/Taxonomies/attachment-category.php:12
+msgid "Search Categories"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Custom Error Message"
+#: includes/Taxonomies/attachment-category.php:13
+#: includes/Taxonomies/attachment-category.php:55
+msgid "All Categories"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Order & Sorting direction"
+#: includes/Taxonomies/attachment-category.php:14
+msgid "Parent Category"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Sort your Download list by title or creation date."
+#: includes/Taxonomies/attachment-category.php:15
+msgid "Parent Category:"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Sorting direction"
+#: includes/Taxonomies/attachment-category.php:16
+msgid "Edit Category"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Display your Download list ascending or descending"
+#: includes/Taxonomies/attachment-category.php:17
+msgid "Update Category"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Ascending order"
+#: includes/Taxonomies/attachment-category.php:18
+msgid "Add New Category"
 msgstr ""
 
-#: build/downloads-block/index.js:1
-msgid "Descending order"
+#: includes/Taxonomies/attachment-category.php:19
+#: includes/Taxonomies/attachment-document.php:21
+#: includes/Taxonomies/attachment-tag.php:20
+msgid "Name"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: includes/Taxonomies/attachment-document.php:12
+#: includes/Taxonomies/attachment-document.php:22
+msgid "Documents"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:13
+msgid "Document"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:14
+msgid "Search Documents"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:15
+#: includes/Taxonomies/attachment-document.php:60
+msgid "All Documents"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:16
+msgid "Parent Document"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:17
+msgid "Parent Document:"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:18
+msgid "Edit Document"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:19
+msgid "Update Document"
+msgstr ""
+
+#: includes/Taxonomies/attachment-document.php:20
+msgid "Add New Document"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:11
+msgid "Tag"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:12
+msgid "Search Tags"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:13
+msgid "Popular Tags"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:14
+#: includes/Taxonomies/attachment-tag.php:59
+msgid "All Tags"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:17
+msgid "Edit Tag"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:18
+msgid "Update Tag"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:19
+msgid "Add New Tag"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:21
+msgid "Separate tags with commas"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:22
+msgid "Add or remove tags"
+msgstr ""
+
+#: includes/Taxonomies/attachment-tag.php:23
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: includes/Taxonomies/media-taxonomies.php:97
+msgid "You are not allowed to edit these media terms."
+msgstr ""
+
+#: includes/Taxonomies/media-taxonomies.php:123
+msgid "Invalid media term request."
+msgstr ""
+
+#: includes/Taxonomies/media-taxonomies.php:127
+msgid "You are not allowed to add media terms."
+msgstr ""
+
+#: rrze-downloads.php:68
+msgid "The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s."
+msgstr ""
+
+#: rrze-downloads.php:71
+msgid "The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s."
+msgstr ""
+
+#: rrze-downloads.php:115
+msgid "Plugins: %1$s: %2$s"
+msgstr ""
+
+#: src/block/block.json
 msgctxt "block title"
 msgid "Downloads"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block description"
 msgid "Outputs a list of downloads from your WordPress Media Library."
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "downloads"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "download"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "files"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "file"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "rrze downloads"
 msgstr ""
 
-#: build/downloads-block/block.json
+#: src/block/block.json
 msgctxt "block keyword"
 msgid "rrze"
 msgstr ""

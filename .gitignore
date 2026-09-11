@@ -1,4 +1,16 @@
-
-.vscode/sftp.json
+# IDEs and othees
 .DS_Store
-/node_modules/
+.vscode/sftp.json
+node_modules
+package-lock.json
+nbproject
+### macOS ###
+.DS_Store
+### Node ###
+node_modules/
+package-lock.json
+### Composer ###
+composer.lock
+### Tmp ###
+_tmp/
+*.map

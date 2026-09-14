@@ -3,36 +3,28 @@
 /*
 Plugin Name:     RRZE Downloads
 Plugin URI:      https://github.com/RRZE-Webteam/rrze-downloads
-Description:     this will add a list with available download files. Shortcode is [downloads] - see settings for additional attributes
-Version:         2.2.14
-Author:          RRZE Webteam
-Author URI:      https://blogs.fau.de/webworking/
-License:         GNU General Public License v2
-License URI:     http://www.gnu.org/licenses/gpl-2.0.html
+Description:     RRZE Downloads: Manage Categories for the WP Media Library
+Version:         2.3.0
+Requires at least: 6.8
+Requires PHP:    8.2
+Author:          RRZE Webteam (webmaster@fau.de)
+Author URI:      https://www.wp.rrze.fau.de/
+License:         GNU General Public License Version 3
+License URI:     https://www.gnu.org/licenses/gpl-3.0.html
 Domain Path:     /languages
 Text Domain:     rrze-downloads
 */
 
 namespace RRZE\Downloads;
 
-/*
-Die Codezeile defined('ABSPATH') || exit;
-verhindert den direkten Zugriff auf die PHP-Dateien über URL und stellt sicher,
-dass die Plugin-Dateien nur innerhalb der WordPress-Umgebung ausgeführt werden.
-Denn wenn bspw. eine Datei I/O-Operationen enthält,
-kann sie schließlich kompromittiert werden (durch einen Angreifer),
-was zu unerwartetem Verhalten führen kann.
-*/
+
 defined('ABSPATH') || exit;
 
 
-// Laden der Konfigurationsdatei
-require_once 'config/config.php';
+// Laden der Konfigurationsdateien
+require_once __DIR__ . '/includes/Config.php';
 
 use RRZE\Downloads\Main;
-
-const RRZE_PHP_VERSION = '8.1';
-const RRZE_WP_VERSION = '6.4';
 
 // Automatische Laden von Klassen.
 spl_autoload_register(function ($class) {
@@ -63,7 +55,7 @@ add_action('plugins_loaded', __NAMESPACE__ . '\loaded');
  * Einbindung der Sprachdateien.
  */
 function loadTextDomain() {
-    load_plugin_textdomain('rrze-downloads', false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
+    load_plugin_textdomain(Config::get('text_domain'), false, sprintf('%s/languages/', dirname(plugin_basename(__FILE__))));
 }
 
 /**
@@ -71,12 +63,12 @@ function loadTextDomain() {
  */
 function systemRequirements() {
     $error = '';
-    if (version_compare(PHP_VERSION, RRZE_PHP_VERSION, '<')) {
-        /* Übersetzer: 1: aktuelle PHP-Version, 2: erforderliche PHP-Version */
-        $error = sprintf(__('The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s.', 'rrze-downloads'), PHP_VERSION, RRZE_PHP_VERSION);
-    } elseif (version_compare($GLOBALS['wp_version'], RRZE_WP_VERSION, '<')) {
-        /* Übersetzer: 1: aktuelle WP-Version, 2: erforderliche WP-Version */
-        $error = sprintf(__('The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s.', 'rrze-downloads'), $GLOBALS['wp_version'], RRZE_WP_VERSION);
+    if (version_compare(PHP_VERSION, Config::get('required_php_version'), '<')) {
+        /* translators: 1: current PHP version, 2: required PHP version. */
+        $error = sprintf(__('The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s.', 'rrze-downloads'), PHP_VERSION, Config::get('required_php_version'));
+    } elseif (version_compare($GLOBALS['wp_version'], Config::get('required_wp_version'), '<')) {
+        /* translators: 1: current WordPress version, 2: required WordPress version. */
+        $error = sprintf(__('The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s.', 'rrze-downloads'), $GLOBALS['wp_version'], Config::get('required_wp_version'));
     }
     return $error;
 }
@@ -88,11 +80,9 @@ function activation() {
     // Sprachdateien werden eingebunden.
     loadTextDomain();
 
-    // Überprüft die minimal erforderliche PHP- u. WP-Version.
-    // Wenn die Überprüfung fehlschlägt, dann wird das Plugin automatisch deaktiviert.
     if ($error = systemRequirements()) {
         deactivate_plugins(plugin_basename(__FILE__));
-        wp_die($error);
+        wp_die(esc_html($error));
     }
 }
 
@@ -121,8 +111,11 @@ function loaded() {
             $tag = is_plugin_active_for_network(plugin_basename(__FILE__)) ? 'network_admin_notices' : 'admin_notices';
 
             add_action($tag, function () use ($pluginName, $error) {
+                /* translators: 1: plugin name, 2: error message. */
+                $message = __('Plugins: %1$s: %2$s', 'rrze-downloads');
                 printf(
-                    '<div class="notice notice-error"><p>' . __('Plugins: %1$s: %2$s', 'rrze-downloads') . '</p></div>',
+                    '<div class="notice notice-error"><p>%s</p></div>',
+                    esc_html($message),
                     esc_html($pluginName),
                     esc_html($error)
                 );
@@ -133,18 +126,8 @@ function loaded() {
         return;
     }
 
-    if (is_admin()) {
-        require_once('assets/taxonomies/media-taxonomies.php');
-        new Taxonomies\Media();
-    }    
-    require_once('assets/taxonomies/attachment-category.php');
-    require_once('assets/taxonomies/attachment-tag.php');
-
-    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\set');
-    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentCategory\register');
-
-    add_action('init', 'RRZE\Downloads\Taxonomies\AttachmentTag\set');
-    add_action('admin_init', 'RRZE\Downloads\Taxonomies\AttachmentTag\register');
+    $taxonomies = new Taxonomies();
+    $taxonomies->loaded();
 
     $main = new Main(__FILE__);
     $main->onLoaded();

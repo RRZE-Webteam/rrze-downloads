@@ -4,12 +4,6 @@ namespace RRZE\Downloads;
 
 defined('ABSPATH') || exit;
 
-use function RRZE\Downloads\Config\getOptionName;
-use function RRZE\Downloads\Config\getMenuSettings;
-use function RRZE\Downloads\Config\getHelpTab;
-use function RRZE\Downloads\Config\getSections;
-use function RRZE\Downloads\Config\getFields;
-
 /**
  * Settings-Klasse
  */
@@ -138,7 +132,7 @@ class Settings {
         $this->setFields();
         $this->setTabs();
 
-        $this->optionName = getOptionName();
+        $this->optionName = Config::get('option_name');
         $this->options = $this->getOptions();
 
         add_action('admin_init', [$this, 'adminInit']);
@@ -147,14 +141,14 @@ class Settings {
     }
 
     protected function setMenu() {
-      $this->settingsMenu = getmenuSettings();
+      $this->settingsMenu = Config::getMenuSettings();
     }
 
     /**
      * Einstellungsbereiche einstellen.
      */
     protected function setSections() {
-      $this->settingsSections = getSections();
+      $this->settingsSections = Config::getSections();
     }
 
     /**
@@ -169,7 +163,7 @@ class Settings {
      * Einstellungsfelder einstellen.
      */
     protected function setFields() {
-      $this->settingsFields = getFields();
+      $this->settingsFields = Config::getFields();
     }
 
     /**
@@ -247,6 +241,12 @@ class Settings {
             return $options;
         }
 
+        foreach (Config::get('taxonomy_option_keys') as $taxonomy => $optionKey) {
+            if (Taxonomies::isProvidedByRrzeSettings($taxonomy)) {
+                unset($options[$optionKey]);
+            }
+        }
+
         foreach ($options as $key => $value) {
             $this->options[$key] = $value;
             $sanitizeCallback = $this->getSanitizeCallback($key);
@@ -299,7 +299,7 @@ class Settings {
             $html .= sprintf(
                 '<a href="?page=%4$s&current-tab=%1$s" class="nav-tab %3$s" id="%1$s-tab">%2$s</a>',
                 esc_attr($section['id']),
-                $section['title'],
+                esc_html($section['title']),
                 esc_attr($class),
                 $this->settingsMenu['menu_slug']
             );
@@ -307,6 +307,8 @@ class Settings {
 
         $html .= '</h2>' . PHP_EOL;
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -319,7 +321,7 @@ class Settings {
             if ($section['id'] != $this->currentTab) {
                 continue;
             } ?>
-            <div id="<?php echo $section['id']; ?>">
+            <div id="<?php echo esc_attr($section['id']); ?>">
                 <form method="post" action="options.php">
                     <?php settings_fields($section['id']); ?>
                     <?php do_settings_sections($section['id']); ?>
@@ -350,7 +352,7 @@ class Settings {
             return;
         }
 
-        $helpTab = getHelpTab();
+        $helpTab = Config::getHelpTab();
 
         if (empty($helpTab)) {
             return;
@@ -372,12 +374,14 @@ class Settings {
      * Initialisierung und Registrierung der Bereiche und Felder.
      */
     public function adminInit() {
+        $this->prepareTaxonomyFields();
+
         // Hinzufügen von Einstellungsbereichen
         foreach ($this->settingsSections as $section) {
             if (isset($section['desc']) && !empty($section['desc'])) {
                 $section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
                 $callback = function () use ($section) {
-                    echo str_replace('"', '\"', $section['desc']);
+                    echo wp_kses_post($section['desc']);
                 };
             } elseif (isset($section['callback'])) {
                 $callback = $section['callback'];
@@ -401,6 +405,9 @@ class Settings {
                     'class' => isset($option['class']) ? $option['class'] : $name,
                     'label_for' => "{$section}[{$name}]",
                     'desc' => isset($option['desc']) ? $option['desc'] : '',
+                    'checkbox_label' => isset($option['checkbox_label']) ? $option['checkbox_label'] : '',
+                    'disabled' => !empty($option['disabled']),
+                    'notice' => isset($option['notice']) ? $option['notice'] : '',
                     'name' => $label,
                     'section' => $section,
                     'size' => isset($option['size']) ? $option['size'] : null,
@@ -462,10 +469,24 @@ class Settings {
      * Enqueue Skripte und Style
      * @return void
      */
-    public function adminEnqueueScripts() {
-      wp_register_script('icons-settings', plugins_url('assets/js/icons.min.js', plugin_basename($this->pluginFile)));
-      wp_enqueue_script('icons-settings');
-      wp_enqueue_script('jquery');
+    public function adminEnqueueScripts($hookSuffix = '') {
+      if ($hookSuffix !== $this->optionsPage) {
+          return;
+      }
+
+      wp_enqueue_script(
+          'rrze-downloads-admin',
+          plugins_url('build/js/rrze-downloads-admin.js', plugin_basename($this->pluginFile)),
+          ['jquery'],
+          Config::get('version'),
+          true
+      );
+      wp_enqueue_style(
+          'rrze-downloads-admin',
+          plugins_url('build/css/rrze-downloads-admin.css', plugin_basename($this->pluginFile)),
+          [],
+          Config::get('version')
+      );
     }
 
 
@@ -475,7 +496,7 @@ class Settings {
      */
     public function getFieldDescription($args) {
         if (! empty($args['desc'])) {
-            $desc = sprintf('<p class="description">%s</p>', $args['desc']);
+            $desc = sprintf('<p class="description">%s</p>', wp_kses_post($args['desc']));
         } else {
             $desc = '';
         }
@@ -490,33 +511,65 @@ class Settings {
      */
     public function callbackCheckbox($args) {
         $value = esc_attr($this->getOption($args['section'], $args['id'], $args['default']));
+        $disabled = !empty($args['disabled']);
+        $checkboxLabel = $args['checkbox_label'] ?: $args['desc'];
 
-        $html = '<fieldset>';
+        $html = sprintf(
+            '<fieldset class="%s">',
+            esc_attr($disabled ? 'rrze-downloads-settings-readonly' : '')
+        );
         $html .= sprintf(
             '<label for="%1$s-%2$s">',
-            $args['section'],
-            $args['id']
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
+        if (!$disabled) {
+            $html .= sprintf(
+                '<input type="hidden" name="%1$s[%2$s_%3$s]" value="off">',
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id'])
+            );
+        }
         $html .= sprintf(
-            '<input type="hidden" name="%1$s[%2$s_%3$s]" value="off">',
-            $this->optionName,
-            $args['section'],
-            $args['id']
-        );
-        $html .= sprintf(
-            '<input type="checkbox" class="checkbox" id="%2$s-%3$s" name="%1$s[%2$s_%3$s]" value="on" %4$s>',
-            $this->optionName,
-            $args['section'],
-            $args['id'],
-            checked($value, 'on', false)
+            '<input type="checkbox" class="checkbox" id="%2$s-%3$s" name="%1$s[%2$s_%3$s]" value="on" %4$s %5$s>',
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id']),
+            checked($disabled || $value === 'on', true, false),
+            $disabled ? 'disabled aria-disabled="true"' : ''
         );
         $html .= sprintf(
             '%1$s</label>',
-            $args['desc']
+            esc_html($checkboxLabel)
         );
+        if (!empty($args['notice'])) {
+            $html .= sprintf(
+                '<div class="notice notice-info inline"><p>%s</p></div>',
+                wp_kses_post($args['notice'])
+            );
+        }
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
+    }
+
+    protected function prepareTaxonomyFields(): void {
+        if (empty($this->settingsFields['taxonomies'])) {
+            return;
+        }
+
+        foreach ($this->settingsFields['taxonomies'] as &$field) {
+            if (!Taxonomies::isProvidedByRrzeSettings($field['name'])) {
+                continue;
+            }
+
+            $field['disabled'] = true;
+            $field['notice'] = __('This taxonomy is already available network-wide through RRZE Settings.', 'rrze-downloads');
+        }
+        unset($field);
     }
 
     /**
@@ -528,32 +581,34 @@ class Settings {
         $html = '<fieldset>';
         $html .= sprintf(
             '<input type="hidden" name="%1$s[%2$s_%3$s]" value="">',
-            $this->optionName,
-            $args['section'],
-            $args['id']
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
         foreach ($args['options'] as $key => $label) {
             $checked = isset($value[$key]) ? $value[$key] : '0';
             $html .= sprintf(
                 '<label for="%1$s-%2$s-%3$s">',
-                $args['section'],
-                $args['id'],
-                $key
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key)
             );
             $html .= sprintf(
                 '<input type="checkbox" class="checkbox" id="%2$s-%3$s-%4$s" name="%1$s[%2$s_%3$s][%4$s]" value="%4$s" %5$s>',
-                $this->optionName,
-                $args['section'],
-                $args['id'],
-                $key,
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key),
                 checked($checked, $key, false)
             );
-            $html .= sprintf('%1$s</label><br>', $label);
+            $html .= sprintf('%1$s</label><br>', esc_html($label));
         }
 
         $html .= $this->getFieldDescription($args);
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -568,27 +623,29 @@ class Settings {
         foreach ($args['options'] as $key => $label) {
             $html .= sprintf(
                 '<label for="%1$s-%2$s-%3$s">',
-                $args['section'],
-                $args['id'],
-                $key
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key)
             );
             $html .= sprintf(
                 '<input type="radio" class="radio" id="%2$s-%3$s-%4$s" name="%1$s[%2$s_%3$s]" value="%4$s" %5$s>',
-                $this->optionName,
-                $args['section'],
-                $args['id'],
-                $key,
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key),
                 checked($value, $key, false)
             );
             $html .= sprintf(
                 '%1$s</label><br>',
-                $label
+                esc_html($label)
             );
         }
 
         $html .= $this->getFieldDescription($args);
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -601,24 +658,26 @@ class Settings {
         $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
         $html  = sprintf(
             '<select class="%1$s" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]">',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id']
+            esc_attr($size),
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
 
         foreach ($args['options'] as $key => $label) {
             $html .= sprintf(
                 '<option value="%s"%s>%s</option>',
-                $key,
+                esc_attr($key),
                 selected($value, $key, false),
-                $label
+                esc_html($label)
             );
         }
 
         $html .= sprintf('</select>');
         $html .= $this->getFieldDescription($args);
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 }

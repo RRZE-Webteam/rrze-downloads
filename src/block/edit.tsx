@@ -6,17 +6,22 @@ import {
 import {
 	Button,
 	CheckboxControl,
+	__experimentalDivider as Divider,
+	Flex,
+	FlexBlock,
 	PanelBody,
 	Placeholder,
 	RadioControl,
 	TextControl,
 	ToolbarButton,
 	ToolbarGroup,
+	__experimentalVStack as VStack,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { list as listIcon, table as tableIcon } from '@wordpress/icons';
 import { ServerSideRender } from '@wordpress/server-side-render';
 import { useState } from '@wordpress/element';
+import type { MouseEvent } from 'react';
 
 import {
 	getTaxonomyAvailability,
@@ -82,10 +87,21 @@ const fallbackFileTypes: DefaultFileTypes = {
 
 type InitialSetupProps = {
 	defaultFileTypes: DefaultFileTypes;
+	filterAttributes: Pick< Attributes, 'category' | 'document' | 'tags' >;
+	hasTaxonomyFilters: boolean;
 	onComplete: ( fileTypes: DefaultFileTypes ) => void;
+	previewAttributes: Attributes;
+	setAttributes: ( attributes: Partial< Attributes > ) => void;
 };
 
-function InitialSetup( { defaultFileTypes, onComplete }: InitialSetupProps ) {
+function InitialSetup( {
+	defaultFileTypes,
+	filterAttributes,
+	hasTaxonomyFilters,
+	onComplete,
+	previewAttributes,
+	setAttributes,
+}: InitialSetupProps ) {
 	const [ fileTypes, setFileTypes ] = useState( defaultFileTypes );
 
 	function setFileType( fileType: keyof DefaultFileTypes, checked: boolean ) {
@@ -94,54 +110,88 @@ function InitialSetup( { defaultFileTypes, onComplete }: InitialSetupProps ) {
 
 	return (
 		<Placeholder label={ __( 'Downloads', 'rrze-downloads' ) }>
-			<CheckboxControl
-				label={ __( 'PDF & application files', 'rrze-downloads' ) }
-				checked={ fileTypes.search_application }
-				onChange={ ( checked ) =>
-					setFileType( 'search_application', checked )
-				}
-			/>
-			<CheckboxControl
-				label={ __( 'Text files', 'rrze-downloads' ) }
-				checked={ fileTypes.search_text }
-				onChange={ ( checked ) =>
-					setFileType( 'search_text', checked )
-				}
-			/>
-			<CheckboxControl
-				label={ __( 'Images', 'rrze-downloads' ) }
-				checked={ fileTypes.search_image }
-				onChange={ ( checked ) =>
-					setFileType( 'search_image', checked )
-				}
-			/>
-			<CheckboxControl
-				label={ __( 'Audio files', 'rrze-downloads' ) }
-				checked={ fileTypes.search_audio }
-				onChange={ ( checked ) =>
-					setFileType( 'search_audio', checked )
-				}
-			/>
-			<CheckboxControl
-				label={ __( 'Video files', 'rrze-downloads' ) }
-				checked={ fileTypes.search_video }
-				onChange={ ( checked ) =>
-					setFileType( 'search_video', checked )
-				}
-			/>
-			<Button
-				variant="primary"
-				disabled={
-					! fileTypeAttributes.some(
-						( fileType ) => fileTypes[ fileType ]
-					)
-				}
-				onClick={ () => onComplete( fileTypes ) }
-			>
-				{ __( 'Create downloads list', 'rrze-downloads' ) }
-			</Button>
+			<VStack spacing={ 4 }>
+				<Flex align="flex-start" gap={ 4 } wrap>
+					{ hasTaxonomyFilters && (
+						<FlexBlock>
+							<VStack spacing={ 3 }>
+								<h3>{ __( 'Filters', 'rrze-downloads' ) }</h3>
+								<QueryControls
+									attributes={ filterAttributes }
+									setAttributes={ setAttributes }
+								/>
+							</VStack>
+						</FlexBlock>
+					) }
+					<FlexBlock>
+						<VStack spacing={ 3 }>
+							<h3>{ __( 'File Types', 'rrze-downloads' ) }</h3>
+							<CheckboxControl
+								label={ __( 'PDF & application files', 'rrze-downloads' ) }
+								checked={ fileTypes.search_application }
+								onChange={ ( checked ) =>
+									setFileType( 'search_application', checked )
+								}
+							/>
+							<CheckboxControl
+								label={ __( 'Text files', 'rrze-downloads' ) }
+								checked={ fileTypes.search_text }
+								onChange={ ( checked ) =>
+									setFileType( 'search_text', checked )
+								}
+							/>
+							<CheckboxControl
+								label={ __( 'Images', 'rrze-downloads' ) }
+								checked={ fileTypes.search_image }
+								onChange={ ( checked ) =>
+									setFileType( 'search_image', checked )
+								}
+							/>
+							<CheckboxControl
+								label={ __( 'Audio files', 'rrze-downloads' ) }
+								checked={ fileTypes.search_audio }
+								onChange={ ( checked ) =>
+									setFileType( 'search_audio', checked )
+								}
+							/>
+							<CheckboxControl
+								label={ __( 'Video files', 'rrze-downloads' ) }
+								checked={ fileTypes.search_video }
+								onChange={ ( checked ) =>
+									setFileType( 'search_video', checked )
+								}
+							/>
+						</VStack>
+					</FlexBlock>
+				</Flex>
+				<Button
+					variant="primary"
+					disabled={
+						! fileTypeAttributes.some(
+							( fileType ) => fileTypes[ fileType ]
+						)
+					}
+					onClick={ () => onComplete( fileTypes ) }
+				>
+					{ __( 'Create downloads list', 'rrze-downloads' ) }
+				</Button>
+				<Divider />
+				<ServerSideRender
+					block={ blockName }
+					attributes={ { ...previewAttributes, ...fileTypes } }
+				/>
+			</VStack>
 		</Placeholder>
 	);
+}
+
+function preventDownloadNavigation( event: MouseEvent< HTMLDivElement > ) {
+	if ( ! ( event.target instanceof Element ) || ! event.target.closest( 'a' ) ) {
+		return;
+	}
+
+	event.preventDefault();
+	event.stopPropagation();
 }
 
 export default function Edit( { attributes, setAttributes }: EditProps ) {
@@ -167,7 +217,7 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 	}
 
 	return (
-		<div { ...blockProps }>
+		<div { ...blockProps } onClickCapture={ preventDownloadNavigation }>
 			<InspectorControls group="settings">
 				<PanelBody
 					title={ __( 'Filters', 'rrze-downloads' ) }
@@ -183,6 +233,11 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 							setAttributes={ setAttributes }
 						/>
 					) }
+				</PanelBody>
+				<PanelBody
+					title={ __( 'File Types', 'rrze-downloads' ) }
+					initialOpen={ true }
+				>
 					<CheckboxControl
 						label={ __( 'Text files', 'rrze-downloads' ) }
 						checked={ selectedFileTypes.search_text }
@@ -337,7 +392,15 @@ export default function Edit( { attributes, setAttributes }: EditProps ) {
 			{ showInitialSetup ? (
 				<InitialSetup
 					defaultFileTypes={ defaultFileTypes }
+					filterAttributes={ {
+						category: attributes.category,
+						document: attributes.document,
+						tags: attributes.tags,
+					} }
+					hasTaxonomyFilters={ hasTaxonomyFilters }
 					onComplete={ completeInitialSetup }
+					previewAttributes={ attributes }
+					setAttributes={ setAttributes }
 				/>
 			) : (
 				<ServerSideRender

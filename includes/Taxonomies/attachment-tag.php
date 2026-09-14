@@ -2,6 +2,8 @@
 
 namespace RRZE\Downloads\Taxonomies\AttachmentTag;
 
+defined('ABSPATH') || exit;
+
 define(__NAMESPACE__ . '\POST_TYPE', \RRZE\Downloads\Config::get('attachment_post_type'));
 define(__NAMESPACE__ . '\TAXONOMY', \RRZE\Downloads\Config::get('attachment_tag_taxonomy'));
 
@@ -47,7 +49,7 @@ function set() {
 function register() {
     register_taxonomy_for_object_type(TAXONOMY, POST_TYPE);
     add_action('restrict_manage_posts', 'RRZE\Downloads\Taxonomies\AttachmentTag\filter_list');
-    add_filter('parse_query', 'RRZE\Downloads\Taxonomies\AttachmentTag\filtering');
+    add_action('pre_get_posts', __NAMESPACE__ . '\\filtering');
     
 }
 
@@ -68,10 +70,25 @@ function filter_list() {
     }
 }
 
-function filtering($query) {
-    $qv = &$query->query_vars;
-    if (!empty($qv[TAXONOMY]) && is_numeric($qv[TAXONOMY])) {
-        $term = get_term_by('id', $qv[TAXONOMY], TAXONOMY);
-        $qv[TAXONOMY] = $term->slug;
+function filtering(\WP_Query $query): void {
+    if (!is_admin() || !$query->is_main_query() || $query->get('post_type') !== POST_TYPE) {
+        return;
     }
-}  
+
+    $termId = absint($query->get(TAXONOMY));
+    $term = $termId ? get_term($termId, TAXONOMY) : null;
+    if (!$term || is_wp_error($term)) {
+        return;
+    }
+
+    $taxQuery = (array) $query->get('tax_query');
+    $taxQuery[] = array(
+        'taxonomy' => TAXONOMY,
+        'field' => 'term_id',
+        'terms' => array($term->term_id),
+        'include_children' => false,
+    );
+
+    $query->set('tax_query', $taxQuery);
+    $query->set(TAXONOMY, '');
+}

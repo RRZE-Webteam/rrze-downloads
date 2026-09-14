@@ -299,7 +299,7 @@ class Settings {
             $html .= sprintf(
                 '<a href="?page=%4$s&current-tab=%1$s" class="nav-tab %3$s" id="%1$s-tab">%2$s</a>',
                 esc_attr($section['id']),
-                $section['title'],
+                esc_html($section['title']),
                 esc_attr($class),
                 $this->settingsMenu['menu_slug']
             );
@@ -307,6 +307,8 @@ class Settings {
 
         $html .= '</h2>' . PHP_EOL;
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -319,7 +321,7 @@ class Settings {
             if ($section['id'] != $this->currentTab) {
                 continue;
             } ?>
-            <div id="<?php echo $section['id']; ?>">
+            <div id="<?php echo esc_attr($section['id']); ?>">
                 <form method="post" action="options.php">
                     <?php settings_fields($section['id']); ?>
                     <?php do_settings_sections($section['id']); ?>
@@ -379,7 +381,7 @@ class Settings {
             if (isset($section['desc']) && !empty($section['desc'])) {
                 $section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
                 $callback = function () use ($section) {
-                    echo str_replace('"', '\"', $section['desc']);
+                    echo wp_kses_post($section['desc']);
                 };
             } elseif (isset($section['callback'])) {
                 $callback = $section['callback'];
@@ -494,7 +496,7 @@ class Settings {
      */
     public function getFieldDescription($args) {
         if (! empty($args['desc'])) {
-            $desc = sprintf('<p class="description">%s</p>', $args['desc']);
+            $desc = sprintf('<p class="description">%s</p>', wp_kses_post($args['desc']));
         } else {
             $desc = '';
         }
@@ -514,41 +516,43 @@ class Settings {
 
         $html = sprintf(
             '<fieldset class="%s">',
-            $disabled ? 'rrze-downloads-settings-readonly' : ''
+            esc_attr($disabled ? 'rrze-downloads-settings-readonly' : '')
         );
         $html .= sprintf(
             '<label for="%1$s-%2$s">',
-            $args['section'],
-            $args['id']
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
         if (!$disabled) {
             $html .= sprintf(
                 '<input type="hidden" name="%1$s[%2$s_%3$s]" value="off">',
-                $this->optionName,
-                $args['section'],
-                $args['id']
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id'])
             );
         }
         $html .= sprintf(
             '<input type="checkbox" class="checkbox" id="%2$s-%3$s" name="%1$s[%2$s_%3$s]" value="on" %4$s %5$s>',
-            $this->optionName,
-            $args['section'],
-            $args['id'],
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id']),
             checked($disabled || $value === 'on', true, false),
             $disabled ? 'disabled aria-disabled="true"' : ''
         );
         $html .= sprintf(
             '%1$s</label>',
-            $checkboxLabel
+            esc_html($checkboxLabel)
         );
         if (!empty($args['notice'])) {
             $html .= sprintf(
                 '<div class="notice notice-info inline"><p>%s</p></div>',
-                $args['notice']
+                wp_kses_post($args['notice'])
             );
         }
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -577,32 +581,34 @@ class Settings {
         $html = '<fieldset>';
         $html .= sprintf(
             '<input type="hidden" name="%1$s[%2$s_%3$s]" value="">',
-            $this->optionName,
-            $args['section'],
-            $args['id']
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
         foreach ($args['options'] as $key => $label) {
             $checked = isset($value[$key]) ? $value[$key] : '0';
             $html .= sprintf(
                 '<label for="%1$s-%2$s-%3$s">',
-                $args['section'],
-                $args['id'],
-                $key
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key)
             );
             $html .= sprintf(
                 '<input type="checkbox" class="checkbox" id="%2$s-%3$s-%4$s" name="%1$s[%2$s_%3$s][%4$s]" value="%4$s" %5$s>',
-                $this->optionName,
-                $args['section'],
-                $args['id'],
-                $key,
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key),
                 checked($checked, $key, false)
             );
-            $html .= sprintf('%1$s</label><br>', $label);
+            $html .= sprintf('%1$s</label><br>', esc_html($label));
         }
 
         $html .= $this->getFieldDescription($args);
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -617,27 +623,29 @@ class Settings {
         foreach ($args['options'] as $key => $label) {
             $html .= sprintf(
                 '<label for="%1$s-%2$s-%3$s">',
-                $args['section'],
-                $args['id'],
-                $key
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key)
             );
             $html .= sprintf(
                 '<input type="radio" class="radio" id="%2$s-%3$s-%4$s" name="%1$s[%2$s_%3$s]" value="%4$s" %5$s>',
-                $this->optionName,
-                $args['section'],
-                $args['id'],
-                $key,
+                esc_attr($this->optionName),
+                esc_attr($args['section']),
+                esc_attr($args['id']),
+                esc_attr($key),
                 checked($value, $key, false)
             );
             $html .= sprintf(
                 '%1$s</label><br>',
-                $label
+                esc_html($label)
             );
         }
 
         $html .= $this->getFieldDescription($args);
         $html .= '</fieldset>';
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 
@@ -650,24 +658,26 @@ class Settings {
         $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
         $html  = sprintf(
             '<select class="%1$s" id="%3$s-%4$s" name="%2$s[%3$s_%4$s]">',
-            $size,
-            $this->optionName,
-            $args['section'],
-            $args['id']
+            esc_attr($size),
+            esc_attr($this->optionName),
+            esc_attr($args['section']),
+            esc_attr($args['id'])
         );
 
         foreach ($args['options'] as $key => $label) {
             $html .= sprintf(
                 '<option value="%s"%s>%s</option>',
-                $key,
+                esc_attr($key),
                 selected($value, $key, false),
-                $label
+                esc_html($label)
             );
         }
 
         $html .= sprintf('</select>');
         $html .= $this->getFieldDescription($args);
 
+        // All dynamic values are escaped while the markup is assembled.
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- The complete admin markup is built from escaped values.
         echo $html;
     }
 }

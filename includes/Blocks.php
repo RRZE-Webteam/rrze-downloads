@@ -46,7 +46,10 @@ class Blocks
 
         wp_add_inline_script(
             $scriptHandle,
-            'window.rrzeDownloadsTaxonomies = ' . wp_json_encode(Taxonomies::getBlockTaxonomies()) . ';',
+            'window.rrzeDownloadsTaxonomies = ' . wp_json_encode(array_merge(
+                Taxonomies::getBlockTaxonomies(),
+                ['hideEmpty' => Config::shouldHideEmptyTaxonomyFilters()]
+            )) . ';',
             'before'
         );
         wp_add_inline_script(

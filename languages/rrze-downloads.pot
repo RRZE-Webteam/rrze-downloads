@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License Version 3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RRZE Downloads 2.2.17-11\n"
+"Project-Id-Version: RRZE Downloads 2.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/rrze-downloads/issues\n"
 "Last-Translator: RRZE Webteam <webmaster@fau.de>\n"
 "Language-Team: RRZE Webteam <webmaster@fau.de>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-11T15:51:19+00:00\n"
+"POT-Creation-Date: 2026-09-14T07:10:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: rrze-downloads\n"
@@ -43,6 +43,14 @@ msgstr ""
 msgid "RRZE Plugins"
 msgstr ""
 
+#: includes/Config.php
+msgid "Filter"
+msgstr ""
+
+#: includes/Config.php
+msgid "Empty taxonomies are hidden"
+msgstr ""
+
 #: includes/Config.php:124
 msgid "List"
 msgstr ""
@@ -55,13 +63,11 @@ msgstr ""
 msgid "Order by"
 msgstr ""
 
-#: includes/Config.php:134
-#: includes/Taxonomies/attachment-category.php:11
+#: includes/Config.php:134 includes/Taxonomies/attachment-category.php:11
 msgid "Category"
 msgstr ""
 
-#: includes/Config.php:140
-#: includes/Taxonomies/attachment-tag.php:10
+#: includes/Config.php:140 includes/Taxonomies/attachment-tag.php:10
 #: includes/Taxonomies/attachment-tag.php:24
 msgid "Tags"
 msgstr ""
@@ -151,11 +157,20 @@ msgid "Downloads"
 msgstr ""
 
 #: includes/Config.php:267
-msgid "This plugin will automatically add an icon or a preview image next to links of the activated file types. If you like, you can also let the plugin add the file size of the linked file to the page."
+msgid ""
+"This plugin will automatically add an icon or a preview image next to links "
+"of the activated file types. If you like, you can also let the plugin add "
+"the file size of the linked file to the page."
 msgstr ""
 
 #: includes/Config.php:269
-msgid "On this settings page you can choose to show an icon or a preview image will be shown and specify the icon size, icon type (white matte gif or transparent png) and the icon alignment. Click on tab \"File Types Settings\" to select the file types for which this plugin will be enabled. \"Additional Settings\" allow you to specify exceptions, format the file size and set caching options."
+msgid ""
+"On this settings page you can choose to show an icon or a preview image will "
+"be shown and specify the icon size, icon type (white matte gif or "
+"transparent png) and the icon alignment. Click on tab \"File Types "
+"Settings\" to select the file types for which this plugin will be enabled. "
+"\"Additional Settings\" allow you to specify exceptions, format the file "
+"size and set caching options."
 msgstr ""
 
 #: includes/Config.php:272
@@ -266,15 +281,11 @@ msgstr ""
 msgid "Display the file size of the attachment / linked file."
 msgstr ""
 
-#: includes/Config.php:357
-#: includes/Config.php:400
-#: includes/Config.php:449
+#: includes/Config.php:357 includes/Config.php:400 includes/Config.php:449
 msgid "yes"
 msgstr ""
 
-#: includes/Config.php:358
-#: includes/Config.php:401
-#: includes/Config.php:450
+#: includes/Config.php:358 includes/Config.php:401 includes/Config.php:450
 msgid "no"
 msgstr ""
 
@@ -315,7 +326,8 @@ msgid "Default file type for Downloads blocks"
 msgstr ""
 
 #: includes/Config.php:379
-msgid "Used when a new Downloads block is inserted or no file type is selected."
+msgid ""
+"Used when a new Downloads block is inserted or no file type is selected."
 msgstr ""
 
 #: includes/Config.php:383
@@ -522,11 +534,15 @@ msgid "You are not allowed to add media terms."
 msgstr ""
 
 #: rrze-downloads.php:68
-msgid "The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s."
+msgid ""
+"The server is running PHP version %1$s. The Plugin requires at least PHP "
+"version %2$s."
 msgstr ""
 
 #: rrze-downloads.php:71
-msgid "The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s."
+msgid ""
+"The server is running WordPress version %1$s. The Plugin requires at least "
+"WordPress version %2$s."
 msgstr ""
 
 #: rrze-downloads.php:115
@@ -571,4 +587,77 @@ msgstr ""
 #: src/block/block.json
 msgctxt "block keyword"
 msgid "rrze"
+msgstr ""
+
+#: src/block/edit.tsx
+msgid "Create downloads list"
+msgstr ""
+
+#: src/block/components/QueryControls.tsx
+#, php-format
+msgid "No %s have been defined, so filtering is not available."
+msgstr ""
+
+#: src/block/components/QueryControls.tsx
+msgid "All"
+msgstr ""
+
+#: src/block/components/QueryControls.tsx
+msgid "Filter by Tags"
+msgstr ""
+
+#: index.js:1
+msgid "Select a category to filter the downloads by."
+msgstr ""
+
+#: index.js:1
+msgid "Filter by Category"
+msgstr ""
+
+#: index.js:1
+msgid "Select a document category to filter the downloads by."
+msgstr ""
+
+#: index.js:1
+msgid "Filter by Document Category"
+msgstr ""
+
+#: index.js:1
+msgid "Filters"
+msgstr ""
+
+#: index.js:1
+msgid "PDF & application files"
+msgstr ""
+
+#: index.js:1
+msgid "Layout"
+msgstr ""
+
+#: index.js:1
+msgid "Show file size"
+msgstr ""
+
+#: index.js:1
+msgid "Show creation date"
+msgstr ""
+
+#: index.js:1
+msgid "Show caption"
+msgstr ""
+
+#: index.js:1
+msgid "Show description"
+msgstr ""
+
+#: index.js:1
+msgid "Message when no downloads are found"
+msgstr ""
+
+#: index.js:1
+msgid "Sorting"
+msgstr ""
+
+#: index.js:1
+msgid "Direction"
 msgstr ""

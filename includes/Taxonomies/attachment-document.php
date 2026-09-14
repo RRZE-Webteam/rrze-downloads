@@ -45,7 +45,7 @@ function register(): void {
     register_taxonomy_for_object_type(TAXONOMY, POST_TYPE);
 
     add_action('restrict_manage_posts', __NAMESPACE__ . '\\filterList');
-    add_filter('parse_query', __NAMESPACE__ . '\\filtering');
+    add_action('pre_get_posts', __NAMESPACE__ . '\\filtering');
 }
 
 function filterList(): void {
@@ -69,14 +69,25 @@ function filterList(): void {
     ));
 }
 
-function filtering($query): void {
-    $queryVars = &$query->query_vars;
-    if (empty($queryVars[TAXONOMY]) || !is_numeric($queryVars[TAXONOMY])) {
+function filtering(\WP_Query $query): void {
+    if (!is_admin() || !$query->is_main_query() || $query->get('post_type') !== POST_TYPE) {
         return;
     }
 
-    $term = get_term_by('id', $queryVars[TAXONOMY], TAXONOMY);
-    if ($term && !is_wp_error($term)) {
-        $queryVars[TAXONOMY] = $term->slug;
+    $termId = absint($query->get(TAXONOMY));
+    $term = $termId ? get_term($termId, TAXONOMY) : null;
+    if (!$term || is_wp_error($term)) {
+        return;
     }
+
+    $taxQuery = (array) $query->get('tax_query');
+    $taxQuery[] = array(
+        'taxonomy' => TAXONOMY,
+        'field' => 'term_id',
+        'terms' => array($term->term_id),
+        'include_children' => true,
+    );
+
+    $query->set('tax_query', $taxQuery);
+    $query->set(TAXONOMY, '');
 }

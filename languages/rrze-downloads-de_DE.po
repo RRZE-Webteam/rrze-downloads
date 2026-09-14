@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RRZE Downloads 2.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/rrze-downloads\n"
-"POT-Creation-Date: 2026-09-11T15:51:19+00:00\n"
+"Report-Msgid-Bugs-To: https://github.com/RRZE-Webteam/rrze-downloads/issues\n"
+"POT-Creation-Date: 2026-09-14T07:10:20+00:00\n"
 "PO-Revision-Date: 2025-04-15 11:02+0200\n"
 "Last-Translator: Barbara Bothe\n"
 "Language-Team: Deutsch\n"
@@ -43,6 +43,14 @@ msgstr ""
 #: includes/Blocks.php:92
 msgid "RRZE Plugins"
 msgstr "RRZE-Plugins"
+
+#: includes/Config.php
+msgid "Filter"
+msgstr "Filter"
+
+#: includes/Config.php
+msgid "Empty taxonomies are hidden"
+msgstr "Leere Taxonomien werden verborgen"
 
 #: includes/Config.php:124
 msgid "List"
@@ -197,8 +205,9 @@ msgid "File Types"
 msgstr "Dateitypen"
 
 #: includes/Config.php:294
+#, fuzzy
 msgid "Media Taxonomies"
-msgstr ""
+msgstr "Medien-Schlagwörter"
 
 #: includes/Config.php:304
 msgid "Show downloads with"
@@ -489,8 +498,9 @@ msgid "Add New Document"
 msgstr "Neues Dokument hinzufügen"
 
 #: includes/Taxonomies/attachment-tag.php:11
+#, fuzzy
 msgid "Tag"
-msgstr ""
+msgstr "Schlagwörter"
 
 #: includes/Taxonomies/attachment-tag.php:12
 msgid "Search Tags"
@@ -602,6 +612,82 @@ msgctxt "block keyword"
 msgid "rrze"
 msgstr "rrze"
 
+#: src/block/edit.tsx
+msgid "Create downloads list"
+msgstr "Downloadliste erstellen"
+
+#: src/block/components/QueryControls.tsx
+#, php-format
+msgid "No %s have been defined, so filtering is not available."
+msgstr ""
+"Es wurden keine %s definiert, daher ist keine Filterung danach möglich."
+
+#: src/block/components/QueryControls.tsx
+msgid "All"
+msgstr "Alle"
+
+#: src/block/components/QueryControls.tsx
+msgid "Filter by Tags"
+msgstr "Nach Schlagwörtern filtern"
+
+#: index.js:1
+msgid "Select a category to filter the downloads by."
+msgstr "Wähle eine Kategorie aus, nach der du die Downloads filtern möchtest."
+
+#: index.js:1
+msgid "Filter by Category"
+msgstr "Nach Kategorien filtern"
+
+#: index.js:1
+msgid "Select a document category to filter the downloads by."
+msgstr ""
+"Wähle eine Dokumentenkategorie aus, nach der du die Downloads filtern "
+"möchtest."
+
+#: index.js:1
+msgid "Filter by Document Category"
+msgstr "Nach Dokumentenkategorie filtern"
+
+#: index.js:1
+msgid "Filters"
+msgstr "Filter"
+
+#: index.js:1
+msgid "PDF & application files"
+msgstr "PDF- und Anwendungsdateien"
+
+#: index.js:1
+msgid "Layout"
+msgstr "Darstellung"
+
+#: index.js:1
+msgid "Show file size"
+msgstr "Dateigröße anzeigen"
+
+#: index.js:1
+msgid "Show creation date"
+msgstr "Erstellungsdatum anzeigen"
+
+#: index.js:1
+msgid "Show caption"
+msgstr "Beschriftung anzeigen"
+
+#: index.js:1
+msgid "Show description"
+msgstr "Beschreibung anzeigen"
+
+#: index.js:1
+msgid "Message when no downloads are found"
+msgstr "Meldung, wenn keine Downloads gefunden werden"
+
+#: index.js:1
+msgid "Sorting"
+msgstr "Sortierung"
+
+#: index.js:1
+msgid "Direction"
+msgstr "Richtung"
+
 #~ msgid "Enable Media Documents"
 #~ msgstr "Mediendokumente aktivieren"
 
@@ -629,59 +715,14 @@ msgstr "rrze"
 #~ msgid "No Media Categories are available."
 #~ msgstr "Keine Medienkategorien sind verfügbar."
 
-#~ msgid "Select a category to filter the downloads by."
-#~ msgstr ""
-#~ "Wähle eine Kategorie aus, nach der du die Downloads filtern möchtest."
-
-#~ msgid "Filter by Category"
-#~ msgstr "Nach Kategorien filtern"
-
 #~ msgid "No Media Documents are available."
 #~ msgstr "Keine Mediendokumente sind verfügbar."
-
-#~ msgid "Select a document category to filter the downloads by."
-#~ msgstr ""
-#~ "Wähle eine Dokumentenkategorie aus, nach der du die Downloads filtern "
-#~ "möchtest."
-
-#~ msgid "Filter by Document Category"
-#~ msgstr "Nach Dokumentenkategorie filtern"
 
 #~ msgid "Select Tags"
 #~ msgstr "Nach Schlagwörtern filtern"
 
 #~ msgid "No Media Tags are available."
 #~ msgstr "Keine Medien-Schlagwörter sind verfügbar."
-
-#~ msgid "Filters"
-#~ msgstr "Filter"
-
-#~ msgid "PDF & application files"
-#~ msgstr "PDF- und Anwendungsdateien"
-
-#~ msgid "Layout"
-#~ msgstr "Darstellung"
-
-#~ msgid "Show file size"
-#~ msgstr "Dateigröße anzeigen"
-
-#~ msgid "Show creation date"
-#~ msgstr "Erstellungsdatum anzeigen"
-
-#~ msgid "Show caption"
-#~ msgstr "Beschriftung anzeigen"
-
-#~ msgid "Show description"
-#~ msgstr "Beschreibung anzeigen"
-
-#~ msgid "Message when no downloads are found"
-#~ msgstr "Meldung, wenn keine Downloads gefunden werden"
-
-#~ msgid "Sorting"
-#~ msgstr "Sortierung"
-
-#~ msgid "Direction"
-#~ msgstr "Richtung"
 
 #~ msgid "Downloads Block"
 #~ msgstr "Downloads Block"

@@ -14,7 +14,6 @@ class Shortcode {
 
 
     public function shortcodeOutput( $atts ) {
-        error_log('Shortcode: ' . print_r($atts, true));
         $atts = shortcode_atts([
             'category' => '',
             'document' => '',
@@ -43,9 +42,9 @@ class Shortcode {
         $output = '';
         $sp = '&nbsp;&nbsp;';
   
-        $category = esc_attr($atts['category']);
-        $document = esc_attr($atts['document']);
-        $tags = esc_attr($atts['tags']);
+        $category = sanitize_title($atts['category']);
+        $document = sanitize_title($atts['document']);
+        $tags = array_filter(array_map('sanitize_title', explode(',', (string) $atts['tags'])));
         $format = esc_attr($atts['format']);
         $type = esc_attr($atts['type']);
         $htmlpre = esc_attr($atts['htmlpre']);
@@ -70,11 +69,10 @@ class Shortcode {
         $sort = !empty($sort) && in_array(strtoupper($sort), array('ASC', 'DESC')) ? strtoupper($sort) : 'ASC';
 
         $type = in_array($type, array('category', 'document'), true) ? $type : 'category';
-        $attachmentTaxonomies = Config::get('attachment_taxonomies');
-        $categoryTaxonomy = $attachmentTaxonomies[$type];
-        $category = Taxonomies::isAvailable($categoryTaxonomy)
-            ? get_term_by('slug', $category, $categoryTaxonomy)
-            : false;
+        if ($type === 'document' && !$document) {
+            $document = $category;
+            $category = '';
+        }
 
         $atts = array('post_type' => 'attachment',
             'post_status' => 'any',
@@ -84,33 +82,30 @@ class Shortcode {
             'tax_query' => array(),
             'suppress_filters' => true);
   
-        if ($category) {
-            $catquery = array(
-                'taxonomy' => $categoryTaxonomy,
-                'field' => 'id', // can be slug or id - a CPT-onomy term's ID is the same as its post ID
-                'terms' => $category->term_id,
-                'include_children' => false
+        if ($category && Taxonomies::isAvailable(Config::get('attachment_category_taxonomy'))) {
+            $atts['tax_query'][] = array(
+                'taxonomy' => Config::get('attachment_category_taxonomy'),
+                'field' => 'slug',
+                'terms' => array($category),
+                'include_children' => true,
             );
-            $atts['tax_query'][] = $catquery;
         }
 
         if ($document && Taxonomies::isAvailable(Config::get('attachment_document_taxonomy'))) {
-            $documentQuery = array(
+            $atts['tax_query'][] = array(
                 'taxonomy' => Config::get('attachment_document_taxonomy'),
                 'field' => 'slug',
-                'terms' => $document,
-                'include_children' => false,
+                'terms' => array($document),
+                'include_children' => true,
             );
-            $atts['tax_query'][] = $documentQuery;
         }
   
         if ($tags && Taxonomies::isAvailable(Config::get('attachment_tag_taxonomy'))) {
-            $tagquery = array(
+            $atts['tax_query'][] = array(
                 'taxonomy' => Config::get('attachment_tag_taxonomy'),
                 'field' => 'slug',
-                'terms' => explode(',', $tags),
+                'terms' => $tags,
             );
-            $atts['tax_query'][] = $tagquery;
         }
 
         $mimetype = array();

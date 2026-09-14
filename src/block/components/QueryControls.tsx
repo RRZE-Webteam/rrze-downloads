@@ -1,10 +1,16 @@
-import { ComboboxControl, FormTokenField, Notice } from '@wordpress/components';
+import {
+	BaseControl,
+	ComboboxControl,
+	FormTokenField,
+	Notice,
+} from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 type TaxonomyAvailability = {
 	category: boolean;
 	document: boolean;
+	hideEmpty: boolean;
 	tag: boolean;
 };
 type Term = { count: number; name: string; slug: string };
@@ -24,33 +30,50 @@ const getTaxonomyAvailability = (): TaxonomyAvailability =>
 	window.rrzeDownloadsTaxonomies || {
 		category: false,
 		document: false,
+		hideEmpty: true,
 		tag: false,
 	};
 
 const TermFilter = ( {
-	emptyMessage,
+	emptyTitle,
 	help,
 	label,
 	onChange,
+	hideWhenEmpty,
 	terms,
 	value,
 }: {
-	emptyMessage: string;
+	emptyTitle: string;
 	help: string;
 	label: string;
 	onChange: ( value: string ) => void;
-	terms: Term[] | undefined;
+	hideWhenEmpty: boolean;
+	terms: Term[] | null | undefined;
 	value: string;
 } ) => {
-	if ( terms === undefined ) {
+	if ( ! Array.isArray( terms ) ) {
 		return null;
 	}
 
-	if ( terms.length === 0 ) {
+	const availableTerms = terms.filter( ( term ) => term.count > 0 );
+
+	if ( availableTerms.length === 0 ) {
+		if ( hideWhenEmpty ) {
+			return null;
+		}
+
 		return (
-			<Notice status="warning" isDismissible={ false }>
-				{ emptyMessage }
-			</Notice>
+			<BaseControl label={ label }>
+				<Notice status="warning" isDismissible={ false }>
+					{ sprintf(
+						__(
+							'No %s have been defined, so filtering is not available.',
+							'rrze-downloads'
+						),
+						emptyTitle
+					) }
+				</Notice>
+			</BaseControl>
 		);
 	}
 
@@ -58,12 +81,13 @@ const TermFilter = ( {
 		<ComboboxControl
 			label={ label }
 			help={ help }
-			options={ terms.map( ( term ) => ( {
+			options={ availableTerms.map( ( term ) => ( {
 				label: `${ term.name } (${ term.count })`,
 				value: term.slug,
 			} ) ) }
 			onChange={ ( value ) => onChange( value || '' ) }
 			value={ value }
+			placeholder={ __( 'All', 'rrze-downloads' ) }
 		/>
 	);
 };
@@ -76,7 +100,7 @@ const QueryControls = ( { attributes, setAttributes }: QueryControlsProps ) => {
 				kind: string,
 				name: string,
 				query: { per_page: number }
-			) => Term[] | undefined;
+			) => Term[] | null | undefined;
 		};
 		return {
 			categories: availability.category
@@ -96,32 +120,29 @@ const QueryControls = ( { attributes, setAttributes }: QueryControlsProps ) => {
 				: undefined,
 		};
 	}, [] );
-	const tagSuggestions = tags?.map( ( tag ) => tag.slug ) || [];
+	const tagSuggestions = Array.isArray( tags )
+		? tags.filter( ( tag ) => tag.count > 0 ).map( ( tag ) => tag.slug )
+		: [];
 
 	return (
 		<>
 			{ availability.category && (
 				<TermFilter
-					emptyMessage={ __(
-						'No Media Categories are available.',
-						'rrze-downloads'
-					) }
+					emptyTitle={ __( 'Media Categories', 'rrze-downloads' ) }
 					help={ __(
 						'Select a category to filter the downloads by.',
 						'rrze-downloads'
 					) }
 					label={ __( 'Filter by Category', 'rrze-downloads' ) }
 					onChange={ ( category ) => setAttributes( { category } ) }
+					hideWhenEmpty={ availability.hideEmpty }
 					terms={ categories }
 					value={ attributes.category }
 				/>
 			) }
 			{ availability.document && (
 				<TermFilter
-					emptyMessage={ __(
-						'No Media Documents are available.',
-						'rrze-downloads'
-					) }
+					emptyTitle={ __( 'Media Documents', 'rrze-downloads' ) }
 					help={ __(
 						'Select a document category to filter the downloads by.',
 						'rrze-downloads'
@@ -131,21 +152,25 @@ const QueryControls = ( { attributes, setAttributes }: QueryControlsProps ) => {
 						'rrze-downloads'
 					) }
 					onChange={ ( document ) => setAttributes( { document } ) }
+					hideWhenEmpty={ availability.hideEmpty }
 					terms={ documents }
 					value={ attributes.document }
 				/>
 			) }
-			{ availability.tag && (
+			{ availability.tag &&
+				Array.isArray( tags ) &&
+				tagSuggestions.length > 0 && (
 				<FormTokenField
-					label={ __( 'Select Tags', 'rrze-downloads' ) }
+					label={ __( 'Filter by Tags', 'rrze-downloads' ) }
 					value={
 						attributes.tags
 							? attributes.tags.split( ',' ).filter( Boolean )
 							: []
 					}
 					disabled={
-						tags !== undefined && tagSuggestions.length === 0
+						tagSuggestions.length === 0
 					}
+					placeholder={ __( 'All', 'rrze-downloads' ) }
 					suggestions={ tagSuggestions }
 					onChange={ ( tokens ) =>
 						setAttributes( {
@@ -160,10 +185,22 @@ const QueryControls = ( { attributes, setAttributes }: QueryControlsProps ) => {
 					}
 				/>
 			) }
-			{ availability.tag && tags !== undefined && tags.length === 0 && (
-				<Notice status="warning" isDismissible={ false }>
-					{ __( 'No Media Tags are available.', 'rrze-downloads' ) }
-				</Notice>
+			{ availability.tag &&
+				Array.isArray( tags ) &&
+				tagSuggestions.length === 0 && (
+				! availability.hideEmpty && (
+				<BaseControl label={ __( 'Filter by Tags', 'rrze-downloads' ) }>
+					<Notice status="warning" isDismissible={ false }>
+						{ sprintf(
+							__(
+								'No %s have been defined, so filtering is not available.',
+								'rrze-downloads'
+							),
+							__( 'Media Tags', 'rrze-downloads' )
+						) }
+					</Notice>
+				</BaseControl>
+				)
 			) }
 		</>
 	);

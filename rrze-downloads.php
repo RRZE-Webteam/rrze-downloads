@@ -4,7 +4,7 @@
 Plugin Name:     RRZE Downloads
 Plugin URI:      https://github.com/RRZE-Webteam/rrze-downloads
 Description:     RRZE Downloads: Manage Categories for the WP Media Library
-Version:         2.2.17-11
+Version:         2.3.0
 Requires at least: 6.8
 Requires PHP:    8.2
 Author:          RRZE Webteam (webmaster@fau.de)
@@ -64,10 +64,10 @@ function loadTextDomain() {
 function systemRequirements() {
     $error = '';
     if (version_compare(PHP_VERSION, Config::get('required_php_version'), '<')) {
-        /* Übersetzer: 1: aktuelle PHP-Version, 2: erforderliche PHP-Version */
+        /* translators: 1: current PHP version, 2: required PHP version. */
         $error = sprintf(__('The server is running PHP version %1$s. The Plugin requires at least PHP version %2$s.', 'rrze-downloads'), PHP_VERSION, Config::get('required_php_version'));
     } elseif (version_compare($GLOBALS['wp_version'], Config::get('required_wp_version'), '<')) {
-        /* Übersetzer: 1: aktuelle WP-Version, 2: erforderliche WP-Version */
+        /* translators: 1: current WordPress version, 2: required WordPress version. */
         $error = sprintf(__('The server is running WordPress version %1$s. The Plugin requires at least WordPress version %2$s.', 'rrze-downloads'), $GLOBALS['wp_version'], Config::get('required_wp_version'));
     }
     return $error;
@@ -82,7 +82,7 @@ function activation() {
 
     if ($error = systemRequirements()) {
         deactivate_plugins(plugin_basename(__FILE__));
-        wp_die($error);
+        wp_die(esc_html($error));
     }
 }
 
@@ -111,8 +111,11 @@ function loaded() {
             $tag = is_plugin_active_for_network(plugin_basename(__FILE__)) ? 'network_admin_notices' : 'admin_notices';
 
             add_action($tag, function () use ($pluginName, $error) {
+                /* translators: 1: plugin name, 2: error message. */
+                $message = __('Plugins: %1$s: %2$s', 'rrze-downloads');
                 printf(
-                    '<div class="notice notice-error"><p>' . __('Plugins: %1$s: %2$s', 'rrze-downloads') . '</p></div>',
+                    '<div class="notice notice-error"><p>%s</p></div>',
+                    esc_html($message),
                     esc_html($pluginName),
                     esc_html($error)
                 );

@@ -11,6 +11,7 @@ class Taxonomies {
         require_once __DIR__ . '/Taxonomies/attachment-category.php';
         require_once __DIR__ . '/Taxonomies/attachment-document.php';
         require_once __DIR__ . '/Taxonomies/attachment-tag.php';
+        require_once __DIR__ . '/Taxonomies/media-taxonomies.php';
 
         add_action('init', [$this, 'registerFallbackTaxonomies'], 99);
     }
@@ -62,11 +63,34 @@ class Taxonomies {
     }
 
     public static function isProvidedByRrzeSettings(string $taxonomy): bool {
-        return self::isRrzeSettingsActive() && self::isAvailable($taxonomy);
+        if (!self::isRrzeSettingsActive()) {
+            return false;
+        }
+
+        $optionKeys = Config::get('rrze_settings_taxonomy_option_keys');
+        $optionKey = $optionKeys[$taxonomy] ?? '';
+        if ($optionKey === '') {
+            return false;
+        }
+
+        $options = get_site_option(Config::get('rrze_settings_option_name'), []);
+        if (is_object($options)) {
+            $taxonomies = $options->taxonomies ?? [];
+        } elseif (is_array($options)) {
+            $taxonomies = $options['taxonomies'] ?? [];
+        } else {
+            $taxonomies = [];
+        }
+
+        $taxonomies = (array) $taxonomies;
+
+        return !empty($taxonomies[$optionKey]);
     }
 
     private function shouldRegister(string $taxonomy): bool {
-        return $this->isEnabled($taxonomy) && !self::isAvailable($taxonomy);
+        return $this->isEnabled($taxonomy)
+            && !self::isProvidedByRrzeSettings($taxonomy)
+            && !self::isAvailable($taxonomy);
     }
 
     private function isEnabled(string $taxonomy): bool {

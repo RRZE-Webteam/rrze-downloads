@@ -6,7 +6,7 @@ defined('ABSPATH') || exit;
 
 class Config {
     private static array $config = [
-        'version' => '2.2.17-11',
+        'version' => '2.3.0',
         'plugin_slug' => 'rrze-downloads',
         'option_name' => 'rrze-downloads',
         'text_domain' => 'rrze-downloads',
@@ -34,7 +34,14 @@ class Config {
             'attachment_tag' => 'taxonomies_attachment_tag',
             'attachment_document' => 'taxonomies_attachment_document',
         ],
+		'rrze_settings_option_name' => 'rrze_settings',
+		'rrze_settings_taxonomy_option_keys' => [
+			'attachment_category' => 'taxonomy_attachment_category',
+			'attachment_tag' => 'taxonomy_attachment_tag',
+			'attachment_document' => 'taxonomy_attachment_document',
+		],
         'block_default_file_type_option' => 'icons_default_file_type',
+		'taxonomy_hide_empty_filters_option' => 'taxonomies_hide_empty_filters',
         'block_file_types' => [
             'all' => [
                 'search_application',
@@ -108,6 +115,13 @@ class Config {
 
         return $attributes;
     }
+
+	public static function shouldHideEmptyTaxonomyFilters(): bool {
+		$options = (array) get_option(self::get('option_name'), []);
+		$optionName = self::get('taxonomy_hide_empty_filters_option');
+
+		return !isset($options[$optionName]) || $options[$optionName] === 'on';
+	}
 
     public static function getShortcodeSettings() {
         return [
@@ -251,10 +265,10 @@ class Config {
     public static function getMenuSettings() {
         return [
             'page_title' => __('Downloads', 'rrze-downloads'),
-            'menu_title' => __(self::get('settings_menu_title'), 'rrze-downloads'),
+            'menu_title' => __('RRZE Downloads', 'rrze-downloads'),
             'capability' => self::get('settings_capability'),
             'menu_slug' => self::get('settings_menu_slug'),
-            'title' => __(self::get('settings_title'), 'rrze-downloads')
+            'title' => __('Downloads Settings', 'rrze-downloads')
         ];
     }
 
@@ -403,6 +417,14 @@ class Config {
                 ]
             ],
             'taxonomies' => [
+				[
+					'name' => 'hide_empty_filters',
+					'label' => __('Filter', 'rrze-downloads'),
+					'checkbox_label' => __('Empty taxonomies are hidden', 'rrze-downloads'),
+					'desc' => '',
+					'type' => 'checkbox',
+					'default' => 'on'
+				],
                 [
                     'name' => 'attachment_document',
                     'label' => __('Media Documents', 'rrze-downloads'),

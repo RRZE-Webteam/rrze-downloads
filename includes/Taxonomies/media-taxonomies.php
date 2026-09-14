@@ -194,7 +194,7 @@ class Media {
         ?>
         <div class="media-term-section">
 
-            <div class="media-terms" data-id="<?php echo $post_id ?>" data-taxonomy="<?php echo $taxonomy->name ?>">
+            <div class="media-terms" data-id="<?php echo esc_attr($post_id); ?>" data-taxonomy="<?php echo esc_attr($taxonomy->name); ?>">
 
                 <ul>
         <?php
@@ -208,7 +208,7 @@ class Media {
 
             </div>
             <?php if (current_user_can('manage_categories')): ?>
-            <a href="#" class="toggle-add-media-term"><?php echo $taxonomy->labels->add_new_item ?></a>
+            <a href="#" class="toggle-add-media-term"><?php echo esc_html($taxonomy->labels->add_new_item); ?></a>
             <?php endif; ?>
 
             <div class="add-new-term">
@@ -228,8 +228,8 @@ class Media {
         endif;
         ?>
         <?php if (current_user_can('manage_categories')): ?> 
-                <button class="button save-media-term" data-taxonomy="<?php echo $taxonomy->name ?>" data-id="<?php echo $post_id ?>">
-                    <?php echo $taxonomy->labels->add_new_item ?>
+                <button class="button save-media-term" data-taxonomy="<?php echo esc_attr($taxonomy->name); ?>" data-id="<?php echo esc_attr($post_id); ?>">
+                    <?php echo esc_html($taxonomy->labels->add_new_item); ?>
                 </button>
         <?php endif; ?>
             </div>

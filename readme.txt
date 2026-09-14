@@ -1,5 +1,5 @@
 === Plugin Name: RRZE Downloads ===
-Version: 2.2.17-11
+Version: 2.3.0
 Plugin URI: https://github.com/RRZE-Webteam/rrze-downloads
 GitHub Issue URL: https://github.com/RRZE-Webteam/rrze-downloads/issues
 Author: RRZE Webteam (webmaster@fau.de)

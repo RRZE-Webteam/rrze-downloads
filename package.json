@@ -1,7 +1,7 @@
 {
   "title": "RRZE Downloads",
   "name": "rrze-downloads",
-  "version": "2.2.17-11",
+  "version": "2.3.0",
   "description": "RRZE Downloads: Manage Categories for the WP Media Library",
   "main": "rrze-downloads.php",
   "textdomain": "rrze-downloads",

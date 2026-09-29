@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/wordpress__block-editor": "^15.0.6",
     "@wordpress/components": "^40.1.0",
-    "@wordpress/scripts": "^35.0.0",
+    "@wordpress/scripts": "^36.0.0",
     "@wordpress/server-side-render": "^6.31.0",
     "sass": "^1.104.0",
     "terser": "^5.51.2",
